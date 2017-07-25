@@ -1,0 +1,111 @@
+<style type="text/css">
+  .login .weui-agree {
+    text-align: right;
+  }
+
+  .login {
+    padding-top: 0;
+  }
+
+  .login .page__bd {
+    padding-top: 0;
+  }
+
+  .login .weui-cells {
+    margin-top: 10px;
+  }
+</style>
+<div class="page login">
+  <input type="hidden" name="title" value="登录"/>
+
+  <div class="page__hd">
+    <h1 class="page__title">名称</h1>
+
+    <p class="page__desc"></p>
+  </div>
+  <div class="page__bd">
+    <div class="weui-cells weui-cells_form">
+      <form>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" name="phone" id="phone" type="text" placeholder=""/>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" name="password" id="password" type="password" placeholder=""/>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_last">
+
+        </div>
+      </form>
+    </div>
+
+    <label class="weui-agree">
+            <span class="weui-agree__text">
+                <a href="javascript:void(0);" class="js-router" data-router="user-forgotpassword">忘记密码?</a>
+            </span>
+    </label>
+
+    <div class="weui-btn-area">
+      <a class="weui-btn weui-btn_primary" href="javascript:" id="login">登录</a>
+    </div>
+  </div>
+  <div class="page__ft">
+    <p>咨询电话：400-12345678</p>
+  </div>
+</div>
+<script type="text/javascript">
+
+  change_title("登录");
+  $(function () {
+    var pageCfg = {
+      viewModel: {
+        title: '项目名称'
+      }
+    };
+    var login = "/restWeixin/SafetyUserInfo/login";
+    var ajaxCfg = {
+      pathUrl: login,
+      success: function (res) {
+        if (res.code === 0) {
+          pageManager.go('home');
+          $("#login").html("登录");
+
+        } else {
+          pageManager.showTooltip(res.message, 'error');
+          $("#login").html("登录");
+        }
+
+      },
+      fail: function (ex) {
+        pageManager.showTooltip('数据连接超时或异常', 'error');
+        $("#login").html("登录");
+      }
+    };
+
+
+    //  $(document).on('click', "#login", (function () {
+    $('#login').bind("click", function () {
+          var loginNameHtml = $("#login").html();
+          if (loginNameHtml == "登录") {
+            var phone = $("#phone").val();
+            var password = $("#password").val();
+            if ("undefined" == typeof(phone) || "" == phone || "undefined" == typeof(password) || "" == password) {
+              pageManager.showTooltip('请输入手机号或密码!', 'error');
+            } else {
+              $("#login").html("登录中。。。");
+              pageManager.ajaxManager(ajaxCfg)();
+            }
+          }
+        }
+    );
+
+
+  });
+
+
+</script>

@@ -1,0 +1,993 @@
+1
+00:00:00,300 --> 00:00:01,500
+In this tutorial,
+
+2
+00:00:01,500 --> 00:00:04,940
+we'll learn how to automate a Chrome browser
+using WebDriverJS.
+
+3
+00:00:05,260 --> 00:00:07,740
+To get started, open up Terminal.
+
+4
+00:00:08,280 --> 00:00:11,520
+I'll assume you have
+Node.js and chromedriver installed,
+
+5
+00:00:11,520 --> 00:00:14,280
+which are the prerequisites for this tutorial.
+
+6
+00:00:14,280 --> 00:00:17,900
+However, if they're not installed and you're on Mac OS X,
+
+7
+00:00:17,900 --> 00:00:20,840
+you can install the prerequisites via Homebrew.
+
+8
+00:00:20,840 --> 00:00:24,020
+Check out the links in the description
+for more information.
+
+9
+00:00:24,020 --> 00:00:29,300
+Now let's create a folder for our project and
+install the node module `selenium-webdriver`.
+
+10
+00:00:29,920 --> 00:00:32,560
+Let's install our node module by typing in
+
+11
+00:00:32,560 --> 00:00:36,720
+`npm install selenium-webdriver`
+
+12
+00:00:43,640 --> 00:00:45,500
+Great, it's installed.
+
+13
+00:00:46,940 --> 00:00:49,940
+We know our module
+has been installed by typing `ls`
+
+14
+00:00:49,940 --> 00:00:53,040
+to list and we see a new node modules directory.
+
+15
+00:00:53,040 --> 00:00:54,940
+And if we `ls` inside node_modules,
+
+16
+00:00:54,940 --> 00:00:57,500
+we'll see we have our 'selenium-webdriver'.
+
+17
+00:00:57,500 --> 00:01:00,280
+Now let's start coding via the node command line.
+
+18
+00:01:00,280 --> 00:01:03,120
+To do that, we type in `node` and press Enter.
+
+19
+00:01:03,120 --> 00:01:08,000
+In here, you'll see we have our own node REPL—read, evaluate, print, loop.
+
+20
+00:01:08,000 --> 00:01:10,700
+And we can do a lot of node commands here.
+
+21
+00:01:10,700 --> 00:01:15,300
+First, let's require the installed
+node module `selenium-webdriver`.
+
+22
+00:01:15,300 --> 00:01:16,560
+We' ll do that by typing in
+
+23
+00:01:16,560 --> 00:01:23,900
+`var webdriver = require('selenium-webdriver'')`
+
+24
+00:01:24,180 --> 00:01:26,580
+And you'll see that it returned `undefined`,
+
+25
+00:01:26,580 --> 00:01:29,720
+but it means that it has required it successfully.
+
+26
+00:01:29,720 --> 00:01:31,440
+Let's build our Chrome browser.
+
+27
+00:01:31,440 --> 00:01:33,620
+To do that, all we do is we type
+
+28
+00:01:33,620 --> 00:01:44,200
+`var driver = new webdriver.Builder().forBrowser('chrome').build()`
+
+29
+00:01:45,020 --> 00:01:46,480
+And if we typed that correctly,
+
+30
+00:01:46,480 --> 00:01:49,320
+you'll see our ChromeDriver has popped up.
+
+31
+00:01:49,480 --> 00:01:50,760
+Excellent.
+
+32
+00:01:51,260 --> 00:01:55,220
+And now I'm just going to
+resize it just to make it look all good.
+
+33
+00:01:56,340 --> 00:01:57,080
+Great.
+
+34
+00:01:57,080 --> 00:01:59,480
+So now we have our Chrome browser open.
+
+35
+00:01:59,480 --> 00:02:00,960
+Let's do something interesting.
+
+36
+00:02:00,960 --> 00:02:03,320
+Let's go to 'google.com'.
+
+37
+00:02:03,320 --> 00:02:08,420
+To do that, all we do is type driver
+and use the `get` method
+
+38
+00:02:08,419 --> 00:02:16,120
+and there we put in the url `http://www.google.com`
+
+39
+00:02:16,420 --> 00:02:19,620
+And we'll see that it takes us to Google.
+
+40
+00:02:19,880 --> 00:02:22,100
+Let's make a search result.
+
+41
+00:02:22,100 --> 00:02:25,280
+We'll want to get the element for that search box
+
+42
+00:02:25,640 --> 00:02:29,340
+and we can do that by hitting inspect
+element
+
+43
+00:02:29,340 --> 00:02:31,840
+and then once inspect element opens up,
+
+44
+00:02:31,840 --> 00:02:33,800
+let me just hit it again,
+
+45
+00:02:33,800 --> 00:02:35,240
+you can see that
+
+46
+00:02:35,240 --> 00:02:39,120
+this input has a class, has an id, and has a name.
+
+47
+00:02:39,400 --> 00:02:43,000
+So we have a lot of choices
+in how we can get the search box.
+
+48
+00:02:43,280 --> 00:02:44,660
+Let's use the name.
+
+49
+00:02:44,860 --> 00:02:46,960
+And we see that the name is 'q'.
+
+50
+00:02:47,180 --> 00:02:49,980
+Here we can select the element by typing in
+
+51
+00:02:49,980 --> 00:02:59,140
+`driver.findElement(webdriver.By.name('q'))`
+
+52
+00:02:59,140 --> 00:03:02,020
+and you'll know that it selected it because you'll
+
+53
+00:03:02,020 --> 00:03:04,060
+see that is now focused on the input.
+
+54
+00:03:04,420 --> 00:03:06,460
+Then take the above method
+
+55
+00:03:06,460 --> 00:03:08,940
+and then add a `sendKeys` method.
+
+56
+00:03:10,280 --> 00:03:13,180
+And here we can send in, for example,
+
+57
+00:03:13,180 --> 00:03:14,380
+"hello world"
+
+58
+00:03:15,900 --> 00:03:18,140
+And once we hit Enter, you'll see that
+
+59
+00:03:18,380 --> 00:03:20,400
+it has searched "hello world"
+
+60
+00:03:20,660 --> 00:03:23,160
+If we want to click the button, how would we do it?
+
+61
+00:03:23,160 --> 00:03:24,380
+That's pretty simple.
+
+62
+00:03:24,380 --> 00:03:26,580
+All we do is go to the element,
+
+63
+00:03:28,960 --> 00:03:30,700
+hit inspect element again,
+
+64
+00:03:32,360 --> 00:03:34,940
+that there's a class for this button
+
+65
+00:03:35,420 --> 00:03:38,920
+and we can now click on that button.
+
+66
+00:03:39,240 --> 00:03:41,740
+And to click it, we do the same thing
+
+67
+00:03:41,740 --> 00:03:44,800
+`driver.findElement`
+
+68
+00:03:44,800 --> 00:03:46,120
+and this time we can do
+
+69
+00:03:46,120 --> 00:03:50,800
+`webdriver.By.className`
+
+70
+00:03:50,800 --> 00:03:53,700
+and then put in the class name.
+
+71
+00:03:54,120 --> 00:03:57,440
+And then here we add the `click` method.
+
+72
+00:03:57,740 --> 00:04:01,440
+Hit Enter and you see that
+it clicked and refreshed the page.
+
+73
+00:04:01,860 --> 00:04:04,880
+Now there is another way to select the element.
+
+74
+00:04:05,420 --> 00:04:08,380
+Here when you saw that we did `driver.findElement`
+
+75
+00:04:08,380 --> 00:04:12,580
+You can see it's a bit verbose having to type `webdriver.By`,
+
+76
+00:04:13,320 --> 00:04:15,360
+`name` or `id`
+
+77
+00:04:15,360 --> 00:04:18,200
+or `className` or `tagName`
+
+78
+00:04:18,519 --> 00:04:19,739
+or whatnot.
+
+79
+00:04:20,300 --> 00:04:22,100
+There's another way we can do this.
+
+80
+00:04:22,280 --> 00:04:25,400
+We can also do `driver.findElement`
+
+81
+00:04:25,400 --> 00:04:29,060
+and in here put inside a hash object.
+
+82
+00:04:29,060 --> 00:04:30,800
+And in this hash object
+
+83
+00:04:30,800 --> 00:04:34,120
+we can put in what we want to find,
+which could be `name`,
+
+84
+00:04:34,120 --> 00:04:35,440
+which could be `id`,
+
+85
+00:04:35,440 --> 00:04:37,060
+which could be `tagName`,
+
+86
+00:04:37,060 --> 00:04:38,640
+which could be `className`.
+
+87
+00:04:39,460 --> 00:04:41,900
+And then we make sure that the value
+
+88
+00:04:41,900 --> 00:04:43,480
+is equal to that.
+
+89
+00:04:43,720 --> 00:04:47,060
+So that if we do this and then we hit `sendKeys`.
+
+90
+00:04:47,580 --> 00:04:52,140
+And then let's say we want to put in "webdriverjs" as our query.
+
+91
+00:04:52,300 --> 00:04:53,620
+Let's see what happens.
+
+92
+00:04:53,860 --> 00:04:54,600
+You see,
+
+93
+00:04:54,600 --> 00:04:57,780
+now it appended "webdriverjs"
+
+94
+00:04:57,780 --> 00:05:01,180
+to our "hello world" query we made from before.
+
+95
+00:05:01,320 --> 00:05:02,980
+So what else can we do?
+
+96
+00:05:02,980 --> 00:05:04,680
+Well we can click the button
+
+97
+00:05:04,680 --> 00:05:06,720
+but we can also hit the Enter key
+
+98
+00:05:06,720 --> 00:05:08,520
+once the input is selected
+
+99
+00:05:08,520 --> 00:05:10,140
+and it's currently selected.
+
+100
+00:05:10,280 --> 00:05:11,320
+So let's do that.
+
+101
+00:05:11,600 --> 00:05:14,340
+We type `driver.findElement`
+
+102
+00:05:14,680 --> 00:05:17,220
+and then it's the same input as before,
+
+103
+00:05:17,220 --> 00:05:19,240
+so it's the name of "q"
+
+104
+00:05:19,460 --> 00:05:20,740
+and then here,
+
+105
+00:05:20,740 --> 00:05:22,900
+we can then send keys
+
+106
+00:05:23,100 --> 00:05:28,640
+and use `webdriver.Key.ENTER`.
+
+107
+00:05:29,040 --> 00:05:31,340
+And once we hit Enter, we see that
+
+108
+00:05:31,340 --> 00:05:33,160
+it refreshes the page again.
+
+109
+00:05:33,160 --> 00:05:35,880
+Now let's click the first search result.
+
+110
+00:05:36,260 --> 00:05:38,720
+To find it as we usually do,
+
+111
+00:05:38,720 --> 00:05:41,360
+you right click it, hit 'Inspect Element'.
+
+112
+00:05:43,060 --> 00:05:46,720
+This time, let's get it by the `xpath`.
+
+113
+00:05:47,480 --> 00:05:50,000
+So then here to select it,
+
+114
+00:05:50,060 --> 00:05:53,020
+we do `driver.findElement`
+
+115
+00:05:53,540 --> 00:05:58,000
+and then put in `xpath` as our key
+
+116
+00:05:58,040 --> 00:06:01,260
+and let's paste in the `xpath` string.
+
+117
+00:06:01,260 --> 00:06:03,660
+Then, we type `click`.
+
+118
+00:06:06,040 --> 00:06:06,980
+Cool.
+
+119
+00:06:06,980 --> 00:06:09,340
+Now it's taken us to a GitHub page.
+
+120
+00:06:09,660 --> 00:06:12,340
+Can we also get the title of this page?
+
+121
+00:06:12,340 --> 00:06:14,220
+To do that it's pretty simple.
+
+122
+00:06:14,220 --> 00:06:17,320
+All we do is `driver.getTitle`.
+
+123
+00:06:18,020 --> 00:06:20,140
+Now in this `getTitle` method,
+
+124
+00:06:20,140 --> 00:06:23,260
+you probably assume that you pass in the title
+
+125
+00:06:23,260 --> 00:06:25,640
+somewhere inside this anonymous function.
+
+126
+00:06:25,640 --> 00:06:26,460
+Right?
+
+127
+00:06:26,880 --> 00:06:28,300
+Well actually,
+
+128
+00:06:28,300 --> 00:06:33,420
+since WebDriverJS uses a kind of control flow for promises,
+
+129
+00:06:33,420 --> 00:06:35,940
+we use the `then` method
+
+130
+00:06:35,940 --> 00:06:37,920
+and then in the `then` method
+
+131
+00:06:37,920 --> 00:06:40,060
+the title can be passed inside.
+
+132
+00:06:40,060 --> 00:06:41,620
+We don't have to name this title,
+
+133
+00:06:41,620 --> 00:06:43,220
+we can name this `foo`
+
+134
+00:06:43,220 --> 00:06:44,620
+we can name this `bar`
+
+135
+00:06:44,620 --> 00:06:48,220
+but `title` is pretty semantic so let's keep it as title.
+
+136
+00:06:48,820 --> 00:06:52,020
+And here, we can simply just `console.log`,
+
+137
+00:06:52,020 --> 00:06:55,640
+it's JavaScript's way of printing inside the console,
+
+138
+00:06:55,640 --> 00:06:56,840
+the title.
+
+139
+00:06:56,840 --> 00:06:58,100
+Let's hit Enter,
+
+140
+00:06:58,100 --> 00:06:59,160
+and we'll see
+
+141
+00:06:59,160 --> 00:07:01,440
+that the title is
+
+142
+00:07:01,440 --> 00:07:02,580
+this thing,
+
+143
+00:07:02,580 --> 00:07:06,440
+which is the same as in the browser.
+
+144
+00:07:08,000 --> 00:07:10,820
+And finally let's quit our driver.
+
+145
+00:07:10,820 --> 00:07:11,960
+To do that,
+
+146
+00:07:12,420 --> 00:07:13,700
+all we have to do
+
+147
+00:07:13,960 --> 00:07:16,840
+is type `driver.quit()`
+
+148
+00:07:17,060 --> 00:07:18,780
+and that'll close our driver.
+
+149
+00:07:19,760 --> 00:07:22,580
+Now, we've typed a lot of commands and
+
+150
+00:07:22,580 --> 00:07:24,380
+you'll probably want to write a script
+
+151
+00:07:24,380 --> 00:07:26,500
+in which you can call that script
+
+152
+00:07:26,500 --> 00:07:29,580
+and that script will do everything automatically.
+
+153
+00:07:29,580 --> 00:07:31,840
+Right? You don't want to always open up node
+
+154
+00:07:31,840 --> 00:07:34,380
+and then type all these commands line-by-line.
+
+155
+00:07:34,380 --> 00:07:36,360
+It's nice if you want to experiment,
+
+156
+00:07:36,360 --> 00:07:38,820
+play around, and learn what commands does what
+
+157
+00:07:38,820 --> 00:07:40,820
+and how to do which thing.
+
+158
+00:07:40,820 --> 00:07:42,580
+But we're lazy, right?
+
+159
+00:07:42,580 --> 00:07:44,620
+We want to automate things.
+
+160
+00:07:44,620 --> 00:07:46,460
+So in node,
+
+161
+00:07:46,460 --> 00:07:48,300
+we can actually save
+
+162
+00:07:48,300 --> 00:07:50,020
+the history of commands that we typed.
+
+163
+00:07:50,020 --> 00:07:53,360
+In here, we can see that there's a `save` method
+
+164
+00:07:53,360 --> 00:07:55,640
+that's given in the REPL session.
+
+165
+00:07:55,940 --> 00:07:58,420
+And it says we can save all evaluated commands
+
+166
+00:07:58,420 --> 00:08:00,220
+in this REPL session to a file.
+
+167
+00:08:00,320 --> 00:08:01,540
+So let's do that.
+
+168
+00:08:01,920 --> 00:08:03,800
+We type `. save`
+
+169
+00:08:03,800 --> 00:08:06,940
+and then let's call it `session.js`.
+
+170
+00:08:07,460 --> 00:08:09,600
+Cool, now our session is saved.
+
+171
+00:08:09,600 --> 00:08:13,320
+Let's exit the node REPL by hitting
+`Ctrl-C` twice.
+
+172
+00:08:13,680 --> 00:08:15,240
+Let's hit `ls`
+
+173
+00:08:15,240 --> 00:08:18,260
+to see we now have a `session.js` file.
+
+174
+00:08:18,260 --> 00:08:19,720
+If we just `cat` it,
+
+175
+00:08:19,720 --> 00:08:22,180
+we'll see that it's all our commands.
+
+176
+00:08:22,180 --> 00:08:24,080
+Let's go inside the file
+
+177
+00:08:24,080 --> 00:08:25,560
+and clean it up a bit.
+
+178
+00:08:25,560 --> 00:08:27,720
+You can use your text editor of choice
+
+179
+00:08:27,720 --> 00:08:29,340
+whether that's Sublime Text,
+
+180
+00:08:29,340 --> 00:08:30,860
+any text editor,
+
+181
+00:08:30,860 --> 00:08:31,980
+or Vim.
+
+182
+00:08:31,980 --> 00:08:34,860
+My preference is Vim so I'm going to use it.
+
+183
+00:08:35,940 --> 00:08:38,020
+So now that I'm inside Vim,
+
+184
+00:08:38,020 --> 00:08:39,580
+let's clean up a bit.
+
+185
+00:08:39,580 --> 00:08:41,160
+You can see you on the first line,
+
+186
+00:08:41,159 --> 00:08:43,099
+we require `selenium-webdriver`.
+
+187
+00:08:43,100 --> 00:08:43,940
+We're keeping that.
+
+188
+00:08:43,940 --> 00:08:46,980
+In the second line, we're building up the chrome driver browser.
+
+189
+00:08:46,980 --> 00:08:48,180
+Keeping that as well.
+
+190
+00:08:48,180 --> 00:08:50,720
+Third line, we're opening up 'google.com'.
+
+191
+00:08:50,720 --> 00:08:53,760
+Fourth line we're now finding the element,
+
+192
+00:08:53,760 --> 00:08:55,220
+the input element,
+
+193
+00:08:55,220 --> 00:08:58,160
+in which we're sending in our search query.
+
+194
+00:08:58,340 --> 00:09:00,720
+Well, we have two of the same commands,
+
+195
+00:09:00,720 --> 00:09:02,160
+one is just finding the element,
+
+196
+00:09:02,160 --> 00:09:03,860
+the second is setting the keys.
+
+197
+00:09:03,860 --> 00:09:07,100
+So let's keep the second one.
+
+198
+00:09:07,100 --> 00:09:10,760
+And here, we can keep the keys 'hello world'.
+
+199
+00:09:10,760 --> 00:09:12,580
+And then here we click it.
+
+200
+00:09:12,720 --> 00:09:17,180
+Well let's use the `enter` command instead.
+
+201
+00:09:17,480 --> 00:09:20,460
+So let's look for where we hit the enter button
+
+202
+00:09:20,460 --> 00:09:21,600
+and we'll keep that.
+
+203
+00:09:21,600 --> 00:09:24,220
+And here we click the first search result.
+
+204
+00:09:24,340 --> 00:09:26,800
+And then after that we got the title,
+
+205
+00:09:26,800 --> 00:09:27,780
+logged it out,
+
+206
+00:09:27,780 --> 00:09:29,020
+and then quit the driver.
+
+207
+00:09:29,020 --> 00:09:31,300
+Let's run it and see if it works.
+
+208
+00:09:42,680 --> 00:09:44,580
+And you see that it failed.
+
+209
+00:09:44,680 --> 00:09:46,480
+Well, why did it fail?
+
+210
+00:09:47,460 --> 00:09:49,940
+Let's look up and it says,
+
+211
+00:09:49,940 --> 00:09:52,260
+`NoSuchElementError`
+
+212
+00:09:52,760 --> 00:09:55,860
+Now why is that it doesn't find the element?
+
+213
+00:09:56,260 --> 00:09:57,560
+Well remember,
+
+214
+00:09:57,560 --> 00:10:00,440
+in WebDriverJS, it's asynchronous
+
+215
+00:10:00,440 --> 00:10:01,920
+which means it doesn't block.
+
+216
+00:10:02,080 --> 00:10:03,880
+So in that regard,
+
+217
+00:10:03,880 --> 00:10:05,620
+your script could have ran,
+
+218
+00:10:05,620 --> 00:10:08,480
+but the browser could have not loaded the element yet.
+
+219
+00:10:08,480 --> 00:10:11,540
+Here we'll need to tell the script to kind of poll the browser
+
+220
+00:10:11,540 --> 00:10:15,460
+for you know, maybe a few milliseconds or maybe even a couple seconds,
+
+221
+00:10:15,460 --> 00:10:19,320
+just to see that everything has rendered and the element is found.
+
+222
+00:10:19,560 --> 00:10:21,880
+Imagine you're on a website and
+
+223
+00:10:21,880 --> 00:10:25,620
+that things are loaded asynchronously using JavaScript.
+
+224
+00:10:25,720 --> 00:10:28,840
+You know when if an AJAX GET is being made,
+
+225
+00:10:28,840 --> 00:10:31,820
+you can't expect that the element is immediately present.
+
+226
+00:10:31,880 --> 00:10:34,160
+So here we'll need to use a `wait` command
+
+227
+00:10:34,160 --> 00:10:37,740
+and we can do that by going back into our script.
+
+228
+00:10:42,080 --> 00:10:45,000
+Here let's add the `wait` command by typing in
+
+229
+00:10:45,000 --> 00:10:47,280
+`driver.wait`
+
+230
+00:10:47,540 --> 00:10:53,220
+and then here we use `webdriver.until.elementLocated`.
+
+231
+00:10:53,220 --> 00:10:57,300
+And here we can copy in the xpath.
+
+232
+00:10:58,060 --> 00:10:58,960
+Great.
+
+233
+00:10:59,200 --> 00:11:02,720
+And then, the next line should then work
+
+234
+00:11:02,720 --> 00:11:04,900
+because it has found the element,
+
+235
+00:11:04,900 --> 00:11:07,120
+it has waited until the element has been located.
+
+236
+00:11:07,360 --> 00:11:09,720
+Technically, you could also add in
+
+237
+00:11:09,720 --> 00:11:12,400
+a second argument here and this will be
+
+238
+00:11:12,400 --> 00:11:13,420
+the timeout.
+
+239
+00:11:13,420 --> 00:11:16,820
+You know it could be like a thousand milliseconds
+
+240
+00:11:17,100 --> 00:11:20,080
+or however much time you want to
+
+241
+00:11:20,080 --> 00:11:22,420
+have it polled before it times out.
+
+242
+00:11:24,500 --> 00:11:27,380
+Alright let's save it and run our script again.
+
+243
+00:11:36,540 --> 00:11:39,100
+Great, it has run successfully.
+
+244
+00:11:39,100 --> 00:11:43,240
+And this ends our quick tutorial on how to use WebDriverJS.
+
+245
+00:11:43,240 --> 00:11:44,760
+Thanks for watching.
+

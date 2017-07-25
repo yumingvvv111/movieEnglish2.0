@@ -1,0 +1,166 @@
+<!--用户账号激活-->
+
+<style type="text/css">
+  .user-active .weui-cell-first:before {
+    border: 0;
+  }
+
+  .user-active .weui-cell-last {
+    padding-top: 0.4rem;
+  }
+
+  .vcode-wrapper {
+    position: relative;
+  }
+
+  .vcode-time {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #ccc;
+    color: #f4f4f4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    text-align: center;
+    text-shadow: -1px -1px 0 #999;
+    border-radius: 3px;
+    letter-spacing: 1px;
+  }
+
+  .vcode-time b {
+    font-size: 18px;
+  }
+
+  .vcode-time i {
+    font-style: normal;
+    font-size: 16px;
+  }
+</style>
+<div class="page user-active">
+  <input type="hidden" name="title" value="账号激活"/>
+
+  <div class="page__hd">
+    <h3 class="page__title">名称</h3>
+  </div>
+  <div class="page__bd">
+    <div class="weui-cells weui-cells_form">
+      <form data-bind='attr:{action:window.API.userActive.activated.url}' data-callback="#home">
+        <input name="wxId" type="hidden" data-bind="attr:{value:window.wxId}">
+
+        <div class="weui-cell weui-cell-first">
+          <div class="weui-cell__hd">
+            <label class="weui-label">手机号</label>
+          </div>
+          <div class="weui-cell__bd">
+            <input name="mobile" class="weui-input" type="tel" data-rule="mobile" pattern="1[3578][\d]{9}"
+                   maxlength="11" required placeholder="请输入手机号"
+                   data-bind="$root"
+                   data-attr="{param:phoneParam,remoteCheck:window.API.apply.checkMobile}">
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" title="验证码" data-rule name="verificationCode" type="number" pattern="[0-9]{6}"
+                   placeholder="请输入验证码"/>
+          </div>
+          <div class="weui-cell__ft vcode-wrapper">
+            <div class="vcode-time" style="display: none;"><b>60</b><i>&nbsp;s</i></div>
+            <i class="weui-icon-warn"></i>
+            <a class="weui-vcode-btn" data-bind="click:$root.onSendCode">获取验证码</a>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">设置密码</label></div>
+          <div class="weui-cell__bd">
+            <input name="password" class="weui-input" title="密码" data-rule="password" pattern="\w{6,}" type="password"
+                   required
+                   placeholder=""/>
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">确认密码</label></div>
+          <div class="weui-cell__bd">
+            <input name="confirmPassword" data-rule="verifyPassword" title="确认密码"
+                   class="weui-input" type="password" pattern="\w{6,}" required placeholder=""/>
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell-last">
+
+        </div>
+      </form>
+    </div>
+    <label class="weui-agree">
+            <span class="weui-agree__text">
+                已激活用户请直接<a href="javascript:void(0);" class="js-router" data-router="login">登录</a>
+            </span>
+    </label>
+
+    <div class="weui-btn-area">
+      <a class="weui-btn weui-btn_primary submit" href="javascript:">提交</a>
+    </div>
+  </div>
+  <footer class="page__ft">
+    <p>咨询电话：400-12345678</p>
+  </footer>
+</div>
+<script type="text/javascript" id="pageCfg2">
+  var pageCfg = {
+
+    viewModel: {
+      title: '项目名称',
+      phoneParam: {
+        useType: 'activated'
+      },
+      onSendCode: function (e) {
+        var phoneInput = $('.page-user-active [name=mobile]');
+        var target = $(e.target);
+        var timeElement = target.parent().find('.vcode-time');
+        $.when(_validator.checkRule.call(phoneInput[0], e)).then(
+            function () {//没错误时
+              var ajaxConfig = {
+                url: API.apply.sendMessage.url,
+                data: {
+                  mobile: phoneInput.val()
+                },
+                success: function (res) {
+                  if (res.code != 0) {
+                    pageManager.showTooltip(res.message);
+                  } else {
+                    pageManager.showTooltip('成功发送', 'success');
+                    timeElement.show();
+                    var num = 60;
+                    var inter = setInterval(function () {
+                      timeElement.find('b').text(num);
+                      if (num <= 0) {
+                        timeElement.hide();
+                        timeElement.find('b').text(60);
+                        clearInterval(inter);
+                      }
+                      num--;
+                    }, 1000);
+                  }
+                }
+              };
+              pageManager.ajaxManager(ajaxConfig)();
+            },
+            function (msg) {//有错误时
+              console.warn(msg);
+            }
+        );
+        return false;
+      }
+    }
+  };
+</script>

@@ -1,0 +1,524 @@
+1
+00:00:00,030 --> 00:00:05,580
+in this<font color="#E5E5E5"> video we're going to cover an</font>
+
+2
+00:00:02,879 --> 00:00:07,799
+introduction to webdriver<font color="#CCCCCC"> IO webdriver</font>
+
+3
+00:00:05,580 --> 00:00:09,510
+<font color="#CCCCCC">IO is a framework</font><font color="#E5E5E5"> that provides bindings</font>
+
+4
+00:00:07,799 --> 00:00:12,240
+<font color="#CCCCCC">into selenium so that we can write</font>
+
+5
+00:00:09,510 --> 00:00:15,690
+automated<font color="#CCCCCC"> functional tests</font><font color="#E5E5E5"> there are two</font>
+
+6
+00:00:12,240 --> 00:00:19,470
+ways to<font color="#CCCCCC"> run webdriver IO one is through</font>
+
+7
+00:00:15,690 --> 00:00:21,090
+<font color="#E5E5E5">a normal node script there's also a</font>
+
+8
+00:00:19,470 --> 00:00:23,490
+command-line<font color="#CCCCCC"> interface which we'll get</font>
+
+9
+00:00:21,090 --> 00:00:25,859
+to<font color="#CCCCCC"> in a</font><font color="#E5E5E5"> later video today we're going to</font>
+
+10
+00:00:23,490 --> 00:00:29,189
+be testing a landing page<font color="#E5E5E5"> that we have</font>
+
+11
+00:00:25,859 --> 00:00:30,869
+<font color="#E5E5E5">for a visual regression testing email</font>
+
+12
+00:00:29,189 --> 00:00:33,360
+course free online course that<font color="#E5E5E5"> you can</font>
+
+13
+00:00:30,869 --> 00:00:36,149
+sign up<font color="#E5E5E5"> for if you're interested</font><font color="#CCCCCC"> and we</font>
+
+14
+00:00:33,360 --> 00:00:40,200
+just want<font color="#E5E5E5"> to do a little a quick little</font>
+
+15
+00:00:36,149 --> 00:00:43,050
+test<font color="#E5E5E5"> to see that our form works</font>
+
+16
+00:00:40,200 --> 00:00:45,390
+correctly<font color="#E5E5E5"> here it says</font><font color="#CCCCCC"> email can't be</font>
+
+17
+00:00:43,050 --> 00:00:47,219
+added<font color="#CCCCCC"> because this is not a correct</font>
+
+18
+00:00:45,390 --> 00:00:50,760
+<font color="#E5E5E5">email address but this is what we want</font>
+
+19
+00:00:47,219 --> 00:00:53,039
+to test<font color="#CCCCCC"> that when we</font><font color="#E5E5E5"> enter</font><font color="#CCCCCC"> the email</font>
+
+20
+00:00:50,760 --> 00:00:54,750
+<font color="#E5E5E5">into the form it takes us to this page</font>
+
+21
+00:00:53,039 --> 00:00:57,239
+I'll open up the<font color="#CCCCCC"> command line</font><font color="#E5E5E5"> I'm going</font>
+
+22
+00:00:54,750 --> 00:01:00,059
+to make a new<font color="#CCCCCC"> directory called test</font>
+
+23
+00:00:57,239 --> 00:01:01,890
+files<font color="#E5E5E5"> I'll go into that</font><font color="#CCCCCC"> directory</font><font color="#E5E5E5"> and</font>
+
+24
+00:01:00,059 --> 00:01:04,619
+then<font color="#E5E5E5"> the first thing I'll do</font><font color="#CCCCCC"> is</font>
+
+25
+00:01:01,890 --> 00:01:07,020
+initialize a new<font color="#E5E5E5"> NPM repo so that we can</font>
+
+26
+00:01:04,619 --> 00:01:10,110
+save our package dependencies now that
+
+27
+00:01:07,020 --> 00:01:11,970
+we have<font color="#CCCCCC"> our NPM module set up the next</font>
+
+28
+00:01:10,110 --> 00:01:14,549
+thing<font color="#E5E5E5"> we'll do</font><font color="#CCCCCC"> is install webdriver IO</font>
+
+29
+00:01:11,970 --> 00:01:18,330
+<font color="#E5E5E5">I'm going to save it as a dependency a</font>
+
+30
+00:01:14,549 --> 00:01:19,740
+dev dependency<font color="#E5E5E5"> so that if we want</font><font color="#CCCCCC"> to</font>
+
+31
+00:01:18,330 --> 00:01:21,659
+<font color="#E5E5E5">install this same folder on another</font>
+
+32
+00:01:19,740 --> 00:01:23,250
+computer<font color="#CCCCCC"> it will get automatically</font>
+
+33
+00:01:21,659 --> 00:01:24,930
+installed<font color="#E5E5E5"> I'm also going to</font><font color="#CCCCCC"> install</font>
+
+34
+00:01:23,250 --> 00:01:27,210
+<font color="#E5E5E5">another package called selenium</font>
+
+35
+00:01:24,930 --> 00:01:29,430
+standalone<font color="#E5E5E5"> and this will provide us</font><font color="#CCCCCC"> a</font>
+
+36
+00:01:27,210 --> 00:01:31,799
+way<font color="#CCCCCC"> to run a selenium</font><font color="#E5E5E5"> server locally I'm</font>
+
+37
+00:01:29,430 --> 00:01:33,869
+going to install<font color="#E5E5E5"> it globally</font><font color="#CCCCCC"> so that we</font>
+
+38
+00:01:31,799 --> 00:01:36,960
+can<font color="#E5E5E5"> run it from the command line there</font>
+
+39
+00:01:33,869 --> 00:01:38,369
+are<font color="#E5E5E5"> other options for not installing it</font>
+
+40
+00:01:36,960 --> 00:01:40,619
+globally that we can run through
+
+41
+00:01:38,369 --> 00:01:42,479
+<font color="#E5E5E5">webdriver</font><font color="#CCCCCC"> i/o</font><font color="#E5E5E5"> and we'll get into that</font><font color="#CCCCCC"> in</font>
+
+42
+00:01:40,619 --> 00:01:46,409
+a later<font color="#E5E5E5"> video I'm going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> go ahead and</font>
+
+43
+00:01:42,479 --> 00:01:49,500
+install selenium standalone so it
+
+44
+00:01:46,409 --> 00:01:51,390
+downloads<font color="#E5E5E5"> the selenium webdriver that</font>
+
+45
+00:01:49,500 --> 00:01:53,040
+<font color="#E5E5E5">the selenium servers that we need and</font>
+
+46
+00:01:51,390 --> 00:01:55,590
+the chrome driver that we need as well
+
+47
+00:01:53,040 --> 00:01:57,600
+<font color="#E5E5E5">and then I will start selenium</font>
+
+48
+00:01:55,590 --> 00:02:00,390
+standalone<font color="#E5E5E5"> so we have a selenium server</font>
+
+49
+00:01:57,600 --> 00:02:02,280
+up and running so that webdriver<font color="#CCCCCC"> IO can</font>
+
+50
+00:02:00,390 --> 00:02:04,829
+use it the next<font color="#CCCCCC"> step</font><font color="#E5E5E5"> we'll go back to</font>
+
+51
+00:02:02,280 --> 00:02:06,869
+<font color="#E5E5E5">our command</font><font color="#CCCCCC"> line we're going to</font><font color="#E5E5E5"> create a</font>
+
+52
+00:02:04,829 --> 00:02:09,479
+new<font color="#CCCCCC"> directory called tests and then</font>
+
+53
+00:02:06,869 --> 00:02:12,360
+we're<font color="#E5E5E5"> going to</font><font color="#CCCCCC"> edit a file called</font><font color="#E5E5E5"> my</font>
+
+54
+00:02:09,479 --> 00:02:13,650
+first test<font color="#E5E5E5"> and then I'll go ahead</font><font color="#CCCCCC"> and</font>
+
+55
+00:02:12,360 --> 00:02:16,290
+<font color="#CCCCCC">open that</font><font color="#E5E5E5"> up in simple</font>
+
+56
+00:02:13,650 --> 00:02:18,330
+<font color="#CCCCCC">texts</font><font color="#E5E5E5"> now that I have my file open I'll</font>
+
+57
+00:02:16,290 --> 00:02:21,260
+refer back to the webdriver<font color="#CCCCCC"> i/o</font>
+
+58
+00:02:18,330 --> 00:02:23,819
+documentation<font color="#E5E5E5"> and I'm just going to copy</font>
+
+59
+00:02:21,260 --> 00:02:25,799
+these three lines<font color="#E5E5E5"> and explain what's</font>
+
+60
+00:02:23,819 --> 00:02:27,810
+going<font color="#E5E5E5"> on there so the first thing we do</font>
+
+61
+00:02:25,799 --> 00:02:29,730
+is we<font color="#CCCCCC"> require the</font><font color="#E5E5E5"> webdriver i/o module</font>
+
+62
+00:02:27,810 --> 00:02:32,220
+<font color="#E5E5E5">that's provided when we ran the</font>
+
+63
+00:02:29,730 --> 00:02:34,530
+webdriver<font color="#CCCCCC"> i/o installation the second</font>
+
+64
+00:02:32,220 --> 00:02:37,379
+thing we'll do is<font color="#E5E5E5"> pass set up some</font>
+
+65
+00:02:34,530 --> 00:02:39,900
+options<font color="#CCCCCC"> for</font><font color="#E5E5E5"> our webdriver i/o selenium</font>
+
+66
+00:02:37,379 --> 00:02:42,120
+instance this is saying we want<font color="#CCCCCC"> to start</font>
+
+67
+00:02:39,900 --> 00:02:45,060
+<font color="#CCCCCC">Chrome and we're going to</font><font color="#E5E5E5"> get a client</font>
+
+68
+00:02:42,120 --> 00:02:47,700
+<font color="#E5E5E5">by telling webdriver i/o we want to</font>
+
+69
+00:02:45,060 --> 00:02:49,470
+start a new<font color="#CCCCCC"> remote session with options</font>
+
+70
+00:02:47,700 --> 00:02:52,049
+in<font color="#E5E5E5"> it if we refer back to the</font>
+
+71
+00:02:49,470 --> 00:02:54,000
+<font color="#E5E5E5">documentation you see the client</font><font color="#CCCCCC"> needs</font>
+
+72
+00:02:52,049 --> 00:02:55,799
+<font color="#E5E5E5">to initialize itself here it's going to</font>
+
+73
+00:02:54,000 --> 00:02:57,060
+go to<font color="#E5E5E5"> a URL which is different from the</font>
+
+74
+00:02:55,799 --> 00:02:59,370
+one<font color="#CCCCCC"> we want to</font><font color="#E5E5E5"> go to it's going to set a</font>
+
+75
+00:02:57,060 --> 00:03:01,049
+value<font color="#E5E5E5"> in the search it's going to click</font>
+
+76
+00:02:59,370 --> 00:03:02,400
+a<font color="#E5E5E5"> button then it's going to get the</font>
+
+77
+00:03:01,049 --> 00:03:04,109
+<font color="#E5E5E5">title we're going to basically copy</font>
+
+78
+00:03:02,400 --> 00:03:07,950
+these steps<font color="#E5E5E5"> the only thing we're going</font>
+
+79
+00:03:04,109 --> 00:03:10,560
+<font color="#E5E5E5">to do is change our URL and the ID of</font>
+
+80
+00:03:07,950 --> 00:03:13,290
+<font color="#CCCCCC">the element we want a</font><font color="#E5E5E5"> different input</font>
+
+81
+00:03:10,560 --> 00:03:14,670
+<font color="#E5E5E5">and then also the idea</font><font color="#CCCCCC"> of</font><font color="#E5E5E5"> the button</font>
+
+82
+00:03:13,290 --> 00:03:16,890
+that<font color="#E5E5E5"> we're going to test so I'm actually</font>
+
+83
+00:03:14,670 --> 00:03:19,859
+just going<font color="#E5E5E5"> to</font><font color="#CCCCCC"> copy this over and then</font>
+
+84
+00:03:16,890 --> 00:03:22,799
+come<font color="#CCCCCC"> in here and change</font><font color="#E5E5E5"> my URL and then</font>
+
+85
+00:03:19,859 --> 00:03:26,250
+for my value<font color="#E5E5E5"> I'm going to go in</font><font color="#CCCCCC"> does I</font>
+
+86
+00:03:22,799 --> 00:03:28,230
+<font color="#CCCCCC">want the</font><font color="#E5E5E5"> value of this input box</font><font color="#CCCCCC"> so I'll</font>
+
+87
+00:03:26,250 --> 00:03:30,239
+go<font color="#CCCCCC"> ahead and inspect</font><font color="#E5E5E5"> that element and</font>
+
+88
+00:03:28,230 --> 00:03:31,919
+you can see it has an ID<font color="#E5E5E5"> of MCE</font>
+
+89
+00:03:30,239 --> 00:03:34,950
+email if<font color="#E5E5E5"> you're familiar with MailChimp</font>
+
+90
+00:03:31,919 --> 00:03:36,750
+<font color="#CCCCCC">that's a MailChimp</font><font color="#E5E5E5"> email input and then</font>
+
+91
+00:03:34,950 --> 00:03:39,959
+instead of webdriver<font color="#CCCCCC"> IO I'm going to say</font>
+
+92
+00:03:36,750 --> 00:03:42,510
+test<font color="#E5E5E5"> at test comm so there's two</font><font color="#CCCCCC"> ways I</font>
+
+93
+00:03:39,959 --> 00:03:45,359
+<font color="#CCCCCC">can submit this form I</font><font color="#E5E5E5"> can click the</font>
+
+94
+00:03:42,510 --> 00:03:45,810
+<font color="#CCCCCC">button that says submit my first lesson</font>
+
+95
+00:03:45,359 --> 00:03:48,959
+<font color="#CCCCCC">today</font>
+
+96
+00:03:45,810 --> 00:03:52,400
+<font color="#E5E5E5">she has an ID there another option is</font><font color="#CCCCCC"> to</font>
+
+97
+00:03:48,959 --> 00:03:55,019
+get<font color="#E5E5E5"> the ID of the form itself and</font>
+
+98
+00:03:52,400 --> 00:03:57,750
+instead<font color="#E5E5E5"> of clicking the button I'll hit</font>
+
+99
+00:03:55,019 --> 00:03:59,819
+<font color="#E5E5E5">send a submit form action</font><font color="#CCCCCC"> and I'll pass</font>
+
+100
+00:03:57,750 --> 00:04:01,440
+in the ID<font color="#E5E5E5"> this</font><font color="#CCCCCC"> is just a generic CSS</font>
+
+101
+00:03:59,819 --> 00:04:03,000
+selector this could be a class if you
+
+102
+00:04:01,440 --> 00:04:04,650
+<font color="#E5E5E5">wanted it to be a class it could</font><font color="#CCCCCC"> just be</font>
+
+103
+00:04:03,000 --> 00:04:06,599
+an HTML<font color="#CCCCCC"> element</font><font color="#E5E5E5"> whatever you want it to</font>
+
+104
+00:04:04,650 --> 00:04:08,579
+be we're going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> stick with IDs because</font>
+
+105
+00:04:06,599 --> 00:04:10,620
+they're very<font color="#CCCCCC"> useful because the</font><font color="#E5E5E5"> IDS</font>
+
+106
+00:04:08,579 --> 00:04:13,430
+don't change that often we don't<font color="#CCCCCC"> have to</font>
+
+107
+00:04:10,620 --> 00:04:15,690
+wait for<font color="#CCCCCC"> the page to reload</font><font color="#E5E5E5"> here</font>
+
+108
+00:04:13,430 --> 00:04:17,459
+webdriver<font color="#E5E5E5"> IO is smart enough to figure</font>
+
+109
+00:04:15,690 --> 00:04:20,070
+that<font color="#E5E5E5"> out</font><font color="#CCCCCC"> for you it</font><font color="#E5E5E5"> isn't going to</font>
+
+110
+00:04:17,459 --> 00:04:21,989
+output<font color="#CCCCCC"> that title though so</font><font color="#E5E5E5"> we'll see</font>
+
+111
+00:04:20,070 --> 00:04:23,729
+what<font color="#E5E5E5"> this title is</font><font color="#CCCCCC"> okay so now I have my</font>
+
+112
+00:04:21,988 --> 00:04:26,669
+<font color="#E5E5E5">test the next thing I do is</font><font color="#CCCCCC"> I go back</font>
+
+113
+00:04:23,729 --> 00:04:27,540
+<font color="#E5E5E5">into my terminal</font><font color="#CCCCCC"> and I've run my test so</font>
+
+114
+00:04:26,669 --> 00:04:29,640
+you<font color="#CCCCCC"> can see</font>
+
+115
+00:04:27,540 --> 00:04:31,920
+my title<font color="#E5E5E5"> is learn visual regression</font>
+
+116
+00:04:29,640 --> 00:04:34,740
+testing with webdriver<font color="#CCCCCC"> IO</font><font color="#E5E5E5"> both pages</font>
+
+117
+00:04:31,920 --> 00:04:36,120
+have<font color="#CCCCCC"> the same title so one other option</font>
+
+118
+00:04:34,740 --> 00:04:38,790
+we can do because<font color="#E5E5E5"> we</font><font color="#CCCCCC"> can't really</font><font color="#E5E5E5"> tell</font>
+
+119
+00:04:36,120 --> 00:04:40,560
+that<font color="#CCCCCC"> this has gone to the new page so</font>
+
+120
+00:04:38,790 --> 00:04:43,350
+we're going to<font color="#E5E5E5"> go back into</font><font color="#CCCCCC"> our</font><font color="#E5E5E5"> test and</font>
+
+121
+00:04:40,560 --> 00:04:46,050
+instead<font color="#CCCCCC"> of get title we're going to just</font>
+
+122
+00:04:43,350 --> 00:04:48,900
+do<font color="#CCCCCC"> a URL</font><font color="#E5E5E5"> these commands</font><font color="#CCCCCC"> can be found in</font>
+
+123
+00:04:46,050 --> 00:04:51,990
+the API documentation<font color="#E5E5E5"> search for URL and</font>
+
+124
+00:04:48,900 --> 00:04:56,430
+what we want is get URL<font color="#CCCCCC"> and then I'll</font>
+
+125
+00:04:51,990 --> 00:04:58,620
+change this to<font color="#CCCCCC"> URL and we'll say the URL</font>
+
+126
+00:04:56,430 --> 00:05:00,990
+is URL<font color="#CCCCCC"> okay we're</font><font color="#E5E5E5"> going to go ahead and</font>
+
+127
+00:04:58,620 --> 00:05:05,040
+run<font color="#E5E5E5"> this again</font><font color="#CCCCCC"> and now you see here is</font>
+
+128
+00:05:00,990 --> 00:05:07,140
+<font color="#E5E5E5">my updated URL with some information in</font>
+
+129
+00:05:05,040 --> 00:05:10,220
+it so you<font color="#E5E5E5"> can see it as actually changed</font>
+
+130
+00:05:07,140 --> 00:05:10,220
+<font color="#CCCCCC">and that's</font><font color="#E5E5E5"> my test</font>
+
+131
+00:05:15,710 --> 00:05:17,770
+you
+

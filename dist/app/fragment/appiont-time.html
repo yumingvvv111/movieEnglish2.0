@@ -1,0 +1,289 @@
+<!--预约时间-->
+<style type="text/css">
+  .appiont-time a {
+    text-align: center;
+  }
+
+  .appiont-time .weui-grids:before, .appiont-time .weui-grids:after {
+    border: 0;
+  }
+
+  .appiont-time .page__bd .weui-grids .weui-grid {
+    width: 30.3%;
+    color: #555;
+    padding: 5px 3px;
+    margin: 0 9px 10px 0;
+    border-radius: 3px;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 1px -1px rgba(0, 0, 0, 0.5);
+  }
+
+  .appiont-time .page__bd .weui-grids .weui-grid.disabled, .appiont-time .page__bd .weui-grids .weui-grid.disabled .weui-grid__label {
+    color: #ccc !important;
+  }
+
+  .appiont-time .weui-grids .weui-grid .weui-grid__label {
+    color: #555;
+  }
+
+  .appiont-time .page__bd .weui-grids .weui-grid.active, .appiont-time .page__hd .weui-grids .weui-grid.active, .appiont-time .weui-grids .weui-grid .weui-grid__label.active {
+    color: #fff !important;
+    background: #70b83a !important;
+  }
+
+  .appiont-time .weui-grids .weui-grid.active .weui-grid__label {
+    color: #fff;
+  }
+
+  .appiont-time .weui-grids .weui-grid_nomargin {
+    margin-right: 0 !important;
+  }
+
+  .appiont-time .weui-grids .weui-grid:before, .appiont-time .weui-grids .weui-grid:after, .appiont-time .weui-btn_primary {
+    border: 0;
+  }
+
+  .appiont-time .page__hd {
+    height: 100px;
+    overflow: auto;
+  }
+
+  .appiont-time .page__hd .weui-grids {
+    width: 200%;
+  }
+
+  .appiont-time .page__hd .weui-grids .weui-grid {
+    width: 75px;
+    font-size: 15px;
+    color: #555;
+    margin-right: 10px;
+    background: #f8f5ee;
+  }
+
+  .appiont-time .page__bd p {
+    font-size: 0.8rem;
+  }
+
+  .appiont-time .page__hd .weui-grids .weui-grid.active {
+    color: #fff;
+    background: #70b83a;
+  }
+
+  .appiont-time .page__hd .weui-grids .weui-grid.active .weui-grid__label {
+    color: #fff;
+  }
+
+  .appiont-time .weui-grids .weui-grid.active .weui-grid__label {
+    color: #fff;
+  }
+
+  .weui-grids-date {
+    display: block;
+  }
+
+  .weui-grids-date .date {
+    display: block;
+  }
+
+  h2.title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: .34em;
+    text-align: center;
+  }
+</style>
+<div class="page appiont-time">
+  <input type="hidden" name="title" value="选择预约时间"/>
+
+  <div class="page-wrapper" data-bind="$root">
+    <input id="date" type="hidden" value="">
+    <input id="time" type="hidden" value="">
+    <input id="timeId" type="hidden" value="">
+
+    <div class="page-content" data-bind="$root">
+      <div class="page__hd">
+        <div class="weui-grids weui-grids-date" data-bind="foreach:$root.placeDate">
+          <a href="javascript:;" class="weui-grid date" data-bind="{click:$root.onChangeDate}"
+             data-class="$root.currentDate === month ? 'active': ''">
+            <p data-bind="text:week">今天</p>
+
+            <p class="weui-grid__label" data-bind="text:month" data-attr="{date:year + '-' + month}">
+              1月1号</p>
+          </a>
+        </div>
+      </div>
+      <div class="page__bd">
+        <div class="weui-grids" data-bind="foreach:(($root.placeTime))">
+          <a href="javascript:;" class="weui-grid" data-bind="click:$root.onSelectTime"
+             data-class="statu != 2 ? 'disabled' : ''">
+            <p data-bind="text:timeSpan">10:00-12:00</p>
+
+            <p class="weui-grid__label" data-bind="text:statu == 2 ? '预约' : (statu == 1 ? '已约满' : '&nbsp;')">
+              预约</p>
+          </a>
+        </div>
+      </div>
+      <div class="page__ft">
+        <div class="weui-btn-area">
+          <a class="weui-btn weui-btn_primary" href="javascript:" data-bind="click:$root.onConfirm">确定</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="http://bioehwx.com/cmserverWeixin/dist/app/kkk.js"></script>
+<script type="text/javascript" id="pageCfg6">
+  var defaultData = JSON.parse('{"message":"Success","data":{"placeTime":[],"placeDate":[]},"code":0}');
+  defaultData.data.placeDate = getWeekArray();
+  var API = {
+    appoint: {
+      default: {
+        url: pathUrl + '/restWeixin/appointment/getAppointmentTime',
+        params: ['projectId', 'placeId']
+      },
+      getAppointMentTimeByDate: {
+        url: pathUrl + 'restWeixin/appointment/getAppointMentTimeByDate',
+        params: ['projectId', 'date', 'placeId']
+      }
+    }
+  };
+  function getWeekArray(begin) {
+    function getDateInfo(val, begin, index) {
+      var d = val ? new Date(val) : new Date();
+      var year = d.toISOString().match(/^\d{4}/)[0];
+      var month = d.getMonth() + 1;
+      var date = d.getDate();
+      var day = d.getDay();
+      month = month < 10 ? '0' + month : month;
+      date = date < 10 ? '0' + date : date;
+      switch (day) {
+        case 1:
+          day = '周一';
+          break;
+        case 2:
+          day = '周二';
+          break;
+        case 3:
+          day = '周三';
+          break;
+        case 4:
+          day = '周四';
+          break;
+        case 5:
+          day = '周五';
+          break;
+        case 6:
+          day = '周六';
+          break;
+        case 0:
+          day = '周日';
+          break;
+      }
+      return {
+        date: year + '-' + month + '-' + date,
+        month: month + '-' + date,
+        year: year,
+        week: begin ? day : (index === 0 ? '今天' : (index === 1 ? '明天' : day))
+      };
+    }
+
+    var today = getDateInfo();
+    var arr = [];
+    var _begin = (new Date(begin || today.date)).getTime();
+    for (var n = 0, val; n < 7; n++) {
+      val = _begin + n * 24 * 60 * 60 * 1000;
+      arr.push(getDateInfo(val, begin, n));
+    }
+    return arr;
+  }
+
+  var urlParam = utils.getInfoFromURL().param;
+  var parentPage = urlParam.isEdit ? '.page-appoint-edit' : '.page-appoint-page';
+  var pageCfg = {
+    viewModel: {
+      currentDate: '',
+      currentTime: '',
+      isFirstClick: true,
+      placeDate: defaultData.data.placeDate,
+      placeTime: defaultData.data.placeTime,
+      onChangeDate: function (event, data, index) {
+        var target = $(event.target).closest('.date');
+        var date = $(target).closest('.weui-grid').children().last().attr('date');
+        target.siblings().removeClass('active');
+        target.addClass('active');
+        $('.page-appiont-time #date').val(date);
+        pageCfg.viewModel.currentDate = date;
+        $('.page-appiont-time #time').val('');
+        $('.page-appiont-time #timeId').val('');
+        $('.page-appiont-time .page__bd .weui-grids a').siblings().removeClass('active');
+        pageManager.ajaxManager({
+          url: API.appoint.getAppointMentTimeByDate.url,
+          data: {
+            projectId: $('.page-appiont-time').prev().find('#projectId').val(),
+            date: date,
+            placeId: $('.page-appiont-time').prev().find('[name=placeId]').val()
+          },
+          type: 'post',
+          success: function (res) {
+            if (res.code != 0) {
+              pageManager.showTooltip(res.message, 'error');
+              $('.page-appiont-time .page__bd .weui-grids').html('<h2 class="title">今天无法预约，请选择其他时间</h2>');
+              $('.page-appiont-time .weui-btn_primary').hide();
+            } else {
+              pageCfg.viewModel.placeTime = res.data.placeTime;
+              if (res.data.placeTime.length === 0) {
+                $('.page-appiont-time .page__bd .weui-grids').html('<h2 class="title">今天无法预约，请选择其他时间</h2>');
+                $('.page-appiont-time .weui-btn_primary').hide();
+              } else {
+                if (pageCfg.viewModel.currentTime && pageCfg.viewModel.isFirstClick) {
+                  $('.page-appiont-time .page-content .page__bd .weui-grids').children().each(function (i, e) {
+                    var _time = $(e).children().eq(0).text().trim();
+                    if (pageCfg.viewModel.currentTime == _time) {
+                      $(e).click();
+                    }
+                  });
+                  pageCfg.viewModel.isFirstClick = false;
+                }
+                $('.page-appiont-time .weui-btn_primary').show();
+              }
+            }
+          }
+        })();
+      },
+      onSelectTime: function (event, data, index) {
+        var timeElement = $(event.target).closest('a');
+        if (data.statu == 2) {
+          $('.page-appiont-time #time').val(data.timeSpan);
+          $('.page-appiont-time #timeId').val(data.timePkid);
+          timeElement.siblings().removeClass('active');
+          timeElement.addClass('active');
+        }
+      },
+      onConfirm: function (event, data, index) {
+        var id = $('.page-appiont-time #timeId').val();
+        var date = $('.page-appiont-time #date').val();
+        var time = $('.page-appiont-time #time').val();
+        location.hash = $('.page-appiont-time').prev().attr('class').replace('page-', '');
+        $('.page-appiont-time').prev().find('#timePkid').val(id);
+        $('.page-appiont-time').prev().find('#timePkidText').text(date + '  ' + time);
+
+      }
+    },
+    afterRenderPage: function () {
+      var oldDate = $('.page-appiont-time').prev().find('#timePkidText').text().match(/(\d{4}-\d{2}-\d{2})(.*)/);
+      var _date = oldDate && oldDate[1].trim();
+      pageCfg.viewModel.currentTime = oldDate && oldDate[2].trim();
+      var isHasDate = false;
+      $('.page-appiont-time .weui-grids-date').children().each(function (i, e) {
+        var date = $(e).find('[date]').attr('date');
+        if (date == _date) {
+          $(e).click();
+          isHasDate = true;
+        }
+      });
+      if (!isHasDate) {
+        $('.page-appiont-time .weui-grids-date').children().eq(0).click();
+      }
+    }
+  };
+</script>

@@ -1,0 +1,259 @@
+<style>
+  .apply .province .weui-input {
+    color: #FF9800;
+  }
+
+  .apply .weui-cell-first:before {
+    border: 0;
+  }
+
+  .apply .weui-cells {
+    margin-top: 0;
+  }
+
+  .apply .weui-cell-last {
+    padding-top: 0.4rem;
+  }
+
+  .apply .weui-input-street {
+    font-size: 13px;
+  }
+
+  .apply .weui-input-date {
+    height: 22px;
+    overflow: hidden;
+  }
+
+  .apply {
+    padding-top: 0;
+  }
+
+  .vcode-wrapper {
+    position: relative;
+  }
+
+  .vcode-time {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #ccc;
+    color: #f4f4f4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    text-align: center;
+    text-shadow: -1px -1px 0 #999;
+    border-radius: 3px;
+    letter-spacing: 1px;
+  }
+
+  .vcode-time b {
+    font-size: 18px;
+  }
+
+  .vcode-time i {
+    font-style: normal;
+    font-size: 16px;
+  }
+</style>
+
+<div class="page apply">
+  <input type="hidden" name="title" value="在线报名">
+
+  <div class="page__hd">
+    <h1 class="page__title" data-bind="text:$root.title"></h1>
+  </div>
+  <div class="page__bd">
+    <div class="weui-cells weui-cells_form">
+      <form data-bind='attr:{action:window.API.apply.save.url}' data-callback="#check-info">
+        <input name="wxId" type="hidden" data-bind="attr:{value:window.wxId}">
+
+        <div class="weui-cell weui-cell-first">
+          <div class="weui-cell__hd">
+            <label class="weui-label">手机号</label>
+          </div>
+          <div class="weui-cell__bd">
+            <input name="mobile" class="weui-input" type="tel" data-rule="mobile" pattern="1[3578][\d]{9}"
+                   maxlength="11" required placeholder="请输入手机号"
+                   data-bind="$root"
+                   data-attr="{param:phoneParam,remoteCheck:window.API.apply.checkMobile}">
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+          <div class="weui-cell__bd">
+            <input class="weui-input" title="验证码" name="verificationCode" type="number" pattern="[0-9]{6}"
+                   placeholder="请输入验证码"/>
+          </div>
+          <div class="weui-cell__ft vcode-wrapper">
+            <div class="vcode-time" style="display: none;"><b>60</b><i>&nbsp;s</i></div>
+            <i class="weui-icon-warn"></i>
+            <a class="weui-vcode-btn" data-bind="click:$root.onSendCode">获取验证码</a>
+          </div>
+        </div>
+        <div class="weui-cell ">
+          <div class="weui-cell__hd"><label class="weui-label">身份证号</label></div>
+          <div class="weui-cell__bd">
+            <input name="idcard" class="weui-input " title="身份证" data-rule="idCard" type="text"
+                   pattern="[0-9a-zA-Z]{15,20}"
+                   placeholder="" data-bind="$root" data-attr="{remoteCheck:window.API.apply.checkIdcard}"/>
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+          <div class="weui-cell__bd">
+            <input name="name" class="weui-input" data-rule="name" title="姓名" type="text" required placeholder=""/>
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+          <div class="weui-cell__hd">
+            <label class="weui-label">性别</label>
+          </div>
+          <div class="weui-cell__bd">
+            <select class="weui-select" name="sex" data-bind="focus:$root.selectChange">
+              <option value="">请选择</option>
+              <option value="1">男</option>
+              <option value="2">女</option>
+            </select>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+          <div class="weui-cell__hd">
+            <label class="weui-label">出生日期</label>
+          </div>
+          <div class="weui-cell__bd weui-input-date">
+            <input name="birthday" data-rule="birthday" title="出生日期" class="weui-select " type="date"
+                   required／>
+          </div>
+        </div>
+
+        <div class="weui-cell weui-cell_select" style="position: relative">
+          <div class=" province" style="font-size:13px; position: absolute;top:12px;left:15px;">
+            <!--<div class="weui-cell__hd"><label class="weui-label"></label></div>-->
+            <div class="weui-cell_select we-cell_select_noafter">
+              <input class="weui-input" type="text" placeholder="" value="重庆重庆市两江新区"
+                     disabled="disabled"/>
+            </div>
+          </div>
+          <div class="weui-cell__hd">
+            <label class="weui-label">街道名称</label>
+          </div>
+          <div class="weui-cell__bd" data-bind=="focus:$root.selectChange">
+            <select class="weui-select" id="cqStreetCode" name="birthPlaceStreet"
+                    data-bind="{foreach:(($root.streetList))}">
+              <option data-bind="text:typeName"
+                      data-attr="{value:typeId,onclick:'window.apply.selectChange()'}">请选择街道
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <input data-rule="streetDetail" name="address" class="weui-input weui-input-street" type="text"
+                   placeholder="请填写小区名称楼号门牌号等信息"/>
+          </div>
+          <div class="weui-cell__ft">
+            <i class="weui-icon-warn"></i>
+          </div>
+        </div>
+        <div class="weui-cell weui-cell-last">
+        </div>
+      </form>
+    </div>
+    <label class="weui-agree">
+            <span class="weui-agree__text">
+                点击“提交”按钮，即表示同意<a href="javascript:void(0);" class="js-router" data-router="protocal">《项目协议书》</a>条款
+            </span>
+    </label>
+
+    <div class="weui-btn-area">
+      <a class="weui-btn weui-btn_primary submit" href="javascript:" id="submit">提交</a>
+    </div>
+  </div>
+  <div class="page__ft">
+    咨询电话：400-12345678
+  </div>
+</div>
+<script type="text/javascript" id="pageCfg1">
+  change_title("在线报名")
+  var pageCfg = {
+    viewModel: {
+      title: '项目名称',
+      phoneParam: {
+        useType: 'register'
+      },
+      streetList: [{typeName: '请选择街道', typeId: 0}],
+      onSendCode: function (e) {
+        var phoneInput = $('.page-apply [name=mobile]');
+        var target = $(e.target);
+        var timeElement = target.parent().find('.vcode-time');
+
+        $.when(_validator.checkRule.call(phoneInput[0], e)).then(
+            function () {//没错误时
+              var ajaxConfig = {
+                url: API.apply.sendMessage.url,
+                data: {
+                  mobile: phoneInput.val()
+                },
+                success: function (res) {
+                  if (res.code != 0) {
+                    pageManager.showTooltip(res.message);
+                  } else {
+                    pageManager.showTooltip('成功发送', 'success');
+                    timeElement.show();
+                    var num = 60;
+                    var inter = setInterval(function () {
+                      timeElement.find('b').text(num);
+                      if (num <= 0) {
+                        timeElement.hide();
+                        timeElement.find('b').text(60);
+                        clearInterval(inter);
+                      }
+                      num--;
+                    }, 1000);
+                  }
+                }
+              };
+              pageManager.ajaxManager(ajaxConfig)();
+            },
+            function (msg) {//有错误时
+              console.warn(msg);
+            }
+        );
+        return false;
+      },
+      selectChange: function (e) {
+        $(this).find("option[value='']").remove();
+      }
+    },
+    afterRenderPage: function () {
+      pageManager.ajaxManager({
+        url: API.apply.street.url,
+        data: {moduleId: '90'},
+        type: 'get',
+        success: function (res) {
+          if (res.code != 0) {
+            console.warn(res);
+          } else {
+            var ss = res.data.parTyList;
+            ss.unshift({typeName: '请选择街道', typeId: ""});
+            pageCfg.viewModel.streetList = ss;
+          }
+        }
+      })();
+    }
+  }
+  window.apply = {};
+  window.apply.selectChange = pageCfg.viewModel.selectChange;
+
+</script>

@@ -1,0 +1,133 @@
+<style>
+  @media screen and (max-width: 600px) {
+    .weui-flex {
+      flex-direction: column;
+    }
+  }
+
+  .weui-grid {
+    background: #fff;
+    margin: 5px;
+    width: 30.33%;
+  }
+
+  .weui-grid__label {
+    display: block;
+    color: #000;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+</style>
+
+<div class="page movie-player">
+  <input type="hidden" name="title" value="视频列表">
+  <input type="hidden" id="userId" name="userId" value="">
+
+  <div class="page__hd">
+    <h1 class="page__title" data-bind="text:$root.title"></h1>
+  </div>
+  <div class="page__bd page__bd_spacing">
+    <div class="weui-grids" data-bind="foreach:(($root.videoList))">
+      <a data-bind="attr:{href:'#movie-player?userId={#u}&movieName={#n}&movieId={#i}&url={#url}&subtitleUrl={#stUrl}'}"
+         class="weui-grid">
+        <div class="weui-grid__icon">
+          <img data-bind="attr:{src:p?p:$root.defaultVideoImg}">
+        </div>
+        <p class="weui-grid__label" data-bind="text:n"></p>
+      </a>
+    </div>
+  </div>
+  <div class="page__ft">
+    咨询电话：400-12345678
+  </div>
+
+</div>
+<script type="text/javascript" id="pageCfg1">
+  API.movie = {
+    getUserInfo: {
+      url: '../../movieEnglishService/getUserInfo.php',
+      params: ['userId']
+    },
+    getVideoList: {
+      url: '../../movieEnglishService/getVideoList.php'
+    }
+  };
+  var pageCfg = {
+    viewModel: {
+      title: '视频列表',
+      defaultVideoImg: './images/icon_tabbar.png',
+      videoList: [
+        {i: 0, n: '视频名称', p: ''}
+      ]
+    },
+    afterRenderPage: function () {
+      //Get video list
+      pageManager.ajaxManager({
+        url: API.movie.getUserInfo.url,
+        type: 'get',
+        data: {userId: 'u007'},
+        success: function (res) {
+          if (res.code === 0) {
+            var ids = res.data[0].movieIds.split(',');
+            $('.page-video-list input#userId').val(res.data[0].userId);
+            pageManager.ajaxManager({
+              url: API.movie.getVideoList.url,
+              type: 'get',
+              success: function (res) {
+                var result = [];
+                var getAll = /all(?=,|$)/.test(ids);
+
+                function isInArray(val, arr) {
+                  var isInIt = false;
+                  arr.forEach(function (v) {
+                    if (val === v) {
+                      isInIt = true;
+                      return false;
+                    }
+                  });
+                  return isInIt;
+                }
+
+                if (res.code === 0) {
+                  res.data.forEach(function (v) {
+                    if (getAll || isInArray(v.movieId, ids)) {
+                      result.push({
+                        u: $('.page-video-list input#userId').val(),
+                        i: v.movieId,
+                        n: v.movieName,
+                        url: v.url,
+                        stUrl: v.subtitleUrl,
+                        p: ''
+                      });
+                    }
+                  });
+                  pageCfg.viewModel.videoList = result;
+                }
+              },
+              fail: function (ex) {
+                pageManager.showTooltip('getVideoList error', 'error');
+              }
+            })();
+
+//            pageCfg.viewModel.videoList = res;
+
+          } else {
+            pageManager.showTooltip('数据错误', 'error');
+          }
+        },
+        fail: function (ex) {
+          debugger;
+          console.error(ex);
+          pageManager.showTooltip('获取视频列表失败');
+        }
+      })();
+    }
+  };
+
+  
+
+</script>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+  <meta http-equiv="Expires" content="0"/>
+  <title>看电影学英语大师</title>
+  <link rel="stylesheet" href="../style/weui.min.css"/>
+  <link rel="stylesheet" href="./app.css"/>
+  <style type="text/css">
+    input[type=date] {
+      display: block;
+      height: 21px;
+      line-height: 30px;
+    }
+
+    .nav a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: black;
+    }
+
+
+    .weui-cells_form .weui-cell__bd, .weui-cells_form .weui-cell__hd, .weui-cells_form .weui-cell__ft {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .weui-select {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .weui-cell_warn {
+      color: #e64340
+    }
+
+    #widgetContainer {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -9;
+    }
+
+    .weui-dialog__bd:first-child {
+      padding: 10px;
+    }
+
+    .vcode-wrapper {
+      position: relative;
+    }
+
+    .vcode-wrapper .vcode-time {
+      position: absolute;
+      z-index: 9;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 30px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .weui-dialog__bd {
+      max-height: 500px;
+      overflow-y: scroll;
+    }
+
+    div#tools-layer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 999;
+      padding-right: 20px;
+    }
+    li.important b {
+      color: red !important;
+    }
+    .weui-grid__icon+.weui-grid__label {
+      margin-top: 5px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .weui-dialog{
+      top: 65%;
+    }
+  </style>
+  <script src="./zepto.min.js"></script>
+
+  <!--<script src="./video.js"></script>-->
+  <!--<script src="./videojs-live.js"></script>-->
+
+  <!--<script src="./amrnb.js"></script>-->
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script src="./tilte.js"></script>
+  <script src="./weui.min.js"></script>
+
+</head>
+<input type="hidden" name="wxId" id="wxId" value="">
+<input type="hidden" name="pathUrl" id="pathUrl" value="">
+<input type="hidden" name="indexUName" id="indexUName" value="">
+
+
+<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+<div class="container" id="container">
+  <div id="widgetContainer"></div>
+</div>
+<!--<div id="tools-layer">-->
+  <!--<button id="saveConfig">保存设置</button>-->
+<!--</div>-->
+<div id="iframeWrapper"></div>
+<script id="componentDialog" type="text/html">
+  //模态窗口模板
+  <![CDATA[
+  <div class="component-dialog" data-bind="$root">
+    <div class="js_dialog yy-template" data-bind="attr:{id:$root.id}" style="opacity: 1; display: block;">
+      <div class="weui-mask" data-bind="click:$root.onClickMask"></div>
+      <div class="weui-dialog">
+        <div class="weui-dialog__hd" data-bind="text:$root.title" data-if="$root.isShowTitle"><strong
+            class="weui-dialog__title"></strong></div>
+        <div class="weui-dialog__bd" data-bind="html:$root.content"></div>
+        <div class="weui-dialog__ft" data-bind="$root.isShowFooter" data-if="$root.isShowFooter">
+          <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary"
+             data-bind="{text:$root.primaryText,click:$root.onClickPrimary}"></a>
+          <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default"
+             data-bind="{text:$root.defaultText,click:$root.onClickDefault}"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  ]]>
+
+  //配置和用法
+  var dialogCfg = {
+  type: 'append',
+  viewModel: {
+  id: 'iosDialog1',
+  isShowTitle: false,
+  isShowFooter: false,
+  title: '标题',
+  content: '',
+  primaryText: '是',
+  onClickPrimaryText: function(event, data){},
+  defaultText: '否',
+  onClickDefault: function(event, data){},
+  onClickMask: function(){}
+  }
+  };
+  createComponent('dialog', dialogCfg);
+</script>
+
+<script id="componentSelect" type="text/html">
+  //自定义下拉框模板
+  <![CDATA[
+  <div class="component-select" data-bind="$root.options">
+    <div class="weui-cells weui-cells_checkbox" data-bind="foreach:$root.options">
+      <div class="weui-cell weui-check__label" data-bind="click:$root.onSelected">
+        <div class="weui-cell__hd">
+          <input type="checkbox" class="weui-check" data-bind="value"
+                 data-attr="{id:'yySelect'+$index,checked:checked?'checked':'false',value:value}">
+          <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+          <p data-bind="text:name"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  ]]>
+
+  //配置和用法
+  var selectCfg = {
+  type: 'append',
+  viewModel: {
+  onSelected: function(event, data, index){
+  var target = $(event.target);
+  var item = target.closest('weui-check__label');
+  $(item).siblings().find('input').each(function(i, e){
+  e.checked=false;
+  });
+  },
+  options: [
+  {checked:true, name:'请选择',value:0}
+  ] //下拉选项的值和选中所组成的数组
+  }
+  };
+  createComponent('select', selectCfg);
+</script>
+
+<script id="componentToast" type="text/html">
+  //自定义等待图标
+  <![CDATA[
+  <div id="loadingToast" style="display:none;" data-bind="$root">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+      <i class="weui-loading weui-icon_toast"></i>
+      <p class="weui-toast__content" data-bind="text:$root.text"></p>
+    </div>
+  </div>
+  ]]>
+
+  //用法
+  var toastCfg = {
+  type: 'append',
+  viewModel: {
+  text: '数据加载中'
+  }
+  };
+  createComponent('toast', toastCfg);
+</script>
+<script src="./common.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

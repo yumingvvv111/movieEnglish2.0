@@ -1,0 +1,5800 @@
+1
+00:00:00,030 --> 00:00:03,870
+well hello internet and<font color="#CCCCCC"> welcome</font><font color="#E5E5E5"> to my</font>
+
+2
+00:00:01,500 --> 00:00:05,250
+<font color="#CCCCCC">express</font><font color="#E5E5E5"> nodejs video tutorial in this</font>
+
+3
+00:00:03,870 --> 00:00:08,069
+<font color="#E5E5E5">one tutorial</font><font color="#CCCCCC"> I'm going to give you a</font>
+
+4
+00:00:05,250 --> 00:00:10,410
+very massive overview of the<font color="#E5E5E5"> Express</font>
+
+5
+00:00:08,069 --> 00:00:12,750
+node.js framework and pretty<font color="#E5E5E5"> much cover</font>
+
+6
+00:00:10,410 --> 00:00:14,849
+all the<font color="#CCCCCC"> different things</font><font color="#E5E5E5"> aside from how</font>
+
+7
+00:00:12,750 --> 00:00:16,049
+you would interact<font color="#E5E5E5"> with databases I'm</font>
+
+8
+00:00:14,849 --> 00:00:18,090
+going to break this<font color="#E5E5E5"> into three tutorials</font>
+
+9
+00:00:16,049 --> 00:00:19,859
+<font color="#E5E5E5">I was going to make it originally one</font>
+
+10
+00:00:18,090 --> 00:00:21,539
+but it<font color="#E5E5E5"> just became overwhelming so I'm</font>
+
+11
+00:00:19,859 --> 00:00:23,699
+going to<font color="#E5E5E5"> give you an overview of Express</font>
+
+12
+00:00:21,539 --> 00:00:25,380
+in this tutorial<font color="#E5E5E5"> then in the next part</font>
+
+13
+00:00:23,699 --> 00:00:27,090
+I'm<font color="#E5E5E5"> going to cover databases and then in</font>
+
+14
+00:00:25,380 --> 00:00:30,060
+the<font color="#E5E5E5"> final part we're going to make a big</font>
+
+15
+00:00:27,090 --> 00:00:32,160
+application<font color="#CCCCCC"> now Express</font><font color="#E5E5E5"> is the node.js</font>
+
+16
+00:00:30,060 --> 00:00:34,469
+framework that's going to provide<font color="#CCCCCC"> all of</font>
+
+17
+00:00:32,159 --> 00:00:36,390
+<font color="#E5E5E5">the capabilities of node.js but it's</font>
+
+18
+00:00:34,469 --> 00:00:39,120
+also going to allow<font color="#CCCCCC"> us to easily develop</font>
+
+19
+00:00:36,390 --> 00:00:40,680
+robust web applications using<font color="#E5E5E5"> something</font>
+
+20
+00:00:39,120 --> 00:00:42,420
+called middleware<font color="#E5E5E5"> you're going to have</font>
+
+21
+00:00:40,680 --> 00:00:44,520
+to have a<font color="#E5E5E5"> pretty good</font><font color="#CCCCCC"> understanding of</font>
+
+22
+00:00:42,420 --> 00:00:46,260
+how bootstrap and<font color="#E5E5E5"> handlebars work before</font>
+
+23
+00:00:44,520 --> 00:00:47,969
+you can use this tutorial<font color="#CCCCCC"> and I have</font>
+
+24
+00:00:46,260 --> 00:00:49,530
+tutorials on those in<font color="#E5E5E5"> the</font><font color="#CCCCCC"> description</font>
+
+25
+00:00:47,969 --> 00:00:51,449
+underneath the video so watch those
+
+26
+00:00:49,530 --> 00:00:53,100
+<font color="#E5E5E5">first if you have no idea</font><font color="#CCCCCC"> what bootstrap</font>
+
+27
+00:00:51,449 --> 00:00:54,510
+and<font color="#E5E5E5"> handlebars</font><font color="#CCCCCC"> are and now what I'm</font>
+
+28
+00:00:53,100 --> 00:00:57,239
+<font color="#E5E5E5">going to do is show you how to install</font>
+
+29
+00:00:54,510 --> 00:01:01,020
+everything<font color="#E5E5E5"> both on Windows as well</font><font color="#CCCCCC"> as on</font>
+
+30
+00:00:57,239 --> 00:01:02,489
+Linux machines and Mac OS now if you're
+
+31
+00:01:01,020 --> 00:01:04,439
+on<font color="#E5E5E5"> Windows what you're going to want to</font>
+
+32
+00:01:02,489 --> 00:01:06,869
+<font color="#E5E5E5">do first is download nodejs</font>
+
+33
+00:01:04,438 --> 00:01:09,240
+so you're going<font color="#CCCCCC"> to go to node.js org</font><font color="#E5E5E5"> and</font>
+
+34
+00:01:06,869 --> 00:01:10,740
+just click on<font color="#E5E5E5"> mature and dependable</font>
+
+35
+00:01:09,240 --> 00:01:13,080
+<font color="#CCCCCC">you're going to get a little</font><font color="#E5E5E5"> message do</font>
+
+36
+00:01:10,740 --> 00:01:13,979
+you<font color="#CCCCCC"> want to run this yes say run</font><font color="#E5E5E5"> then</font>
+
+37
+00:01:13,080 --> 00:01:16,080
+you're going<font color="#E5E5E5"> to do a whole</font><font color="#CCCCCC"> bunch of</font>
+
+38
+00:01:13,979 --> 00:01:17,790
+clicking on next<font color="#E5E5E5"> so click on next right</font>
+
+39
+00:01:16,080 --> 00:01:19,140
+here<font color="#E5E5E5"> click on accept the license terms</font>
+
+40
+00:01:17,790 --> 00:01:20,549
+<font color="#E5E5E5">click on next</font>
+
+41
+00:01:19,140 --> 00:01:22,650
+it's perfectly<font color="#E5E5E5"> fine</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> put this in your</font>
+
+42
+00:01:20,549 --> 00:01:24,330
+<font color="#E5E5E5">Program Files click on next</font><font color="#CCCCCC"> leave</font>
+
+43
+00:01:22,650 --> 00:01:27,210
+<font color="#E5E5E5">everything exactly the</font><font color="#CCCCCC"> way it is click</font>
+
+44
+00:01:24,330 --> 00:01:28,590
+on next<font color="#E5E5E5"> and then</font><font color="#CCCCCC"> click on</font><font color="#E5E5E5"> install</font><font color="#CCCCCC"> then</font>
+
+45
+00:01:27,210 --> 00:01:29,939
+after everything is installed we're
+
+46
+00:01:28,590 --> 00:01:31,799
+going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> go in and verify</font><font color="#CCCCCC"> that</font>
+
+47
+00:01:29,939 --> 00:01:32,939
+<font color="#CCCCCC">everything was</font><font color="#E5E5E5"> installed properly</font><font color="#CCCCCC"> to do</font>
+
+48
+00:01:31,799 --> 00:01:34,770
+that you're<font color="#E5E5E5"> going to want</font><font color="#CCCCCC"> to open up</font>
+
+49
+00:01:32,939 --> 00:01:35,970
+<font color="#E5E5E5">your command prompt and this is inside</font>
+
+50
+00:01:34,770 --> 00:01:37,610
+<font color="#E5E5E5">of</font><font color="#CCCCCC"> Windows but you're</font><font color="#E5E5E5"> going to be doing</font>
+
+51
+00:01:35,970 --> 00:01:40,170
+<font color="#CCCCCC">pretty much</font><font color="#E5E5E5"> the</font><font color="#CCCCCC"> same exact thing in</font>
+
+52
+00:01:37,610 --> 00:01:41,640
+<font color="#E5E5E5">Macintosh so just stick around here</font><font color="#CCCCCC"> and</font>
+
+53
+00:01:40,170 --> 00:01:42,479
+do pretty<font color="#CCCCCC"> much the</font><font color="#E5E5E5"> same thing so I'm</font>
+
+54
+00:01:41,640 --> 00:01:44,280
+going<font color="#E5E5E5"> to show you how to do it in</font>
+
+55
+00:01:42,479 --> 00:01:45,360
+Macintosh though so<font color="#E5E5E5"> don't worry so very</font>
+
+56
+00:01:44,280 --> 00:01:46,890
+first<font color="#E5E5E5"> thing</font><font color="#CCCCCC"> we're going to do is verify</font>
+
+57
+00:01:45,360 --> 00:01:48,600
+that nodes installed so we're going to
+
+58
+00:01:46,890 --> 00:01:50,369
+<font color="#E5E5E5">type in node</font><font color="#CCCCCC"> dash V and it's</font><font color="#E5E5E5"> going</font><font color="#CCCCCC"> to</font>
+
+59
+00:01:48,600 --> 00:01:52,409
+pop up the version of node<font color="#E5E5E5"> that we have</font>
+
+60
+00:01:50,369 --> 00:01:55,470
+<font color="#E5E5E5">installed then we're going to do is type</font>
+
+61
+00:01:52,409 --> 00:01:57,689
+in<font color="#CCCCCC"> M</font><font color="#E5E5E5"> p.m. in it like that and this is</font>
+
+62
+00:01:55,470 --> 00:01:59,520
+<font color="#E5E5E5">going to create our package.json file</font>
+
+63
+00:01:57,689 --> 00:02:01,920
+which is going<font color="#E5E5E5"> to define the entry point</font>
+
+64
+00:01:59,520 --> 00:02:03,360
+for<font color="#E5E5E5"> our Express application</font><font color="#CCCCCC"> and for the</font>
+
+65
+00:02:01,920 --> 00:02:05,520
+most<font color="#E5E5E5"> part</font><font color="#CCCCCC"> here is</font><font color="#E5E5E5"> going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> be using</font>
+
+66
+00:02:03,360 --> 00:02:07,140
+defaults<font color="#E5E5E5"> whenever you type this in it's</font>
+
+67
+00:02:05,520 --> 00:02:08,879
+going<font color="#E5E5E5"> to either pop up your name or ask</font>
+
+68
+00:02:07,140 --> 00:02:09,869
+you for your<font color="#E5E5E5"> name just type that in and</font>
+
+69
+00:02:08,878 --> 00:02:11,360
+<font color="#E5E5E5">then you're going</font><font color="#CCCCCC"> to see all the</font><font color="#E5E5E5"> other</font>
+
+70
+00:02:09,869 --> 00:02:13,010
+<font color="#E5E5E5">different</font><font color="#CCCCCC"> things you have to</font><font color="#E5E5E5"> type in</font>
+
+71
+00:02:11,360 --> 00:02:14,420
+after we're going<font color="#E5E5E5"> to leave this</font><font color="#CCCCCC"> V</font><font color="#E5E5E5"> is</font>
+
+72
+00:02:13,010 --> 00:02:15,950
+version<font color="#CCCCCC"> 1 you're</font><font color="#E5E5E5"> going to want to give a</font>
+
+73
+00:02:14,420 --> 00:02:18,170
+little description<font color="#E5E5E5"> I just type the</font>
+
+74
+00:02:15,950 --> 00:02:20,330
+<font color="#CCCCCC">express tutorial that's perfectly fine</font>
+
+75
+00:02:18,170 --> 00:02:22,610
+here's your entry point<font color="#CCCCCC"> it's pretty</font>
+
+76
+00:02:20,330 --> 00:02:24,080
+<font color="#E5E5E5">common to use the</font><font color="#CCCCCC"> index</font><font color="#E5E5E5"> dot JSP</font>
+
+77
+00:02:22,610 --> 00:02:25,250
+<font color="#E5E5E5">I personally</font><font color="#CCCCCC"> don't like to use</font><font color="#E5E5E5"> it</font><font color="#CCCCCC"> very</font>
+
+78
+00:02:24,080 --> 00:02:26,960
+<font color="#E5E5E5">much because there's too many index</font>
+
+79
+00:02:25,250 --> 00:02:28,220
+files inside of<font color="#E5E5E5"> web applications that</font>
+
+80
+00:02:26,960 --> 00:02:30,770
+sometimes becomes a little<font color="#CCCCCC"> bit</font>
+
+81
+00:02:28,220 --> 00:02:32,210
+complicated so<font color="#CCCCCC"> I call this Xpress Jas</font>
+
+82
+00:02:30,770 --> 00:02:32,660
+test command I'm going to leave<font color="#CCCCCC"> his</font>
+
+83
+00:02:32,210 --> 00:02:34,160
+<font color="#E5E5E5">blank</font>
+
+84
+00:02:32,660 --> 00:02:35,810
+<font color="#E5E5E5">get repository I'm going to leave his</font>
+
+85
+00:02:34,160 --> 00:02:37,190
+blank and so forth and<font color="#E5E5E5"> so on you can see</font>
+
+86
+00:02:35,810 --> 00:02:38,570
+everything<font color="#E5E5E5"> that I did right</font><font color="#CCCCCC"> there</font><font color="#E5E5E5"> and</font>
+
+87
+00:02:37,190 --> 00:02:40,640
+then you<font color="#E5E5E5"> can see that</font><font color="#CCCCCC"> it</font><font color="#E5E5E5"> went and</font>
+
+88
+00:02:38,570 --> 00:02:43,610
+<font color="#CCCCCC">created that file for</font><font color="#E5E5E5"> us then what I did</font>
+
+89
+00:02:40,640 --> 00:02:46,070
+<font color="#CCCCCC">is I opened up the directory that's</font>
+
+90
+00:02:43,610 --> 00:02:47,780
+going to have there's the JSON file<font color="#CCCCCC"> that</font>
+
+91
+00:02:46,070 --> 00:02:49,580
+was just created for<font color="#E5E5E5"> us and</font><font color="#CCCCCC"> this is</font><font color="#E5E5E5"> just</font>
+
+92
+00:02:47,780 --> 00:02:51,020
+to show<font color="#CCCCCC"> you how the directory is all set</font>
+
+93
+00:02:49,580 --> 00:02:52,970
+<font color="#CCCCCC">up</font><font color="#E5E5E5"> and</font><font color="#CCCCCC"> you can see right here this is</font>
+
+94
+00:02:51,020 --> 00:02:54,290
+<font color="#E5E5E5">the JSON file</font><font color="#CCCCCC"> that we</font><font color="#E5E5E5"> created and what</font>
+
+95
+00:02:52,970 --> 00:02:55,550
+you're going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> want to do is</font><font color="#CCCCCC"> right</font>
+
+96
+00:02:54,290 --> 00:02:57,050
+after version<font color="#CCCCCC"> here you're going</font><font color="#E5E5E5"> to want</font>
+
+97
+00:02:55,550 --> 00:02:59,209
+<font color="#CCCCCC">to put a comma and you're going to</font><font color="#E5E5E5"> want</font>
+
+98
+00:02:57,050 --> 00:03:01,310
+<font color="#CCCCCC">to type in private and true and then</font>
+
+99
+00:02:59,209 --> 00:03:02,300
+<font color="#CCCCCC">re-save that and that's going</font><font color="#E5E5E5"> to</font><font color="#CCCCCC"> keep</font><font color="#E5E5E5"> us</font>
+
+100
+00:03:01,310 --> 00:03:04,790
+<font color="#CCCCCC">from getting a whole bunch of different</font>
+
+101
+00:03:02,300 --> 00:03:06,020
+errors and this<font color="#E5E5E5"> is notepad plus plus if</font>
+
+102
+00:03:04,790 --> 00:03:07,700
+<font color="#E5E5E5">you were wondering but you can use any</font>
+
+103
+00:03:06,020 --> 00:03:10,160
+type of text editor as long as it's not
+
+104
+00:03:07,700 --> 00:03:12,680
+Microsoft<font color="#E5E5E5"> Word or something like that</font>
+
+105
+00:03:10,160 --> 00:03:14,209
+<font color="#CCCCCC">you</font><font color="#E5E5E5"> want a generic text application</font><font color="#CCCCCC"> then</font>
+
+106
+00:03:12,680 --> 00:03:16,519
+what we're<font color="#E5E5E5"> going to want</font><font color="#CCCCCC"> to do is go in</font>
+
+107
+00:03:14,209 --> 00:03:17,780
+and<font color="#E5E5E5"> install Express so again in the</font>
+
+108
+00:03:16,519 --> 00:03:20,450
+command problems you're going<font color="#E5E5E5"> to type in</font>
+
+109
+00:03:17,780 --> 00:03:22,100
+MPM install<font color="#E5E5E5"> dash dash</font><font color="#CCCCCC"> Save and then</font>
+
+110
+00:03:20,450 --> 00:03:23,600
+Express and it's<font color="#E5E5E5"> going to install</font>
+
+111
+00:03:22,100 --> 00:03:24,950
+<font color="#CCCCCC">everything there for you</font><font color="#E5E5E5"> once again</font>
+
+112
+00:03:23,600 --> 00:03:26,690
+<font color="#CCCCCC">we're going to</font><font color="#E5E5E5"> want to install</font>
+
+113
+00:03:24,950 --> 00:03:29,450
+handlebars so we can use<font color="#E5E5E5"> that in our</font>
+
+114
+00:03:26,690 --> 00:03:32,209
+<font color="#E5E5E5">application so</font><font color="#CCCCCC"> type in npm install dash</font>
+
+115
+00:03:29,450 --> 00:03:33,560
+<font color="#CCCCCC">dash save Express - handlebars right</font>
+
+116
+00:03:32,209 --> 00:03:35,269
+like that<font color="#CCCCCC"> and that's</font><font color="#E5E5E5"> going to install</font>
+
+117
+00:03:33,560 --> 00:03:37,010
+and<font color="#E5E5E5"> then here you</font><font color="#CCCCCC"> can</font><font color="#E5E5E5"> see exactly how</font>
+
+118
+00:03:35,269 --> 00:03:39,410
+we're going<font color="#E5E5E5"> to be testing everything and</font>
+
+119
+00:03:37,010 --> 00:03:41,239
+you can see here in a really simple type
+
+120
+00:03:39,410 --> 00:03:42,890
+<font color="#CCCCCC">of Express application it's going to</font>
+
+121
+00:03:41,239 --> 00:03:44,480
+allow us<font color="#E5E5E5"> to text that everything was</font>
+
+122
+00:03:42,890 --> 00:03:45,860
+actually<font color="#E5E5E5"> installed so the very first</font>
+
+123
+00:03:44,480 --> 00:03:48,620
+thing<font color="#E5E5E5"> we're going to do is give</font><font color="#CCCCCC"> our</font>
+
+124
+00:03:45,860 --> 00:03:50,750
+<font color="#E5E5E5">Express is equal to require Express this</font>
+
+125
+00:03:48,620 --> 00:03:52,790
+<font color="#E5E5E5">is just going to import our Express</font>
+
+126
+00:03:50,750 --> 00:03:55,910
+module for us to be able to<font color="#E5E5E5"> use right</font>
+
+127
+00:03:52,790 --> 00:03:58,640
+here<font color="#E5E5E5"> with app set port we're going to be</font>
+
+128
+00:03:55,910 --> 00:04:01,310
+<font color="#E5E5E5">defining that the web application is</font>
+
+129
+00:03:58,640 --> 00:04:03,320
+<font color="#E5E5E5">going to be run on port 3000 and then</font>
+
+130
+00:04:01,310 --> 00:04:05,180
+inside of<font color="#E5E5E5"> Express and</font><font color="#CCCCCC"> nodejs you're</font>
+
+131
+00:04:03,320 --> 00:04:07,010
+going to define<font color="#E5E5E5"> things called routes</font>
+
+132
+00:04:05,180 --> 00:04:08,660
+<font color="#CCCCCC">right</font><font color="#E5E5E5"> here I'm just</font><font color="#CCCCCC"> going to use the</font>
+
+133
+00:04:07,010 --> 00:04:11,570
+default forward slash route which is
+
+134
+00:04:08,660 --> 00:04:13,940
+just going<font color="#E5E5E5"> to be just</font><font color="#CCCCCC"> a basic access to</font>
+
+135
+00:04:11,570 --> 00:04:17,030
+the most<font color="#E5E5E5"> basic of URL so it'd</font><font color="#CCCCCC"> be</font>
+
+136
+00:04:13,940 --> 00:04:18,859
+<font color="#CCCCCC">something like localhost colon 3000 for</font>
+
+137
+00:04:17,029 --> 00:04:21,019
+port 3000<font color="#CCCCCC"> and what this is basically</font>
+
+138
+00:04:18,858 --> 00:04:23,000
+saying<font color="#E5E5E5"> is whenever you go</font><font color="#CCCCCC"> to that in</font>
+
+139
+00:04:21,019 --> 00:04:24,130
+<font color="#E5E5E5">your guru or our in your browser</font><font color="#CCCCCC"> it's</font>
+
+140
+00:04:23,000 --> 00:04:25,900
+just going to<font color="#E5E5E5"> print out</font>
+
+141
+00:04:24,130 --> 00:04:27,490
+message<font color="#E5E5E5"> on the browser window</font><font color="#CCCCCC"> that's</font>
+
+142
+00:04:25,900 --> 00:04:29,110
+<font color="#E5E5E5">going to say Express</font><font color="#CCCCCC"> work so we know</font>
+
+143
+00:04:27,490 --> 00:04:30,790
+that<font color="#E5E5E5"> that all works and then right</font><font color="#CCCCCC"> down</font>
+
+144
+00:04:29,110 --> 00:04:32,860
+here you<font color="#CCCCCC"> can see that</font><font color="#E5E5E5"> it's going</font><font color="#CCCCCC"> to</font>
+
+145
+00:04:30,790 --> 00:04:35,440
+basically tell our web application to
+
+146
+00:04:32,860 --> 00:04:37,660
+listen on port<font color="#E5E5E5"> 3000 for any instructions</font>
+
+147
+00:04:35,440 --> 00:04:39,520
+<font color="#E5E5E5">in regards to what information</font><font color="#CCCCCC"> to push</font>
+
+148
+00:04:37,660 --> 00:04:41,320
+out<font color="#E5E5E5"> then</font><font color="#CCCCCC"> console.log</font><font color="#E5E5E5"> is just going to</font>
+
+149
+00:04:39,520 --> 00:04:43,600
+<font color="#E5E5E5">print</font><font color="#CCCCCC"> an</font><font color="#E5E5E5"> express started press</font><font color="#CCCCCC"> control-c</font>
+
+150
+00:04:41,320 --> 00:04:44,860
+to<font color="#E5E5E5"> terminate then to actually</font><font color="#CCCCCC"> run</font><font color="#E5E5E5"> this</font>
+
+151
+00:04:43,600 --> 00:04:47,470
+application you're going<font color="#CCCCCC"> to want</font><font color="#E5E5E5"> to save</font>
+
+152
+00:04:44,860 --> 00:04:49,780
+this first and I call this<font color="#CCCCCC"> Xpress touch</font>
+
+153
+00:04:47,470 --> 00:04:51,430
+<font color="#CCCCCC">a s you saw me point to that file</font>
+
+154
+00:04:49,780 --> 00:04:53,050
+previously whenever we were setting<font color="#E5E5E5"> up</font>
+
+155
+00:04:51,430 --> 00:04:54,430
+<font color="#E5E5E5">the JSON file to start</font><font color="#CCCCCC"> your server</font>
+
+156
+00:04:53,050 --> 00:04:56,320
+you're going<font color="#CCCCCC"> to type in node</font><font color="#E5E5E5"> Express</font>
+
+157
+00:04:54,430 --> 00:04:58,300
+<font color="#E5E5E5">touch a s and you can see right</font><font color="#CCCCCC"> there</font>
+
+158
+00:04:56,320 --> 00:05:00,070
+Express<font color="#E5E5E5"> started press</font><font color="#CCCCCC"> control C to</font>
+
+159
+00:04:58,300 --> 00:05:01,660
+terminate and that's<font color="#E5E5E5"> exactly what you</font>
+
+160
+00:05:00,070 --> 00:05:03,310
+<font color="#E5E5E5">have</font><font color="#CCCCCC"> here</font><font color="#E5E5E5"> and</font><font color="#CCCCCC"> then if you go</font><font color="#E5E5E5"> into your</font>
+
+161
+00:05:01,660 --> 00:05:05,860
+browser<font color="#E5E5E5"> and type in localhost colon</font>
+
+162
+00:05:03,310 --> 00:05:07,720
+<font color="#CCCCCC">3,000 Express works prints out and</font>
+
+163
+00:05:05,860 --> 00:05:09,490
+Express works<font color="#E5E5E5"> comes from this point</font>
+
+164
+00:05:07,720 --> 00:05:12,220
+<font color="#E5E5E5">right here</font><font color="#CCCCCC"> so</font><font color="#E5E5E5"> that is how we go in and</font>
+
+165
+00:05:09,490 --> 00:05:13,690
+install Express and nodejs and a whole
+
+166
+00:05:12,220 --> 00:05:15,460
+<font color="#E5E5E5">bunch of other</font><font color="#CCCCCC"> different things inside</font>
+
+167
+00:05:13,690 --> 00:05:17,410
+off<font color="#E5E5E5"> windows and you can see here the</font>
+
+168
+00:05:15,460 --> 00:05:19,360
+actual layout of everything so<font color="#E5E5E5"> I have</font><font color="#CCCCCC"> a</font>
+
+169
+00:05:17,410 --> 00:05:21,100
+directory called<font color="#E5E5E5"> Express</font><font color="#CCCCCC"> Tut inside</font><font color="#E5E5E5"> of</font>
+
+170
+00:05:19,360 --> 00:05:23,080
+it there's<font color="#E5E5E5"> no tools that was all</font>
+
+171
+00:05:21,100 --> 00:05:24,610
+installed for us<font color="#E5E5E5"> Express Tut that was</font>
+
+172
+00:05:23,080 --> 00:05:26,410
+the file we were using and here is<font color="#E5E5E5"> our</font>
+
+173
+00:05:24,610 --> 00:05:29,110
+JSON<font color="#E5E5E5"> file so now what I'm going to do is</font>
+
+174
+00:05:26,410 --> 00:05:31,120
+jump<font color="#E5E5E5"> over into</font><font color="#CCCCCC"> Macintosh and install</font>
+
+175
+00:05:29,110 --> 00:05:33,520
+<font color="#E5E5E5">pretty much exactly the</font><font color="#CCCCCC"> same things and</font>
+
+176
+00:05:31,120 --> 00:05:35,740
+then go<font color="#E5E5E5"> about creating the rest of our</font>
+
+177
+00:05:33,520 --> 00:05:38,830
+application exploring the world of the
+
+178
+00:05:35,740 --> 00:05:40,810
+Express framework<font color="#E5E5E5"> okay so here is our</font>
+
+179
+00:05:38,830 --> 00:05:42,340
+<font color="#E5E5E5">Express</font><font color="#CCCCCC"> Tut directory and everything's</font>
+
+180
+00:05:40,810 --> 00:05:43,900
+<font color="#E5E5E5">going to be the same on Windows and</font>
+
+181
+00:05:42,340 --> 00:05:45,610
+Macintosh<font color="#CCCCCC"> so what we're</font><font color="#E5E5E5"> going to want</font><font color="#CCCCCC"> to</font>
+
+182
+00:05:43,900 --> 00:05:48,280
+do<font color="#E5E5E5"> here</font><font color="#CCCCCC"> first is we're going</font><font color="#E5E5E5"> to want</font><font color="#CCCCCC"> to</font>
+
+183
+00:05:45,610 --> 00:05:50,350
+<font color="#E5E5E5">create a</font><font color="#CCCCCC"> public directory</font><font color="#E5E5E5"> and inside</font><font color="#CCCCCC"> of</font>
+
+184
+00:05:48,280 --> 00:05:52,090
+<font color="#E5E5E5">that I'm going to have images</font><font color="#CCCCCC"> and</font>
+
+185
+00:05:50,350 --> 00:05:53,560
+they're just going<font color="#E5E5E5"> to be my logos that</font>
+
+186
+00:05:52,090 --> 00:05:55,090
+I'm going<font color="#E5E5E5"> to use here just for my sample</font>
+
+187
+00:05:53,560 --> 00:05:56,920
+<font color="#CCCCCC">website I'm going</font><font color="#E5E5E5"> to have another thing</font>
+
+188
+00:05:55,090 --> 00:05:58,390
+<font color="#E5E5E5">called random file dot</font><font color="#CCCCCC"> txt</font><font color="#E5E5E5"> just going to</font>
+
+189
+00:05:56,920 --> 00:05:59,680
+have some<font color="#CCCCCC"> random text</font><font color="#E5E5E5"> in it because I'm</font>
+
+190
+00:05:58,390 --> 00:06:01,450
+<font color="#E5E5E5">going to show you how to read and write</font>
+
+191
+00:05:59,680 --> 00:06:03,220
+text files<font color="#CCCCCC"> we're also going to have a</font>
+
+192
+00:06:01,450 --> 00:06:04,600
+views directory and inside<font color="#CCCCCC"> of</font><font color="#E5E5E5"> there</font>
+
+193
+00:06:03,220 --> 00:06:06,490
+you're<font color="#CCCCCC"> going to</font><font color="#E5E5E5"> have to create two</font>
+
+194
+00:06:04,600 --> 00:06:08,320
+directories called layouts and partials
+
+195
+00:06:06,490 --> 00:06:10,300
+<font color="#E5E5E5">just like that feel free to hit pause</font>
+
+196
+00:06:08,320 --> 00:06:11,950
+<font color="#CCCCCC">and do all this stuff I'm just moving</font>
+
+197
+00:06:10,300 --> 00:06:13,660
+along<font color="#E5E5E5"> here so we don't</font><font color="#CCCCCC"> waste time you're</font>
+
+198
+00:06:11,950 --> 00:06:15,670
+also going to<font color="#CCCCCC"> want to create</font><font color="#E5E5E5"> a readme</font>
+
+199
+00:06:13,660 --> 00:06:18,850
+file and let's just go into this
+
+200
+00:06:15,670 --> 00:06:20,740
+tutorial here now I'm going<font color="#E5E5E5"> to go LS you</font>
+
+201
+00:06:18,850 --> 00:06:22,480
+would type in dir if you're on Windows
+
+202
+00:06:20,740 --> 00:06:24,280
+and I'm going<font color="#CCCCCC"> to go in and say</font><font color="#E5E5E5"> that I</font>
+
+203
+00:06:22,480 --> 00:06:27,340
+want<font color="#CCCCCC"> to open everything</font><font color="#E5E5E5"> in sublime text</font>
+
+204
+00:06:24,280 --> 00:06:29,440
+<font color="#CCCCCC">I'm going to type in</font><font color="#E5E5E5"> su BL like that and</font>
+
+205
+00:06:27,340 --> 00:06:31,330
+now I<font color="#E5E5E5"> have everything here so I have</font>
+
+206
+00:06:29,440 --> 00:06:32,289
+sublime text here I have my<font color="#CCCCCC"> terminal or</font>
+
+207
+00:06:31,330 --> 00:06:33,909
+command<font color="#E5E5E5"> line if you want</font>
+
+208
+00:06:32,289 --> 00:06:36,099
+and over here I'm<font color="#E5E5E5"> going to have the</font>
+
+209
+00:06:33,909 --> 00:06:39,219
+<font color="#E5E5E5">actual application which is</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to be</font>
+
+210
+00:06:36,099 --> 00:06:40,749
+run<font color="#E5E5E5"> on localhost and the port of</font><font color="#CCCCCC"> 3000</font>
+
+211
+00:06:39,219 --> 00:06:42,279
+<font color="#CCCCCC">and</font><font color="#E5E5E5"> you can see the directory structure</font>
+
+212
+00:06:40,749 --> 00:06:44,050
+that we<font color="#CCCCCC"> have right here</font><font color="#E5E5E5"> let's jump over</font>
+
+213
+00:06:42,279 --> 00:06:45,580
+<font color="#E5E5E5">and look at the readme file right</font><font color="#CCCCCC"> here</font>
+
+214
+00:06:44,050 --> 00:06:47,710
+you're basically<font color="#CCCCCC"> just</font><font color="#E5E5E5"> going to describe</font>
+
+215
+00:06:45,580 --> 00:06:49,899
+<font color="#E5E5E5">your project</font><font color="#CCCCCC"> write like this</font><font color="#E5E5E5"> and we're</font>
+
+216
+00:06:47,710 --> 00:06:52,569
+going<font color="#CCCCCC"> to use a markdown language that is</font>
+
+217
+00:06:49,899 --> 00:06:54,759
+going to allow<font color="#CCCCCC"> us to convert into HTML</font>
+
+218
+00:06:52,569 --> 00:06:56,740
+and this<font color="#E5E5E5"> is just a kind</font><font color="#CCCCCC"> of overview</font><font color="#E5E5E5"> of</font>
+
+219
+00:06:54,759 --> 00:06:58,719
+<font color="#CCCCCC">exactly how that</font><font color="#E5E5E5"> works I'm</font><font color="#CCCCCC"> not going to</font>
+
+220
+00:06:56,740 --> 00:07:00,039
+get<font color="#E5E5E5"> into that too much</font><font color="#CCCCCC"> all these files</font>
+
+221
+00:06:58,719 --> 00:07:01,930
+are<font color="#CCCCCC"> available in the link in the</font>
+
+222
+00:07:00,039 --> 00:07:04,210
+description<font color="#E5E5E5"> but right</font><font color="#CCCCCC"> here we're just</font>
+
+223
+00:07:01,930 --> 00:07:05,919
+<font color="#E5E5E5">going to simply come in and document or</font>
+
+224
+00:07:04,210 --> 00:07:08,229
+explain what our projects going<font color="#E5E5E5"> to do</font>
+
+225
+00:07:05,919 --> 00:07:09,879
+<font color="#E5E5E5">very important to create</font><font color="#CCCCCC"> that however</font><font color="#E5E5E5"> so</font>
+
+226
+00:07:08,229 --> 00:07:11,439
+just like I did in Windows I'm going to
+
+227
+00:07:09,879 --> 00:07:14,409
+come over<font color="#CCCCCC"> here and I'm</font><font color="#E5E5E5"> going to type in</font>
+
+228
+00:07:11,439 --> 00:07:16,149
+<font color="#CCCCCC">MPM and</font><font color="#E5E5E5"> knit inside of that directory</font>
+
+229
+00:07:14,409 --> 00:07:18,430
+<font color="#CCCCCC">and you can see</font><font color="#E5E5E5"> Express</font><font color="#CCCCCC"> Tut comes in</font>
+
+230
+00:07:16,149 --> 00:07:20,499
+there that's perfectly<font color="#CCCCCC"> fun</font><font color="#E5E5E5"> version</font><font color="#CCCCCC"> 1 is</font>
+
+231
+00:07:18,430 --> 00:07:22,509
+perfectly fine description<font color="#CCCCCC"> I'm going to</font>
+
+232
+00:07:20,499 --> 00:07:23,979
+type in<font color="#E5E5E5"> Express tutorial and everything</font>
+
+233
+00:07:22,509 --> 00:07:25,509
+<font color="#E5E5E5">from this point</font><font color="#CCCCCC"> on is going</font><font color="#E5E5E5"> to</font><font color="#CCCCCC"> be all</font>
+
+234
+00:07:23,979 --> 00:07:27,520
+typed out all the code and<font color="#E5E5E5"> everything</font>
+
+235
+00:07:25,509 --> 00:07:29,469
+<font color="#E5E5E5">I'm going to call this Express taught</font>
+
+236
+00:07:27,520 --> 00:07:30,729
+<font color="#CCCCCC">j/s and this is going to be the main</font>
+
+237
+00:07:29,469 --> 00:07:32,439
+application we're<font color="#CCCCCC"> going</font><font color="#E5E5E5"> to be working</font>
+
+238
+00:07:30,729 --> 00:07:34,270
+<font color="#CCCCCC">with here test command leaving</font><font color="#E5E5E5"> that</font>
+
+239
+00:07:32,439 --> 00:07:36,819
+blanket repository leaving<font color="#E5E5E5"> that blank</font>
+
+240
+00:07:34,270 --> 00:07:39,430
+keywords leaving a blank<font color="#E5E5E5"> author</font><font color="#CCCCCC"> get a</font>
+
+241
+00:07:36,819 --> 00:07:41,800
+<font color="#E5E5E5">bender and</font><font color="#CCCCCC"> it's like</font><font color="#E5E5E5"> is</font><font color="#CCCCCC"> C for the</font>
+
+242
+00:07:39,430 --> 00:07:44,019
+license is this<font color="#CCCCCC"> okay yes</font><font color="#E5E5E5"> as default just</font>
+
+243
+00:07:41,800 --> 00:07:47,139
+hit<font color="#E5E5E5"> enter and now</font><font color="#CCCCCC"> it's</font><font color="#E5E5E5"> created and here</font>
+
+244
+00:07:44,019 --> 00:07:48,399
+is our package JSON file and just<font color="#CCCCCC"> like I</font>
+
+245
+00:07:47,139 --> 00:07:50,800
+showed you<font color="#E5E5E5"> on Windows I'm going to come</font>
+
+246
+00:07:48,399 --> 00:07:52,870
+in here<font color="#E5E5E5"> and I'm going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> say private</font>
+
+247
+00:07:50,800 --> 00:07:54,879
+<font color="#CCCCCC">colon and</font><font color="#E5E5E5"> then I'm going to type in true</font>
+
+248
+00:07:52,870 --> 00:07:56,050
+and then put another calm inside of
+
+249
+00:07:54,879 --> 00:07:58,330
+there<font color="#E5E5E5"> and then I'm going</font><font color="#CCCCCC"> to save that</font>
+
+250
+00:07:56,050 --> 00:08:00,399
+<font color="#E5E5E5">file and I'm going</font><font color="#CCCCCC"> to close</font><font color="#E5E5E5"> it</font><font color="#CCCCCC"> now jump</font>
+
+251
+00:07:58,330 --> 00:08:02,529
+back over inside of here in our terminal
+
+252
+00:08:00,399 --> 00:08:06,550
+and<font color="#E5E5E5"> I'll</font><font color="#CCCCCC"> install</font><font color="#E5E5E5"> Express so I'm going to</font>
+
+253
+00:08:02,529 --> 00:08:08,259
+go<font color="#CCCCCC"> npm install</font><font color="#E5E5E5"> - - save Express and</font>
+
+254
+00:08:06,550 --> 00:08:09,759
+Express is going to be installed<font color="#CCCCCC"> you can</font>
+
+255
+00:08:08,259 --> 00:08:12,159
+see<font color="#E5E5E5"> different things popping up over</font>
+
+256
+00:08:09,759 --> 00:08:14,169
+<font color="#E5E5E5">here so there we go</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> everything looks</font>
+
+257
+00:08:12,159 --> 00:08:16,269
+<font color="#E5E5E5">like it installed perfectly fine now I'm</font>
+
+258
+00:08:14,169 --> 00:08:20,229
+going to come in and install handlebars
+
+259
+00:08:16,269 --> 00:08:22,719
+<font color="#CCCCCC">there</font><font color="#E5E5E5"> we go NPM</font><font color="#CCCCCC"> install</font><font color="#E5E5E5"> -</font><font color="#CCCCCC"> Save Express</font>
+
+260
+00:08:20,229 --> 00:08:25,029
+<font color="#E5E5E5">and waters and</font><font color="#CCCCCC"> that also looks like</font><font color="#E5E5E5"> that</font>
+
+261
+00:08:22,719 --> 00:08:26,589
+installed perfectly fine yes it did<font color="#E5E5E5"> also</font>
+
+262
+00:08:25,029 --> 00:08:30,009
+<font color="#E5E5E5">going to come over here and create</font>
+
+263
+00:08:26,589 --> 00:08:32,199
+another file inside<font color="#E5E5E5"> of the main Express</font>
+
+264
+00:08:30,009 --> 00:08:34,769
+application<font color="#E5E5E5"> so when you get a new file</font>
+
+265
+00:08:32,198 --> 00:08:39,038
+right here<font color="#CCCCCC"> and I'm going to</font><font color="#E5E5E5"> say ignore</font>
+
+266
+00:08:34,769 --> 00:08:40,899
+packages installed by NPM because I'm
+
+267
+00:08:39,039 --> 00:08:42,790
+going<font color="#E5E5E5"> to set</font><font color="#CCCCCC"> up</font><font color="#E5E5E5"> get on this I'm going</font><font color="#CCCCCC"> to</font>
+
+268
+00:08:40,899 --> 00:08:44,620
+say node module
+
+269
+00:08:42,789 --> 00:08:46,540
+that's where we're going to<font color="#CCCCCC"> have well</font>
+
+270
+00:08:44,620 --> 00:08:50,140
+<font color="#E5E5E5">there's different packages</font><font color="#CCCCCC"> stalled star</font>
+
+271
+00:08:46,540 --> 00:08:51,610
+<font color="#E5E5E5">tilde</font><font color="#CCCCCC"> DS store this is a Macintosh only</font>
+
+272
+00:08:50,140 --> 00:08:53,830
+thing and<font color="#CCCCCC"> then</font><font color="#E5E5E5"> have something</font><font color="#CCCCCC"> else</font>
+
+273
+00:08:51,610 --> 00:08:56,140
+called credentials<font color="#E5E5E5"> which we're going to</font>
+
+274
+00:08:53,830 --> 00:08:57,790
+create<font color="#CCCCCC"> here in a little bit dot J s and</font>
+
+275
+00:08:56,140 --> 00:08:59,800
+then I'm going<font color="#CCCCCC"> to save this</font><font color="#E5E5E5"> make sure</font>
+
+276
+00:08:57,790 --> 00:09:01,900
+<font color="#CCCCCC">that I save it in the main directory</font>
+
+277
+00:08:59,800 --> 00:09:04,600
+Express<font color="#CCCCCC"> Tut</font><font color="#E5E5E5"> and this is just going to</font><font color="#CCCCCC"> be</font>
+
+278
+00:09:01,900 --> 00:09:06,040
+called<font color="#CCCCCC"> get</font><font color="#E5E5E5"> ignore and whenever I save</font>
+
+279
+00:09:04,600 --> 00:09:07,360
+this<font color="#E5E5E5"> is going to give me an error</font><font color="#CCCCCC"> I'm</font>
+
+280
+00:09:06,040 --> 00:09:09,070
+going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> say use that and that's</font>
+
+281
+00:09:07,360 --> 00:09:10,840
+perfectly fine<font color="#CCCCCC"> if you're</font><font color="#E5E5E5"> not using it</font>
+
+282
+00:09:09,070 --> 00:09:12,460
+<font color="#E5E5E5">you don't need to use this at all but I</font>
+
+283
+00:09:10,840 --> 00:09:14,020
+just<font color="#E5E5E5"> wanted to also cover</font><font color="#CCCCCC"> how to use git</font>
+
+284
+00:09:12,460 --> 00:09:15,460
+so<font color="#E5E5E5"> that's closed now I'm going to come</font>
+
+285
+00:09:14,020 --> 00:09:17,650
+in here<font color="#E5E5E5"> if I want to create a git</font>
+
+286
+00:09:15,460 --> 00:09:20,110
+repository I'm just going to say get in
+
+287
+00:09:17,650 --> 00:09:22,900
+it like<font color="#E5E5E5"> this and then I could come in</font>
+
+288
+00:09:20,110 --> 00:09:25,450
+<font color="#E5E5E5">and</font><font color="#CCCCCC"> add files if I'd like</font><font color="#E5E5E5"> so get</font><font color="#CCCCCC"> I also</font>
+
+289
+00:09:22,900 --> 00:09:27,640
+have a<font color="#CCCCCC"> git tutorial it all interests it</font>
+
+290
+00:09:25,450 --> 00:09:29,860
+up<font color="#E5E5E5"> and then if I want to also come in</font>
+
+291
+00:09:27,640 --> 00:09:33,880
+here<font color="#E5E5E5"> and commit all these</font><font color="#CCCCCC"> changes I can</font>
+
+292
+00:09:29,860 --> 00:09:35,770
+<font color="#E5E5E5">go get commit - M initial commit I'm not</font>
+
+293
+00:09:33,880 --> 00:09:37,210
+going<font color="#E5E5E5"> to be dwelling on getting and if</font>
+
+294
+00:09:35,770 --> 00:09:38,800
+you have no interest in get don't worry
+
+295
+00:09:37,210 --> 00:09:39,910
+<font color="#E5E5E5">about this and there you can</font><font color="#CCCCCC"> see</font>
+
+296
+00:09:38,800 --> 00:09:41,710
+everything went inside of there
+
+297
+00:09:39,910 --> 00:09:44,050
+perfectly<font color="#CCCCCC"> fine</font><font color="#E5E5E5"> so now that we have all</font>
+
+298
+00:09:41,710 --> 00:09:45,490
+<font color="#E5E5E5">the basics basically set</font><font color="#CCCCCC"> up here and</font>
+
+299
+00:09:44,050 --> 00:09:46,960
+we're<font color="#E5E5E5"> going to jump in here and just</font>
+
+300
+00:09:45,490 --> 00:09:49,390
+<font color="#E5E5E5">start creating our Express application</font>
+
+301
+00:09:46,960 --> 00:09:51,070
+<font color="#CCCCCC">okay and</font><font color="#E5E5E5"> our main application</font><font color="#CCCCCC"> I'm</font><font color="#E5E5E5"> going</font>
+
+302
+00:09:49,390 --> 00:09:54,910
+to come in here<font color="#E5E5E5"> and create a new file</font>
+
+303
+00:09:51,070 --> 00:09:57,040
+and I'm<font color="#E5E5E5"> going to save this file save as</font>
+
+304
+00:09:54,910 --> 00:09:58,990
+and make sure we save it in the main
+
+305
+00:09:57,040 --> 00:10:02,650
+<font color="#E5E5E5">part of our directory and this is going</font>
+
+306
+00:09:58,990 --> 00:10:04,270
+to be called Express<font color="#CCCCCC"> taught j/s</font><font color="#E5E5E5"> and then</font>
+
+307
+00:10:02,650 --> 00:10:06,610
+click on save<font color="#E5E5E5"> and basically what we're</font>
+
+308
+00:10:04,270 --> 00:10:09,520
+<font color="#E5E5E5">going to do here is structure a series</font>
+
+309
+00:10:06,610 --> 00:10:12,130
+of<font color="#E5E5E5"> possible responses depending upon the</font>
+
+310
+00:10:09,520 --> 00:10:14,560
+URL<font color="#CCCCCC"> that is requested in the browser and</font>
+
+311
+00:10:12,130 --> 00:10:18,250
+<font color="#E5E5E5">then as we travel</font><font color="#CCCCCC"> through the pipeline</font>
+
+312
+00:10:14,560 --> 00:10:20,680
+<font color="#E5E5E5">which is going to be a bunch of</font><font color="#CCCCCC"> URLs and</font>
+
+313
+00:10:18,250 --> 00:10:22,150
+then responses to those<font color="#E5E5E5"> URLs typed into</font>
+
+314
+00:10:20,680 --> 00:10:24,250
+<font color="#E5E5E5">the browser we're going to perform</font>
+
+315
+00:10:22,150 --> 00:10:26,860
+<font color="#E5E5E5">different actions using either</font>
+
+316
+00:10:24,250 --> 00:10:29,470
+<font color="#E5E5E5">middleware functions or just our own</font>
+
+317
+00:10:26,860 --> 00:10:31,030
+<font color="#E5E5E5">code that will be typing inside of there</font>
+
+318
+00:10:29,470 --> 00:10:33,730
+now if a response is<font color="#E5E5E5"> going to be valid</font>
+
+319
+00:10:31,030 --> 00:10:35,680
+we will<font color="#E5E5E5"> display the correct view on the</font>
+
+320
+00:10:33,730 --> 00:10:37,720
+<font color="#E5E5E5">screen and if not we're going to handle</font>
+
+321
+00:10:35,680 --> 00:10:39,580
+<font color="#E5E5E5">different</font><font color="#CCCCCC"> types of</font><font color="#E5E5E5"> errors so right here</font>
+
+322
+00:10:37,720 --> 00:10:41,350
+it's a<font color="#E5E5E5"> very line number one this</font><font color="#CCCCCC"> is</font>
+
+323
+00:10:39,580 --> 00:10:42,910
+going<font color="#E5E5E5"> to be our</font><font color="#CCCCCC"> entry point</font><font color="#E5E5E5"> for our</font>
+
+324
+00:10:41,350 --> 00:10:44,230
+application so<font color="#E5E5E5"> the very first thing</font>
+
+325
+00:10:42,910 --> 00:10:46,570
+<font color="#E5E5E5">we're going to do</font><font color="#CCCCCC"> just</font><font color="#E5E5E5"> like you saw</font>
+
+326
+00:10:44,230 --> 00:10:49,060
+before<font color="#E5E5E5"> is import or</font><font color="#CCCCCC"> Express module I'm</font>
+
+327
+00:10:46,570 --> 00:10:52,150
+just going<font color="#CCCCCC"> to call this Express equal to</font>
+
+328
+00:10:49,060 --> 00:10:53,030
+require Express and I assume that<font color="#E5E5E5"> you</font>
+
+329
+00:10:52,150 --> 00:10:54,530
+<font color="#CCCCCC">have a</font><font color="#E5E5E5"> background</font>
+
+330
+00:10:53,030 --> 00:10:56,140
+<font color="#E5E5E5">javascript otherwise you wouldn't even</font>
+
+331
+00:10:54,530 --> 00:10:58,910
+be here<font color="#CCCCCC"> then we're going to</font><font color="#E5E5E5"> define our</font>
+
+332
+00:10:56,140 --> 00:11:00,140
+<font color="#CCCCCC">application</font><font color="#E5E5E5"> Express now I'm going to go</font>
+
+333
+00:10:58,910 --> 00:11:01,850
+<font color="#E5E5E5">through a whole</font><font color="#CCCCCC"> bunch of other different</font>
+
+334
+00:11:00,140 --> 00:11:03,940
+<font color="#CCCCCC">things</font><font color="#E5E5E5"> that we didn't cover previously</font>
+
+335
+00:11:01,850 --> 00:11:08,090
+<font color="#E5E5E5">I'm going</font><font color="#CCCCCC"> to go in and type in</font><font color="#E5E5E5"> app</font>
+
+336
+00:11:03,940 --> 00:11:09,410
+<font color="#CCCCCC">disable</font><font color="#E5E5E5"> X powered by and this is just</font>
+
+337
+00:11:08,090 --> 00:11:11,300
+going<font color="#CCCCCC"> to block our header from</font>
+
+338
+00:11:09,410 --> 00:11:13,430
+containing information<font color="#E5E5E5"> about our server</font>
+
+339
+00:11:11,300 --> 00:11:14,870
+<font color="#CCCCCC">just for security</font><font color="#E5E5E5"> reasons you don't need</font>
+
+340
+00:11:13,430 --> 00:11:16,700
+to know much<font color="#CCCCCC"> more about it other than</font>
+
+341
+00:11:14,870 --> 00:11:18,350
+<font color="#CCCCCC">that</font><font color="#E5E5E5"> and now I basically</font><font color="#CCCCCC"> want to</font><font color="#E5E5E5"> set</font><font color="#CCCCCC"> up</font>
+
+342
+00:11:16,700 --> 00:11:20,570
+<font color="#E5E5E5">handle bar so</font><font color="#CCCCCC"> that this</font><font color="#E5E5E5"> is</font><font color="#CCCCCC"> going to work</font>
+
+343
+00:11:18,350 --> 00:11:22,400
+<font color="#E5E5E5">for</font><font color="#CCCCCC"> us in our application as well</font><font color="#E5E5E5"> so I'm</font>
+
+344
+00:11:20,570 --> 00:11:24,500
+<font color="#E5E5E5">going to go</font><font color="#CCCCCC"> over here and our layouts</font>
+
+345
+00:11:22,400 --> 00:11:26,960
+file right<font color="#CCCCCC"> here and I'm</font><font color="#E5E5E5"> going to say new</font>
+
+346
+00:11:24,500 --> 00:11:29,600
+file<font color="#CCCCCC"> and I'm going to save file save as</font>
+
+347
+00:11:26,960 --> 00:11:31,850
+<font color="#E5E5E5">and I'm</font><font color="#CCCCCC"> going to type in</font><font color="#E5E5E5"> main handlebars</font>
+
+348
+00:11:29,600 --> 00:11:34,280
+<font color="#CCCCCC">and save</font><font color="#E5E5E5"> that and we already installed</font>
+
+349
+00:11:31,850 --> 00:11:35,780
+the handlebars<font color="#CCCCCC"> module so we'll be able</font>
+
+350
+00:11:34,280 --> 00:11:37,160
+<font color="#E5E5E5">to use that</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> then I'm</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to create</font>
+
+351
+00:11:35,780 --> 00:11:38,900
+a whole<font color="#CCCCCC"> bunch of other different things</font>
+
+352
+00:11:37,160 --> 00:11:40,430
+are<font color="#E5E5E5"> going to be displayed on the screen</font>
+
+353
+00:11:38,900 --> 00:11:42,290
+<font color="#E5E5E5">whenever the user types in different</font>
+
+354
+00:11:40,430 --> 00:11:44,930
+<font color="#E5E5E5">URLs</font><font color="#CCCCCC"> and I'm going to</font><font color="#E5E5E5"> do that</font>
+
+355
+00:11:42,290 --> 00:11:46,460
+specifically<font color="#E5E5E5"> in our views directory</font><font color="#CCCCCC"> so</font>
+
+356
+00:11:44,930 --> 00:11:47,750
+I'm<font color="#E5E5E5"> going to say new file and I'm just</font>
+
+357
+00:11:46,460 --> 00:11:50,030
+<font color="#E5E5E5">going to keep this quite simple I'm just</font>
+
+358
+00:11:47,750 --> 00:11:51,740
+<font color="#E5E5E5">going</font><font color="#CCCCCC"> to go save as and you can see</font>
+
+359
+00:11:50,030 --> 00:11:54,140
+right<font color="#CCCCCC"> there</font><font color="#E5E5E5"> it's in the views directory</font>
+
+360
+00:11:51,740 --> 00:11:57,470
+<font color="#CCCCCC">I'm going to type</font><font color="#E5E5E5"> in home handlebars</font>
+
+361
+00:11:54,140 --> 00:12:00,680
+<font color="#E5E5E5">like this and save create another one</font>
+
+362
+00:11:57,470 --> 00:12:02,750
+<font color="#E5E5E5">new file file save as again make sure</font>
+
+363
+00:12:00,680 --> 00:12:05,660
+<font color="#E5E5E5">it's in the views directory</font><font color="#CCCCCC"> I'm going to</font>
+
+364
+00:12:02,750 --> 00:12:09,260
+type in about handlebars<font color="#E5E5E5"> and save that</font>
+
+365
+00:12:05,660 --> 00:12:12,530
+<font color="#E5E5E5">create another one</font><font color="#CCCCCC"> 404</font><font color="#E5E5E5"> handlebars save</font>
+
+366
+00:12:09,260 --> 00:12:14,810
+that and then finally<font color="#E5E5E5"> 500 dot handlebars</font>
+
+367
+00:12:12,530 --> 00:12:16,760
+<font color="#E5E5E5">and save that</font><font color="#CCCCCC"> okay so we have all those</font>
+
+368
+00:12:14,810 --> 00:12:18,770
+created now let's go and<font color="#E5E5E5"> throw some</font><font color="#CCCCCC"> HTML</font>
+
+369
+00:12:16,760 --> 00:12:21,050
+inside of<font color="#E5E5E5"> those going to jump over</font><font color="#CCCCCC"> into</font>
+
+370
+00:12:18,770 --> 00:12:22,640
+the home dot handlebars first<font color="#E5E5E5"> and I'm</font>
+
+371
+00:12:21,050 --> 00:12:25,670
+just<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> keep this very</font><font color="#CCCCCC"> simple I'm</font>
+
+372
+00:12:22,640 --> 00:12:27,290
+<font color="#CCCCCC">going to go div class is equal to page</font>
+
+373
+00:12:25,670 --> 00:12:29,660
+header<font color="#E5E5E5"> which is going to provide me a</font>
+
+374
+00:12:27,290 --> 00:12:31,130
+little<font color="#E5E5E5"> bit of styling inside of this and</font>
+
+375
+00:12:29,660 --> 00:12:33,020
+then I'm just<font color="#E5E5E5"> going to throw</font><font color="#CCCCCC"> an h3 tag</font>
+
+376
+00:12:31,130 --> 00:12:35,810
+inside of here<font color="#E5E5E5"> and then inside</font><font color="#CCCCCC"> of it I'm</font>
+
+377
+00:12:33,020 --> 00:12:38,180
+going<font color="#CCCCCC"> to say welcome to</font><font color="#E5E5E5"> my</font><font color="#CCCCCC"> Express</font>
+
+378
+00:12:35,810 --> 00:12:39,830
+tutorial I'm going<font color="#E5E5E5"> to copy this I'm</font>
+
+379
+00:12:38,180 --> 00:12:41,720
+going<font color="#CCCCCC"> to use basically the</font><font color="#E5E5E5"> same format</font>
+
+380
+00:12:39,830 --> 00:12:44,270
+for all the other ones<font color="#E5E5E5"> so jump over into</font>
+
+381
+00:12:41,720 --> 00:12:46,160
+about handlebars<font color="#E5E5E5"> paste this inside of</font>
+
+382
+00:12:44,270 --> 00:12:49,730
+<font color="#CCCCCC">here and I'll just</font><font color="#E5E5E5"> do something simple</font>
+
+383
+00:12:46,160 --> 00:12:52,520
+<font color="#E5E5E5">like about us perfectly fine save that</font>
+
+384
+00:12:49,730 --> 00:12:56,240
+<font color="#E5E5E5">for a for handlebars</font><font color="#CCCCCC"> just come</font><font color="#E5E5E5"> inside</font><font color="#CCCCCC"> of</font>
+
+385
+00:12:52,520 --> 00:12:57,770
+here<font color="#E5E5E5"> and type in 404 not found which</font><font color="#CCCCCC"> is</font>
+
+386
+00:12:56,240 --> 00:12:59,690
+<font color="#E5E5E5">going to be the page</font><font color="#CCCCCC"> that it goes to</font>
+
+387
+00:12:57,770 --> 00:13:02,320
+whenever<font color="#E5E5E5"> they can't find the URL you</font>
+
+388
+00:12:59,690 --> 00:13:06,010
+requested<font color="#E5E5E5"> and then in the 500</font>
+
+389
+00:13:02,320 --> 00:13:07,870
+<font color="#CCCCCC">10500 and server error which is going</font><font color="#E5E5E5"> to</font>
+
+390
+00:13:06,010 --> 00:13:09,400
+<font color="#E5E5E5">the be the page you go to and there's a</font>
+
+391
+00:13:07,870 --> 00:13:10,780
+server<font color="#E5E5E5"> error that's basically all we</font>
+
+392
+00:13:09,400 --> 00:13:13,030
+<font color="#E5E5E5">need</font><font color="#CCCCCC"> to do with</font><font color="#E5E5E5"> those so let's just</font>
+
+393
+00:13:10,780 --> 00:13:16,390
+close those out<font color="#CCCCCC"> now we're back up inside</font>
+
+394
+00:13:13,030 --> 00:13:17,950
+<font color="#E5E5E5">of Express</font><font color="#CCCCCC"> J s that same file again and</font>
+
+395
+00:13:16,390 --> 00:13:20,230
+here what we're<font color="#CCCCCC"> going to</font><font color="#E5E5E5"> have to do is</font>
+
+396
+00:13:17,950 --> 00:13:22,240
+define that main dot handlebars is going
+
+397
+00:13:20,230 --> 00:13:23,890
+to be our default layout and then<font color="#E5E5E5"> that</font>
+
+398
+00:13:22,240 --> 00:13:26,170
+<font color="#E5E5E5">default layout is going to take the</font>
+
+399
+00:13:23,890 --> 00:13:29,020
+specific<font color="#CCCCCC"> information we just defined for</font>
+
+400
+00:13:26,170 --> 00:13:31,360
+those URLs home<font color="#E5E5E5"> about</font><font color="#CCCCCC"> 4 a 4</font><font color="#E5E5E5"> and 500</font><font color="#CCCCCC"> and</font>
+
+401
+00:13:29,020 --> 00:13:32,980
+transport them<font color="#CCCCCC"> into the</font><font color="#E5E5E5"> layout folder</font><font color="#CCCCCC"> so</font>
+
+402
+00:13:31,360 --> 00:13:35,290
+I don't we jump<font color="#E5E5E5"> over and actually create</font>
+
+403
+00:13:32,980 --> 00:13:36,430
+main dot handlebars instead here<font color="#E5E5E5"> we want</font>
+
+404
+00:13:35,290 --> 00:13:38,590
+<font color="#E5E5E5">to first do a little bit of</font>
+
+405
+00:13:36,430 --> 00:13:40,060
+housecleaning so we'll go<font color="#E5E5E5"> into views and</font>
+
+406
+00:13:38,590 --> 00:13:41,350
+then we're going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> go into partials</font>
+
+407
+00:13:40,060 --> 00:13:43,000
+<font color="#E5E5E5">right here there's</font><font color="#CCCCCC"> nothing in there</font>
+
+408
+00:13:41,350 --> 00:13:44,530
+<font color="#CCCCCC">right now let's create</font><font color="#E5E5E5"> a</font><font color="#CCCCCC"> new file</font><font color="#E5E5E5"> and</font>
+
+409
+00:13:43,000 --> 00:13:46,510
+then we're<font color="#E5E5E5"> going to paste inside of here</font>
+
+410
+00:13:44,530 --> 00:13:49,090
+everything<font color="#CCCCCC"> that we want to go at the</font>
+
+411
+00:13:46,510 --> 00:13:50,350
+<font color="#CCCCCC">very top inside of our head section so</font>
+
+412
+00:13:49,090 --> 00:13:51,910
+you're going to see right here<font color="#CCCCCC"> exactly</font>
+
+413
+00:13:50,350 --> 00:13:53,350
+what all<font color="#E5E5E5"> these different things do here</font>
+
+414
+00:13:51,910 --> 00:13:55,090
+we're<font color="#E5E5E5"> going to tell Internet Explorer to</font>
+
+415
+00:13:53,350 --> 00:13:57,070
+use the<font color="#E5E5E5"> latest rendering engine that's</font>
+
+416
+00:13:55,090 --> 00:13:59,560
+what that does we want to set the page
+
+417
+00:13:57,070 --> 00:14:02,320
+width on our device and<font color="#E5E5E5"> we also want to</font>
+
+418
+00:13:59,560 --> 00:14:04,720
+set our zoom level to<font color="#CCCCCC"> 1 right here we</font>
+
+419
+00:14:02,320 --> 00:14:06,820
+<font color="#CCCCCC">are installing bootstrap and let's just</font>
+
+420
+00:14:04,720 --> 00:14:07,660
+<font color="#E5E5E5">do a view and word wrap so everything</font>
+
+421
+00:14:06,820 --> 00:14:08,920
+fits<font color="#E5E5E5"> on the screen</font>
+
+422
+00:14:07,660 --> 00:14:11,530
+and then right here<font color="#E5E5E5"> we're installing</font>
+
+423
+00:14:08,920 --> 00:14:12,880
+jQuery<font color="#E5E5E5"> once again all of this code</font><font color="#CCCCCC"> is</font>
+
+424
+00:14:11,530 --> 00:14:14,590
+<font color="#CCCCCC">available in the description</font><font color="#E5E5E5"> underneath</font>
+
+425
+00:14:12,880 --> 00:14:15,910
+the video<font color="#E5E5E5"> and of course it's free so</font>
+
+426
+00:14:14,590 --> 00:14:18,880
+then what we're going<font color="#E5E5E5"> to do is we're</font>
+
+427
+00:14:15,910 --> 00:14:21,100
+going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> want to save this inside</font><font color="#CCCCCC"> of our</font>
+
+428
+00:14:18,880 --> 00:14:22,900
+partials directory right here and we're
+
+429
+00:14:21,100 --> 00:14:24,970
+just<font color="#E5E5E5"> going to call this head dot</font>
+
+430
+00:14:22,900 --> 00:14:26,920
+handlebars so we keep everything all
+
+431
+00:14:24,970 --> 00:14:28,750
+separated<font color="#E5E5E5"> and</font><font color="#CCCCCC"> keep our</font><font color="#E5E5E5"> code our code</font>
+
+432
+00:14:26,920 --> 00:14:30,370
+very clean and we're going<font color="#E5E5E5"> to say save</font>
+
+433
+00:14:28,750 --> 00:14:31,930
+<font color="#E5E5E5">then we get rid of that we don't need it</font>
+
+434
+00:14:30,370 --> 00:14:34,210
+anymore<font color="#CCCCCC"> likewise we're going to come in</font>
+
+435
+00:14:31,930 --> 00:14:36,100
+and create another partial<font color="#E5E5E5"> go new file</font>
+
+436
+00:14:34,210 --> 00:14:37,990
+inside<font color="#CCCCCC"> of here</font><font color="#E5E5E5"> and then inside</font><font color="#CCCCCC"> of this</font>
+
+437
+00:14:36,100 --> 00:14:40,180
+what we're going to do is create<font color="#CCCCCC"> our</font>
+
+438
+00:14:37,990 --> 00:14:42,640
+bootstrap navbar which<font color="#E5E5E5"> is going to be</font>
+
+439
+00:14:40,180 --> 00:14:43,840
+very responsive and nice for us<font color="#CCCCCC"> and you</font>
+
+440
+00:14:42,640 --> 00:14:46,000
+<font color="#E5E5E5">can see right here</font><font color="#CCCCCC"> there's</font><font color="#E5E5E5"> not really</font>
+
+441
+00:14:43,840 --> 00:14:47,590
+much to<font color="#E5E5E5"> see</font><font color="#CCCCCC"> here just basic copy and</font>
+
+442
+00:14:46,000 --> 00:14:49,600
+paste<font color="#E5E5E5"> everything directly inside of</font>
+
+443
+00:14:47,590 --> 00:14:52,210
+<font color="#E5E5E5">there</font><font color="#CCCCCC"> but you can see</font><font color="#E5E5E5"> right here</font><font color="#CCCCCC"> I am</font>
+
+444
+00:14:49,600 --> 00:14:54,340
+pointing<font color="#E5E5E5"> to my images directory and</font><font color="#CCCCCC"> that</font>
+
+445
+00:14:52,210 --> 00:14:55,630
+is where I have<font color="#E5E5E5"> my logo if we go and</font>
+
+446
+00:14:54,340 --> 00:14:58,900
+<font color="#CCCCCC">open that</font><font color="#E5E5E5"> up</font><font color="#CCCCCC"> you can see</font><font color="#E5E5E5"> right here</font>
+
+447
+00:14:55,630 --> 00:15:00,490
+<font color="#CCCCCC">entity logo small dot ping</font><font color="#E5E5E5"> and like I</font>
+
+448
+00:14:58,900 --> 00:15:01,960
+<font color="#CCCCCC">said I covered all</font><font color="#E5E5E5"> this in the bootstrap</font>
+
+449
+00:15:00,490 --> 00:15:04,150
+tutorial you<font color="#CCCCCC"> can also see</font><font color="#E5E5E5"> here I'm going</font>
+
+450
+00:15:01,960 --> 00:15:05,260
+<font color="#E5E5E5">to have</font><font color="#CCCCCC"> an about a contact and I'm also</font>
+
+451
+00:15:04,150 --> 00:15:07,750
+going to<font color="#CCCCCC"> have a place</font><font color="#E5E5E5"> where they're</font>
+
+452
+00:15:05,260 --> 00:15:11,440
+<font color="#CCCCCC">going to</font><font color="#E5E5E5"> be able to upload files so this</font>
+
+453
+00:15:07,750 --> 00:15:13,450
+guy we're going<font color="#CCCCCC"> to save as BS nav bar</font>
+
+454
+00:15:11,440 --> 00:15:14,790
+dot handlebars and you're going to see
+
+455
+00:15:13,450 --> 00:15:16,710
+here<font color="#E5E5E5"> in a second whenever I am</font>
+
+456
+00:15:14,790 --> 00:15:18,300
+or that so save<font color="#CCCCCC"> that and then</font><font color="#E5E5E5"> we can</font>
+
+457
+00:15:16,710 --> 00:15:20,340
+close<font color="#E5E5E5"> that out</font><font color="#CCCCCC"> as well now I'm going to</font>
+
+458
+00:15:18,300 --> 00:15:22,470
+be able<font color="#E5E5E5"> to jump</font><font color="#CCCCCC"> into</font><font color="#E5E5E5"> main dot handlebars</font>
+
+459
+00:15:20,340 --> 00:15:24,270
+<font color="#E5E5E5">and this is going</font><font color="#CCCCCC"> to be like I said the</font>
+
+460
+00:15:22,470 --> 00:15:26,130
+main<font color="#E5E5E5"> layout that we're going to define</font>
+
+461
+00:15:24,270 --> 00:15:28,380
+inside of here and<font color="#E5E5E5"> this is just basic</font>
+
+462
+00:15:26,130 --> 00:15:31,920
+HTML<font color="#CCCCCC"> so we're going to go doctype HTML</font>
+
+463
+00:15:28,380 --> 00:15:33,570
+<font color="#E5E5E5">just like always then we'll type in HTML</font>
+
+464
+00:15:31,920 --> 00:15:35,220
+well<font color="#CCCCCC"> actually throw all that in there</font>
+
+465
+00:15:33,570 --> 00:15:37,590
+for<font color="#E5E5E5"> me pretty awesome</font><font color="#CCCCCC"> I'm also going to</font>
+
+466
+00:15:35,220 --> 00:15:40,290
+come in and go language<font color="#CCCCCC"> is equal to</font>
+
+467
+00:15:37,590 --> 00:15:42,960
+English the<font color="#E5E5E5"> title for this is going to</font>
+
+468
+00:15:40,290 --> 00:15:44,760
+be<font color="#E5E5E5"> Express tutorial and then I have all</font>
+
+469
+00:15:42,960 --> 00:15:46,320
+those head files I had<font color="#CCCCCC"> before</font>
+
+470
+00:15:44,760 --> 00:15:48,660
+all this stuff<font color="#E5E5E5"> that I want to go inside</font>
+
+471
+00:15:46,320 --> 00:15:51,120
+<font color="#CCCCCC">of</font><font color="#E5E5E5"> every single file so I'm going to go</font>
+
+472
+00:15:48,660 --> 00:15:53,700
+in and reference<font color="#E5E5E5"> that partial and how we</font>
+
+473
+00:15:51,120 --> 00:15:55,200
+reference partials<font color="#E5E5E5"> is</font><font color="#CCCCCC"> to curly</font><font color="#E5E5E5"> brackets</font>
+
+474
+00:15:53,700 --> 00:15:57,000
+<font color="#E5E5E5">and then we're going</font><font color="#CCCCCC"> to type in head</font>
+
+475
+00:15:55,200 --> 00:15:59,100
+which is<font color="#E5E5E5"> the name</font><font color="#CCCCCC"> of the file the name</font>
+
+476
+00:15:57,000 --> 00:16:00,720
+say head handlebars<font color="#E5E5E5"> and just type in</font>
+
+477
+00:15:59,100 --> 00:16:02,460
+head and<font color="#CCCCCC"> all that</font><font color="#E5E5E5"> stuff is going</font><font color="#CCCCCC"> to be</font>
+
+478
+00:16:00,720 --> 00:16:04,770
+automatically<font color="#CCCCCC"> imported inside of there</font>
+
+479
+00:16:02,460 --> 00:16:06,510
+<font color="#E5E5E5">actually I want to put</font><font color="#CCCCCC"> this before the</font>
+
+480
+00:16:04,770 --> 00:16:08,670
+title section<font color="#CCCCCC"> there we go</font>
+
+481
+00:16:06,510 --> 00:16:10,710
+nice<font color="#E5E5E5"> and clean</font><font color="#CCCCCC"> then inside of</font><font color="#E5E5E5"> the body</font>
+
+482
+00:16:08,670 --> 00:16:12,600
+<font color="#CCCCCC">section I'm also going to want to</font>
+
+483
+00:16:10,710 --> 00:16:14,760
+<font color="#E5E5E5">reference the navigation bar so</font><font color="#CCCCCC"> that</font>
+
+484
+00:16:12,600 --> 00:16:16,800
+shows up<font color="#E5E5E5"> inside</font><font color="#CCCCCC"> of here</font><font color="#E5E5E5"> partial again</font>
+
+485
+00:16:14,760 --> 00:16:18,060
+and I'm just<font color="#CCCCCC"> going to get</font><font color="#E5E5E5"> like this and</font>
+
+486
+00:16:16,800 --> 00:16:20,790
+then I'm going<font color="#E5E5E5"> to</font><font color="#CCCCCC"> reference whatever</font><font color="#E5E5E5"> the</font>
+
+487
+00:16:18,060 --> 00:16:23,130
+file name is which is BS now for then
+
+488
+00:16:20,790 --> 00:16:25,380
+after this<font color="#E5E5E5"> I'm actually going to have to</font>
+
+489
+00:16:23,130 --> 00:16:28,320
+put a section inside of here where the
+
+490
+00:16:25,380 --> 00:16:30,960
+HTML all the stuff<font color="#CCCCCC"> that I defined here</font>
+
+491
+00:16:28,320 --> 00:16:33,810
+<font color="#E5E5E5">this right</font><font color="#CCCCCC"> here is automatically</font><font color="#E5E5E5"> going</font>
+
+492
+00:16:30,960 --> 00:16:36,000
+to go right<font color="#CCCCCC"> inside of</font><font color="#E5E5E5"> here</font><font color="#CCCCCC"> if I go and</font>
+
+493
+00:16:33,810 --> 00:16:38,070
+put<font color="#E5E5E5"> three curly brackets and then type</font>
+
+494
+00:16:36,000 --> 00:16:40,290
+in body inside<font color="#E5E5E5"> of there and that's all</font><font color="#CCCCCC"> I</font>
+
+495
+00:16:38,070 --> 00:16:42,000
+need<font color="#E5E5E5"> to do and keep this nice and neat</font>
+
+496
+00:16:40,290 --> 00:16:44,550
+I'm also going to<font color="#E5E5E5"> surround this with a</font>
+
+497
+00:16:42,000 --> 00:16:46,950
+div<font color="#E5E5E5"> and I'm going to give this the class</font>
+
+498
+00:16:44,550 --> 00:16:49,410
+name of container<font color="#E5E5E5"> which is another</font>
+
+499
+00:16:46,950 --> 00:16:51,900
+little trick<font color="#E5E5E5"> nice little styling tool</font>
+
+500
+00:16:49,410 --> 00:16:54,300
+that's<font color="#CCCCCC"> provided to</font><font color="#E5E5E5"> us with bootstrap and</font>
+
+501
+00:16:51,900 --> 00:16:55,740
+then after all<font color="#CCCCCC"> of this is all</font><font color="#E5E5E5"> set up I'm</font>
+
+502
+00:16:54,300 --> 00:16:58,020
+going<font color="#CCCCCC"> to come in here and throw in a</font>
+
+503
+00:16:55,740 --> 00:17:00,120
+script tag and<font color="#CCCCCC"> that script</font><font color="#E5E5E5"> tag is going</font>
+
+504
+00:16:58,020 --> 00:17:01,620
+to have the reference to<font color="#CCCCCC"> bootstraps so</font>
+
+505
+00:17:00,120 --> 00:17:04,110
+the bootstrap is going to work here as
+
+506
+00:17:01,620 --> 00:17:06,329
+well for<font color="#E5E5E5"> us again copy and paste get all</font>
+
+507
+00:17:04,109 --> 00:17:08,249
+that in the<font color="#E5E5E5"> same place and</font><font color="#CCCCCC"> that is all</font>
+
+508
+00:17:06,329 --> 00:17:10,530
+we're going<font color="#E5E5E5"> to have to do for</font><font color="#CCCCCC"> our</font><font color="#E5E5E5"> layout</font>
+
+509
+00:17:08,250 --> 00:17:12,630
+file which is main dot handlebars and
+
+510
+00:17:10,530 --> 00:17:14,190
+<font color="#E5E5E5">it's in our main layouts directory so</font>
+
+511
+00:17:12,630 --> 00:17:15,780
+let's save that<font color="#E5E5E5"> and</font><font color="#CCCCCC"> we can close it</font>
+
+512
+00:17:14,190 --> 00:17:18,600
+we're done<font color="#E5E5E5"> with it</font><font color="#CCCCCC"> now once again in</font>
+
+513
+00:17:15,780 --> 00:17:21,510
+<font color="#CCCCCC">express</font><font color="#E5E5E5"> touch is our main</font><font color="#CCCCCC"> Express</font>
+
+514
+00:17:18,599 --> 00:17:23,669
+application<font color="#CCCCCC"> we</font><font color="#E5E5E5"> need to define that main</font>
+
+515
+00:17:21,510 --> 00:17:24,959
+dot handlebars is our default layout and
+
+516
+00:17:23,670 --> 00:17:26,160
+to do that we're going<font color="#E5E5E5"> to go VAR</font>
+
+517
+00:17:24,959 --> 00:17:27,449
+handlebars
+
+518
+00:17:26,160 --> 00:17:30,360
+is equal<font color="#CCCCCC"> to</font>
+
+519
+00:17:27,449 --> 00:17:32,700
+and we'll go require<font color="#CCCCCC"> express handlebars</font>
+
+520
+00:17:30,360 --> 00:17:34,590
+which we installed very<font color="#E5E5E5"> early on and</font>
+
+521
+00:17:32,700 --> 00:17:37,380
+<font color="#E5E5E5">then after that we'll just say create</font>
+
+522
+00:17:34,590 --> 00:17:40,500
+<font color="#E5E5E5">and define</font><font color="#CCCCCC"> our default layout so just</font>
+
+523
+00:17:37,380 --> 00:17:42,330
+type in default layout<font color="#E5E5E5"> : and then main</font>
+
+524
+00:17:40,500 --> 00:17:44,760
+and then put a semicolon<font color="#E5E5E5"> at the end</font><font color="#CCCCCC"> of</font>
+
+525
+00:17:42,330 --> 00:17:48,120
+course<font color="#E5E5E5"> and then we have to go</font><font color="#CCCCCC"> app engine</font>
+
+526
+00:17:44,760 --> 00:17:49,559
+handlebars<font color="#E5E5E5"> and handlebars engine and all</font>
+
+527
+00:17:48,120 --> 00:17:53,850
+that it's going<font color="#E5E5E5"> to be set</font><font color="#CCCCCC"> up</font><font color="#E5E5E5"> for us and</font>
+
+528
+00:17:49,559 --> 00:17:56,159
+then app dot set and our view<font color="#CCCCCC"> engine is</font>
+
+529
+00:17:53,850 --> 00:17:58,769
+also going to be handlebars so that's
+
+530
+00:17:56,159 --> 00:18:01,980
+<font color="#E5E5E5">going to make sure that the HTML</font><font color="#CCCCCC"> that we</font>
+
+531
+00:17:58,769 --> 00:18:03,750
+defined in our views directory is going
+
+532
+00:18:01,980 --> 00:18:06,000
+to be transported<font color="#E5E5E5"> into the main dot</font>
+
+533
+00:18:03,750 --> 00:18:07,409
+handlebars layouts<font color="#E5E5E5"> now as we go on we're</font>
+
+534
+00:18:06,000 --> 00:18:09,000
+going<font color="#E5E5E5"> to be importing</font><font color="#CCCCCC"> a couple other</font>
+
+535
+00:18:07,409 --> 00:18:10,380
+different<font color="#CCCCCC"> things but I just want to get</font>
+
+536
+00:18:09,000 --> 00:18:12,539
+the server up and running<font color="#CCCCCC"> to make</font><font color="#E5E5E5"> sure</font>
+
+537
+00:18:10,380 --> 00:18:14,880
+everything is installed<font color="#CCCCCC"> properly so I'm</font>
+
+538
+00:18:12,539 --> 00:18:17,399
+going to<font color="#E5E5E5"> do something like more imports</font>
+
+539
+00:18:14,880 --> 00:18:19,110
+here just a reference<font color="#E5E5E5"> where I want to go</font>
+
+540
+00:18:17,399 --> 00:18:21,210
+over<font color="#E5E5E5"> later</font><font color="#CCCCCC"> on</font><font color="#E5E5E5"> and now I'm going to</font>
+
+541
+00:18:19,110 --> 00:18:22,559
+<font color="#E5E5E5">define the port that our application is</font>
+
+542
+00:18:21,210 --> 00:18:27,380
+going<font color="#E5E5E5"> to run on</font><font color="#CCCCCC"> so I'm</font><font color="#E5E5E5"> going to go app</font>
+
+543
+00:18:22,559 --> 00:18:29,820
+dot set port process environment<font color="#E5E5E5"> port or</font>
+
+544
+00:18:27,380 --> 00:18:32,429
+<font color="#CCCCCC">3,000</font><font color="#E5E5E5"> so this is going to run on port</font>
+
+545
+00:18:29,820 --> 00:18:36,720
+3000<font color="#E5E5E5"> another thing I'm going to do is go</font>
+
+546
+00:18:32,429 --> 00:18:39,419
+app use Express<font color="#E5E5E5"> static and two</font>
+
+547
+00:18:36,720 --> 00:18:41,789
+underscores<font color="#CCCCCC"> for a directory name plus</font>
+
+548
+00:18:39,419 --> 00:18:44,399
+public what this is going<font color="#E5E5E5"> to allow me</font><font color="#CCCCCC"> to</font>
+
+549
+00:18:41,789 --> 00:18:46,320
+<font color="#E5E5E5">do is access this public directory that</font>
+
+550
+00:18:44,399 --> 00:18:48,450
+<font color="#E5E5E5">we have</font><font color="#CCCCCC"> ups inside</font><font color="#E5E5E5"> of here and then</font>
+
+551
+00:18:46,320 --> 00:18:51,659
+reference our images folder so<font color="#CCCCCC"> that</font>
+
+552
+00:18:48,450 --> 00:18:54,149
+we'll<font color="#CCCCCC"> be</font><font color="#E5E5E5"> able to import that logo into</font>
+
+553
+00:18:51,659 --> 00:18:56,370
+our main navigation bar so<font color="#CCCCCC"> you</font><font color="#E5E5E5"> can see</font>
+
+554
+00:18:54,149 --> 00:18:57,870
+right<font color="#E5E5E5"> here</font><font color="#CCCCCC"> say image and it</font>
+
+555
+00:18:56,370 --> 00:18:59,820
+automatically jumped in there and<font color="#CCCCCC"> it</font>
+
+556
+00:18:57,870 --> 00:19:01,679
+grabbed that image folder<font color="#E5E5E5"> the reason why</font>
+
+557
+00:18:59,820 --> 00:19:03,809
+is<font color="#CCCCCC"> because we</font><font color="#E5E5E5"> put this in here and</font>
+
+558
+00:19:01,679 --> 00:19:05,850
+reference<font color="#E5E5E5"> to our main directory as being</font>
+
+559
+00:19:03,809 --> 00:19:06,990
+public for us<font color="#CCCCCC"> just going</font><font color="#E5E5E5"> to just keep</font>
+
+560
+00:19:05,850 --> 00:19:08,820
+<font color="#E5E5E5">everything a</font><font color="#CCCCCC"> little bit shorter and</font>
+
+561
+00:19:06,990 --> 00:19:10,620
+<font color="#E5E5E5">nicer and</font><font color="#CCCCCC"> easier</font><font color="#E5E5E5"> to work with</font><font color="#CCCCCC"> now we</font>
+
+562
+00:19:08,820 --> 00:19:12,179
+need to come in and<font color="#CCCCCC"> define some</font><font color="#E5E5E5"> routes</font>
+
+563
+00:19:10,620 --> 00:19:14,130
+which is basically<font color="#E5E5E5"> just going to match</font>
+
+564
+00:19:12,179 --> 00:19:16,019
+<font color="#CCCCCC">up certain</font><font color="#E5E5E5"> actions with certain URLs</font>
+
+565
+00:19:14,130 --> 00:19:18,269
+<font color="#CCCCCC">that are typed</font><font color="#E5E5E5"> into our browser</font><font color="#CCCCCC"> so we're</font>
+
+566
+00:19:16,019 --> 00:19:20,610
+going to go<font color="#CCCCCC"> apt-get</font><font color="#E5E5E5"> and basically what</font>
+
+567
+00:19:18,269 --> 00:19:22,860
+apt-get gets is it's going<font color="#E5E5E5"> to receive a</font>
+
+568
+00:19:20,610 --> 00:19:24,960
+path<font color="#E5E5E5"> as well as a function and this is</font>
+
+569
+00:19:22,860 --> 00:19:27,929
+<font color="#CCCCCC">what's going to</font><font color="#E5E5E5"> be known as defining or</font>
+
+570
+00:19:24,960 --> 00:19:29,549
+<font color="#CCCCCC">route so our base directory</font><font color="#E5E5E5"> is how will</font>
+
+571
+00:19:27,929 --> 00:19:31,289
+you define<font color="#E5E5E5"> this right here and then we</font>
+
+572
+00:19:29,549 --> 00:19:33,029
+<font color="#E5E5E5">would define function inside</font><font color="#CCCCCC"> of there</font>
+
+573
+00:19:31,289 --> 00:19:34,919
+<font color="#E5E5E5">now the path isn't going to be case</font>
+
+574
+00:19:33,029 --> 00:19:38,100
+<font color="#CCCCCC">sensitive so if</font><font color="#E5E5E5"> this was something like</font>
+
+575
+00:19:34,919 --> 00:19:39,059
+<font color="#E5E5E5">about or about they would be exactly the</font>
+
+576
+00:19:38,100 --> 00:19:40,350
+<font color="#CCCCCC">same</font><font color="#E5E5E5"> but</font>
+
+577
+00:19:39,059 --> 00:19:41,340
+I'm just going to<font color="#E5E5E5"> keep it</font><font color="#CCCCCC"> that way just</font>
+
+578
+00:19:40,350 --> 00:19:43,110
+remember that those<font color="#E5E5E5"> are not</font>
+
+579
+00:19:41,340 --> 00:19:45,120
+case-sensitive<font color="#CCCCCC"> and about and about</font>
+
+580
+00:19:43,110 --> 00:19:46,980
+<font color="#E5E5E5">whether any of the letters are uppercase</font>
+
+581
+00:19:45,120 --> 00:19:48,870
+or lowercase or whatever<font color="#CCCCCC"> doesn't</font><font color="#E5E5E5"> really</font>
+
+582
+00:19:46,980 --> 00:19:51,179
+matter<font color="#E5E5E5"> inside of the function</font><font color="#CCCCCC"> you're</font>
+
+583
+00:19:48,870 --> 00:19:52,559
+<font color="#CCCCCC">going to have a request object passed</font>
+
+584
+00:19:51,179 --> 00:19:56,039
+inside of here which<font color="#CCCCCC"> is going</font><font color="#E5E5E5"> to</font>
+
+585
+00:19:52,559 --> 00:19:57,690
+<font color="#E5E5E5">represent an HTTP request</font><font color="#CCCCCC"> and it's going</font>
+
+586
+00:19:56,039 --> 00:20:00,330
+<font color="#E5E5E5">to contain things like query strings</font>
+
+587
+00:19:57,690 --> 00:20:01,860
+parameters bodies headers and so forth
+
+588
+00:20:00,330 --> 00:20:05,279
+<font color="#E5E5E5">and so on then you're going to also have</font>
+
+589
+00:20:01,860 --> 00:20:07,110
+<font color="#E5E5E5">a response object and this is going to</font>
+
+590
+00:20:05,279 --> 00:20:08,789
+represent the response express is going
+
+591
+00:20:07,110 --> 00:20:10,620
+to send back whenever<font color="#E5E5E5"> it receives a</font>
+
+592
+00:20:08,789 --> 00:20:12,570
+request<font color="#E5E5E5"> so I'm going</font><font color="#CCCCCC"> to close that off</font>
+
+593
+00:20:10,620 --> 00:20:14,639
+<font color="#E5E5E5">right there and all we</font><font color="#CCCCCC"> want</font><font color="#E5E5E5"> to do here</font>
+
+594
+00:20:12,570 --> 00:20:16,529
+<font color="#CCCCCC">is point to our view that we created</font>
+
+595
+00:20:14,639 --> 00:20:17,820
+<font color="#CCCCCC">over here which</font><font color="#E5E5E5"> is home dot</font><font color="#CCCCCC"> handle</font>
+
+596
+00:20:16,529 --> 00:20:19,559
+<font color="#CCCCCC">Bart's sorry about the zooming there a</font>
+
+597
+00:20:17,820 --> 00:20:21,749
+little<font color="#E5E5E5"> bit and to point to that you're</font>
+
+598
+00:20:19,559 --> 00:20:23,759
+just<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> type in res render and</font>
+
+599
+00:20:21,749 --> 00:20:25,559
+then<font color="#CCCCCC"> home which is going</font><font color="#E5E5E5"> to reference</font>
+
+600
+00:20:23,759 --> 00:20:27,570
+<font color="#E5E5E5">the home</font><font color="#CCCCCC"> handlebars</font><font color="#E5E5E5"> and what this is</font>
+
+601
+00:20:25,559 --> 00:20:29,999
+<font color="#CCCCCC">going</font><font color="#E5E5E5"> to do is going to use the main</font>
+
+602
+00:20:27,570 --> 00:20:31,950
+layout<font color="#E5E5E5"> which is main dot handlebars and</font>
+
+603
+00:20:29,999 --> 00:20:34,860
+it's going<font color="#CCCCCC"> to transport inside of it all</font>
+
+604
+00:20:31,950 --> 00:20:37,470
+<font color="#E5E5E5">of the HTML right here</font><font color="#CCCCCC"> that we defined</font>
+
+605
+00:20:34,860 --> 00:20:39,720
+in home dot handlebars<font color="#E5E5E5"> exactly right</font>
+
+606
+00:20:37,470 --> 00:20:41,159
+here where we have body<font color="#E5E5E5"> you can see in a</font>
+
+607
+00:20:39,720 --> 00:20:43,289
+second here<font color="#E5E5E5"> exactly what that</font><font color="#CCCCCC"> looks like</font>
+
+608
+00:20:41,159 --> 00:20:44,879
+<font color="#CCCCCC">we can save that and</font><font color="#E5E5E5"> now basically all</font>
+
+609
+00:20:43,289 --> 00:20:47,129
+<font color="#CCCCCC">we</font><font color="#E5E5E5"> have to do now</font><font color="#CCCCCC"> is tell our</font>
+
+610
+00:20:44,879 --> 00:20:49,980
+application which port to listen to so
+
+611
+00:20:47,129 --> 00:20:52,879
+I'm<font color="#E5E5E5"> going to go app listen app get our</font>
+
+612
+00:20:49,980 --> 00:20:55,679
+port that we defined above and then
+
+613
+00:20:52,879 --> 00:20:57,450
+define<font color="#CCCCCC"> the function that</font><font color="#E5E5E5"> we're going</font><font color="#CCCCCC"> to</font>
+
+614
+00:20:55,679 --> 00:20:59,159
+<font color="#E5E5E5">call and</font><font color="#CCCCCC"> you saw this before this is</font>
+
+615
+00:20:57,450 --> 00:21:01,649
+<font color="#CCCCCC">just going to</font><font color="#E5E5E5"> print out in the console</font>
+
+616
+00:20:59,159 --> 00:21:07,259
+or inside of<font color="#CCCCCC"> the</font><font color="#E5E5E5"> terminal something like</font>
+
+617
+00:21:01,649 --> 00:21:09,090
+<font color="#E5E5E5">Express started on HTTP localhost then</font>
+
+618
+00:21:07,259 --> 00:21:12,029
+we can jump<font color="#E5E5E5"> out here and get our port if</font>
+
+619
+00:21:09,090 --> 00:21:13,889
+we'd<font color="#E5E5E5"> like app gets and then type in port</font>
+
+620
+00:21:12,029 --> 00:21:15,919
+<font color="#CCCCCC">now we'll</font><font color="#E5E5E5"> just</font><font color="#CCCCCC"> put that</font><font color="#E5E5E5"> in</font><font color="#CCCCCC"> there in text</font>
+
+621
+00:21:13,889 --> 00:21:19,590
+format<font color="#E5E5E5"> and then we could say press</font>
+
+622
+00:21:15,919 --> 00:21:21,570
+<font color="#CCCCCC">control-c to</font><font color="#E5E5E5"> terminate put that there</font>
+
+623
+00:21:19,590 --> 00:21:23,639
+and<font color="#E5E5E5"> then make sure we put a semicolon</font>
+
+624
+00:21:21,570 --> 00:21:25,200
+right there and file save<font color="#CCCCCC"> it</font><font color="#E5E5E5"> and then</font>
+
+625
+00:21:23,639 --> 00:21:26,789
+we're<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to jump over</font><font color="#E5E5E5"> here</font><font color="#CCCCCC"> and make</font>
+
+626
+00:21:25,200 --> 00:21:28,619
+sure<font color="#E5E5E5"> we're</font><font color="#CCCCCC"> in</font><font color="#E5E5E5"> the correct directory so</font>
+
+627
+00:21:26,789 --> 00:21:30,659
+and go PWD we're in the Express
+
+628
+00:21:28,619 --> 00:21:33,419
+<font color="#E5E5E5">directory</font><font color="#CCCCCC"> and you can see right here</font>
+
+629
+00:21:30,659 --> 00:21:35,539
+<font color="#CCCCCC">express jas</font><font color="#E5E5E5"> is right there and then to</font>
+
+630
+00:21:33,419 --> 00:21:39,149
+run our server we just type in node
+
+631
+00:21:35,539 --> 00:21:40,919
+<font color="#CCCCCC">Express touch a s and you can see right</font>
+
+632
+00:21:39,149 --> 00:21:43,049
+<font color="#CCCCCC">there the a message Express store</font>
+
+633
+00:21:40,919 --> 00:21:45,059
+<font color="#CCCCCC">dah-dah-dah-dah and a little bit of a</font>
+
+634
+00:21:43,049 --> 00:21:46,889
+here<font color="#E5E5E5"> just go up</font><font color="#CCCCCC"> to app set where it</font><font color="#E5E5E5"> has</font>
+
+635
+00:21:45,059 --> 00:21:48,929
+<font color="#E5E5E5">view engine</font><font color="#CCCCCC"> and make sure that you put</font>
+
+636
+00:21:46,889 --> 00:21:50,519
+quotes around the<font color="#E5E5E5"> handlebars</font><font color="#CCCCCC"> port right</font>
+
+637
+00:21:48,929 --> 00:21:52,379
+<font color="#CCCCCC">there and</font><font color="#E5E5E5"> if you save that you're going</font>
+
+638
+00:21:50,519 --> 00:21:53,789
+to<font color="#E5E5E5"> see that it automatically goes puts</font>
+
+639
+00:21:52,379 --> 00:21:56,220
+all<font color="#E5E5E5"> that information there</font><font color="#CCCCCC"> on the screen</font>
+
+640
+00:21:53,789 --> 00:21:56,639
+<font color="#CCCCCC">you're also going to see if</font><font color="#E5E5E5"> we come in</font>
+
+641
+00:21:56,220 --> 00:21:58,559
+here
+
+642
+00:21:56,639 --> 00:22:00,720
+well we click on this<font color="#E5E5E5"> guy</font><font color="#CCCCCC"> right here and</font>
+
+643
+00:21:58,559 --> 00:22:02,429
+<font color="#CCCCCC">click</font><font color="#E5E5E5"> on about this is going to pop</font><font color="#CCCCCC"> up a</font>
+
+644
+00:22:00,720 --> 00:22:05,009
+little message as the sides can't get
+
+645
+00:22:02,429 --> 00:22:07,649
+about and the<font color="#E5E5E5"> reason why is over in the</font>
+
+646
+00:22:05,009 --> 00:22:09,600
+<font color="#CCCCCC">Express we only define this route right</font>
+
+647
+00:22:07,649 --> 00:22:11,610
+here<font color="#E5E5E5"> so what we</font><font color="#CCCCCC"> basically need to</font><font color="#E5E5E5"> do is</font>
+
+648
+00:22:09,600 --> 00:22:14,009
+<font color="#E5E5E5">define all of</font><font color="#CCCCCC"> the other routes and</font>
+
+649
+00:22:11,610 --> 00:22:16,200
+that's the main concept behind<font color="#E5E5E5"> creating</font>
+
+650
+00:22:14,009 --> 00:22:18,629
+an<font color="#E5E5E5"> Express</font><font color="#CCCCCC"> application</font><font color="#E5E5E5"> but everything</font>
+
+651
+00:22:16,200 --> 00:22:19,799
+else is basically<font color="#E5E5E5"> set up and you can see</font>
+
+652
+00:22:18,629 --> 00:22:21,359
+right<font color="#CCCCCC"> here</font><font color="#E5E5E5"> that it went and</font>
+
+653
+00:22:19,799 --> 00:22:23,309
+automatically<font color="#E5E5E5"> put in our</font><font color="#CCCCCC"> navigation bar</font>
+
+654
+00:22:21,359 --> 00:22:24,690
+<font color="#CCCCCC">and</font><font color="#E5E5E5"> will fit in all the other different</font>
+
+655
+00:22:23,309 --> 00:22:27,090
+<font color="#CCCCCC">things we have right here so now we</font>
+
+656
+00:22:24,690 --> 00:22:29,369
+basically<font color="#CCCCCC"> just sit here and go and</font>
+
+657
+00:22:27,090 --> 00:22:31,200
+create continual different routes until
+
+658
+00:22:29,369 --> 00:22:32,879
+we've covered all of<font color="#CCCCCC"> them and all the</font>
+
+659
+00:22:31,200 --> 00:22:34,499
+capabilities<font color="#CCCCCC"> we want to add alright so</font>
+
+660
+00:22:32,879 --> 00:22:36,269
+now let's<font color="#E5E5E5"> go in here and</font><font color="#CCCCCC"> actually set up</font>
+
+661
+00:22:34,499 --> 00:22:37,529
+<font color="#CCCCCC">about so that it works and we're</font>
+
+662
+00:22:36,269 --> 00:22:38,970
+basically<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to do exactly</font><font color="#E5E5E5"> the same</font>
+
+663
+00:22:37,529 --> 00:22:40,919
+<font color="#E5E5E5">thing here</font><font color="#CCCCCC"> again so you might as well</font>
+
+664
+00:22:38,970 --> 00:22:42,179
+copy this so let's<font color="#CCCCCC"> throw and throw that</font>
+
+665
+00:22:40,919 --> 00:22:44,399
+inside of<font color="#E5E5E5"> there except we're going</font><font color="#CCCCCC"> to</font>
+
+666
+00:22:42,179 --> 00:22:46,739
+type up out inside<font color="#CCCCCC"> of here instead</font><font color="#E5E5E5"> and</font>
+
+667
+00:22:44,399 --> 00:22:49,289
+about right here<font color="#E5E5E5"> which once again is a</font>
+
+668
+00:22:46,739 --> 00:22:51,269
+reference to about dot handlebars so it
+
+669
+00:22:49,289 --> 00:22:52,769
+automatically renders that<font color="#CCCCCC"> now save it</font>
+
+670
+00:22:51,269 --> 00:22:55,679
+we're<font color="#E5E5E5"> going to have to restart</font><font color="#CCCCCC"> our</font>
+
+671
+00:22:52,769 --> 00:22:57,929
+server<font color="#CCCCCC"> so ctrl C that restart</font><font color="#E5E5E5"> the server</font>
+
+672
+00:22:55,679 --> 00:22:59,429
+and then if we come<font color="#CCCCCC"> over here and click</font>
+
+673
+00:22:57,929 --> 00:23:01,649
+<font color="#CCCCCC">on about</font><font color="#E5E5E5"> you're going to see</font><font color="#CCCCCC"> about us</font>
+
+674
+00:22:59,429 --> 00:23:03,899
+pops<font color="#E5E5E5"> directly inside of</font><font color="#CCCCCC"> there I'd like</font>
+
+675
+00:23:01,649 --> 00:23:05,669
+<font color="#E5E5E5">to talk</font><font color="#CCCCCC"> about a middleware now this is</font>
+
+676
+00:23:03,899 --> 00:23:07,590
+basically<font color="#CCCCCC"> going to be an example of</font>
+
+677
+00:23:05,669 --> 00:23:09,239
+<font color="#E5E5E5">middleware and what it's going</font><font color="#CCCCCC"> to do is</font>
+
+678
+00:23:07,590 --> 00:23:11,549
+it's<font color="#E5E5E5"> going to receive a request object</font>
+
+679
+00:23:09,239 --> 00:23:14,129
+<font color="#E5E5E5">and a response object like before and</font>
+
+680
+00:23:11,549 --> 00:23:16,259
+then<font color="#CCCCCC"> as well a next function</font><font color="#E5E5E5"> and what</font>
+
+681
+00:23:14,129 --> 00:23:17,970
+this<font color="#E5E5E5"> is just going</font><font color="#CCCCCC"> to simply do is sit</font>
+
+682
+00:23:16,259 --> 00:23:19,889
+<font color="#CCCCCC">in the</font><font color="#E5E5E5"> middle and it's going to perform</font>
+
+683
+00:23:17,970 --> 00:23:22,139
+<font color="#CCCCCC">a function</font><font color="#E5E5E5"> which in this situation is</font>
+
+684
+00:23:19,889 --> 00:23:23,759
+<font color="#E5E5E5">going to pop</font><font color="#CCCCCC"> up in the console the URL</font>
+
+685
+00:23:22,139 --> 00:23:27,149
+<font color="#CCCCCC">is being</font><font color="#E5E5E5"> looked at and we're going to</font>
+
+686
+00:23:23,759 --> 00:23:29,100
+use<font color="#CCCCCC"> a pues here instead of</font><font color="#E5E5E5"> apt-get we're</font>
+
+687
+00:23:27,149 --> 00:23:30,869
+going to type in function it's<font color="#E5E5E5"> going to</font>
+
+688
+00:23:29,100 --> 00:23:33,659
+receive a request<font color="#CCCCCC"> object to response</font>
+
+689
+00:23:30,869 --> 00:23:35,759
+object and a next function and the next
+
+690
+00:23:33,659 --> 00:23:37,590
+<font color="#E5E5E5">function is</font><font color="#CCCCCC"> going to point at this guy</font>
+
+691
+00:23:35,759 --> 00:23:39,539
+to continue<font color="#CCCCCC"> looking for the proper</font><font color="#E5E5E5"> route</font>
+
+692
+00:23:37,590 --> 00:23:42,659
+<font color="#CCCCCC">it's a pretty simple stuff</font><font color="#E5E5E5"> so if we want</font>
+
+693
+00:23:39,539 --> 00:23:45,840
+<font color="#E5E5E5">to say</font><font color="#CCCCCC"> alright</font><font color="#E5E5E5"> console.log and the job</font>
+
+694
+00:23:42,659 --> 00:23:47,100
+of<font color="#CCCCCC"> this is to basically</font><font color="#E5E5E5"> log what URL</font>
+
+695
+00:23:45,840 --> 00:23:50,269
+<font color="#E5E5E5">that's being looked for we're going to</font>
+
+696
+00:23:47,100 --> 00:23:51,919
+say looking<font color="#CCCCCC"> for URL and then we can</font>
+
+697
+00:23:50,269 --> 00:23:55,190
+<font color="#E5E5E5">get the URL</font><font color="#CCCCCC"> that they're looking for by</font>
+
+698
+00:23:51,919 --> 00:23:57,169
+going request object<font color="#E5E5E5"> and URL semicolon</font>
+
+699
+00:23:55,190 --> 00:23:59,629
+and<font color="#E5E5E5"> then</font><font color="#CCCCCC"> finally</font><font color="#E5E5E5"> we would type in</font><font color="#CCCCCC"> next</font>
+
+700
+00:23:57,169 --> 00:24:01,399
+<font color="#E5E5E5">so that we can continue looking</font><font color="#CCCCCC"> for our</font>
+
+701
+00:23:59,629 --> 00:24:03,349
+routes<font color="#E5E5E5"> but you can also do other</font>
+
+702
+00:24:01,399 --> 00:24:05,599
+different<font color="#CCCCCC"> things with middleware</font><font color="#E5E5E5"> for</font>
+
+703
+00:24:03,349 --> 00:24:07,489
+example if they would look<font color="#CCCCCC"> for a URL</font>
+
+704
+00:24:05,599 --> 00:24:10,849
+<font color="#CCCCCC">that doesn't</font><font color="#E5E5E5"> exist we could throw an</font>
+
+705
+00:24:07,489 --> 00:24:13,279
+error<font color="#E5E5E5"> so we could say app get and let's</font>
+
+706
+00:24:10,849 --> 00:24:15,289
+say they're looking<font color="#E5E5E5"> for</font><font color="#CCCCCC"> the</font><font color="#E5E5E5"> URL of junk</font>
+
+707
+00:24:13,279 --> 00:24:16,789
+<font color="#CCCCCC">we</font><font color="#E5E5E5"> could go and handle this for us and</font>
+
+708
+00:24:15,289 --> 00:24:18,589
+again<font color="#CCCCCC"> it's going</font><font color="#E5E5E5"> to be much</font><font color="#CCCCCC"> the</font><font color="#E5E5E5"> same</font>
+
+709
+00:24:16,789 --> 00:24:21,259
+we're going to go<font color="#E5E5E5"> request object</font>
+
+710
+00:24:18,589 --> 00:24:23,749
+response object next<font color="#E5E5E5"> function</font><font color="#CCCCCC"> close that</font>
+
+711
+00:24:21,259 --> 00:24:28,669
+off<font color="#E5E5E5"> and then here we'll go console.log</font>
+
+712
+00:24:23,749 --> 00:24:31,459
+<font color="#E5E5E5">and we'll say tried to</font><font color="#CCCCCC"> access</font><font color="#E5E5E5"> the junk</font>
+
+713
+00:24:28,669 --> 00:24:33,349
+<font color="#E5E5E5">URL which doesn't exist</font><font color="#CCCCCC"> and if we want</font>
+
+714
+00:24:31,459 --> 00:24:36,349
+to<font color="#E5E5E5"> throw an error we'll go throw new</font>
+
+715
+00:24:33,349 --> 00:24:39,889
+error<font color="#CCCCCC"> and we'll say our error message is</font>
+
+716
+00:24:36,349 --> 00:24:42,019
+going to be<font color="#E5E5E5"> junk doesn't exist</font><font color="#CCCCCC"> and since</font>
+
+717
+00:24:39,889 --> 00:24:43,849
+we have a<font color="#E5E5E5"> single quote here we're going</font>
+
+718
+00:24:42,019 --> 00:24:46,279
+<font color="#CCCCCC">to</font><font color="#E5E5E5"> want</font><font color="#CCCCCC"> to backslash this</font><font color="#E5E5E5"> so that we'll</font>
+
+719
+00:24:43,849 --> 00:24:49,159
+be<font color="#CCCCCC"> able</font><font color="#E5E5E5"> to print that</font><font color="#CCCCCC"> out doesn't exist</font>
+
+720
+00:24:46,279 --> 00:24:51,889
+<font color="#E5E5E5">and then to catch an error that is</font>
+
+721
+00:24:49,159 --> 00:24:55,190
+defined<font color="#CCCCCC"> inside of here</font><font color="#E5E5E5"> we'll go app use</font>
+
+722
+00:24:51,889 --> 00:24:58,339
+function<font color="#E5E5E5"> error</font><font color="#CCCCCC"> quest object response</font>
+
+723
+00:24:55,190 --> 00:25:01,789
+object and next again<font color="#CCCCCC"> and</font><font color="#E5E5E5"> here we could</font>
+
+724
+00:24:58,339 --> 00:25:03,799
+print out to our log<font color="#E5E5E5"> simply like error</font>
+
+725
+00:25:01,789 --> 00:25:05,450
+<font color="#CCCCCC">and then print out whatever the error</font>
+
+726
+00:25:03,799 --> 00:25:07,759
+message was that<font color="#CCCCCC"> was sent which is going</font>
+
+727
+00:25:05,450 --> 00:25:09,409
+<font color="#E5E5E5">to be junk doesn't exist error message</font>
+
+728
+00:25:07,759 --> 00:25:10,759
+<font color="#E5E5E5">the rest of this tutorials going to be</font>
+
+729
+00:25:09,409 --> 00:25:12,259
+very<font color="#E5E5E5"> much like this I'm just going to</font>
+
+730
+00:25:10,759 --> 00:25:14,450
+<font color="#E5E5E5">introduce a</font><font color="#CCCCCC"> whole bunch of different</font>
+
+731
+00:25:12,259 --> 00:25:15,709
+<font color="#CCCCCC">things explain how they work so that</font>
+
+732
+00:25:14,450 --> 00:25:18,079
+you'll<font color="#E5E5E5"> be able to experiment with them</font>
+
+733
+00:25:15,709 --> 00:25:19,609
+so that<font color="#CCCCCC"> you'll</font><font color="#E5E5E5"> be or will have a good</font>
+
+734
+00:25:18,079 --> 00:25:22,159
+<font color="#CCCCCC">understanding</font><font color="#E5E5E5"> of them whenever we create</font>
+
+735
+00:25:19,609 --> 00:25:23,659
+larger applications so let's just save
+
+736
+00:25:22,159 --> 00:25:26,029
+that<font color="#CCCCCC"> again we're</font><font color="#E5E5E5"> going</font><font color="#CCCCCC"> to shut down our</font>
+
+737
+00:25:23,659 --> 00:25:28,309
+<font color="#E5E5E5">server then restart our server</font><font color="#CCCCCC"> and you</font>
+
+738
+00:25:26,029 --> 00:25:30,289
+<font color="#E5E5E5">can see here if we get in and go junk</font>
+
+739
+00:25:28,309 --> 00:25:32,239
+<font color="#E5E5E5">for example</font><font color="#CCCCCC"> that's</font><font color="#E5E5E5"> going to print out</font>
+
+740
+00:25:30,289 --> 00:25:34,219
+tried to access junk and it's going<font color="#E5E5E5"> to</font>
+
+741
+00:25:32,239 --> 00:25:35,929
+say junk doesn't<font color="#E5E5E5"> exist and it's also</font>
+
+742
+00:25:34,219 --> 00:25:38,239
+going<font color="#E5E5E5"> to say up here</font><font color="#CCCCCC"> that we can't</font><font color="#E5E5E5"> get</font>
+
+743
+00:25:35,929 --> 00:25:40,789
+<font color="#CCCCCC">ahold</font><font color="#E5E5E5"> of junk</font><font color="#CCCCCC"> we could also throw</font><font color="#E5E5E5"> it to</font>
+
+744
+00:25:38,239 --> 00:25:43,339
+another<font color="#E5E5E5"> URL so</font><font color="#CCCCCC"> that will</font><font color="#E5E5E5"> be</font><font color="#CCCCCC"> able</font><font color="#E5E5E5"> to be</font>
+
+745
+00:25:40,789 --> 00:25:46,639
+<font color="#E5E5E5">handled and to do that we're going to</font>
+
+746
+00:25:43,339 --> 00:25:49,399
+have to create<font color="#E5E5E5"> our 404 and our 500 URLs</font>
+
+747
+00:25:46,639 --> 00:25:51,259
+for our<font color="#E5E5E5"> Express application</font><font color="#CCCCCC"> and this</font><font color="#E5E5E5"> is</font>
+
+748
+00:25:49,399 --> 00:25:53,779
+<font color="#E5E5E5">going to act like middleware again</font>
+
+749
+00:25:51,259 --> 00:25:55,519
+because we're not<font color="#E5E5E5"> going to have a</font><font color="#CCCCCC"> 4 or</font><font color="#E5E5E5"> 4</font>
+
+750
+00:25:53,779 --> 00:25:56,960
+means that the URL<font color="#CCCCCC"> doesn't exist so</font>
+
+751
+00:25:55,519 --> 00:25:58,370
+<font color="#CCCCCC">we're going to you app</font>
+
+752
+00:25:56,960 --> 00:25:59,960
+use<font color="#E5E5E5"> your going to see a bunch</font><font color="#CCCCCC"> of</font>
+
+753
+00:25:58,370 --> 00:26:02,870
+<font color="#CCCCCC">examples of middleware here</font><font color="#E5E5E5"> you know</font>
+
+754
+00:25:59,960 --> 00:26:04,760
+function<font color="#CCCCCC"> request response and we're</font>
+
+755
+00:26:02,870 --> 00:26:06,470
+going to<font color="#E5E5E5"> find the content type</font><font color="#CCCCCC"> that</font>
+
+756
+00:26:04,760 --> 00:26:08,480
+<font color="#E5E5E5">we're going to be displaying on the</font>
+
+757
+00:26:06,470 --> 00:26:11,450
+<font color="#CCCCCC">screen in this</font><font color="#E5E5E5"> situation it's going to</font>
+
+758
+00:26:08,480 --> 00:26:15,050
+be text<font color="#CCCCCC"> HTML</font><font color="#E5E5E5"> because we</font><font color="#CCCCCC"> already defined</font>
+
+759
+00:26:11,450 --> 00:26:17,660
+<font color="#E5E5E5">a 404 handlebars HTML that we want to</font>
+
+760
+00:26:15,050 --> 00:26:20,480
+put there<font color="#CCCCCC"> we could also come in and find</font>
+
+761
+00:26:17,660 --> 00:26:24,320
+<font color="#CCCCCC">our status which is going</font><font color="#E5E5E5"> to be 404 and</font>
+
+762
+00:26:20,480 --> 00:26:25,790
+we can also come in<font color="#E5E5E5"> and define what</font><font color="#CCCCCC"> we</font>
+
+763
+00:26:24,320 --> 00:26:28,220
+want to render which is<font color="#E5E5E5"> going to be the</font>
+
+764
+00:26:25,790 --> 00:26:30,170
+404 handlebars file<font color="#E5E5E5"> you can</font><font color="#CCCCCC"> see render</font>
+
+765
+00:26:28,220 --> 00:26:32,780
+is all we need<font color="#CCCCCC"> to do when we go in</font><font color="#E5E5E5"> here</font>
+
+766
+00:26:30,170 --> 00:26:34,550
+<font color="#E5E5E5">and</font><font color="#CCCCCC"> also create our</font><font color="#E5E5E5"> 500 page which is</font>
+
+767
+00:26:32,780 --> 00:26:36,950
+<font color="#E5E5E5">going to be a server error</font><font color="#CCCCCC"> again we're</font>
+
+768
+00:26:34,550 --> 00:26:38,480
+going<font color="#E5E5E5"> to use</font><font color="#CCCCCC"> a pews again</font><font color="#E5E5E5"> because it's</font>
+
+769
+00:26:36,950 --> 00:26:40,190
+not<font color="#CCCCCC"> going to be a specific URL we're</font>
+
+770
+00:26:38,480 --> 00:26:42,920
+<font color="#CCCCCC">going</font><font color="#E5E5E5"> to work with</font><font color="#CCCCCC"> here</font><font color="#E5E5E5"> however this is</font>
+
+771
+00:26:40,190 --> 00:26:45,110
+going<font color="#CCCCCC"> to be an error situation so we're</font>
+
+772
+00:26:42,920 --> 00:26:47,690
+going to go next<font color="#CCCCCC"> and</font><font color="#E5E5E5"> we could do</font>
+
+773
+00:26:45,110 --> 00:26:50,900
+<font color="#E5E5E5">something like print our error in our</font>
+
+774
+00:26:47,690 --> 00:26:53,330
+console error stack<font color="#E5E5E5"> we can find our</font>
+
+775
+00:26:50,900 --> 00:26:55,730
+status which is going<font color="#E5E5E5"> to be</font><font color="#CCCCCC"> 500 of</font>
+
+776
+00:26:53,330 --> 00:26:57,680
+course and we can also come in and say
+
+777
+00:26:55,730 --> 00:26:59,330
+<font color="#E5E5E5">that we want to render this is our</font>
+
+778
+00:26:57,680 --> 00:27:01,580
+response<font color="#CCCCCC"> I'm going to say we</font><font color="#E5E5E5"> want to</font>
+
+779
+00:26:59,330 --> 00:27:03,620
+<font color="#E5E5E5">render our $500</font><font color="#CCCCCC"> to handlebars file once</font>
+
+780
+00:27:01,580 --> 00:27:05,780
+again and display<font color="#CCCCCC"> that on the screen</font><font color="#E5E5E5"> and</font>
+
+781
+00:27:03,620 --> 00:27:07,880
+we can<font color="#E5E5E5"> file save that and now in this</font>
+
+782
+00:27:05,780 --> 00:27:10,640
+situation<font color="#CCCCCC"> well we want to reload</font><font color="#E5E5E5"> this so</font>
+
+783
+00:27:07,880 --> 00:27:12,920
+<font color="#E5E5E5">ctrl C restart</font><font color="#CCCCCC"> our server</font><font color="#E5E5E5"> jump over here</font>
+
+784
+00:27:10,640 --> 00:27:15,140
+<font color="#CCCCCC">and now you can see that went in here</font>
+
+785
+00:27:12,920 --> 00:27:16,700
+<font color="#E5E5E5">and it hit the air jump doesn't exist</font>
+
+786
+00:27:15,140 --> 00:27:19,280
+all that stuff still printed down here
+
+787
+00:27:16,700 --> 00:27:20,960
+however because of next right here<font color="#E5E5E5"> it</font>
+
+788
+00:27:19,280 --> 00:27:22,760
+jumps over about because<font color="#E5E5E5"> that's not a</font>
+
+789
+00:27:20,960 --> 00:27:24,560
+matching URL and you<font color="#E5E5E5"> can see that it</font>
+
+790
+00:27:22,760 --> 00:27:26,600
+comes<font color="#CCCCCC"> down here</font><font color="#E5E5E5"> and was a 404 error</font>
+
+791
+00:27:24,560 --> 00:27:28,640
+that's how that<font color="#E5E5E5"> matched up because it</font>
+
+792
+00:27:26,600 --> 00:27:30,560
+was searching for a URL didn't exist<font color="#CCCCCC"> and</font>
+
+793
+00:27:28,640 --> 00:27:32,720
+<font color="#CCCCCC">it still printed out that</font><font color="#E5E5E5"> so a little</font>
+
+794
+00:27:30,560 --> 00:27:34,520
+<font color="#E5E5E5">bit nicer</font><font color="#CCCCCC"> than just</font><font color="#E5E5E5"> printing out a dead</font>
+
+795
+00:27:32,720 --> 00:27:36,770
+sort of message there it<font color="#CCCCCC"> actually went</font>
+
+796
+00:27:34,520 --> 00:27:39,020
+to a page<font color="#CCCCCC"> now what we want</font><font color="#E5E5E5"> to do is come</font>
+
+797
+00:27:36,770 --> 00:27:40,550
+in and<font color="#E5E5E5"> create another view and</font><font color="#CCCCCC"> this is</font>
+
+798
+00:27:39,020 --> 00:27:43,220
+going<font color="#E5E5E5"> to be</font><font color="#CCCCCC"> for contacts</font><font color="#E5E5E5"> so we're going</font>
+
+799
+00:27:40,550 --> 00:27:45,290
+<font color="#CCCCCC">to go into views and new file and we're</font>
+
+800
+00:27:43,220 --> 00:27:48,920
+<font color="#CCCCCC">going to say save as I'm going</font><font color="#E5E5E5"> to call</font>
+
+801
+00:27:45,290 --> 00:27:50,780
+this contact<font color="#CCCCCC"> dot handlebars</font><font color="#E5E5E5"> save this in</font>
+
+802
+00:27:48,920 --> 00:27:52,400
+the views directory<font color="#E5E5E5"> and this is</font>
+
+803
+00:27:50,780 --> 00:27:53,630
+<font color="#E5E5E5">basically just</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to be a form that's</font>
+
+804
+00:27:52,400 --> 00:27:55,310
+<font color="#CCCCCC">going to allow them to send us</font>
+
+805
+00:27:53,630 --> 00:27:56,960
+<font color="#CCCCCC">information</font><font color="#E5E5E5"> and we</font><font color="#CCCCCC"> can mess around with</font>
+
+806
+00:27:55,310 --> 00:27:58,820
+that information<font color="#E5E5E5"> you</font><font color="#CCCCCC"> can see right here</font>
+
+807
+00:27:56,960 --> 00:28:01,610
+<font color="#E5E5E5">this is the important part we're going</font>
+
+808
+00:27:58,820 --> 00:28:02,930
+<font color="#CCCCCC">to have process form contact us</font><font color="#E5E5E5"> and</font>
+
+809
+00:28:01,610 --> 00:28:04,760
+you're going<font color="#CCCCCC"> to I'm going to</font><font color="#E5E5E5"> be bouncing</font>
+
+810
+00:28:02,930 --> 00:28:06,740
+back<font color="#CCCCCC"> and forth</font><font color="#E5E5E5"> between this and the</font>
+
+811
+00:28:04,760 --> 00:28:08,179
+<font color="#E5E5E5">other code</font><font color="#CCCCCC"> that we have here you're</font>
+
+812
+00:28:06,740 --> 00:28:10,129
+going<font color="#E5E5E5"> to see exactly</font><font color="#CCCCCC"> how</font>
+
+813
+00:28:08,179 --> 00:28:11,629
+be<font color="#E5E5E5"> able to process that information</font><font color="#CCCCCC"> so</font>
+
+814
+00:28:10,129 --> 00:28:13,460
+we're going<font color="#E5E5E5"> to just save that for now</font>
+
+815
+00:28:11,629 --> 00:28:16,730
+<font color="#CCCCCC">and come back to it in a second just</font>
+
+816
+00:28:13,460 --> 00:28:18,409
+<font color="#E5E5E5">jump back over</font><font color="#CCCCCC"> into Express CAS and more</font>
+
+817
+00:28:16,730 --> 00:28:20,419
+imports up here<font color="#E5E5E5"> I'm going</font><font color="#CCCCCC"> to have</font><font color="#E5E5E5"> to</font>
+
+818
+00:28:18,409 --> 00:28:22,759
+come in here<font color="#CCCCCC"> and first off what I'm</font>
+
+819
+00:28:20,419 --> 00:28:24,740
+going<font color="#CCCCCC"> to need to do is</font><font color="#E5E5E5"> install body</font>
+
+820
+00:28:22,759 --> 00:28:27,889
+parser which is going<font color="#E5E5E5"> to allow</font><font color="#CCCCCC"> us</font><font color="#E5E5E5"> to</font>
+
+821
+00:28:24,740 --> 00:28:29,869
+parse encoded data<font color="#E5E5E5"> whenever we're using</font>
+
+822
+00:28:27,889 --> 00:28:31,629
+<font color="#E5E5E5">post so I'm going to jump</font><font color="#CCCCCC"> over here and</font>
+
+823
+00:28:29,869 --> 00:28:33,590
+<font color="#E5E5E5">I'm going to shut down our server and</font>
+
+824
+00:28:31,629 --> 00:28:35,600
+zoom in here<font color="#CCCCCC"> so</font><font color="#E5E5E5"> you</font><font color="#CCCCCC"> can see</font><font color="#E5E5E5"> this a</font>
+
+825
+00:28:33,590 --> 00:28:40,249
+little bit better<font color="#CCCCCC"> when you go</font><font color="#E5E5E5"> npm</font>
+
+826
+00:28:35,600 --> 00:28:42,019
+install<font color="#E5E5E5"> - - save body parser and that's</font>
+
+827
+00:28:40,249 --> 00:28:43,399
+going<font color="#E5E5E5"> to install for us</font><font color="#CCCCCC"> I might as well</font>
+
+828
+00:28:42,019 --> 00:28:45,529
+go in<font color="#E5E5E5"> here and install a couple</font><font color="#CCCCCC"> other</font>
+
+829
+00:28:43,399 --> 00:28:47,059
+things<font color="#E5E5E5"> I'm also going to show you</font>
+
+830
+00:28:45,529 --> 00:28:50,119
+exactly how we're<font color="#CCCCCC"> going to allow the</font>
+
+831
+00:28:47,059 --> 00:28:52,340
+user to<font color="#E5E5E5"> upload files and to be</font><font color="#CCCCCC"> able to</font>
+
+832
+00:28:50,119 --> 00:28:54,470
+upload<font color="#E5E5E5"> files we're going to use another</font>
+
+833
+00:28:52,340 --> 00:28:58,299
+piece<font color="#CCCCCC"> of middleware called formidable</font><font color="#E5E5E5"> so</font>
+
+834
+00:28:54,470 --> 00:29:00,919
+to<font color="#E5E5E5"> install that</font><font color="#CCCCCC"> NPM install -</font><font color="#E5E5E5"> - save</font>
+
+835
+00:28:58,299 --> 00:29:02,240
+formidable and that will install<font color="#E5E5E5"> and if</font>
+
+836
+00:29:00,919 --> 00:29:03,799
+anything<font color="#CCCCCC"> is a</font><font color="#E5E5E5"> little bit confusing don't</font>
+
+837
+00:29:02,240 --> 00:29:05,480
+<font color="#E5E5E5">worry</font><font color="#CCCCCC"> about it I'm</font><font color="#E5E5E5"> going to go</font><font color="#CCCCCC"> over this</font>
+
+838
+00:29:03,799 --> 00:29:07,879
+<font color="#E5E5E5">stuff over and over</font><font color="#CCCCCC"> and over again and</font>
+
+839
+00:29:05,480 --> 00:29:09,769
+this<font color="#E5E5E5"> is just an overview</font><font color="#CCCCCC"> to sort of</font><font color="#E5E5E5"> get</font>
+
+840
+00:29:07,879 --> 00:29:11,629
+you inclined to understand exactly
+
+841
+00:29:09,769 --> 00:29:13,190
+what's going<font color="#E5E5E5"> on I'm also going to cover</font>
+
+842
+00:29:11,629 --> 00:29:15,169
+how we're<font color="#E5E5E5"> going to be able to use</font>
+
+843
+00:29:13,190 --> 00:29:16,850
+cookies<font color="#CCCCCC"> so I'm of course I'm going</font><font color="#E5E5E5"> to</font>
+
+844
+00:29:15,169 --> 00:29:20,840
+need some cookie middleware<font color="#E5E5E5"> so I'm going</font>
+
+845
+00:29:16,850 --> 00:29:22,940
+to go<font color="#CCCCCC"> npm install - - save</font><font color="#E5E5E5"> and we're</font>
+
+846
+00:29:20,840 --> 00:29:24,440
+going to<font color="#E5E5E5"> get cookie parser and that will</font>
+
+847
+00:29:22,940 --> 00:29:25,519
+install and there we go now<font color="#CCCCCC"> we've got</font>
+
+848
+00:29:24,440 --> 00:29:27,379
+all the different<font color="#CCCCCC"> things we're going to</font>
+
+849
+00:29:25,519 --> 00:29:29,779
+<font color="#E5E5E5">need here let me get rid</font><font color="#CCCCCC"> of</font><font color="#E5E5E5"> this right</font>
+
+850
+00:29:27,379 --> 00:29:32,090
+here<font color="#CCCCCC"> and</font><font color="#E5E5E5"> then start installing those so</font>
+
+851
+00:29:29,779 --> 00:29:34,549
+<font color="#E5E5E5">just to get all this to work I'm going</font>
+
+852
+00:29:32,090 --> 00:29:37,190
+<font color="#E5E5E5">to go app dot use I'm going to go</font>
+
+853
+00:29:34,549 --> 00:29:38,570
+require<font color="#CCCCCC"> body parser and like I said</font>
+
+854
+00:29:37,190 --> 00:29:40,369
+<font color="#CCCCCC">before this is going to be required</font>
+
+855
+00:29:38,570 --> 00:29:43,840
+<font color="#E5E5E5">whenever we're using posts to parse</font>
+
+856
+00:29:40,369 --> 00:29:46,369
+encoded data so I go URL encoded
+
+857
+00:29:43,840 --> 00:29:48,799
+extended true<font color="#E5E5E5"> then we're going to get</font>
+
+858
+00:29:46,369 --> 00:29:51,139
+formidable as well<font color="#E5E5E5"> this is just going to</font>
+
+859
+00:29:48,799 --> 00:29:52,789
+import this module for<font color="#E5E5E5"> us to use</font><font color="#CCCCCC"> and</font>
+
+860
+00:29:51,139 --> 00:29:54,499
+just<font color="#E5E5E5"> make sure</font><font color="#CCCCCC"> you spell it</font><font color="#E5E5E5"> right it's a</font>
+
+861
+00:29:52,789 --> 00:29:56,600
+weird word<font color="#CCCCCC"> another</font><font color="#E5E5E5"> thing I want to do is</font>
+
+862
+00:29:54,499 --> 00:29:58,429
+create another<font color="#E5E5E5"> file called credentials</font>
+
+863
+00:29:56,600 --> 00:30:01,220
+which is going<font color="#CCCCCC"> to allow me to secure my</font>
+
+864
+00:29:58,429 --> 00:30:03,019
+cookies and<font color="#CCCCCC"> help with sessions which</font>
+
+865
+00:30:01,220 --> 00:30:04,610
+we're also going to<font color="#E5E5E5"> get into in a moment</font>
+
+866
+00:30:03,019 --> 00:30:06,649
+<font color="#CCCCCC">so let's jump</font><font color="#E5E5E5"> out here to our main</font>
+
+867
+00:30:04,610 --> 00:30:09,830
+directory and<font color="#E5E5E5"> go new file and we're</font>
+
+868
+00:30:06,649 --> 00:30:11,419
+<font color="#CCCCCC">going to save this save as</font><font color="#E5E5E5"> make</font><font color="#CCCCCC"> sure</font>
+
+869
+00:30:09,830 --> 00:30:13,970
+<font color="#CCCCCC">it's in the main directory</font><font color="#E5E5E5"> where you</font>
+
+870
+00:30:11,419 --> 00:30:16,940
+have expressed<font color="#CCCCCC"> a s and I'm going to</font><font color="#E5E5E5"> type</font>
+
+871
+00:30:13,970 --> 00:30:19,909
+in credentials<font color="#E5E5E5"> dot J s and save that</font>
+
+872
+00:30:16,940 --> 00:30:21,210
+<font color="#E5E5E5">yeah I'll go module exports and you'll</font>
+
+873
+00:30:19,909 --> 00:30:22,919
+see here in a second how<font color="#CCCCCC"> we'll be</font>
+
+874
+00:30:21,210 --> 00:30:24,690
+to get access<font color="#E5E5E5"> to this and I just</font><font color="#CCCCCC"> got to</font>
+
+875
+00:30:22,919 --> 00:30:26,640
+give this a name and like I<font color="#CCCCCC"> said</font><font color="#E5E5E5"> before</font>
+
+876
+00:30:24,690 --> 00:30:27,480
+this is<font color="#CCCCCC"> going to help us with security</font>
+
+877
+00:30:26,640 --> 00:30:29,309
+<font color="#E5E5E5">so we</font><font color="#CCCCCC"> go</font>
+
+878
+00:30:27,480 --> 00:30:31,260
+<font color="#E5E5E5">cookie secret and then inside of here</font>
+
+879
+00:30:29,309 --> 00:30:33,809
+you're going<font color="#E5E5E5"> to throw in just a random</font>
+
+880
+00:30:31,260 --> 00:30:35,970
+bunch<font color="#E5E5E5"> of strings something you can</font>
+
+881
+00:30:33,809 --> 00:30:38,250
+remember<font color="#E5E5E5"> I guess if that's important so</font>
+
+882
+00:30:35,970 --> 00:30:40,980
+I'm going<font color="#CCCCCC"> to go for stability</font><font color="#E5E5E5"> and I can</font>
+
+883
+00:30:38,250 --> 00:30:42,390
+do something<font color="#CCCCCC"> like</font><font color="#E5E5E5"> Luke father</font><font color="#CCCCCC"> since</font>
+
+884
+00:30:40,980 --> 00:30:44,429
+<font color="#E5E5E5">we're all thinking</font><font color="#CCCCCC"> about Star Wars right</font>
+
+885
+00:30:42,390 --> 00:30:46,350
+<font color="#CCCCCC">now and then close that off</font><font color="#E5E5E5"> and then we</font>
+
+886
+00:30:44,429 --> 00:30:49,049
+<font color="#CCCCCC">can</font><font color="#E5E5E5"> save that</font><font color="#CCCCCC"> that's all we need to do</font>
+
+887
+00:30:46,350 --> 00:30:52,320
+<font color="#E5E5E5">jump back over</font><font color="#CCCCCC"> into</font><font color="#E5E5E5"> Express</font><font color="#CCCCCC"> j/s and</font>
+
+888
+00:30:49,049 --> 00:30:54,690
+reference<font color="#E5E5E5"> our credentials so credentials</font>
+
+889
+00:30:52,320 --> 00:30:59,520
+and require then we can reference
+
+890
+00:30:54,690 --> 00:31:01,860
+credentials<font color="#CCCCCC"> AS app use require cookie</font>
+
+891
+00:30:59,520 --> 00:31:05,279
+parser just allows us<font color="#CCCCCC"> to use</font><font color="#E5E5E5"> cookies and</font>
+
+892
+00:31:01,860 --> 00:31:07,289
+then credentials<font color="#CCCCCC"> and cookie</font><font color="#E5E5E5"> secret which</font>
+
+893
+00:31:05,279 --> 00:31:08,940
+<font color="#E5E5E5">is that random weird string that we had</font>
+
+894
+00:31:07,289 --> 00:31:10,590
+there<font color="#E5E5E5"> now that</font><font color="#CCCCCC"> I have all that setup I</font>
+
+895
+00:31:08,940 --> 00:31:12,149
+can<font color="#E5E5E5"> come down</font><font color="#CCCCCC"> here and touch on all</font>
+
+896
+00:31:10,590 --> 00:31:15,120
+<font color="#E5E5E5">those different things all at one time</font>
+
+897
+00:31:12,149 --> 00:31:18,529
+<font color="#CCCCCC">so</font><font color="#E5E5E5"> first thing</font><font color="#CCCCCC"> I</font><font color="#E5E5E5"> want to do is create</font>
+
+898
+00:31:15,120 --> 00:31:21,390
+<font color="#E5E5E5">the route for contact so contact and</font>
+
+899
+00:31:18,529 --> 00:31:24,059
+just like<font color="#CCCCCC"> before we're going</font><font color="#E5E5E5"> to have our</font>
+
+900
+00:31:21,390 --> 00:31:26,240
+function request object and our response
+
+901
+00:31:24,059 --> 00:31:30,510
+object inside of it<font color="#E5E5E5"> here we're going to</font>
+
+902
+00:31:26,240 --> 00:31:32,610
+<font color="#E5E5E5">render a CSRF token and these tokens are</font>
+
+903
+00:31:30,510 --> 00:31:34,710
+going to be generated in both the cookie
+
+904
+00:31:32,610 --> 00:31:36,929
+as well as the form data and then
+
+905
+00:31:34,710 --> 00:31:39,149
+verified whenever the user posts
+
+906
+00:31:36,929 --> 00:31:41,700
+information<font color="#CCCCCC"> again it's just for security</font>
+
+907
+00:31:39,149 --> 00:31:43,110
+reasons and<font color="#CCCCCC"> we'll have</font><font color="#E5E5E5"> contact and here</font>
+
+908
+00:31:41,700 --> 00:31:45,480
+we'll get more into<font color="#CCCCCC"> this later on</font>
+
+909
+00:31:43,110 --> 00:31:47,279
+<font color="#E5E5E5">whenever we</font><font color="#CCCCCC"> create a real application</font>
+
+910
+00:31:45,480 --> 00:31:50,010
+<font color="#E5E5E5">but for now we can</font><font color="#CCCCCC"> just go see our F</font>
+
+911
+00:31:47,279 --> 00:31:52,470
+token here<font color="#E5E5E5"> and then also I'm going</font><font color="#CCCCCC"> to go</font>
+
+912
+00:31:50,010 --> 00:31:54,179
+and create another route and<font color="#E5E5E5"> we call</font>
+
+913
+00:31:52,470 --> 00:31:55,890
+this<font color="#CCCCCC"> Thank You which is where we're</font>
+
+914
+00:31:54,179 --> 00:31:58,020
+<font color="#E5E5E5">going to send them after they send us</font>
+
+915
+00:31:55,890 --> 00:32:00,960
+different information in the<font color="#E5E5E5"> form</font>
+
+916
+00:31:58,020 --> 00:32:03,600
+request response<font color="#CCCCCC"> and here we'll just</font>
+
+917
+00:32:00,960 --> 00:32:05,010
+render or<font color="#E5E5E5"> thank</font><font color="#CCCCCC"> you</font><font color="#E5E5E5"> handlebars file</font>
+
+918
+00:32:03,600 --> 00:32:06,750
+which we also have to go in<font color="#E5E5E5"> there and</font>
+
+919
+00:32:05,010 --> 00:32:09,539
+<font color="#E5E5E5">create so let's jump over and create</font>
+
+920
+00:32:06,750 --> 00:32:11,039
+that view<font color="#CCCCCC"> so we go view new file</font><font color="#E5E5E5"> and</font>
+
+921
+00:32:09,539 --> 00:32:12,539
+we'll<font color="#E5E5E5"> just throw in some</font><font color="#CCCCCC"> information</font>
+
+922
+00:32:11,039 --> 00:32:14,850
+thank you<font color="#CCCCCC"> for your</font><font color="#E5E5E5"> submission just to</font>
+
+923
+00:32:12,539 --> 00:32:16,620
+keep<font color="#E5E5E5"> that nice</font><font color="#CCCCCC"> and simple</font><font color="#E5E5E5"> file save as</font>
+
+924
+00:32:14,850 --> 00:32:18,570
+make<font color="#CCCCCC"> sure it has the</font><font color="#E5E5E5"> same name make sure</font>
+
+925
+00:32:16,620 --> 00:32:21,450
+it's saved<font color="#E5E5E5"> in the views folder thank you</font>
+
+926
+00:32:18,570 --> 00:32:23,250
+dot handlebars<font color="#CCCCCC"> and click on save and</font>
+
+927
+00:32:21,450 --> 00:32:25,140
+there<font color="#E5E5E5"> that's all</font><font color="#CCCCCC"> setup we can</font><font color="#E5E5E5"> close</font><font color="#CCCCCC"> that</font>
+
+928
+00:32:23,250 --> 00:32:28,620
+as well and now we need<font color="#E5E5E5"> to go in and</font>
+
+929
+00:32:25,140 --> 00:32:31,490
+actually process the form<font color="#E5E5E5"> so inside of</font>
+
+930
+00:32:28,620 --> 00:32:34,070
+here you<font color="#CCCCCC"> can see right here</font><font color="#E5E5E5"> process and</font>
+
+931
+00:32:31,490 --> 00:32:36,140
+form contact us<font color="#E5E5E5"> we're going to go in and</font>
+
+932
+00:32:34,070 --> 00:32:38,300
+create process<font color="#E5E5E5"> to process that</font>
+
+933
+00:32:36,140 --> 00:32:41,900
+<font color="#E5E5E5">information</font><font color="#CCCCCC"> is being sent to</font><font color="#E5E5E5"> us and to</font>
+
+934
+00:32:38,300 --> 00:32:43,610
+do so<font color="#E5E5E5"> we'll go app post process and then</font>
+
+935
+00:32:41,900 --> 00:32:45,830
+define<font color="#CCCCCC"> the function that is</font><font color="#E5E5E5"> going to</font>
+
+936
+00:32:43,610 --> 00:32:47,570
+actually<font color="#E5E5E5"> process this will go response</font>
+
+937
+00:32:45,830 --> 00:32:49,670
+<font color="#E5E5E5">and we're just going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> print out this</font>
+
+938
+00:32:47,570 --> 00:32:52,460
+information<font color="#CCCCCC"> on the screen I'd like to</font>
+
+939
+00:32:49,670 --> 00:32:53,870
+save it<font color="#E5E5E5"> to a database or</font><font color="#CCCCCC"> something but</font>
+
+940
+00:32:52,460 --> 00:32:56,300
+<font color="#E5E5E5">that's what</font><font color="#CCCCCC"> we'll cover</font><font color="#E5E5E5"> in</font><font color="#CCCCCC"> the next part</font>
+
+941
+00:32:53,870 --> 00:32:59,480
+of the tutorial<font color="#E5E5E5"> you can just go form and</font>
+
+942
+00:32:56,300 --> 00:33:01,100
+then request<font color="#E5E5E5"> quarry form and print out</font>
+
+943
+00:32:59,480 --> 00:33:04,100
+all the<font color="#E5E5E5"> information</font><font color="#CCCCCC"> that</font><font color="#E5E5E5"> we'll be able</font>
+
+944
+00:33:01,100 --> 00:33:06,590
+to get<font color="#E5E5E5"> from this guy so console.log</font><font color="#CCCCCC"> we</font>
+
+945
+00:33:04,100 --> 00:33:07,850
+could get<font color="#E5E5E5"> to our CSRF token which we</font>
+
+946
+00:33:06,590 --> 00:33:09,890
+already<font color="#E5E5E5"> know what</font><font color="#CCCCCC"> that is</font>
+
+947
+00:33:07,850 --> 00:33:14,690
+go throw<font color="#CCCCCC"> a</font><font color="#E5E5E5"> colon inside of there and to</font>
+
+948
+00:33:09,890 --> 00:33:16,460
+<font color="#E5E5E5">get that again request body dot CSRF so</font>
+
+949
+00:33:14,690 --> 00:33:18,920
+open that<font color="#CCCCCC"> up the whole way they're also</font>
+
+950
+00:33:16,460 --> 00:33:20,510
+going to<font color="#E5E5E5"> be sending an email inside of</font>
+
+951
+00:33:18,920 --> 00:33:23,480
+<font color="#E5E5E5">there again</font><font color="#CCCCCC"> that's going</font><font color="#E5E5E5"> to be in</font>
+
+952
+00:33:20,510 --> 00:33:25,640
+request body<font color="#E5E5E5"> and this is just going to</font>
+
+953
+00:33:23,480 --> 00:33:27,500
+be email<font color="#E5E5E5"> because that's the name that we</font>
+
+954
+00:33:25,640 --> 00:33:29,720
+<font color="#CCCCCC">have for</font><font color="#E5E5E5"> it so if you jump over here you</font>
+
+955
+00:33:27,500 --> 00:33:32,390
+can see<font color="#E5E5E5"> right</font><font color="#CCCCCC"> here there is our CR SF</font>
+
+956
+00:33:29,720 --> 00:33:34,700
+<font color="#CCCCCC">and here we're going to have our email</font>
+
+957
+00:33:32,390 --> 00:33:36,770
+<font color="#E5E5E5">which is defined</font><font color="#CCCCCC"> right there and</font><font color="#E5E5E5"> down</font>
+
+958
+00:33:34,700 --> 00:33:38,270
+inside here we have<font color="#CCCCCC"> a question and</font><font color="#E5E5E5"> you</font>
+
+959
+00:33:36,770 --> 00:33:40,100
+can have down inside<font color="#CCCCCC"> of here is</font><font color="#E5E5E5"> going to</font>
+
+960
+00:33:38,270 --> 00:33:41,420
+be the submit button<font color="#CCCCCC"> jump back</font><font color="#E5E5E5"> over here</font>
+
+961
+00:33:40,100 --> 00:33:43,940
+<font color="#E5E5E5">again</font><font color="#CCCCCC"> and we're also going to want to</font>
+
+962
+00:33:41,420 --> 00:33:45,860
+come<font color="#E5E5E5"> in here and print the question that</font>
+
+963
+00:33:43,940 --> 00:33:48,440
+they entered<font color="#E5E5E5"> into the form</font><font color="#CCCCCC"> and that was</font>
+
+964
+00:33:45,860 --> 00:33:50,840
+qu es<font color="#E5E5E5"> and then if we want</font><font color="#CCCCCC"> to send them</font>
+
+965
+00:33:48,440 --> 00:33:52,760
+to<font color="#E5E5E5"> our</font><font color="#CCCCCC"> thank-you page after we get all</font>
+
+966
+00:33:50,840 --> 00:33:56,000
+<font color="#CCCCCC">that information from the form</font><font color="#E5E5E5"> that they</font>
+
+967
+00:33:52,760 --> 00:33:58,460
+sent us we could<font color="#E5E5E5"> go res redirect and we</font>
+
+968
+00:33:56,000 --> 00:34:00,260
+could go<font color="#E5E5E5"> to 303 and thank you</font><font color="#CCCCCC"> and if we</font>
+
+969
+00:33:58,460 --> 00:34:02,450
+typed all that<font color="#CCCCCC"> incorrectly</font><font color="#E5E5E5"> we</font><font color="#CCCCCC"> should be</font>
+
+970
+00:34:00,260 --> 00:34:04,130
+able to test this out ourselves make
+
+971
+00:34:02,450 --> 00:34:05,780
+sure<font color="#E5E5E5"> written right directory yes we are</font>
+
+972
+00:34:04,130 --> 00:34:08,419
+and then we're going<font color="#E5E5E5"> to come in here and</font>
+
+973
+00:34:05,780 --> 00:34:10,369
+restart our server<font color="#CCCCCC"> and</font><font color="#E5E5E5"> I have a little</font>
+
+974
+00:34:08,418 --> 00:34:12,709
+<font color="#E5E5E5">bit of an error over here I named my</font>
+
+975
+00:34:10,369 --> 00:34:14,300
+file credentials<font color="#E5E5E5"> let's come in</font><font color="#CCCCCC"> here</font><font color="#E5E5E5"> and</font>
+
+976
+00:34:12,710 --> 00:34:17,389
+open<font color="#CCCCCC"> this up let's select everything</font>
+
+977
+00:34:14,300 --> 00:34:19,850
+<font color="#E5E5E5">copy that rid of that let's go and</font>
+
+978
+00:34:17,389 --> 00:34:22,100
+delete it<font color="#CCCCCC"> so</font><font color="#E5E5E5"> I'll put up that uh delete</font>
+
+979
+00:34:19,850 --> 00:34:24,050
+file<font color="#CCCCCC"> that's</font><font color="#E5E5E5"> gone</font><font color="#CCCCCC"> and then let's go and</font>
+
+980
+00:34:22,100 --> 00:34:26,419
+<font color="#CCCCCC">create another one</font><font color="#E5E5E5"> again in the</font><font color="#CCCCCC"> express</font>
+
+981
+00:34:24,050 --> 00:34:31,520
+<font color="#E5E5E5">Tut new file paste that inside</font><font color="#CCCCCC"> of their</font>
+
+982
+00:34:26,418 --> 00:34:33,559
+<font color="#E5E5E5">file save as credentials</font><font color="#CCCCCC"> dot J s save it</font>
+
+983
+00:34:31,520 --> 00:34:35,659
+now credentials there is spelled exactly
+
+984
+00:34:33,560 --> 00:34:37,550
+the<font color="#E5E5E5"> same</font><font color="#CCCCCC"> as was there</font><font color="#E5E5E5"> and credentials</font>
+
+985
+00:34:35,659 --> 00:34:39,710
+little<font color="#E5E5E5"> weird silly things that come up</font>
+
+986
+00:34:37,550 --> 00:34:41,510
+<font color="#E5E5E5">and if I restart the server and go to my</font>
+
+987
+00:34:39,710 --> 00:34:42,360
+contact page you're going<font color="#E5E5E5"> to say uh-oh</font>
+
+988
+00:34:41,510 --> 00:34:44,940
+<font color="#E5E5E5">the</font>
+
+989
+00:34:42,360 --> 00:34:46,830
+<font color="#E5E5E5">Tech didn't show up why didn't it</font><font color="#CCCCCC"> I did</font>
+
+990
+00:34:44,940 --> 00:34:50,040
+<font color="#CCCCCC">this</font><font color="#E5E5E5"> on purpose</font><font color="#CCCCCC"> the</font><font color="#E5E5E5"> reason why is</font>
+
+991
+00:34:46,830 --> 00:34:52,200
+because<font color="#E5E5E5"> it hits the 404 page before</font><font color="#CCCCCC"> it</font>
+
+992
+00:34:50,040 --> 00:34:53,970
+gets to<font color="#E5E5E5"> the contact down here</font><font color="#CCCCCC"> so we're</font>
+
+993
+00:34:52,199 --> 00:34:56,519
+<font color="#E5E5E5">going to want to do is take all this</font>
+
+994
+00:34:53,969 --> 00:34:57,240
+stuff<font color="#E5E5E5"> and move it up above it</font><font color="#CCCCCC"> so we're</font>
+
+995
+00:34:56,520 --> 00:34:59,160
+going<font color="#E5E5E5"> to copy that</font>
+
+996
+00:34:57,240 --> 00:35:00,990
+because it's<font color="#E5E5E5"> just</font><font color="#CCCCCC"> like a pipeline it</font>
+
+997
+00:34:59,160 --> 00:35:03,600
+goes through and it hits all the
+
+998
+00:35:00,990 --> 00:35:05,310
+<font color="#E5E5E5">different requests and then serves up</font>
+
+999
+00:35:03,600 --> 00:35:08,310
+different functions depending<font color="#E5E5E5"> upon the</font>
+
+1000
+00:35:05,310 --> 00:35:09,990
+<font color="#CCCCCC">request so the order is very very</font>
+
+1001
+00:35:08,310 --> 00:35:11,850
+important here<font color="#CCCCCC"> so we're going</font><font color="#E5E5E5"> to cut</font>
+
+1002
+00:35:09,990 --> 00:35:13,770
+<font color="#E5E5E5">that out of there</font><font color="#CCCCCC"> and then right after</font>
+
+1003
+00:35:11,850 --> 00:35:15,900
+the About section<font color="#E5E5E5"> we're going to paste</font>
+
+1004
+00:35:13,770 --> 00:35:18,360
+<font color="#E5E5E5">this inside of here and now if we save</font>
+
+1005
+00:35:15,900 --> 00:35:19,980
+it<font color="#E5E5E5"> and then jump</font><font color="#CCCCCC"> over</font><font color="#E5E5E5"> here restart our</font>
+
+1006
+00:35:18,360 --> 00:35:22,170
+server again now<font color="#CCCCCC"> everything's going to</font>
+
+1007
+00:35:19,980 --> 00:35:24,150
+<font color="#E5E5E5">work for us so let's reload contact us</font>
+
+1008
+00:35:22,170 --> 00:35:25,740
+pops up<font color="#E5E5E5"> right there and you</font><font color="#CCCCCC"> can see</font>
+
+1009
+00:35:24,150 --> 00:35:29,220
+there's a submit so I can come in<font color="#CCCCCC"> here</font>
+
+1010
+00:35:25,740 --> 00:35:31,350
+<font color="#CCCCCC">and type in this and something like how</font>
+
+1011
+00:35:29,220 --> 00:35:32,610
+are<font color="#E5E5E5"> you and click on submit</font><font color="#CCCCCC"> and you're</font>
+
+1012
+00:35:31,350 --> 00:35:34,680
+going<font color="#CCCCCC"> to see all this information pops</font>
+
+1013
+00:35:32,610 --> 00:35:36,540
+<font color="#E5E5E5">up down here like I</font><font color="#CCCCCC"> said</font><font color="#E5E5E5"> before we could</font>
+
+1014
+00:35:34,680 --> 00:35:38,730
+go and save this<font color="#CCCCCC"> information into the</font>
+
+1015
+00:35:36,540 --> 00:35:40,050
+database or<font color="#E5E5E5"> something like that</font><font color="#CCCCCC"> but</font><font color="#E5E5E5"> I'll</font>
+
+1016
+00:35:38,730 --> 00:35:41,820
+get<font color="#CCCCCC"> into that</font><font color="#E5E5E5"> in the next</font><font color="#CCCCCC"> part of the</font>
+
+1017
+00:35:40,050 --> 00:35:44,790
+<font color="#CCCCCC">tutorial so that's how we process form</font>
+
+1018
+00:35:41,820 --> 00:35:46,170
+<font color="#E5E5E5">information using Express and</font><font color="#CCCCCC"> node.js so</font>
+
+1019
+00:35:44,790 --> 00:35:48,660
+now I'm<font color="#E5E5E5"> going to show you how to allow</font>
+
+1020
+00:35:46,170 --> 00:35:50,640
+them to<font color="#E5E5E5"> upload files to your server and</font>
+
+1021
+00:35:48,660 --> 00:35:52,980
+what we're going<font color="#CCCCCC"> to do again is go into</font>
+
+1022
+00:35:50,640 --> 00:35:54,870
+views and we're going to go new file and
+
+1023
+00:35:52,980 --> 00:35:56,970
+I'm just going<font color="#CCCCCC"> to paste this in here and</font>
+
+1024
+00:35:54,870 --> 00:35:59,580
+go<font color="#E5E5E5"> over this basically the URL that we</font>
+
+1025
+00:35:56,970 --> 00:36:01,170
+<font color="#CCCCCC">are going to catch or the route we're</font>
+
+1026
+00:35:59,580 --> 00:36:03,120
+going to catch is going to be called
+
+1027
+00:36:01,170 --> 00:36:06,060
+file upload<font color="#E5E5E5"> and it's going to be</font><font color="#CCCCCC"> passed</font>
+
+1028
+00:36:03,120 --> 00:36:07,980
+<font color="#CCCCCC">a year</font><font color="#E5E5E5"> as well as a month so that we'll</font>
+
+1029
+00:36:06,060 --> 00:36:10,140
+be<font color="#CCCCCC"> able</font><font color="#E5E5E5"> to properly sort these images</font>
+
+1030
+00:36:07,980 --> 00:36:13,410
+and<font color="#E5E5E5"> everything</font><font color="#CCCCCC"> else here is</font><font color="#E5E5E5"> just basic</font>
+
+1031
+00:36:10,140 --> 00:36:15,270
+old<font color="#E5E5E5"> HTML and with some bootstrap styling</font>
+
+1032
+00:36:13,410 --> 00:36:17,370
+<font color="#E5E5E5">as you can see right</font><font color="#CCCCCC"> here and the</font>
+
+1033
+00:36:15,270 --> 00:36:18,870
+important part<font color="#CCCCCC"> right here is if</font><font color="#E5E5E5"> we go</font>
+
+1034
+00:36:17,370 --> 00:36:21,240
+<font color="#E5E5E5">down here we're going</font><font color="#CCCCCC"> to see that we're</font>
+
+1035
+00:36:18,870 --> 00:36:24,540
+<font color="#E5E5E5">only going to be able to accept image</font>
+
+1036
+00:36:21,240 --> 00:36:26,730
+files again for security reasons so<font color="#E5E5E5"> that</font>
+
+1037
+00:36:24,540 --> 00:36:29,430
+<font color="#E5E5E5">is that guy and we're going to save that</font>
+
+1038
+00:36:26,730 --> 00:36:32,190
+<font color="#CCCCCC">in</font><font color="#E5E5E5"> our views directory once again as</font>
+
+1039
+00:36:29,430 --> 00:36:34,500
+file upload going to be the name<font color="#CCCCCC"> for it</font>
+
+1040
+00:36:32,190 --> 00:36:36,090
+<font color="#CCCCCC">as well as handlebars</font><font color="#E5E5E5"> and that's going</font>
+
+1041
+00:36:34,500 --> 00:36:38,340
+<font color="#E5E5E5">to import</font><font color="#CCCCCC"> that and we're going to save</font>
+
+1042
+00:36:36,090 --> 00:36:41,610
+it<font color="#CCCCCC"> so we close that out and go</font><font color="#E5E5E5"> into the</font>
+
+1043
+00:36:38,340 --> 00:36:44,980
+<font color="#E5E5E5">Express</font><font color="#CCCCCC"> J's file again and</font><font color="#E5E5E5"> handle those</font>
+
+1044
+00:36:41,610 --> 00:36:46,390
+file uploads<font color="#E5E5E5"> to do so we're going to go</font>
+
+1045
+00:36:44,980 --> 00:36:47,800
+get again because it's going<font color="#CCCCCC"> to be a</font>
+
+1046
+00:36:46,390 --> 00:36:51,339
+<font color="#CCCCCC">rout we're going to be dealing with</font><font color="#E5E5E5"> and</font>
+
+1047
+00:36:47,800 --> 00:36:53,440
+whenever<font color="#E5E5E5"> they go to file upload URL</font>
+
+1048
+00:36:51,339 --> 00:36:55,839
+<font color="#E5E5E5">we're going</font><font color="#CCCCCC"> to get a function</font><font color="#E5E5E5"> request</font>
+
+1049
+00:36:53,440 --> 00:36:58,570
+<font color="#E5E5E5">resource we're going to go and get a</font>
+
+1050
+00:36:55,839 --> 00:36:59,920
+date<font color="#CCCCCC"> being</font><font color="#E5E5E5"> the current date and we'll be</font>
+
+1051
+00:36:58,570 --> 00:37:02,770
+<font color="#CCCCCC">able</font><font color="#E5E5E5"> to store these a little bit better</font>
+
+1052
+00:36:59,920 --> 00:37:05,440
+later on<font color="#E5E5E5"> under user names and dates and</font>
+
+1053
+00:37:02,770 --> 00:37:07,089
+things like<font color="#E5E5E5"> that</font><font color="#CCCCCC"> and</font><font color="#E5E5E5"> res render now</font>
+
+1054
+00:37:05,440 --> 00:37:08,920
+we're going<font color="#E5E5E5"> to</font><font color="#CCCCCC"> render</font><font color="#E5E5E5"> out to the screen</font>
+
+1055
+00:37:07,089 --> 00:37:11,440
+this information<font color="#E5E5E5"> first thing we're going</font>
+
+1056
+00:37:08,920 --> 00:37:13,720
+<font color="#E5E5E5">to render out to the screen is the file</font>
+
+1057
+00:37:11,440 --> 00:37:14,349
+upload form that I just showed<font color="#CCCCCC"> you a</font>
+
+1058
+00:37:13,720 --> 00:37:16,060
+second ago
+
+1059
+00:37:14,349 --> 00:37:18,970
+and we're also going to be<font color="#E5E5E5"> passing in</font>
+
+1060
+00:37:16,060 --> 00:37:20,980
+the year as well as the<font color="#CCCCCC"> month</font><font color="#E5E5E5"> might want</font>
+
+1061
+00:37:18,970 --> 00:37:23,349
+to do milliseconds or something like
+
+1062
+00:37:20,980 --> 00:37:24,430
+<font color="#E5E5E5">that and as you</font><font color="#CCCCCC"> can see</font><font color="#E5E5E5"> this is going to</font>
+
+1063
+00:37:23,349 --> 00:37:25,960
+receive it<font color="#CCCCCC"> right there</font>
+
+1064
+00:37:24,430 --> 00:37:28,180
+so it's expecting the year in the month
+
+1065
+00:37:25,960 --> 00:37:30,550
+<font color="#CCCCCC">to be passed inside of there</font><font color="#E5E5E5"> so we will</font>
+
+1066
+00:37:28,180 --> 00:37:32,380
+pass it<font color="#CCCCCC"> inside of there a year you can</font>
+
+1067
+00:37:30,550 --> 00:37:34,990
+also see here<font color="#E5E5E5"> an example</font><font color="#CCCCCC"> of how we can</font>
+
+1068
+00:37:32,380 --> 00:37:37,329
+<font color="#E5E5E5">pass in different elements to be used in</font>
+
+1069
+00:37:34,990 --> 00:37:39,190
+a<font color="#CCCCCC"> webpage so get full year and</font><font color="#E5E5E5"> then</font>
+
+1070
+00:37:37,329 --> 00:37:41,740
+month as well<font color="#CCCCCC"> and to get</font><font color="#E5E5E5"> the current</font>
+
+1071
+00:37:39,190 --> 00:37:44,230
+month<font color="#E5E5E5"> we'll go now get month and that is</font>
+
+1072
+00:37:41,740 --> 00:37:46,599
+the array<font color="#E5E5E5"> will pass into that and now if</font>
+
+1073
+00:37:44,230 --> 00:37:49,240
+<font color="#E5E5E5">we jump back</font><font color="#CCCCCC"> over into file uploads</font><font color="#E5E5E5"> you</font>
+
+1074
+00:37:46,599 --> 00:37:51,579
+can also see<font color="#E5E5E5"> here that we are</font><font color="#CCCCCC"> going</font><font color="#E5E5E5"> to</font>
+
+1075
+00:37:49,240 --> 00:37:53,470
+be<font color="#E5E5E5"> passing year in the month and we want</font>
+
+1076
+00:37:51,579 --> 00:37:55,930
+to be able<font color="#E5E5E5"> to handle this new type</font><font color="#CCCCCC"> of</font>
+
+1077
+00:37:53,470 --> 00:37:58,480
+URL<font color="#E5E5E5"> so if we</font><font color="#CCCCCC"> jump over here whenever</font>
+
+1078
+00:37:55,930 --> 00:38:01,060
+<font color="#E5E5E5">they call just file and upload we're</font>
+
+1079
+00:37:58,480 --> 00:38:03,640
+going to just get the year in the month
+
+1080
+00:38:01,060 --> 00:38:06,069
+<font color="#CCCCCC">and show the form and whenever they pass</font>
+
+1081
+00:38:03,640 --> 00:38:07,900
+the month in<font color="#E5E5E5"> the year we want to be able</font>
+
+1082
+00:38:06,069 --> 00:38:10,270
+<font color="#E5E5E5">to handle that differently</font><font color="#CCCCCC"> so again</font>
+
+1083
+00:38:07,900 --> 00:38:12,849
+we'll go<font color="#CCCCCC"> apt-get and create a new</font>
+
+1084
+00:38:10,270 --> 00:38:15,339
+version of file upload file upload<font color="#E5E5E5"> and</font>
+
+1085
+00:38:12,849 --> 00:38:17,560
+in this new version<font color="#E5E5E5"> we're going to be</font>
+
+1086
+00:38:15,339 --> 00:38:19,750
+expecting year and month to<font color="#E5E5E5"> be passed</font>
+
+1087
+00:38:17,560 --> 00:38:21,640
+inside of it like<font color="#CCCCCC"> that and if you're</font><font color="#E5E5E5"> in</font>
+
+1088
+00:38:19,750 --> 00:38:22,930
+month<font color="#E5E5E5"> are passed inside of it we want</font><font color="#CCCCCC"> to</font>
+
+1089
+00:38:21,640 --> 00:38:25,839
+<font color="#E5E5E5">be</font><font color="#CCCCCC"> able to handle that so we'll go</font>
+
+1090
+00:38:22,930 --> 00:38:27,910
+function<font color="#E5E5E5"> quest response close this off</font>
+
+1091
+00:38:25,839 --> 00:38:30,010
+as well<font color="#CCCCCC"> and</font><font color="#E5E5E5"> inside</font><font color="#CCCCCC"> of here we want</font><font color="#E5E5E5"> to</font>
+
+1092
+00:38:27,910 --> 00:38:32,680
+parse our file that was uploaded<font color="#CCCCCC"> so</font>
+
+1093
+00:38:30,010 --> 00:38:34,329
+we'll go<font color="#E5E5E5"> of our form equal to this is</font>
+
+1094
+00:38:32,680 --> 00:38:36,329
+where we use formidable<font color="#E5E5E5"> which is that</font>
+
+1095
+00:38:34,329 --> 00:38:38,650
+middle<font color="#CCCCCC"> arrow</font><font color="#E5E5E5"> that we imported earlier</font>
+
+1096
+00:38:36,329 --> 00:38:39,970
+<font color="#E5E5E5">incoming form you</font><font color="#CCCCCC"> know a lot of other</font>
+
+1097
+00:38:38,650 --> 00:38:41,530
+different<font color="#E5E5E5"> things with format a</font><font color="#CCCCCC"> little</font>
+
+1098
+00:38:39,970 --> 00:38:43,900
+but in this situation I'll just stick to
+
+1099
+00:38:41,530 --> 00:38:46,300
+uploading<font color="#E5E5E5"> the image file and then you</font>
+
+1100
+00:38:43,900 --> 00:38:49,900
+just go<font color="#CCCCCC"> parse</font><font color="#E5E5E5"> quest and we'll go</font>
+
+1101
+00:38:46,300 --> 00:38:51,310
+function potential<font color="#CCCCCC"> error fields</font><font color="#E5E5E5"> file the</font>
+
+1102
+00:38:49,900 --> 00:38:52,730
+file is going<font color="#E5E5E5"> to be the important part</font>
+
+1103
+00:38:51,310 --> 00:38:54,230
+here<font color="#E5E5E5"> however we</font><font color="#CCCCCC"> want</font><font color="#E5E5E5"> to be</font>
+
+1104
+00:38:52,730 --> 00:38:56,690
+to handle<font color="#E5E5E5"> any errors</font><font color="#CCCCCC"> that could</font>
+
+1105
+00:38:54,230 --> 00:38:59,120
+<font color="#CCCCCC">potentially occur here</font><font color="#E5E5E5"> and if there was</font>
+
+1106
+00:38:56,690 --> 00:39:01,220
+<font color="#E5E5E5">an error</font><font color="#CCCCCC"> we'll just return</font><font color="#E5E5E5"> and we'll say</font>
+
+1107
+00:38:59,120 --> 00:39:03,140
+<font color="#E5E5E5">that we</font><font color="#CCCCCC"> want to redirect</font><font color="#E5E5E5"> to an error</font>
+
+1108
+00:39:01,220 --> 00:39:06,320
+file that's<font color="#CCCCCC"> going to be</font><font color="#E5E5E5"> created</font><font color="#CCCCCC"> here</font>
+
+1109
+00:39:03,140 --> 00:39:08,300
+<font color="#CCCCCC">three and we'll have to create</font><font color="#E5E5E5"> that of</font>
+
+1110
+00:39:06,320 --> 00:39:10,010
+course<font color="#E5E5E5"> so I have to create</font><font color="#CCCCCC"> our new</font><font color="#E5E5E5"> view</font>
+
+1111
+00:39:08,300 --> 00:39:13,310
+<font color="#CCCCCC">and we'll</font><font color="#E5E5E5"> just say something went wrong</font>
+
+1112
+00:39:10,010 --> 00:39:15,350
+something like that<font color="#E5E5E5"> file save as over</font><font color="#CCCCCC"> in</font>
+
+1113
+00:39:13,310 --> 00:39:17,600
+<font color="#E5E5E5">two views will call this error</font><font color="#CCCCCC"> gone</font>
+
+1114
+00:39:15,350 --> 00:39:19,730
+handlebars<font color="#CCCCCC"> that'll be</font><font color="#E5E5E5"> the thing</font><font color="#CCCCCC"> that</font>
+
+1115
+00:39:17,600 --> 00:39:22,160
+shows up<font color="#CCCCCC"> if there was an error</font><font color="#E5E5E5"> jump back</font>
+
+1116
+00:39:19,730 --> 00:39:24,470
+<font color="#CCCCCC">over</font><font color="#E5E5E5"> into Express otherwise if there</font>
+
+1117
+00:39:22,160 --> 00:39:27,290
+wasn't an error will say<font color="#CCCCCC"> console</font><font color="#E5E5E5"> and</font>
+
+1118
+00:39:24,470 --> 00:39:29,630
+<font color="#E5E5E5">we'll assume that</font><font color="#CCCCCC"> we received our file</font>
+
+1119
+00:39:27,290 --> 00:39:31,700
+<font color="#E5E5E5">so we'll say that</font><font color="#CCCCCC"> and then</font><font color="#E5E5E5"> we could</font>
+
+1120
+00:39:29,630 --> 00:39:33,980
+store this<font color="#E5E5E5"> and reference it in a</font>
+
+1121
+00:39:31,700 --> 00:39:35,210
+<font color="#CCCCCC">database or whatever</font><font color="#E5E5E5"> but</font><font color="#CCCCCC"> for now I'm</font>
+
+1122
+00:39:33,980 --> 00:39:37,460
+just<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to print out all the file</font>
+
+1123
+00:39:35,210 --> 00:39:39,890
+<font color="#CCCCCC">information on the screen and then after</font>
+
+1124
+00:39:37,460 --> 00:39:42,260
+or in<font color="#CCCCCC"> the console I'm in and then</font><font color="#E5E5E5"> we</font>
+
+1125
+00:39:39,890 --> 00:39:44,540
+will redirect<font color="#E5E5E5"> them again to our</font>
+
+1126
+00:39:42,260 --> 00:39:46,370
+<font color="#CCCCCC">thank-you page</font><font color="#E5E5E5"> and those all closed off</font>
+
+1127
+00:39:44,540 --> 00:39:48,380
+and everything<font color="#E5E5E5"> looks fine there and then</font>
+
+1128
+00:39:46,370 --> 00:39:50,630
+if we jump over<font color="#E5E5E5"> here and restart our</font>
+
+1129
+00:39:48,380 --> 00:39:53,840
+server<font color="#E5E5E5"> and click here and click</font><font color="#CCCCCC"> on file</font>
+
+1130
+00:39:50,630 --> 00:39:56,000
+upload<font color="#E5E5E5"> type in my name type in email</font>
+
+1131
+00:39:53,840 --> 00:39:58,220
+address and then select a<font color="#CCCCCC"> random photo</font>
+
+1132
+00:39:56,000 --> 00:40:00,050
+<font color="#E5E5E5">and there is my photo and then click on</font>
+
+1133
+00:39:58,220 --> 00:40:01,940
+submit<font color="#CCCCCC"> and you can see right here thank</font>
+
+1134
+00:40:00,050 --> 00:40:04,250
+<font color="#E5E5E5">you</font><font color="#CCCCCC"> for the submission it sent</font><font color="#E5E5E5"> me to the</font>
+
+1135
+00:40:01,940 --> 00:40:06,020
+<font color="#CCCCCC">thank you page and we</font><font color="#E5E5E5"> jump</font><font color="#CCCCCC"> over here you</font>
+
+1136
+00:40:04,250 --> 00:40:09,050
+can see all<font color="#CCCCCC"> the information that</font><font color="#E5E5E5"> we</font>
+
+1137
+00:40:06,020 --> 00:40:11,180
+obtained about<font color="#E5E5E5"> the data that</font><font color="#CCCCCC"> was passed</font>
+
+1138
+00:40:09,050 --> 00:40:13,130
+<font color="#E5E5E5">over the file information</font><font color="#CCCCCC"> and of course</font>
+
+1139
+00:40:11,180 --> 00:40:15,140
+in the<font color="#CCCCCC"> next tutorial I'll actually cover</font>
+
+1140
+00:40:13,130 --> 00:40:16,490
+<font color="#CCCCCC">exactly how to store these images and</font><font color="#E5E5E5"> do</font>
+
+1141
+00:40:15,140 --> 00:40:18,950
+all<font color="#CCCCCC"> that</font><font color="#E5E5E5"> other different stuff whenever</font>
+
+1142
+00:40:16,490 --> 00:40:21,140
+we cover MongoDB and there is all the
+
+1143
+00:40:18,950 --> 00:40:23,420
+file upload<font color="#CCCCCC"> and</font><font color="#E5E5E5"> the other file upload</font>
+
+1144
+00:40:21,140 --> 00:40:24,890
+<font color="#E5E5E5">route handling all in one page so that</font>
+
+1145
+00:40:23,420 --> 00:40:26,930
+<font color="#E5E5E5">you'll</font><font color="#CCCCCC"> be able to come in there and make</font>
+
+1146
+00:40:24,890 --> 00:40:28,730
+<font color="#CCCCCC">sure that you typed in then</font><font color="#E5E5E5"> correctly if</font>
+
+1147
+00:40:26,930 --> 00:40:30,650
+you<font color="#E5E5E5"> get an error of any type</font><font color="#CCCCCC"> now I'm</font>
+
+1148
+00:40:28,730 --> 00:40:32,720
+going to go in and talk<font color="#CCCCCC"> about cookies</font>
+
+1149
+00:40:30,650 --> 00:40:34,670
+<font color="#CCCCCC">now for cookies I'm not actually</font><font color="#E5E5E5"> going</font>
+
+1150
+00:40:32,720 --> 00:40:37,250
+<font color="#E5E5E5">to create any views here I'm actually</font>
+
+1151
+00:40:34,670 --> 00:40:39,140
+<font color="#E5E5E5">just going to go in and handle them so</font>
+
+1152
+00:40:37,250 --> 00:40:41,840
+<font color="#E5E5E5">to handle</font><font color="#CCCCCC"> cookies I'm going to go</font>
+
+1153
+00:40:39,140 --> 00:40:44,720
+<font color="#CCCCCC">apt-get</font><font color="#E5E5E5"> and if they type in cookie on</font>
+
+1154
+00:40:41,840 --> 00:40:47,180
+the screen for<font color="#E5E5E5"> the URL I'm going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> get</font>
+
+1155
+00:40:44,720 --> 00:40:49,250
+<font color="#E5E5E5">request and response</font><font color="#CCCCCC"> now if they go to</font>
+
+1156
+00:40:47,180 --> 00:40:51,380
+this page<font color="#CCCCCC"> we're</font><font color="#E5E5E5"> just going</font><font color="#CCCCCC"> to set a</font>
+
+1157
+00:40:49,250 --> 00:40:54,260
+cookie<font color="#CCCCCC"> and to set a cookie you</font><font color="#E5E5E5"> just go</font>
+
+1158
+00:40:51,380 --> 00:40:55,730
+<font color="#E5E5E5">res cookie and then define whatever the</font>
+
+1159
+00:40:54,260 --> 00:40:57,740
+key would be<font color="#E5E5E5"> which is going to be</font>
+
+1160
+00:40:55,730 --> 00:41:00,260
+<font color="#CCCCCC">username and then</font>
+
+1161
+00:40:57,740 --> 00:41:02,690
+I can type in a value and<font color="#E5E5E5"> you</font><font color="#CCCCCC"> get</font><font color="#E5E5E5"> this</font>
+
+1162
+00:41:00,260 --> 00:41:04,940
+<font color="#CCCCCC">information from the</font><font color="#E5E5E5"> login</font><font color="#CCCCCC"> and if we</font>
+
+1163
+00:41:02,690 --> 00:41:07,040
+want to define a date in which this
+
+1164
+00:41:04,940 --> 00:41:09,530
+would expire<font color="#CCCCCC"> to make this whatever</font><font color="#E5E5E5"> you'd</font>
+
+1165
+00:41:07,040 --> 00:41:12,589
+like I'm just<font color="#E5E5E5"> going</font><font color="#CCCCCC"> to say expire and</font>
+
+1166
+00:41:09,530 --> 00:41:15,589
+then<font color="#E5E5E5"> I'll go new date and then nine nine</font>
+
+1167
+00:41:12,589 --> 00:41:19,820
+nine and then send and we can just
+
+1168
+00:41:15,589 --> 00:41:22,760
+output on the screen<font color="#CCCCCC"> username as a value</font>
+
+1169
+00:41:19,820 --> 00:41:25,040
+of<font color="#CCCCCC"> Derrick vanna's</font><font color="#E5E5E5"> and in this way we'll</font>
+
+1170
+00:41:22,760 --> 00:41:27,050
+be<font color="#CCCCCC"> able to both set the cookie and also</font>
+
+1171
+00:41:25,040 --> 00:41:29,570
+output<font color="#E5E5E5"> information on the screen</font><font color="#CCCCCC"> now</font>
+
+1172
+00:41:27,050 --> 00:41:31,910
+<font color="#E5E5E5">that we have the cookie set we could</font>
+
+1173
+00:41:29,570 --> 00:41:34,280
+also set it up<font color="#CCCCCC"> so that we can show our</font>
+
+1174
+00:41:31,910 --> 00:41:37,790
+<font color="#E5E5E5">stored cookies in our console so we'll</font>
+
+1175
+00:41:34,280 --> 00:41:40,940
+go app get and if they go<font color="#E5E5E5"> to the URL of</font>
+
+1176
+00:41:37,790 --> 00:41:43,550
+list cookies<font color="#E5E5E5"> go function request</font>
+
+1177
+00:41:40,940 --> 00:41:45,440
+response<font color="#E5E5E5"> and here we'll just</font><font color="#CCCCCC"> keep it</font>
+
+1178
+00:41:43,550 --> 00:41:47,089
+<font color="#E5E5E5">simple</font><font color="#CCCCCC"> and output the cookies in the</font>
+
+1179
+00:41:45,440 --> 00:41:49,310
+console it's going to output<font color="#CCCCCC"> all the</font>
+
+1180
+00:41:47,089 --> 00:41:51,619
+cookies<font color="#CCCCCC"> not just what we're setting</font><font color="#E5E5E5"> here</font>
+
+1181
+00:41:49,310 --> 00:41:54,890
+and to get<font color="#E5E5E5"> the cookies we go request</font>
+
+1182
+00:41:51,619 --> 00:41:57,470
+<font color="#E5E5E5">cookies and then we could also send some</font>
+
+1183
+00:41:54,890 --> 00:41:59,390
+<font color="#E5E5E5">information</font><font color="#CCCCCC"> to the screen this is why we</font>
+
+1184
+00:41:57,470 --> 00:42:01,400
+don't<font color="#CCCCCC"> need a view in</font><font color="#E5E5E5"> this situation so</font>
+
+1185
+00:41:59,390 --> 00:42:04,010
+I'm going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> look in the console for</font>
+
+1186
+00:42:01,400 --> 00:42:06,109
+cookies<font color="#E5E5E5"> and when we also come in here</font>
+
+1187
+00:42:04,010 --> 00:42:09,320
+<font color="#CCCCCC">and actually cover how</font><font color="#E5E5E5"> to delete cookies</font>
+
+1188
+00:42:06,109 --> 00:42:13,040
+<font color="#E5E5E5">we go apt-get again and they go to the</font>
+
+1189
+00:42:09,320 --> 00:42:15,410
+URL<font color="#CCCCCC"> of delete cookie and go function</font>
+
+1190
+00:42:13,040 --> 00:42:17,450
+<font color="#CCCCCC">request</font><font color="#E5E5E5"> and if we want to clear our</font>
+
+1191
+00:42:15,410 --> 00:42:19,910
+cookies we'll just go clear<font color="#E5E5E5"> cookie and</font>
+
+1192
+00:42:17,450 --> 00:42:22,250
+<font color="#E5E5E5">then define</font><font color="#CCCCCC"> the actual cookie we want to</font>
+
+1193
+00:42:19,910 --> 00:42:24,050
+get rid of which is going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> be the key</font>
+
+1194
+00:42:22,250 --> 00:42:26,359
+that<font color="#CCCCCC"> we</font><font color="#E5E5E5"> defined which</font><font color="#CCCCCC"> is</font><font color="#E5E5E5"> username and</font>
+
+1195
+00:42:24,050 --> 00:42:28,580
+then in this situation<font color="#E5E5E5"> we can pass</font>
+
+1196
+00:42:26,359 --> 00:42:31,099
+information to<font color="#E5E5E5"> the screen that</font><font color="#CCCCCC"> says</font>
+
+1197
+00:42:28,580 --> 00:42:33,650
+<font color="#CCCCCC">username</font><font color="#E5E5E5"> cookie deleted</font>
+
+1198
+00:42:31,099 --> 00:42:36,170
+<font color="#E5E5E5">I'll save that jump over here restart</font>
+
+1199
+00:42:33,650 --> 00:42:38,030
+our server<font color="#E5E5E5"> and reload you can see that</font>
+
+1200
+00:42:36,170 --> 00:42:40,400
+didn't do anything<font color="#E5E5E5"> and we could go in</font>
+
+1201
+00:42:38,030 --> 00:42:42,500
+here<font color="#CCCCCC"> and</font><font color="#E5E5E5"> just type in cookie username</font>
+
+1202
+00:42:40,400 --> 00:42:44,089
+has the value of Derrick<font color="#CCCCCC"> baños and you</font>
+
+1203
+00:42:42,500 --> 00:42:45,920
+could see<font color="#E5E5E5"> that it was</font><font color="#CCCCCC"> looking for that</font>
+
+1204
+00:42:44,089 --> 00:42:48,770
+cookie<font color="#CCCCCC"> information right there if</font><font color="#E5E5E5"> we</font>
+
+1205
+00:42:45,920 --> 00:42:51,380
+want<font color="#CCCCCC"> to list our cookies just</font><font color="#E5E5E5"> type in</font>
+
+1206
+00:42:48,770 --> 00:42:53,240
+list<font color="#E5E5E5"> cookies look in the console for the</font>
+
+1207
+00:42:51,380 --> 00:42:54,530
+cookies you<font color="#CCCCCC"> can</font><font color="#E5E5E5"> see that the cookies all</font>
+
+1208
+00:42:53,240 --> 00:42:56,570
+displayed here on<font color="#E5E5E5"> the</font><font color="#CCCCCC"> screen I have</font>
+
+1209
+00:42:54,530 --> 00:42:59,060
+<font color="#E5E5E5">another cookie in there from previously</font>
+
+1210
+00:42:56,570 --> 00:43:01,609
+<font color="#E5E5E5">and then we could also go in and delete</font>
+
+1211
+00:42:59,060 --> 00:43:05,150
+<font color="#E5E5E5">cookie and you</font><font color="#CCCCCC"> can see right here</font><font color="#E5E5E5"> if we</font>
+
+1212
+00:43:01,609 --> 00:43:07,190
+now<font color="#CCCCCC"> go back to list</font><font color="#E5E5E5"> cookies list cookies</font>
+
+1213
+00:43:05,150 --> 00:43:09,480
+look<font color="#E5E5E5"> in the console for cookies now you</font>
+
+1214
+00:43:07,190 --> 00:43:11,160
+can see that the<font color="#CCCCCC"> user named cookie</font>
+
+1215
+00:43:09,480 --> 00:43:12,839
+is not displayed<font color="#E5E5E5"> in there so that is how</font>
+
+1216
+00:43:11,160 --> 00:43:14,849
+we create cookies<font color="#E5E5E5"> how we list cookies</font>
+
+1217
+00:43:12,839 --> 00:43:17,220
+and how we delete cookies<font color="#E5E5E5"> now let's take</font>
+
+1218
+00:43:14,849 --> 00:43:19,470
+a look<font color="#E5E5E5"> at sessions</font><font color="#CCCCCC"> now we're</font><font color="#E5E5E5"> going</font><font color="#CCCCCC"> to be</font>
+
+1219
+00:43:17,220 --> 00:43:20,760
+able<font color="#E5E5E5"> to store session</font><font color="#CCCCCC"> information in a</font>
+
+1220
+00:43:19,470 --> 00:43:22,410
+bunch of<font color="#E5E5E5"> different ways but</font><font color="#CCCCCC"> for</font>
+
+1221
+00:43:20,760 --> 00:43:24,270
+<font color="#E5E5E5">development reasons right now and since</font>
+
+1222
+00:43:22,410 --> 00:43:26,609
+we don't have<font color="#E5E5E5"> a database all</font><font color="#CCCCCC"> set up I'm</font>
+
+1223
+00:43:24,270 --> 00:43:27,990
+going to store everything in our memory
+
+1224
+00:43:26,609 --> 00:43:30,270
+store<font color="#CCCCCC"> so what we're going to</font><font color="#E5E5E5"> need to do</font>
+
+1225
+00:43:27,990 --> 00:43:32,700
+<font color="#E5E5E5">come over here shut</font><font color="#CCCCCC"> down our</font><font color="#E5E5E5"> server once</font>
+
+1226
+00:43:30,270 --> 00:43:37,349
+again and I'm going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> need to go</font><font color="#CCCCCC"> NPM</font>
+
+1227
+00:43:32,700 --> 00:43:39,390
+<font color="#E5E5E5">install</font><font color="#CCCCCC"> Save Express session and that's</font>
+
+1228
+00:43:37,349 --> 00:43:41,070
+going<font color="#E5E5E5"> to install</font><font color="#CCCCCC"> that for us there we go</font>
+
+1229
+00:43:39,390 --> 00:43:42,990
+everything<font color="#E5E5E5"> looks good what this is going</font>
+
+1230
+00:43:41,070 --> 00:43:45,359
+<font color="#E5E5E5">to allow</font><font color="#CCCCCC"> us to</font><font color="#E5E5E5"> do is store</font><font color="#CCCCCC"> the session</font>
+
+1231
+00:43:42,990 --> 00:43:47,010
+ID<font color="#E5E5E5"> in a cookie and the session data on</font>
+
+1232
+00:43:45,359 --> 00:43:48,390
+the<font color="#E5E5E5"> server now like I</font><font color="#CCCCCC"> said this</font><font color="#E5E5E5"> works</font>
+
+1233
+00:43:47,010 --> 00:43:52,619
+for development but wouldn't necessarily
+
+1234
+00:43:48,390 --> 00:43:56,010
+<font color="#CCCCCC">work in a regular server because if the</font>
+
+1235
+00:43:52,619 --> 00:43:57,839
+server<font color="#E5E5E5"> is shut down</font><font color="#CCCCCC"> we're</font><font color="#E5E5E5"> going to lose</font>
+
+1236
+00:43:56,010 --> 00:43:59,190
+our session information<font color="#E5E5E5"> which we're</font>
+
+1237
+00:43:57,839 --> 00:44:00,660
+shutting<font color="#CCCCCC"> down our</font><font color="#E5E5E5"> server every couple</font>
+
+1238
+00:43:59,190 --> 00:44:02,190
+<font color="#E5E5E5">minutes so</font><font color="#CCCCCC"> that you can see how that</font>
+
+1239
+00:44:00,660 --> 00:44:04,680
+<font color="#CCCCCC">would be a problem</font><font color="#E5E5E5"> we're going to come</font>
+
+1240
+00:44:02,190 --> 00:44:06,390
+in here and import<font color="#CCCCCC"> that module that we</font>
+
+1241
+00:44:04,680 --> 00:44:08,310
+<font color="#E5E5E5">just set</font><font color="#CCCCCC"> up there</font><font color="#E5E5E5"> we're also going to</font>
+
+1242
+00:44:06,390 --> 00:44:10,680
+<font color="#E5E5E5">need to get ourselves another one of</font>
+
+1243
+00:44:08,310 --> 00:44:15,960
+<font color="#E5E5E5">these guys which</font><font color="#CCCCCC"> is going</font><font color="#E5E5E5"> to be parse</font>
+
+1244
+00:44:10,680 --> 00:44:18,420
+URL<font color="#E5E5E5"> npm install save parse URL and this</font>
+
+1245
+00:44:15,960 --> 00:44:20,880
+is going<font color="#CCCCCC"> to provide info on the URL of</font>
+
+1246
+00:44:18,420 --> 00:44:23,339
+the<font color="#CCCCCC"> request object that</font><font color="#E5E5E5"> is passed to</font><font color="#CCCCCC"> us</font>
+
+1247
+00:44:20,880 --> 00:44:27,240
+so we need to<font color="#E5E5E5"> get that we'll go bar</font>
+
+1248
+00:44:23,339 --> 00:44:30,589
+parse URL<font color="#E5E5E5"> is equal to require and parse</font>
+
+1249
+00:44:27,240 --> 00:44:32,790
+you our own course and then app use
+
+1250
+00:44:30,589 --> 00:44:34,500
+session we're going<font color="#E5E5E5"> to define a couple</font>
+
+1251
+00:44:32,790 --> 00:44:38,099
+<font color="#E5E5E5">different defaults here we're going</font><font color="#CCCCCC"> to</font>
+
+1252
+00:44:34,500 --> 00:44:40,440
+<font color="#E5E5E5">define</font><font color="#CCCCCC"> re save as false and this</font><font color="#E5E5E5"> is</font>
+
+1253
+00:44:38,099 --> 00:44:42,990
+<font color="#E5E5E5">basically saying we</font><font color="#CCCCCC"> only want</font><font color="#E5E5E5"> to save to</font>
+
+1254
+00:44:40,440 --> 00:44:45,800
+the session store if a change has<font color="#E5E5E5"> been</font>
+
+1255
+00:44:42,990 --> 00:44:48,630
+made<font color="#E5E5E5"> and then we'll say save</font>
+
+1256
+00:44:45,800 --> 00:44:50,490
+uninitialized<font color="#CCCCCC"> and set</font><font color="#E5E5E5"> that to true and</font>
+
+1257
+00:44:48,630 --> 00:44:53,099
+this<font color="#E5E5E5"> is going</font><font color="#CCCCCC"> to</font><font color="#E5E5E5"> store session</font>
+
+1258
+00:44:50,490 --> 00:44:55,740
+information<font color="#CCCCCC"> if it is new even if it</font>
+
+1259
+00:44:53,099 --> 00:44:57,660
+hasn't<font color="#E5E5E5"> been modified</font><font color="#CCCCCC"> and secret</font><font color="#E5E5E5"> and</font>
+
+1260
+00:44:55,740 --> 00:45:00,000
+we're going<font color="#E5E5E5"> to use our cookie secret</font>
+
+1261
+00:44:57,660 --> 00:45:01,890
+that we saved in<font color="#E5E5E5"> our credentials file so</font>
+
+1262
+00:45:00,000 --> 00:45:03,540
+credentials make sure we save<font color="#CCCCCC"> that or</font>
+
+1263
+00:45:01,890 --> 00:45:06,300
+have the right<font color="#E5E5E5"> name there and once again</font>
+
+1264
+00:45:03,540 --> 00:45:07,800
+<font color="#CCCCCC">cookies secret</font><font color="#E5E5E5"> is the name of</font><font color="#CCCCCC"> it and we</font>
+
+1265
+00:45:06,300 --> 00:45:09,839
+can open<font color="#E5E5E5"> that</font><font color="#CCCCCC"> up</font><font color="#E5E5E5"> just remember see a</font>
+
+1266
+00:45:07,800 --> 00:45:11,369
+cookie secret save it inside of<font color="#E5E5E5"> there so</font>
+
+1267
+00:45:09,839 --> 00:45:13,470
+that's what<font color="#E5E5E5"> we're</font><font color="#CCCCCC"> using</font><font color="#E5E5E5"> for security</font>
+
+1268
+00:45:11,369 --> 00:45:15,270
+reasons of course so cookies secret and
+
+1269
+00:45:13,470 --> 00:45:17,280
+that's<font color="#E5E5E5"> all we need to do there now I'm</font>
+
+1270
+00:45:15,270 --> 00:45:19,119
+going to<font color="#E5E5E5"> provide</font><font color="#CCCCCC"> you another example of</font>
+
+1271
+00:45:17,280 --> 00:45:21,910
+middleware<font color="#E5E5E5"> so we're going to app</font>
+
+1272
+00:45:19,119 --> 00:45:22,329
+use and create<font color="#CCCCCC"> our function inside of</font>
+
+1273
+00:45:21,910 --> 00:45:25,420
+<font color="#E5E5E5">here</font>
+
+1274
+00:45:22,329 --> 00:45:27,009
+quest<font color="#E5E5E5"> resource next and what I'm going</font>
+
+1275
+00:45:25,420 --> 00:45:29,349
+<font color="#CCCCCC">to do</font><font color="#E5E5E5"> here is I'm going</font><font color="#CCCCCC"> to set it</font><font color="#E5E5E5"> up so</font>
+
+1276
+00:45:27,009 --> 00:45:31,630
+that<font color="#E5E5E5"> it's going to track how</font><font color="#CCCCCC"> many times</font>
+
+1277
+00:45:29,349 --> 00:45:34,029
+the<font color="#CCCCCC"> user has gone to a specific page so</font>
+
+1278
+00:45:31,630 --> 00:45:36,190
+it's just a nice<font color="#E5E5E5"> easy example but it's</font>
+
+1279
+00:45:34,029 --> 00:45:39,160
+also going<font color="#E5E5E5"> to show</font><font color="#CCCCCC"> you how sessions</font><font color="#E5E5E5"> can</font>
+
+1280
+00:45:36,190 --> 00:45:41,589
+<font color="#CCCCCC">be used to track users for example so it</font>
+
+1281
+00:45:39,160 --> 00:45:44,769
+will define our total number<font color="#CCCCCC"> of</font><font color="#E5E5E5"> views of</font>
+
+1282
+00:45:41,589 --> 00:45:48,039
+<font color="#CCCCCC">a specific page and we'll say if there</font>
+
+1283
+00:45:44,769 --> 00:45:51,039
+are<font color="#CCCCCC"> not any views</font><font color="#E5E5E5"> come in here to the</font>
+
+1284
+00:45:48,039 --> 00:45:53,529
+<font color="#E5E5E5">views section</font><font color="#CCCCCC"> and we're going to</font><font color="#E5E5E5"> create</font>
+
+1285
+00:45:51,039 --> 00:45:56,319
+an<font color="#E5E5E5"> array</font><font color="#CCCCCC"> here</font><font color="#E5E5E5"> which is going to have the</font>
+
+1286
+00:45:53,529 --> 00:45:58,690
+key be the<font color="#CCCCCC"> URL that</font><font color="#E5E5E5"> they go to and then</font>
+
+1287
+00:45:56,319 --> 00:46:01,869
+the value<font color="#CCCCCC"> is the number of</font><font color="#E5E5E5"> times that</font><font color="#CCCCCC"> a</font>
+
+1288
+00:45:58,690 --> 00:46:04,059
+total went to that URL<font color="#E5E5E5"> and we'll go in</font>
+
+1289
+00:46:01,869 --> 00:46:07,240
+here<font color="#E5E5E5"> and get the path name</font><font color="#CCCCCC"> that they</font>
+
+1290
+00:46:04,059 --> 00:46:10,240
+currently<font color="#CCCCCC"> are on</font><font color="#E5E5E5"> and go parse URL that's</font>
+
+1291
+00:46:07,240 --> 00:46:12,400
+why we needed Porsche URL<font color="#E5E5E5"> to come in and</font>
+
+1292
+00:46:10,240 --> 00:46:15,789
+<font color="#E5E5E5">get the path name so we know what page</font>
+
+1293
+00:46:12,400 --> 00:46:17,529
+they're on and then in our views array
+
+1294
+00:46:15,789 --> 00:46:20,200
+<font color="#E5E5E5">like I said we're going to use</font><font color="#CCCCCC"> the path</font>
+
+1295
+00:46:17,529 --> 00:46:23,710
+name or the URL<font color="#CCCCCC"> as the key</font><font color="#E5E5E5"> and then</font>
+
+1296
+00:46:20,200 --> 00:46:24,880
+we'll go<font color="#E5E5E5"> into views and set it the total</font>
+
+1297
+00:46:23,710 --> 00:46:26,920
+number of<font color="#E5E5E5"> times that they've actually</font>
+
+1298
+00:46:24,880 --> 00:46:29,529
+gone<font color="#E5E5E5"> to that page and that's</font><font color="#CCCCCC"> either</font>
+
+1299
+00:46:26,920 --> 00:46:31,089
+going to be<font color="#CCCCCC"> 0 to start off and we're</font>
+
+1300
+00:46:29,529 --> 00:46:32,650
+going<font color="#E5E5E5"> to</font><font color="#CCCCCC"> increment</font><font color="#E5E5E5"> it each time</font><font color="#CCCCCC"> we go</font>
+
+1301
+00:46:31,089 --> 00:46:34,390
+through<font color="#CCCCCC"> so each</font><font color="#E5E5E5"> time</font><font color="#CCCCCC"> they go to the page</font>
+
+1302
+00:46:32,650 --> 00:46:35,589
+we're<font color="#CCCCCC"> going</font><font color="#E5E5E5"> to increment that over and</font>
+
+1303
+00:46:34,390 --> 00:46:37,660
+<font color="#E5E5E5">over and</font><font color="#CCCCCC"> over again and then of course</font>
+
+1304
+00:46:35,589 --> 00:46:38,950
+<font color="#E5E5E5">next because this is middleware so that</font>
+
+1305
+00:46:37,660 --> 00:46:41,140
+it<font color="#E5E5E5"> continues down through the pipeline</font>
+
+1306
+00:46:38,950 --> 00:46:42,880
+<font color="#E5E5E5">if we need to do anything else</font><font color="#CCCCCC"> and then</font>
+
+1307
+00:46:41,140 --> 00:46:44,019
+what we need<font color="#CCCCCC"> to do remember this is</font>
+
+1308
+00:46:42,880 --> 00:46:46,299
+middleware that's just going<font color="#CCCCCC"> to</font>
+
+1309
+00:46:44,019 --> 00:46:48,160
+increment<font color="#CCCCCC"> every time we go to</font><font color="#E5E5E5"> a</font><font color="#CCCCCC"> URL if</font>
+
+1310
+00:46:46,299 --> 00:46:50,410
+we want<font color="#E5E5E5"> to actually</font><font color="#CCCCCC"> display that</font>
+
+1311
+00:46:48,160 --> 00:46:52,869
+information<font color="#CCCCCC"> on the screen</font><font color="#E5E5E5"> whenever they</font>
+
+1312
+00:46:50,410 --> 00:46:55,450
+go<font color="#E5E5E5"> to it we need to handle that so we're</font>
+
+1313
+00:46:52,869 --> 00:46:57,369
+going<font color="#CCCCCC"> to say</font><font color="#E5E5E5"> if they go to view count</font>
+
+1314
+00:46:55,450 --> 00:46:58,869
+<font color="#CCCCCC">this</font><font color="#E5E5E5"> is going to be the URL</font><font color="#CCCCCC"> that we're</font>
+
+1315
+00:46:57,369 --> 00:47:02,470
+<font color="#E5E5E5">going to be tracking here with sessions</font>
+
+1316
+00:46:58,869 --> 00:47:04,150
+<font color="#CCCCCC">want to get request resource</font><font color="#E5E5E5"> next</font><font color="#CCCCCC"> and</font>
+
+1317
+00:47:02,470 --> 00:47:05,529
+here<font color="#E5E5E5"> we'll just</font><font color="#CCCCCC"> print out some</font>
+
+1318
+00:47:04,150 --> 00:47:06,819
+<font color="#CCCCCC">information on the screen</font><font color="#E5E5E5"> which</font><font color="#CCCCCC"> is</font><font color="#E5E5E5"> going</font>
+
+1319
+00:47:05,529 --> 00:47:08,769
+<font color="#E5E5E5">to be the number</font><font color="#CCCCCC"> of</font><font color="#E5E5E5"> times that they</font>
+
+1320
+00:47:06,819 --> 00:47:11,799
+viewed the page and to send<font color="#E5E5E5"> information</font>
+
+1321
+00:47:08,769 --> 00:47:15,369
+to the<font color="#E5E5E5"> HTML page</font><font color="#CCCCCC"> I'll say something like</font>
+
+1322
+00:47:11,799 --> 00:47:17,769
+you view this page and then get the
+
+1323
+00:47:15,369 --> 00:47:20,890
+actual information<font color="#E5E5E5"> that we store in our</font>
+
+1324
+00:47:17,769 --> 00:47:23,739
+session so<font color="#E5E5E5"> request session and we'll</font>
+
+1325
+00:47:20,890 --> 00:47:25,980
+reference our views array and remember
+
+1326
+00:47:23,739 --> 00:47:28,109
+we set view<font color="#E5E5E5"> count</font>
+
+1327
+00:47:25,980 --> 00:47:29,880
+is going<font color="#CCCCCC"> to be the key for</font><font color="#E5E5E5"> that and then</font>
+
+1328
+00:47:28,109 --> 00:47:31,530
+<font color="#E5E5E5">we could go to thymes and that will be</font>
+
+1329
+00:47:29,880 --> 00:47:33,359
+displayed<font color="#CCCCCC"> out on the</font><font color="#E5E5E5"> screen we save that</font>
+
+1330
+00:47:31,530 --> 00:47:35,700
+<font color="#CCCCCC">and of course</font><font color="#E5E5E5"> we need to come in</font><font color="#CCCCCC"> here</font>
+
+1331
+00:47:33,359 --> 00:47:37,020
+<font color="#CCCCCC">and</font><font color="#E5E5E5"> restart our server</font><font color="#CCCCCC"> and we got a</font>
+
+1332
+00:47:35,700 --> 00:47:39,030
+little<font color="#E5E5E5"> bit of an error and reason why is</font>
+
+1333
+00:47:37,020 --> 00:47:41,190
+I need<font color="#E5E5E5"> to put quotes around this up here</font>
+
+1334
+00:47:39,030 --> 00:47:43,590
+<font color="#E5E5E5">don't know why I</font><font color="#CCCCCC"> messed</font><font color="#E5E5E5"> up and save it</font>
+
+1335
+00:47:41,190 --> 00:47:45,900
+and restart our server<font color="#E5E5E5"> and then if we</font>
+
+1336
+00:47:43,590 --> 00:47:47,640
+come<font color="#CCCCCC"> over</font><font color="#E5E5E5"> here</font><font color="#CCCCCC"> let's come down here view</font>
+
+1337
+00:47:45,900 --> 00:47:49,440
+<font color="#E5E5E5">count</font><font color="#CCCCCC"> this is the guy that's going to</font>
+
+1338
+00:47:47,640 --> 00:47:51,540
+count<font color="#E5E5E5"> the</font><font color="#CCCCCC"> total number of times we go to</font>
+
+1339
+00:47:49,440 --> 00:47:53,609
+this page<font color="#E5E5E5"> we</font><font color="#CCCCCC"> can go view count</font><font color="#E5E5E5"> and said</font>
+
+1340
+00:47:51,540 --> 00:47:55,500
+you viewed<font color="#E5E5E5"> this page two times you can</font>
+
+1341
+00:47:53,609 --> 00:47:58,410
+see it<font color="#E5E5E5"> right there reload it three times</font>
+
+1342
+00:47:55,500 --> 00:48:00,180
+four times<font color="#E5E5E5"> five times and you</font><font color="#CCCCCC"> can see</font>
+
+1343
+00:47:58,410 --> 00:48:02,310
+that<font color="#E5E5E5"> it's tracking me each time I go to</font>
+
+1344
+00:48:00,180 --> 00:48:04,619
+that page<font color="#E5E5E5"> and</font><font color="#CCCCCC"> I can</font><font color="#E5E5E5"> set this up that</font>
+
+1345
+00:48:02,310 --> 00:48:06,600
+would work for any of<font color="#CCCCCC"> the other pages so</font>
+
+1346
+00:48:04,619 --> 00:48:08,730
+that's how sessions work in a simplified
+
+1347
+00:48:06,600 --> 00:48:09,810
+type of manner now I'm going to<font color="#E5E5E5"> jump in</font>
+
+1348
+00:48:08,730 --> 00:48:12,359
+<font color="#E5E5E5">here for</font><font color="#CCCCCC"> the final thing I'm going to</font>
+
+1349
+00:48:09,810 --> 00:48:15,090
+<font color="#E5E5E5">show</font><font color="#CCCCCC"> you how</font><font color="#E5E5E5"> to both read files as well</font>
+
+1350
+00:48:12,359 --> 00:48:16,230
+<font color="#CCCCCC">as how to write files using Express I'm</font>
+
+1351
+00:48:15,090 --> 00:48:18,990
+going to come in here I'm going<font color="#E5E5E5"> to need</font>
+
+1352
+00:48:16,230 --> 00:48:20,760
+to download<font color="#E5E5E5"> and know</font><font color="#CCCCCC"> their module which</font>
+
+1353
+00:48:18,990 --> 00:48:23,460
+<font color="#CCCCCC">we'll see get rid of</font><font color="#E5E5E5"> that and that's</font>
+
+1354
+00:48:20,760 --> 00:48:26,190
+going<font color="#E5E5E5"> to be the</font><font color="#CCCCCC"> filesystem module so I'm</font>
+
+1355
+00:48:23,460 --> 00:48:28,320
+going<font color="#E5E5E5"> to have to go</font><font color="#CCCCCC"> npm install</font><font color="#E5E5E5"> save</font>
+
+1356
+00:48:26,190 --> 00:48:30,240
+make sure you don't<font color="#E5E5E5"> put it between them</font>
+
+1357
+00:48:28,320 --> 00:48:32,430
+or<font color="#E5E5E5"> before they or make sure you do put</font>
+
+1358
+00:48:30,240 --> 00:48:35,580
+it before<font color="#E5E5E5"> the 404 right here we're going</font>
+
+1359
+00:48:32,430 --> 00:48:38,100
+to var require FS which is the guy we
+
+1360
+00:48:35,580 --> 00:48:41,310
+<font color="#CCCCCC">just installed there</font><font color="#E5E5E5"> apt-get and if they</font>
+
+1361
+00:48:38,100 --> 00:48:42,480
+go<font color="#E5E5E5"> to the read file directory</font><font color="#CCCCCC"> we're</font>
+
+1362
+00:48:41,310 --> 00:48:46,109
+going to allow them<font color="#E5E5E5"> to read a file</font>
+
+1363
+00:48:42,480 --> 00:48:48,420
+<font color="#E5E5E5">function quest response next now if we</font>
+
+1364
+00:48:46,109 --> 00:48:50,760
+want to read the<font color="#CCCCCC"> file we have to</font><font color="#E5E5E5"> tell it</font>
+
+1365
+00:48:48,420 --> 00:48:52,410
+<font color="#CCCCCC">what file to read from we just go FS</font>
+
+1366
+00:48:50,760 --> 00:48:54,990
+read file and then we're going<font color="#CCCCCC"> to</font><font color="#E5E5E5"> have</font>
+
+1367
+00:48:52,410 --> 00:48:57,930
+<font color="#E5E5E5">to reference a file I think I have it</font>
+
+1368
+00:48:54,990 --> 00:48:59,880
+inside<font color="#E5E5E5"> here yes I do random file txt</font>
+
+1369
+00:48:57,930 --> 00:49:02,550
+which is inside of my public directory
+
+1370
+00:48:59,880 --> 00:49:05,220
+<font color="#CCCCCC">and to reference that</font><font color="#E5E5E5"> I'm just go dot</font>
+
+1371
+00:49:02,550 --> 00:49:08,280
+<font color="#E5E5E5">public and then the name</font><font color="#CCCCCC"> of it</font><font color="#E5E5E5"> random</font>
+
+1372
+00:49:05,220 --> 00:49:10,410
+file dot txt<font color="#CCCCCC"> and then I need</font><font color="#E5E5E5"> to actually</font>
+
+1373
+00:49:08,280 --> 00:49:12,510
+<font color="#E5E5E5">handle</font><font color="#CCCCCC"> that</font><font color="#E5E5E5"> make sure if there is an</font>
+
+1374
+00:49:10,410 --> 00:49:14,609
+error handle that<font color="#E5E5E5"> and then data is</font>
+
+1375
+00:49:12,510 --> 00:49:17,160
+actually<font color="#CCCCCC"> going to contain the file</font>
+
+1376
+00:49:14,609 --> 00:49:20,160
+information<font color="#CCCCCC"> and we'll</font><font color="#E5E5E5"> just say if there</font>
+
+1377
+00:49:17,160 --> 00:49:22,020
+was an error of<font color="#E5E5E5"> some type return console</font>
+
+1378
+00:49:20,160 --> 00:49:24,720
+error and then print out whatever the
+
+1379
+00:49:22,020 --> 00:49:26,460
+error was otherwise if<font color="#E5E5E5"> there wasn't an</font>
+
+1380
+00:49:24,720 --> 00:49:29,160
+error<font color="#CCCCCC"> that</font><font color="#E5E5E5"> means that we receive the</font>
+
+1381
+00:49:26,460 --> 00:49:29,700
+data from<font color="#CCCCCC"> our file</font><font color="#E5E5E5"> so we'll say we want</font>
+
+1382
+00:49:29,160 --> 00:49:31,260
+<font color="#E5E5E5">to print that</font>
+
+1383
+00:49:29,700 --> 00:49:34,530
+information out on<font color="#E5E5E5"> the screen will say</font>
+
+1384
+00:49:31,260 --> 00:49:36,390
+<font color="#CCCCCC">rez send something</font><font color="#E5E5E5"> like the file it's</font>
+
+1385
+00:49:34,530 --> 00:49:37,980
+perfectly<font color="#E5E5E5"> fun and then to get the</font>
+
+1386
+00:49:36,390 --> 00:49:39,660
+information out<font color="#E5E5E5"> of that file we just</font><font color="#CCCCCC"> go</font>
+
+1387
+00:49:37,980 --> 00:49:42,180
+data<font color="#E5E5E5"> we want to convert it to a string</font>
+
+1388
+00:49:39,660 --> 00:49:44,160
+<font color="#E5E5E5">we just say</font><font color="#CCCCCC"> to string and close that off</font>
+
+1389
+00:49:42,180 --> 00:49:46,080
+and that's<font color="#E5E5E5"> how we read</font><font color="#CCCCCC"> information and</font>
+
+1390
+00:49:44,160 --> 00:49:48,270
+we can<font color="#CCCCCC"> come in here and go read file</font>
+
+1391
+00:49:46,080 --> 00:49:51,360
+<font color="#E5E5E5">right like</font><font color="#CCCCCC"> that</font><font color="#E5E5E5"> come in restart our</font>
+
+1392
+00:49:48,270 --> 00:49:52,890
+server this<font color="#E5E5E5"> paste that in there and you</font>
+
+1393
+00:49:51,360 --> 00:49:54,780
+can see<font color="#E5E5E5"> right there</font><font color="#CCCCCC"> I went</font><font color="#E5E5E5"> read all that</font>
+
+1394
+00:49:52,890 --> 00:49:57,180
+file<font color="#CCCCCC"> information just a random file with</font>
+
+1395
+00:49:54,780 --> 00:49:59,970
+<font color="#E5E5E5">random text so that's how we read files</font>
+
+1396
+00:49:57,180 --> 00:50:02,760
+<font color="#E5E5E5">now we'll cover how to write files again</font>
+
+1397
+00:49:59,970 --> 00:50:05,220
+<font color="#CCCCCC">app get write files</font><font color="#E5E5E5"> going to be the name</font>
+
+1398
+00:50:02,760 --> 00:50:07,170
+the directory<font color="#CCCCCC"> that</font><font color="#E5E5E5"> I have early</font><font color="#CCCCCC"> url</font>
+
+1399
+00:50:05,220 --> 00:50:10,860
+anyway this is going<font color="#E5E5E5"> to write and read</font><font color="#CCCCCC"> a</font>
+
+1400
+00:50:07,170 --> 00:50:14,520
+file<font color="#E5E5E5"> quest resource next and we'll go</font>
+
+1401
+00:50:10,860 --> 00:50:15,930
+<font color="#E5E5E5">write file FS write file and we just</font>
+
+1402
+00:50:14,520 --> 00:50:17,520
+give<font color="#CCCCCC"> it the name it doesn't matter if</font>
+
+1403
+00:50:15,930 --> 00:50:19,920
+the file doesn't exist<font color="#CCCCCC"> it will be</font>
+
+1404
+00:50:17,520 --> 00:50:23,040
+created<font color="#CCCCCC"> and we'll</font><font color="#E5E5E5"> just call this random</font>
+
+1405
+00:50:19,920 --> 00:50:25,230
+file<font color="#CCCCCC"> - dot txt</font><font color="#E5E5E5"> and then here what we're</font>
+
+1406
+00:50:23,040 --> 00:50:26,400
+<font color="#CCCCCC">going to do is actually define the text</font>
+
+1407
+00:50:25,230 --> 00:50:27,690
+that we want<font color="#CCCCCC"> to put inside of it</font><font color="#E5E5E5"> I'm</font>
+
+1408
+00:50:26,400 --> 00:50:29,940
+<font color="#E5E5E5">just going to keep it</font><font color="#CCCCCC"> very simple</font><font color="#E5E5E5"> and</font>
+
+1409
+00:50:27,690 --> 00:50:32,100
+<font color="#CCCCCC">just</font><font color="#E5E5E5"> say more random text that's what's</font>
+
+1410
+00:50:29,940 --> 00:50:34,350
+going to<font color="#E5E5E5"> be written to the file and I</font>
+
+1411
+00:50:32,100 --> 00:50:36,510
+need to handle<font color="#CCCCCC"> this if there's an error</font>
+
+1412
+00:50:34,350 --> 00:50:39,900
+<font color="#E5E5E5">of some type and writing to that file if</font>
+
+1413
+00:50:36,510 --> 00:50:42,180
+error<font color="#E5E5E5"> just</font><font color="#CCCCCC"> do something</font><font color="#E5E5E5"> simple console</font>
+
+1414
+00:50:39,900 --> 00:50:44,460
+error and then print out<font color="#CCCCCC"> our error to</font>
+
+1415
+00:50:42,180 --> 00:50:47,850
+our screen and<font color="#CCCCCC"> let that closed</font><font color="#E5E5E5"> so though</font>
+
+1416
+00:50:44,460 --> 00:50:49,680
+<font color="#CCCCCC">we officially wrote to the file</font><font color="#E5E5E5"> now if</font>
+
+1417
+00:50:47,850 --> 00:50:51,510
+we want<font color="#CCCCCC"> to go in and read from the file</font>
+
+1418
+00:50:49,680 --> 00:50:53,940
+<font color="#CCCCCC">and print it</font><font color="#E5E5E5"> out just to</font><font color="#CCCCCC"> make sure</font><font color="#E5E5E5"> that</font>
+
+1419
+00:50:51,510 --> 00:50:55,620
+it worked<font color="#E5E5E5"> we go read file of</font><font color="#CCCCCC"> course just</font>
+
+1420
+00:50:53,940 --> 00:50:57,930
+<font color="#CCCCCC">like we did</font><font color="#E5E5E5"> before</font><font color="#CCCCCC"> we don't have to do</font>
+
+1421
+00:50:55,620 --> 00:51:00,780
+anything<font color="#CCCCCC"> special public ran we call</font><font color="#E5E5E5"> this</font>
+
+1422
+00:50:57,930 --> 00:51:01,890
+random file<font color="#CCCCCC"> - txt get rid of</font><font color="#E5E5E5"> that right</font>
+
+1423
+00:51:00,780 --> 00:51:03,570
+<font color="#CCCCCC">there that would have</font><font color="#E5E5E5"> thrown</font><font color="#CCCCCC"> an error</font>
+
+1424
+00:51:01,890 --> 00:51:06,090
+<font color="#CCCCCC">and then we're</font><font color="#E5E5E5"> going to do exactly</font><font color="#CCCCCC"> the</font>
+
+1425
+00:51:03,570 --> 00:51:07,920
+same<font color="#E5E5E5"> thing before error data and then</font>
+
+1426
+00:51:06,090 --> 00:51:10,290
+we'll say if there was an error
+
+1427
+00:51:07,920 --> 00:51:12,900
+<font color="#E5E5E5">same exact</font><font color="#CCCCCC"> thing we did</font><font color="#E5E5E5"> before return</font>
+
+1428
+00:51:10,290 --> 00:51:14,670
+console error<font color="#E5E5E5"> pass back the error that</font>
+
+1429
+00:51:12,900 --> 00:51:17,250
+occurred in reading from our file
+
+1430
+00:51:14,670 --> 00:51:19,620
+otherwise<font color="#E5E5E5"> we want to send out</font><font color="#CCCCCC"> some</font>
+
+1431
+00:51:17,250 --> 00:51:22,440
+information<font color="#CCCCCC"> on the</font><font color="#E5E5E5"> screen that says file</font>
+
+1432
+00:51:19,620 --> 00:51:24,840
+once again<font color="#E5E5E5"> get the data convert it to a</font>
+
+1433
+00:51:22,440 --> 00:51:26,940
+<font color="#CCCCCC">string and output it inside of the</font>
+
+1434
+00:51:24,840 --> 00:51:29,220
+browser<font color="#E5E5E5"> and throw that semicolon in</font>
+
+1435
+00:51:26,940 --> 00:51:32,190
+there restart our server<font color="#E5E5E5"> and if we go</font><font color="#CCCCCC"> to</font>
+
+1436
+00:51:29,220 --> 00:51:33,210
+<font color="#CCCCCC">write file</font><font color="#E5E5E5"> now instead</font><font color="#CCCCCC"> of read file</font><font color="#E5E5E5"> we</font>
+
+1437
+00:51:32,190 --> 00:51:34,470
+got a little<font color="#E5E5E5"> bit of an air</font>
+
+1438
+00:51:33,210 --> 00:51:37,170
+let's go up<font color="#E5E5E5"> here and change this to</font>
+
+1439
+00:51:34,470 --> 00:51:39,450
+<font color="#CCCCCC">right file with a capital</font><font color="#E5E5E5"> S or a capital</font>
+
+1440
+00:51:37,170 --> 00:51:41,850
+F<font color="#CCCCCC"> come</font><font color="#E5E5E5"> over here restart our server</font><font color="#CCCCCC"> jump</font>
+
+1441
+00:51:39,450 --> 00:51:43,890
+over here<font color="#E5E5E5"> reload and now</font><font color="#CCCCCC"> you can see the</font>
+
+1442
+00:51:41,850 --> 00:51:46,200
+file more random text pops up there you
+
+1443
+00:51:43,890 --> 00:51:48,180
+go guys that is an overview<font color="#E5E5E5"> of a</font><font color="#CCCCCC"> lot of</font>
+
+1444
+00:51:46,200 --> 00:51:49,290
+<font color="#E5E5E5">things about</font><font color="#CCCCCC"> Express like I mentioned</font>
+
+1445
+00:51:48,180 --> 00:51:51,510
+<font color="#E5E5E5">before</font><font color="#CCCCCC"> in the next part of the tutorial</font>
+
+1446
+00:51:49,290 --> 00:51:54,570
+<font color="#CCCCCC">I'll cover MongoDB</font><font color="#E5E5E5"> and then we'll create</font>
+
+1447
+00:51:51,510 --> 00:51:56,760
+a real Express application<font color="#CCCCCC"> hope</font><font color="#E5E5E5"> this</font>
+
+1448
+00:51:54,570 --> 00:51:58,740
+helped a lot<font color="#E5E5E5"> and please leave your</font>
+
+1449
+00:51:56,760 --> 00:52:01,520
+<font color="#CCCCCC">questions and comments</font><font color="#E5E5E5"> below otherwise</font>
+
+1450
+00:51:58,740 --> 00:52:01,520
+<font color="#E5E5E5">till next time</font>
+
